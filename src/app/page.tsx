@@ -3,6 +3,7 @@ import { Hero } from "@/components/sections/hero";
 import { TrustBar } from "@/components/sections/trust-bar";
 import { ProblemSection } from "@/components/sections/problem-section";
 import { ServicesHub } from "@/components/sections/services-hub";
+import { ScrollySection } from "@/components/sections/scrolly-section";
 import { EcosystemFlow } from "@/components/sections/ecosystem-flow";
 import { HowItWorks } from "@/components/sections/how-it-works";
 import { WhyDeltaKilo } from "@/components/sections/why-deltakilo";
@@ -21,6 +22,7 @@ export default function HomePage() {
       <TrustBar />
       <ProblemSection />
       <ServicesHub />
+      <ScrollySection />
       <EcosystemFlow />
       <HowItWorks />
       <WhyDeltaKilo />
