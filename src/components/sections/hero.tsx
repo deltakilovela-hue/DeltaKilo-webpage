@@ -3,24 +3,15 @@ import { motion } from 'framer-motion';
 import { SplineScene } from '@/components/ui/spline-scene';
 import { Spotlight } from '@/components/ui/spotlight';
 import { ArrowRight, MessageCircle, ChevronRight } from 'lucide-react';
+import type { Variants } from 'framer-motion';
 
-/* ── Floating geometric shape (inspired by 21st.dev ElegantShape) ── */
+/* ── Floating geometric shape ── */
 function FloatingShape({
-  className,
-  delay = 0,
-  width = 300,
-  height = 80,
-  rotate = 0,
-  color = 'rgba(13,207,207,0.12)',
-  reverse = false,
+  className, delay = 0, width = 300, height = 80, rotate = 0,
+  color = 'rgba(13,207,207,0.12)', reverse = false,
 }: {
-  className?: string;
-  delay?: number;
-  width?: number;
-  height?: number;
-  rotate?: number;
-  color?: string;
-  reverse?: boolean;
+  className?: string; delay?: number; width?: number; height?: number;
+  rotate?: number; color?: string; reverse?: boolean;
 }) {
   return (
     <motion.div
@@ -35,26 +26,24 @@ function FloatingShape({
         style={{ width, height }}
         className="relative"
       >
-        <div
-          className="absolute inset-0 rounded-full"
-          style={{
-            background: `linear-gradient(135deg, ${color}, transparent)`,
-            transform: `rotate(${rotate}deg)`,
-            boxShadow: `0 0 40px ${color}`,
-            border: '1px solid rgba(13,207,207,0.08)',
-          }}
-        />
+        <div className="absolute inset-0 rounded-full" style={{
+          background: `linear-gradient(135deg, ${color}, transparent)`,
+          transform: `rotate(${rotate}deg)`,
+          boxShadow: `0 0 40px ${color}`,
+          border: '1px solid rgba(13,207,207,0.08)',
+        }} />
       </motion.div>
     </motion.div>
   );
 }
 
 /* ── Delta triangle SVG shape ── */
-function DeltaShape({ className, delay = 0, size = 120, opacity = 0.05 }: { className?: string; delay?: number; size?: number; opacity?: number }) {
+function DeltaShape({ className, delay = 0, size = 120, opacity = 0.05 }: {
+  className?: string; delay?: number; size?: number; opacity?: number;
+}) {
   return (
     <motion.div
-      initial={{ opacity: 0, scale: 0.8 }}
-      animate={{ opacity: 1, scale: 1 }}
+      initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 2, delay, ease: 'easeOut' }}
       className={`absolute pointer-events-none ${className ?? ''}`}
     >
@@ -63,25 +52,16 @@ function DeltaShape({ className, delay = 0, size = 120, opacity = 0.05 }: { clas
         transition={{ duration: 16, repeat: Infinity, ease: 'easeInOut' }}
       >
         <svg width={size} height={size} viewBox="0 0 100 86.6" fill="none">
-          <polygon
-            points="50,2 98,84.6 2,84.6"
-            stroke={`rgba(13,207,207,${opacity * 6})`}
-            strokeWidth="1.5"
-            fill={`rgba(13,207,207,${opacity})`}
-          />
-          <polygon
-            points="50,18 84,78 16,78"
-            stroke={`rgba(13,207,207,${opacity * 4})`}
-            strokeWidth="1"
-            fill="none"
-          />
+          <polygon points="50,2 98,84.6 2,84.6"
+            stroke={`rgba(13,207,207,${opacity * 6})`} strokeWidth="1.5"
+            fill={`rgba(13,207,207,${opacity})`} />
+          <polygon points="50,18 84,78 16,78"
+            stroke={`rgba(13,207,207,${opacity * 4})`} strokeWidth="1" fill="none" />
         </svg>
       </motion.div>
     </motion.div>
   );
 }
-
-import type { Variants } from 'framer-motion';
 
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 28 },
@@ -93,41 +73,30 @@ const fadeUp: Variants = {
 
 export function Hero() {
   return (
-    <section className="relative min-h-screen bg-[#080808] overflow-hidden flex items-center">
+    <section className="relative min-h-screen bg-[#080808] overflow-hidden">
 
       {/* ── Background layers ── */}
-      {/* Spotlight beam */}
       <Spotlight className="-top-40 left-0 md:left-60 md:-top-20" fill="#0dcfcf" />
-
-      {/* Subtle grid */}
       <div className="absolute inset-0 grid-bg opacity-100 pointer-events-none" />
-
-      {/* Aurora mesh */}
       <div className="absolute inset-0 aurora-glow pointer-events-none" />
-
-      {/* Top radial glow */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{ background: 'radial-gradient(ellipse 90% 55% at 50% -10%, rgba(13,207,207,0.1) 0%, transparent 65%)' }}
+      <div className="absolute inset-0 pointer-events-none"
+        style={{ background: 'radial-gradient(ellipse 70% 55% at 50% -5%, rgba(13,207,207,0.12) 0%, transparent 65%)' }}
       />
 
-      {/* ── Floating shapes (21st.dev ElegantShape inspired) — hidden on mobile ── */}
-      <FloatingShape delay={0.3} width={500} height={110} rotate={10}  color="rgba(13,207,207,0.1)"  className="hidden md:block left-[-8%] top-[18%]" />
-      <FloatingShape delay={0.5} width={380} height={90}  rotate={-14} color="rgba(13,207,207,0.07)" className="hidden md:block right-[-4%] top-[65%]" reverse />
-      <FloatingShape delay={0.6} width={220} height={60}  rotate={-6}  color="rgba(13,207,207,0.06)" className="hidden md:block left-[8%] bottom-[8%]" />
-      <FloatingShape delay={0.7} width={160} height={45}  rotate={22}  color="rgba(13,207,207,0.08)" className="hidden md:block right-[18%] top-[8%]" />
+      {/* ── Full-bleed two-column layout ── */}
+      <div className="relative z-10 flex flex-col lg:flex-row min-h-screen">
 
-      {/* Delta triangle shapes — hidden on mobile */}
-      <DeltaShape delay={0.8} size={160} opacity={0.04} className="hidden md:block right-[5%] top-[20%]" />
-      <DeltaShape delay={1.0} size={80}  opacity={0.06} className="hidden md:block left-[15%] top-[12%]" />
-      <DeltaShape delay={1.2} size={60}  opacity={0.04} className="hidden md:block left-[40%] bottom-[15%]" />
+        {/* ── LEFT: Content ── */}
+        <div className="relative flex items-center justify-center lg:justify-start
+                        px-6 sm:px-10 lg:pl-16 xl:pl-24 lg:pr-8
+                        pt-32 pb-10 lg:pt-0 lg:pb-0
+                        w-full lg:w-[50%] xl:w-[46%]">
 
-      {/* ── Content ── */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 py-24 lg:py-32 w-full">
-        <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-8">
+          {/* Subtle left-side decorative shapes */}
+          <DeltaShape delay={0.8} size={120} opacity={0.04} className="hidden lg:block left-[5%] top-[15%]" />
+          <DeltaShape delay={1.0} size={60}  opacity={0.06} className="hidden lg:block left-[60%] bottom-[18%]" />
 
-          {/* ── Left: Copy ── */}
-          <div className="flex-1 lg:pr-16 max-w-2xl">
+          <div className="max-w-xl w-full">
 
             {/* Eyebrow badge */}
             <motion.div custom={0} variants={fadeUp} initial="hidden" animate="visible">
@@ -143,7 +112,8 @@ export function Hero() {
             {/* Headline */}
             <motion.h1
               custom={1} variants={fadeUp} initial="hidden" animate="visible"
-              className="text-[2rem] sm:text-[2.8rem] md:text-[3.5rem] lg:text-[4rem] font-bold leading-[1.06] tracking-[-0.02em] mb-6"
+              className="text-[2.2rem] sm:text-[2.8rem] md:text-[3.2rem] lg:text-[3.6rem] xl:text-[4rem]
+                         font-bold leading-[1.06] tracking-[-0.02em] mb-6"
             >
               <span className="gradient-text block">Todo tu proceso</span>
               <span className="gradient-text block">de ventas,</span>
@@ -164,7 +134,7 @@ export function Hero() {
             {/* CTAs */}
             <motion.div
               custom={3} variants={fadeUp} initial="hidden" animate="visible"
-              className="flex flex-col sm:flex-row gap-3 mb-10 sm:mb-14"
+              className="flex flex-col sm:flex-row gap-3 mb-10 sm:mb-12"
             >
               <a
                 href="https://wa.me/521XXXXXXXXXX?text=Hola,%20me%20interesa%20conocer%20más%20sobre%20Delta%20Kilo%20Soluciones"
@@ -187,6 +157,7 @@ export function Hero() {
                   </svg>
                 </span>
                 Ver cómo funciona
+                <ArrowRight size={13} className="opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
               </a>
             </motion.div>
 
@@ -200,86 +171,78 @@ export function Hero() {
                 { num: '100%', label: 'Personalizado\npara tu negocio' },
                 { num: '1',    label: 'Sistema\nconectado' },
               ].map((stat, i) => (
-                <div key={i} className="px-4 sm:px-6 first:pl-0 last:pr-0">
+                <div key={i} className="px-5 sm:px-6 first:pl-0 last:pr-0">
                   <div className="text-xl sm:text-2xl font-bold text-white tracking-tight">{stat.num}</div>
                   <div className="text-[9px] sm:text-[10px] text-white/30 uppercase tracking-wider mt-0.5 leading-tight whitespace-pre-line">{stat.label}</div>
                 </div>
               ))}
             </motion.div>
           </div>
+        </div>
 
-          {/* ── Right: 3D Scene panel ── */}
-          <div className="flex-1 relative w-full max-w-xl lg:max-w-none">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.94, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              transition={{ duration: 1.2, delay: 0.5, ease: [0.23, 0.86, 0.39, 0.96] }}
-              className="relative"
-            >
-              {/* Outer glow ring */}
-              <div className="absolute -inset-px rounded-2xl bg-gradient-to-br from-[#0dcfcf]/15 via-transparent to-[#0dcfcf]/5 pointer-events-none z-10" />
+        {/* ── RIGHT: Full-height Spline ── */}
+        <div className="relative flex-1 h-[70vw] sm:h-[80vw] lg:h-auto lg:min-h-screen overflow-hidden">
 
-              {/* Main 3D container */}
-              <div className="relative h-[300px] sm:h-[420px] md:h-[540px] rounded-2xl overflow-hidden bg-[#0a0a0a] border border-white/5 shadow-[0_32px_64px_rgba(0,0,0,0.8)]">
+          {/* Decorative shapes on right side */}
+          <FloatingShape delay={0.3} width={420} height={100} rotate={10}  color="rgba(13,207,207,0.08)"  className="hidden lg:block -right-[8%] top-[15%]" />
+          <FloatingShape delay={0.5} width={280} height={70}  rotate={-14} color="rgba(13,207,207,0.06)" className="hidden lg:block right-[10%] bottom-[12%]" reverse />
+          <DeltaShape delay={0.9} size={180} opacity={0.035} className="hidden lg:block right-[4%] top-[8%]" />
 
-                {/* Inner glow */}
-                <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-[#0dcfcf]/5 to-transparent pointer-events-none z-10" />
-                <div className="absolute inset-0 pointer-events-none">
-                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[70%] h-[50%] bg-[#0dcfcf]/4 rounded-full blur-3xl" />
-                </div>
+          {/* Left edge fade — blends with content panel */}
+          <div className="absolute inset-y-0 left-0 w-16 sm:w-24 lg:w-32 bg-gradient-to-r from-[#080808] to-transparent pointer-events-none z-20" />
+          {/* Top fade */}
+          <div className="absolute top-0 left-0 right-0 h-16 lg:h-24 bg-gradient-to-b from-[#080808]/60 to-transparent pointer-events-none z-20" />
+          {/* Bottom fade */}
+          <div className="absolute bottom-0 left-0 right-0 h-20 lg:h-32 bg-gradient-to-t from-[#080808] to-transparent pointer-events-none z-20" />
 
-                <SplineScene
-                  scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
-                  className="w-full h-full"
-                />
+          {/* Glow behind robot */}
+          <div className="absolute inset-0 pointer-events-none"
+            style={{ background: 'radial-gradient(ellipse 70% 60% at 60% 50%, rgba(13,207,207,0.06) 0%, transparent 70%)' }}
+          />
 
-                {/* Bottom fade */}
-                <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-[#0a0a0a] to-transparent pointer-events-none z-10" />
+          {/* Spline — fills full container */}
+          <SplineScene
+            scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
+            className="w-full h-full"
+          />
+
+          {/* Floating status badge — bottom left of scene */}
+          <motion.div
+            initial={{ opacity: 0, x: -16, y: 16 }}
+            animate={{ opacity: 1, x: 0, y: 0 }}
+            transition={{ duration: 0.6, delay: 1.4 }}
+            className="absolute bottom-6 left-6 sm:bottom-10 sm:left-10 glass-card rounded-xl px-4 py-3 shadow-2xl z-30"
+          >
+            <div className="flex items-center gap-2.5">
+              <div className="w-2 h-2 rounded-full bg-emerald-400 glow-pulse flex-shrink-0" />
+              <div>
+                <div className="text-xs font-semibold text-white">Sistema activo</div>
+                <div className="text-[10px] text-white/35 mt-0.5">Procesando en tiempo real</div>
               </div>
+            </div>
+          </motion.div>
 
-              {/* Floating status badge — bottom left */}
-              <motion.div
-                initial={{ opacity: 0, x: -16, y: 16 }}
-                animate={{ opacity: 1, x: 0, y: 0 }}
-                transition={{ duration: 0.6, delay: 1.4 }}
-                className="absolute bottom-3 left-3 sm:-bottom-4 sm:-left-4 glass-card rounded-xl px-3 py-2.5 sm:px-4 sm:py-3 shadow-2xl z-20"
-              >
-                <div className="flex items-center gap-2.5">
-                  <div className="w-2 h-2 rounded-full bg-emerald-400 glow-pulse flex-shrink-0" />
-                  <div>
-                    <div className="text-xs font-semibold text-white">Sistema activo</div>
-                    <div className="text-[10px] text-white/35 mt-0.5">Procesando en tiempo real</div>
-                  </div>
-                </div>
-              </motion.div>
-
-              {/* Floating metric badge — top right */}
-              <motion.div
-                initial={{ opacity: 0, x: 16, y: -16 }}
-                animate={{ opacity: 1, x: 0, y: 0 }}
-                transition={{ duration: 0.6, delay: 1.6 }}
-                className="absolute top-3 right-3 sm:-top-4 sm:-right-4 glass-card rounded-xl px-3 py-2.5 sm:px-4 sm:py-3 shadow-2xl z-20"
-              >
-                <div className="flex items-center gap-2.5">
-                  <div className="w-7 h-7 rounded-lg bg-[#0dcfcf]/15 flex items-center justify-center flex-shrink-0">
-                    <svg className="w-3.5 h-3.5 text-[#0dcfcf]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-                    </svg>
-                  </div>
-                  <div>
-                    <div className="text-xs font-semibold text-[#0dcfcf]">+340% leads</div>
-                    <div className="text-[10px] text-white/35 mt-0.5">Promedio por cliente</div>
-                  </div>
-                </div>
-              </motion.div>
-            </motion.div>
-          </div>
-
+          {/* Floating metric badge — top right of scene */}
+          <motion.div
+            initial={{ opacity: 0, x: 16, y: -16 }}
+            animate={{ opacity: 1, x: 0, y: 0 }}
+            transition={{ duration: 0.6, delay: 1.6 }}
+            className="absolute top-6 right-6 sm:top-10 sm:right-10 glass-card rounded-xl px-4 py-3 shadow-2xl z-30"
+          >
+            <div className="flex items-center gap-2.5">
+              <div className="w-7 h-7 rounded-lg bg-[#0dcfcf]/15 flex items-center justify-center flex-shrink-0">
+                <svg className="w-3.5 h-3.5 text-[#0dcfcf]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                </svg>
+              </div>
+              <div>
+                <div className="text-sm font-bold text-white">+340% leads</div>
+                <div className="text-[10px] text-white/35 mt-0.5">Promedio por cliente</div>
+              </div>
+            </div>
+          </motion.div>
         </div>
       </div>
-
-      {/* Bottom fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[#080808] via-[#080808]/60 to-transparent pointer-events-none z-20" />
     </section>
   );
 }

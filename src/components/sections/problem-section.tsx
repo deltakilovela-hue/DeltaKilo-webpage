@@ -74,10 +74,22 @@ export function ProblemSection() {
             transition={{ delay: 0.2 }}
             className="relative"
           >
-            <div className="relative rounded-2xl border border-[#0dcfcf]/15 bg-[#0f0f0f] p-8 overflow-hidden">
+            <div className="relative rounded-2xl border border-[#0dcfcf]/15 bg-[#0f0f0f] overflow-hidden">
+              {/* Dashboard image */}
+              <div className="relative h-44 overflow-hidden">
+                <img
+                  src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80&auto=format&fit=crop"
+                  alt="Dashboard de control"
+                  className="w-full h-full object-cover object-top"
+                />
+                <div className="absolute inset-0 bg-gradient-to-b from-[#0dcfcf]/10 via-[#080808]/40 to-[#0f0f0f]" />
+                <div className="absolute inset-0 bg-gradient-to-r from-[#0f0f0f]/30 to-transparent" />
+              </div>
+
               {/* Glow */}
               <div className="absolute -top-24 -right-24 w-48 h-48 bg-[#0dcfcf]/5 rounded-full blur-3xl pointer-events-none" />
 
+              <div className="p-8">
               <p className="text-xs uppercase tracking-widest text-[#0dcfcf] font-semibold mb-6">La solución Delta Kilo</p>
               <h3 className="text-2xl font-bold text-white mb-4 leading-snug">
                 Un sistema único que conecta todo tu proceso comercial.
@@ -105,6 +117,7 @@ export function ProblemSection() {
                   </div>
                 ))}
               </div>
+              </div>{/* end inner padding */}
             </div>
           </motion.div>
         </div>

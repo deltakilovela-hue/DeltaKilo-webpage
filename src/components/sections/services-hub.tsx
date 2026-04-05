@@ -11,6 +11,7 @@ const services = [
     href: '/servicios/paginas-web',
     tag: 'Presencia digital',
     number: '01',
+    img: 'https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=600&q=70&auto=format&fit=crop',
   },
   {
     icon: Zap,
@@ -19,6 +20,7 @@ const services = [
     href: '/servicios/funnels',
     tag: 'Captación',
     number: '02',
+    img: 'https://images.unsplash.com/photo-1533750349088-cd871a92f312?w=600&q=70&auto=format&fit=crop',
   },
   {
     icon: Bot,
@@ -27,6 +29,7 @@ const services = [
     href: '/servicios/asistentes-ia',
     tag: 'IA',
     number: '03',
+    img: 'https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=600&q=70&auto=format&fit=crop',
   },
   {
     icon: Users,
@@ -35,6 +38,7 @@ const services = [
     href: '/servicios/crm',
     tag: 'Gestión',
     number: '04',
+    img: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&q=70&auto=format&fit=crop',
   },
   {
     icon: MapPin,
@@ -43,6 +47,7 @@ const services = [
     href: '/servicios/google-maps',
     tag: 'Local SEO',
     number: '05',
+    img: 'https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?w=600&q=70&auto=format&fit=crop',
   },
   {
     icon: Phone,
@@ -51,6 +56,7 @@ const services = [
     href: '/servicios/gestion-llamadas',
     tag: 'Comunicación',
     number: '06',
+    img: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600&q=70&auto=format&fit=crop',
   },
 ];
 
@@ -106,15 +112,31 @@ export function ServicesHub() {
               >
                 <Link
                   href={service.href}
-                  className="group relative block h-full p-6 rounded-2xl glass-card transition-all duration-300 overflow-hidden"
+                  className="group relative flex flex-col h-full rounded-2xl glass-card transition-all duration-300 overflow-hidden"
                 >
-                  {/* Number watermark */}
-                  <div className="absolute top-4 right-5 text-[3rem] font-black text-white/[0.03] font-mono leading-none select-none group-hover:text-[#0dcfcf]/5 transition-colors duration-500">
-                    {service.number}
+                  {/* Service image strip */}
+                  <div className="relative h-36 overflow-hidden flex-shrink-0">
+                    <img
+                      src={service.img}
+                      alt={service.title}
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-b from-[#080808]/20 via-[#080808]/40 to-[#111]/90" />
+                    <div className="absolute inset-0 bg-gradient-to-br from-[#0dcfcf]/0 group-hover:from-[#0dcfcf]/5 to-transparent transition-all duration-500" />
+                    {/* Tag on image */}
+                    <span className="absolute top-3 right-3 text-[9px] uppercase tracking-widest text-white/50 font-semibold bg-black/40 backdrop-blur-sm px-2 py-1 rounded-full border border-white/10">
+                      {service.tag}
+                    </span>
+                    {/* Number on image */}
+                    <span className="absolute bottom-3 left-4 text-[2.5rem] font-black text-white/[0.07] font-mono leading-none select-none">
+                      {service.number}
+                    </span>
                   </div>
 
+                  {/* Card content */}
+                  <div className="flex flex-col flex-1 p-5">
                   {/* Top row: icon + tag */}
-                  <div className="flex items-start justify-between mb-5 relative z-10">
+                  <div className="flex items-start justify-between mb-4 relative z-10">
                     <div className="relative">
                       <div className="w-11 h-11 rounded-xl bg-[#0dcfcf]/8 border border-[#0dcfcf]/10 flex items-center justify-center group-hover:bg-[#0dcfcf]/12 group-hover:border-[#0dcfcf]/20 transition-all duration-300">
                         <Icon size={18} className="text-[#0dcfcf]" />
@@ -124,22 +146,20 @@ export function ServicesHub() {
                         style={{ boxShadow: '0 0 20px rgba(13,207,207,0.25)', background: 'rgba(13,207,207,0.05)' }}
                       />
                     </div>
-                    <span className="text-[10px] uppercase tracking-widest text-white/20 font-semibold pt-1 group-hover:text-[#0dcfcf]/40 transition-colors">
-                      {service.tag}
-                    </span>
+                    <ArrowUpRight size={14} className="text-white/10 group-hover:text-[#0dcfcf]/50 transition-colors" />
                   </div>
 
                   {/* Content */}
-                  <div className="relative z-10">
+                  <div className="relative z-10 flex-1">
                     <h3 className="text-base font-semibold text-white mb-2.5 group-hover:text-[#0dcfcf] transition-colors duration-300 leading-snug">
                       {service.title}
                     </h3>
-                    <p className="text-sm text-white/40 leading-relaxed mb-6">
+                    <p className="text-sm text-white/40 leading-relaxed mb-5">
                       {service.description}
                     </p>
 
                     {/* CTA link */}
-                    <div className="flex items-center gap-1.5 text-xs font-semibold text-white/25 group-hover:text-[#0dcfcf] transition-colors duration-300">
+                    <div className="flex items-center gap-1.5 text-xs font-semibold text-white/25 group-hover:text-[#0dcfcf] transition-colors duration-300 mt-auto">
                       <span>Ver servicio</span>
                       <ArrowUpRight size={12} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300" />
                     </div>
@@ -147,6 +167,7 @@ export function ServicesHub() {
 
                   {/* Bottom shimmer line on hover */}
                   <div className="absolute bottom-0 left-0 right-0 h-px opacity-0 group-hover:opacity-100 transition-opacity duration-500 shimmer-border" />
+                  </div>{/* end card content */}
                 </Link>
               </motion.div>
             );

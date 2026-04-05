@@ -26,14 +26,20 @@ export function CTASection({
     <section className="relative py-32 bg-[#080808] overflow-hidden">
       <div className="divider-line absolute top-0 left-0 right-0" />
 
-      {/* Background effects */}
+      {/* Background: tech image with dark overlay */}
       <div className="absolute inset-0 pointer-events-none">
+        <img
+          src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=1400&q=70&auto=format&fit=crop"
+          alt=""
+          aria-hidden="true"
+          className="w-full h-full object-cover object-center opacity-[0.06]"
+        />
         {/* Central glow */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[300px] rounded-full blur-3xl"
-          style={{ background: 'radial-gradient(ellipse, rgba(13,207,207,0.07) 0%, transparent 70%)' }}
+          style={{ background: 'radial-gradient(ellipse, rgba(13,207,207,0.08) 0%, transparent 70%)' }}
         />
         {/* Grid */}
-        <div className="absolute inset-0 grid-bg opacity-60" />
+        <div className="absolute inset-0 grid-bg opacity-40" />
         {/* Top cyan line */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-64 h-px bg-gradient-to-r from-transparent via-[#0dcfcf]/40 to-transparent" />
       </div>

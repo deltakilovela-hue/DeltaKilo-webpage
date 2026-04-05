@@ -68,7 +68,7 @@ export function WhyDeltaKilo() {
           </div>
 
           {/* Right: Differentiators */}
-          <div className="space-y-4">
+          <div className="space-y-4 relative">
             {differentiators.map((item, i) => (
               <motion.div
                 key={i}
