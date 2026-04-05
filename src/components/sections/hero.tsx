@@ -8,7 +8,7 @@ import type { Variants } from 'framer-motion';
 /* ── Floating geometric shape ── */
 function FloatingShape({
   className, delay = 0, width = 300, height = 80, rotate = 0,
-  color = 'rgba(13,207,207,0.12)', reverse = false,
+  color = 'rgba(212,175,55,0.12)', reverse = false,
 }: {
   className?: string; delay?: number; width?: number; height?: number;
   rotate?: number; color?: string; reverse?: boolean;
@@ -76,11 +76,11 @@ export function Hero() {
     <section className="relative min-h-screen bg-[#080808] overflow-hidden">
 
       {/* ── Background layers ── */}
-      <Spotlight className="-top-40 left-0 md:left-60 md:-top-20" fill="#0dcfcf" />
+      <Spotlight className="-top-40 left-0 md:left-60 md:-top-20" fill="#D4AF37" />
       <div className="absolute inset-0 grid-bg opacity-100 pointer-events-none" />
       <div className="absolute inset-0 aurora-glow pointer-events-none" />
       <div className="absolute inset-0 pointer-events-none"
-        style={{ background: 'radial-gradient(ellipse 70% 55% at 50% -5%, rgba(13,207,207,0.12) 0%, transparent 65%)' }}
+        style={{ background: 'radial-gradient(ellipse 70% 55% at 50% -5%, rgba(212,175,55,0.08) 0%, transparent 65%)' }}
       />
 
       {/* ── Full-bleed two-column layout ── */}
@@ -98,9 +98,12 @@ export function Hero() {
 
           <div className="max-w-xl w-full">
 
+            {/* Premium top accent line */}
+            <div className="absolute -top-8 left-0 w-32 h-1 bg-gradient-to-r from-[#D4AF37] via-[#D4AF37] to-transparent rounded-full opacity-60 hidden lg:block" />
+
             {/* Eyebrow badge */}
             <motion.div custom={0} variants={fadeUp} initial="hidden" animate="visible">
-              <div className="inline-flex items-center gap-2.5 mb-7 px-4 py-2 rounded-full badge-cyan">
+              <div className="inline-flex items-center gap-2.5 mb-8 px-4 py-2 rounded-full badge-cyan">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#0dcfcf] animate-pulse flex-shrink-0" />
                 <span className="text-xs font-semibold tracking-[0.15em] uppercase">
                   Automatización · Sistemas · Resultados
@@ -112,34 +115,37 @@ export function Hero() {
             {/* Headline */}
             <motion.h1
               custom={1} variants={fadeUp} initial="hidden" animate="visible"
-              className="text-[2.2rem] sm:text-[2.8rem] md:text-[3.2rem] lg:text-[3.6rem] xl:text-[4rem]
-                         font-bold leading-[1.06] tracking-[-0.02em] mb-6"
+              className="text-[2.4rem] sm:text-[3rem] md:text-[3.6rem] lg:text-[4.2rem] xl:text-[4.8rem]
+                         font-bold leading-[1.08] tracking-[-0.02em] mb-8"
             >
               <span className="gradient-text block">Todo tu proceso</span>
               <span className="gradient-text block">de ventas,</span>
-              <span className="gradient-text-cyan block">conectado en</span>
-              <span className="gradient-text-cyan block">un solo sistema.</span>
+              <span className="gradient-text-gold block">conectado en</span>
+              <span className="gradient-text-gold block">un solo sistema.</span>
             </motion.h1>
 
             {/* Subtext */}
             <motion.p
               custom={2} variants={fadeUp} initial="hidden" animate="visible"
-              className="text-base md:text-lg text-white/45 leading-relaxed max-w-lg mb-10"
+              className="text-base md:text-lg text-white/50 leading-relaxed max-w-xl mb-12"
             >
               Desde la captación hasta el cierre: automatizamos tu atención,
               seguimiento y gestión para que tu negocio funcione con{' '}
-              <span className="text-white/65 font-medium">orden, control y resultados</span>.
+              <span className="text-white/70 font-medium">orden, control y resultados</span>.
             </motion.p>
 
             {/* CTAs */}
             <motion.div
               custom={3} variants={fadeUp} initial="hidden" animate="visible"
-              className="flex flex-col sm:flex-row gap-3 mb-10 sm:mb-12"
+              className="flex flex-col sm:flex-row gap-4 mb-16 sm:mb-20"
             >
               <a
                 href="https://wa.me/521XXXXXXXXXX?text=Hola,%20me%20interesa%20conocer%20más%20sobre%20Delta%20Kilo%20Soluciones"
                 target="_blank" rel="noopener noreferrer"
-                className="btn-primary inline-flex items-center justify-center gap-2.5 px-7 py-4 text-sm group"
+                className="inline-flex items-center justify-center gap-2.5 px-8 py-4 text-sm font-semibold group
+                           bg-[#D4AF37] text-[#0e0e0e] rounded-lg
+                           hover:bg-[#E5C158] active:bg-[#C49A2E]
+                           transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-[#D4AF37]/20"
               >
                 <svg className="w-4 h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
@@ -184,8 +190,8 @@ export function Hero() {
         <div className="relative flex-1 h-[70vw] sm:h-[80vw] lg:h-auto lg:min-h-screen overflow-hidden">
 
           {/* Decorative shapes on right side */}
-          <FloatingShape delay={0.3} width={420} height={100} rotate={10}  color="rgba(13,207,207,0.08)"  className="hidden lg:block -right-[8%] top-[15%]" />
-          <FloatingShape delay={0.5} width={280} height={70}  rotate={-14} color="rgba(13,207,207,0.06)" className="hidden lg:block right-[10%] bottom-[12%]" reverse />
+          <FloatingShape delay={0.3} width={420} height={100} rotate={10}  color="rgba(212,175,55,0.08)"  className="hidden lg:block -right-[8%] top-[15%]" />
+          <FloatingShape delay={0.5} width={280} height={70}  rotate={-14} color="rgba(212,175,55,0.06)" className="hidden lg:block right-[10%] bottom-[12%]" reverse />
           <DeltaShape delay={0.9} size={180} opacity={0.035} className="hidden lg:block right-[4%] top-[8%]" />
 
           {/* Left edge fade — blends with content panel */}
@@ -197,7 +203,7 @@ export function Hero() {
 
           {/* Glow behind robot */}
           <div className="absolute inset-0 pointer-events-none"
-            style={{ background: 'radial-gradient(ellipse 70% 60% at 60% 50%, rgba(13,207,207,0.06) 0%, transparent 70%)' }}
+            style={{ background: 'radial-gradient(ellipse 70% 60% at 60% 50%, rgba(212,175,55,0.04) 0%, transparent 70%)' }}
           />
 
           {/* Spline — fills full container */}

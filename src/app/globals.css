@@ -5,6 +5,9 @@
   --foreground: #f5f5f5;
   --cyan: #0dcfcf;
   --cyan-dim: #0a9e9e;
+  --gold: #D4AF37;
+  --gold-light: #E5C158;
+  --gold-dim: #C49A2E;
   --card-bg: #111111;
   --card-border: #1e1e1e;
   --muted: #888888;
@@ -15,6 +18,9 @@
   --color-foreground: var(--foreground);
   --color-cyan: var(--cyan);
   --color-cyan-dim: var(--cyan-dim);
+  --color-gold: var(--gold);
+  --color-gold-light: var(--gold-light);
+  --color-gold-dim: var(--gold-dim);
   --color-card-bg: var(--card-bg);
   --color-card-border: var(--card-border);
   --color-muted: var(--muted);
@@ -77,6 +83,12 @@ body {
 }
 .gradient-text-cyan {
   background: linear-gradient(135deg, #0dcfcf 0%, #0a9e9e 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.gradient-text-gold {
+  background: linear-gradient(135deg, #D4AF37 0%, #E5C158 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -209,11 +221,11 @@ body {
 
 /* ─── BUTTON EFFECTS ─────────────────────────── */
 .btn-primary {
-  background: #0dcfcf;
-  color: #000;
+  background: #D4AF37;
+  color: #0e0e0e;
   font-weight: 600;
   border-radius: 12px;
-  transition: all 0.2s ease;
+  transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
 }
@@ -221,15 +233,15 @@ body {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, transparent 50%);
+  background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, transparent 50%);
   opacity: 0;
-  transition: opacity 0.2s ease;
+  transition: opacity 0.3s ease;
 }
 .btn-primary:hover::before { opacity: 1; }
 .btn-primary:hover {
-  background: #0bbdbd;
-  box-shadow: 0 0 0 1px rgba(13,207,207,0.3), 0 8px 32px rgba(13,207,207,0.25);
-  transform: translateY(-1px);
+  background: #E5C158;
+  box-shadow: 0 0 0 1px rgba(212,175,55,0.4), 0 12px 40px rgba(212,175,55,0.25);
+  transform: translateY(-2px);
 }
 .btn-primary:active { transform: translateY(0px); }
 

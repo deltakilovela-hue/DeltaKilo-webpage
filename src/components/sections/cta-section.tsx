@@ -34,14 +34,14 @@ export function CTASection({
           aria-hidden="true"
           className="w-full h-full object-cover object-center opacity-[0.06]"
         />
-        {/* Central glow */}
+        {/* Central glow — oro */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[300px] rounded-full blur-3xl"
-          style={{ background: 'radial-gradient(ellipse, rgba(13,207,207,0.08) 0%, transparent 70%)' }}
+          style={{ background: 'radial-gradient(ellipse, rgba(212,175,55,0.08) 0%, transparent 70%)' }}
         />
         {/* Grid */}
         <div className="absolute inset-0 grid-bg opacity-40" />
-        {/* Top cyan line */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-64 h-px bg-gradient-to-r from-transparent via-[#0dcfcf]/40 to-transparent" />
+        {/* Top gold line */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-64 h-px bg-gradient-to-r from-transparent via-[#D4AF37]/40 to-transparent" />
       </div>
 
       <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 text-center">
@@ -49,10 +49,10 @@ export function CTASection({
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="inline-flex items-center gap-2 mb-6 px-4 py-2 rounded-full badge-cyan"
+          className="inline-flex items-center gap-2 mb-8 px-4 py-2 rounded-full bg-[#D4AF37]/10 border border-[#D4AF37]/30"
         >
-          <span className="w-1.5 h-1.5 rounded-full bg-[#0dcfcf] animate-pulse" />
-          <span className="text-xs font-semibold tracking-widest uppercase">{eyebrow}</span>
+          <span className="w-1.5 h-1.5 rounded-full bg-[#D4AF37] animate-pulse" />
+          <span className="text-xs font-semibold tracking-widest uppercase text-[#D4AF37]">{eyebrow}</span>
         </motion.div>
 
         <motion.h2
@@ -60,7 +60,7 @@ export function CTASection({
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.1 }}
-          className="text-3xl md:text-4xl lg:text-5xl font-bold gradient-text mb-6 leading-[1.1] tracking-tight"
+          className="text-4xl md:text-5xl lg:text-6xl font-bold gradient-text-gold mb-8 leading-[1.1] tracking-tight"
         >
           {headline}
         </motion.h2>
