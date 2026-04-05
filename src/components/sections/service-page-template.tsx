@@ -68,7 +68,7 @@ export function ServicePageTemplate({
   return (
     <>
       {/* Hero */}
-      <section className="relative pt-40 pb-24 bg-[#080808] overflow-hidden">
+      <section className="relative pt-28 pb-16 lg:pt-40 lg:pb-24 bg-[#080808] overflow-hidden">
         <div
           className="absolute inset-0 opacity-[0.03]"
           style={{
@@ -81,7 +81,7 @@ export function ServicePageTemplate({
           style={{ background: 'radial-gradient(ellipse 60% 50% at 50% 0%, rgba(13,207,207,0.07) 0%, transparent 70%)' }}
         />
 
-        <div className="max-w-5xl mx-auto px-6 text-center relative z-10">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 text-center relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
@@ -144,7 +144,7 @@ export function ServicePageTemplate({
 
       {/* Problem */}
       <section className="section-padding bg-[#080808] border-t border-white/5">
-        <div className="max-w-5xl mx-auto px-6">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
             <div>
               <p className="text-xs uppercase tracking-widest text-[#0dcfcf] font-semibold mb-4">El problema</p>
@@ -174,7 +174,7 @@ export function ServicePageTemplate({
 
       {/* Solution */}
       <section className="section-padding bg-[#080808] border-t border-white/5">
-        <div className="max-w-5xl mx-auto px-6">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6">
           <div className="relative rounded-2xl border border-[#0dcfcf]/15 bg-[#0f0f0f] p-8 md:p-12 overflow-hidden">
             <div className="absolute -top-24 -right-24 w-64 h-64 bg-[#0dcfcf]/4 rounded-full blur-3xl pointer-events-none" />
             <p className="text-xs uppercase tracking-widest text-[#0dcfcf] font-semibold mb-4">La solución</p>
@@ -186,7 +186,7 @@ export function ServicePageTemplate({
 
       {/* Features */}
       <section className="section-padding bg-[#080808] border-t border-white/5">
-        <div className="max-w-5xl mx-auto px-6">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6">
           <p className="text-xs uppercase tracking-widest text-[#0dcfcf] font-semibold mb-3">Qué incluye</p>
           <h2 className="text-2xl md:text-3xl font-bold gradient-text mb-10">Todo lo que necesitas, nada más.</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -218,7 +218,7 @@ export function ServicePageTemplate({
 
       {/* How it works */}
       <section className="section-padding bg-[#080808] border-t border-white/5">
-        <div className="max-w-5xl mx-auto px-6">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6">
           <p className="text-xs uppercase tracking-widest text-[#0dcfcf] font-semibold mb-3">Cómo funciona</p>
           <h2 className="text-2xl md:text-3xl font-bold gradient-text mb-10">El proceso paso a paso.</h2>
           <div className="space-y-4">
@@ -244,7 +244,7 @@ export function ServicePageTemplate({
 
       {/* Benefits + Use Cases */}
       <section className="section-padding bg-[#080808] border-t border-white/5">
-        <div className="max-w-5xl mx-auto px-6">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             <div>
               <p className="text-xs uppercase tracking-widest text-[#0dcfcf] font-semibold mb-4">Beneficios</p>
@@ -278,7 +278,7 @@ export function ServicePageTemplate({
 
       {/* Related Services */}
       <section className="section-padding bg-[#080808] border-t border-white/5">
-        <div className="max-w-5xl mx-auto px-6">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6">
           <p className="text-xs uppercase tracking-widest text-[#0dcfcf] font-semibold mb-3">Parte del ecosistema</p>
           <h2 className="text-xl font-bold gradient-text mb-8">Este servicio se conecta con:</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -301,7 +301,7 @@ export function ServicePageTemplate({
 
       {/* FAQ */}
       <section className="section-padding bg-[#080808] border-t border-white/5">
-        <div className="max-w-3xl mx-auto px-6">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6">
           <p className="text-xs uppercase tracking-widest text-[#0dcfcf] font-semibold mb-3 text-center">FAQ</p>
           <h2 className="text-2xl font-bold gradient-text mb-10 text-center">Preguntas frecuentes</h2>
           <div className="space-y-4">

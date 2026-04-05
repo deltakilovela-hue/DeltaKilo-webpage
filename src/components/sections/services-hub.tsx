@@ -64,9 +64,9 @@ export function ServicesHub() {
         style={{ background: 'radial-gradient(ellipse 60% 40% at 50% 100%, rgba(13,207,207,0.03) 0%, transparent 70%)' }}
       />
 
-      <div className="relative max-w-7xl mx-auto px-6">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6">
         {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8 md:mb-12">
           <div>
             <motion.p
               initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}

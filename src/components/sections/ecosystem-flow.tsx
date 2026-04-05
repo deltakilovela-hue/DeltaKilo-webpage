@@ -30,9 +30,9 @@ export function EcosystemFlow() {
         style={{ background: 'radial-gradient(ellipse 70% 50% at 50% 50%, rgba(13,207,207,0.03) 0%, transparent 70%)' }}
       />
 
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-10 lg:mb-16">
           <motion.p
             initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}
             className="text-xs uppercase tracking-widest text-[#0dcfcf] font-semibold mb-4"

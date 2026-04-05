@@ -111,20 +111,20 @@ export function Hero() {
         style={{ background: 'radial-gradient(ellipse 90% 55% at 50% -10%, rgba(13,207,207,0.1) 0%, transparent 65%)' }}
       />
 
-      {/* ── Floating shapes (21st.dev ElegantShape inspired) ── */}
-      <FloatingShape delay={0.3} width={500} height={110} rotate={10}  color="rgba(13,207,207,0.1)"  className="left-[-8%] top-[18%]" />
-      <FloatingShape delay={0.5} width={380} height={90}  rotate={-14} color="rgba(13,207,207,0.07)" className="right-[-4%] top-[65%]" reverse />
-      <FloatingShape delay={0.6} width={220} height={60}  rotate={-6}  color="rgba(13,207,207,0.06)" className="left-[8%] bottom-[8%]" />
-      <FloatingShape delay={0.7} width={160} height={45}  rotate={22}  color="rgba(13,207,207,0.08)" className="right-[18%] top-[8%]" />
+      {/* ── Floating shapes (21st.dev ElegantShape inspired) — hidden on mobile ── */}
+      <FloatingShape delay={0.3} width={500} height={110} rotate={10}  color="rgba(13,207,207,0.1)"  className="hidden md:block left-[-8%] top-[18%]" />
+      <FloatingShape delay={0.5} width={380} height={90}  rotate={-14} color="rgba(13,207,207,0.07)" className="hidden md:block right-[-4%] top-[65%]" reverse />
+      <FloatingShape delay={0.6} width={220} height={60}  rotate={-6}  color="rgba(13,207,207,0.06)" className="hidden md:block left-[8%] bottom-[8%]" />
+      <FloatingShape delay={0.7} width={160} height={45}  rotate={22}  color="rgba(13,207,207,0.08)" className="hidden md:block right-[18%] top-[8%]" />
 
-      {/* Delta triangle shapes */}
-      <DeltaShape delay={0.8} size={160} opacity={0.04} className="right-[5%] top-[20%]" />
-      <DeltaShape delay={1.0} size={80}  opacity={0.06} className="left-[15%] top-[12%]" />
-      <DeltaShape delay={1.2} size={60}  opacity={0.04} className="left-[40%] bottom-[15%]" />
+      {/* Delta triangle shapes — hidden on mobile */}
+      <DeltaShape delay={0.8} size={160} opacity={0.04} className="hidden md:block right-[5%] top-[20%]" />
+      <DeltaShape delay={1.0} size={80}  opacity={0.06} className="hidden md:block left-[15%] top-[12%]" />
+      <DeltaShape delay={1.2} size={60}  opacity={0.04} className="hidden md:block left-[40%] bottom-[15%]" />
 
       {/* ── Content ── */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 py-32 w-full">
-        <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-8">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 py-24 lg:py-32 w-full">
+        <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-8">
 
           {/* ── Left: Copy ── */}
           <div className="flex-1 lg:pr-16 max-w-2xl">
@@ -143,7 +143,7 @@ export function Hero() {
             {/* Headline */}
             <motion.h1
               custom={1} variants={fadeUp} initial="hidden" animate="visible"
-              className="text-[2.8rem] md:text-[3.5rem] lg:text-[4rem] font-bold leading-[1.06] tracking-[-0.02em] mb-6"
+              className="text-[2rem] sm:text-[2.8rem] md:text-[3.5rem] lg:text-[4rem] font-bold leading-[1.06] tracking-[-0.02em] mb-6"
             >
               <span className="gradient-text block">Todo tu proceso</span>
               <span className="gradient-text block">de ventas,</span>
@@ -164,7 +164,7 @@ export function Hero() {
             {/* CTAs */}
             <motion.div
               custom={3} variants={fadeUp} initial="hidden" animate="visible"
-              className="flex flex-col sm:flex-row gap-3 mb-14"
+              className="flex flex-col sm:flex-row gap-3 mb-10 sm:mb-14"
             >
               <a
                 href="https://wa.me/521XXXXXXXXXX?text=Hola,%20me%20interesa%20conocer%20más%20sobre%20Delta%20Kilo%20Soluciones"
@@ -200,9 +200,9 @@ export function Hero() {
                 { num: '100%', label: 'Personalizado\npara tu negocio' },
                 { num: '1',    label: 'Sistema\nconectado' },
               ].map((stat, i) => (
-                <div key={i} className="px-6 first:pl-0 last:pr-0">
-                  <div className="text-2xl font-bold text-white tracking-tight">{stat.num}</div>
-                  <div className="text-[10px] text-white/30 uppercase tracking-wider mt-0.5 leading-tight whitespace-pre-line">{stat.label}</div>
+                <div key={i} className="px-4 sm:px-6 first:pl-0 last:pr-0">
+                  <div className="text-xl sm:text-2xl font-bold text-white tracking-tight">{stat.num}</div>
+                  <div className="text-[9px] sm:text-[10px] text-white/30 uppercase tracking-wider mt-0.5 leading-tight whitespace-pre-line">{stat.label}</div>
                 </div>
               ))}
             </motion.div>
@@ -220,7 +220,7 @@ export function Hero() {
               <div className="absolute -inset-px rounded-2xl bg-gradient-to-br from-[#0dcfcf]/15 via-transparent to-[#0dcfcf]/5 pointer-events-none z-10" />
 
               {/* Main 3D container */}
-              <div className="relative h-[420px] md:h-[540px] rounded-2xl overflow-hidden bg-[#0a0a0a] border border-white/5 shadow-[0_32px_64px_rgba(0,0,0,0.8)]">
+              <div className="relative h-[300px] sm:h-[420px] md:h-[540px] rounded-2xl overflow-hidden bg-[#0a0a0a] border border-white/5 shadow-[0_32px_64px_rgba(0,0,0,0.8)]">
 
                 {/* Inner glow */}
                 <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-[#0dcfcf]/5 to-transparent pointer-events-none z-10" />
@@ -242,7 +242,7 @@ export function Hero() {
                 initial={{ opacity: 0, x: -16, y: 16 }}
                 animate={{ opacity: 1, x: 0, y: 0 }}
                 transition={{ duration: 0.6, delay: 1.4 }}
-                className="absolute -bottom-4 -left-4 glass-card rounded-xl px-4 py-3 shadow-2xl z-20"
+                className="absolute bottom-3 left-3 sm:-bottom-4 sm:-left-4 glass-card rounded-xl px-3 py-2.5 sm:px-4 sm:py-3 shadow-2xl z-20"
               >
                 <div className="flex items-center gap-2.5">
                   <div className="w-2 h-2 rounded-full bg-emerald-400 glow-pulse flex-shrink-0" />
@@ -258,7 +258,7 @@ export function Hero() {
                 initial={{ opacity: 0, x: 16, y: -16 }}
                 animate={{ opacity: 1, x: 0, y: 0 }}
                 transition={{ duration: 0.6, delay: 1.6 }}
-                className="absolute -top-4 -right-4 glass-card rounded-xl px-4 py-3 shadow-2xl z-20"
+                className="absolute top-3 right-3 sm:-top-4 sm:-right-4 glass-card rounded-xl px-3 py-2.5 sm:px-4 sm:py-3 shadow-2xl z-20"
               >
                 <div className="flex items-center gap-2.5">
                   <div className="w-7 h-7 rounded-lg bg-[#0dcfcf]/15 flex items-center justify-center flex-shrink-0">
