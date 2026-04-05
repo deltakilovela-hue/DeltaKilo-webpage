@@ -74,7 +74,7 @@ const fadeUp: Variants = {
 
 export function Hero() {
   return (
-    <section className="relative min-h-screen bg-[#080808] overflow-hidden">
+    <section className="relative bg-[#080808] overflow-hidden">
 
       {/* ── Background layers ── */}
       <Spotlight className="-top-40 left-1/2 -translate-x-1/2 md:-top-20" fill="#D4AF37" />
@@ -90,7 +90,7 @@ export function Hero() {
         style={{ background: 'linear-gradient(to bottom, transparent, #080808)' }}
       />
 
-      {/* ── Elegant floating gold shapes (21st.dev) ── */}
+      {/* ── Elegant floating gold shapes ── */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <ElegantShape delay={0.2} width={580} height={130} rotate={14}
           gradient="from-[#D4AF37]/[0.08]"
@@ -109,32 +109,20 @@ export function Hero() {
           className="left-[20%] top-[4%]" />
       </div>
 
-      {/* ── Spline Robot — absolute right side, decorative ── */}
-      <div className="absolute right-0 top-0 bottom-0 w-[55%] pointer-events-none overflow-hidden
-                      hidden lg:block">
-        {/* Left gradient blend */}
-        <div className="absolute inset-y-0 left-0 w-2/3 bg-gradient-to-r from-[#080808] via-[#080808]/70 to-transparent pointer-events-none z-20" />
-        {/* Top fade */}
-        <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-[#080808]/80 to-transparent pointer-events-none z-20" />
-        {/* Bottom fade */}
-        <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[#080808] to-transparent pointer-events-none z-20" />
-
-        {/* Gold glow behind robot */}
-        <div className="absolute inset-0 pointer-events-none z-10"
+      {/* ── Spline Robot — right side, desktop only ── */}
+      <div className="absolute right-0 top-0 bottom-0 w-[55%] pointer-events-none overflow-hidden hidden lg:block">
+        <div className="absolute inset-y-0 left-0 w-2/3 bg-gradient-to-r from-[#080808] via-[#080808]/70 to-transparent z-20" />
+        <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-[#080808]/80 to-transparent z-20" />
+        <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[#080808] to-transparent z-20" />
+        <div className="absolute inset-0 z-10"
           style={{ background: 'radial-gradient(ellipse 60% 70% at 65% 50%, rgba(212,175,55,0.04) 0%, transparent 70%)' }}
         />
-
-        {/* Decorative delta shapes */}
         <DeltaShape delay={0.9} size={200} opacity={0.03} className="right-[8%] top-[6%]" />
         <FloatingShape delay={0.5} width={320} height={80} rotate={-10} color="rgba(212,175,55,0.05)" className="right-[5%] bottom-[15%]" reverse />
-
-        {/* Spline */}
         <SplineScene
           scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
           className="w-full h-full"
         />
-
-        {/* Floating status badge */}
         <motion.div
           initial={{ opacity: 0, x: -16, y: 16 }}
           animate={{ opacity: 1, x: 0, y: 0 }}
@@ -149,8 +137,6 @@ export function Hero() {
             </div>
           </div>
         </motion.div>
-
-        {/* Floating metric badge */}
         <motion.div
           initial={{ opacity: 0, x: 16, y: -16 }}
           animate={{ opacity: 1, x: 0, y: 0 }}
@@ -171,35 +157,39 @@ export function Hero() {
         </motion.div>
       </div>
 
-      {/* ── Centered Content ── */}
-      <div className="relative z-10 flex flex-col items-center justify-center min-h-screen
-                      px-6 sm:px-10 text-center pt-28 pb-20 lg:pt-0 lg:pb-0">
+      {/* ── Content — centrado en desktop, columna en mobile ── */}
+      <div className="relative z-10 flex flex-col items-center justify-center
+                      min-h-[100svh] px-5 sm:px-8
+                      pt-28 pb-16
+                      sm:pt-32 sm:pb-20
+                      lg:pt-0 lg:pb-0
+                      text-center">
 
         {/* Top gold accent line */}
         <motion.div
           initial={{ scaleX: 0, opacity: 0 }}
           animate={{ scaleX: 1, opacity: 1 }}
           transition={{ duration: 1.2, delay: 0.1, ease: 'easeOut' }}
-          className="w-16 h-px bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent mb-10 origin-center"
+          className="w-14 h-px bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent mb-8 sm:mb-10 origin-center"
         />
 
         {/* Eyebrow badge */}
-        <motion.div custom={0} variants={fadeUp} initial="hidden" animate="visible">
-          <div className="inline-flex items-center gap-2.5 mb-8 px-4 py-2 rounded-full badge-cyan">
+        <motion.div custom={0} variants={fadeUp} initial="hidden" animate="visible" className="mb-6 sm:mb-8">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full badge-cyan">
             <span className="w-1.5 h-1.5 rounded-full bg-[#D4AF37] animate-pulse flex-shrink-0" />
-            <span className="text-xs font-semibold tracking-[0.15em] uppercase text-[#D4AF37]/80">
+            <span className="text-[10px] sm:text-xs font-semibold tracking-[0.12em] sm:tracking-[0.15em] uppercase text-[#D4AF37]/80">
               Automatización · Sistemas · Resultados
             </span>
-            <ChevronRight size={12} className="opacity-50 text-[#D4AF37]" />
+            <ChevronRight size={11} className="opacity-50 text-[#D4AF37]" />
           </div>
         </motion.div>
 
         {/* Headline */}
         <motion.h1
           custom={1} variants={fadeUp} initial="hidden" animate="visible"
-          className="text-[2.8rem] sm:text-[3.6rem] md:text-[4.4rem] lg:text-[5.2rem] xl:text-[6rem]
-                     font-bold leading-[1.06] tracking-[-0.025em] mb-8
-                     max-w-[16ch]"
+          className="text-[2.4rem] sm:text-[3.2rem] md:text-[4rem] lg:text-[5rem] xl:text-[5.8rem]
+                     font-bold leading-[1.08] tracking-[-0.025em]
+                     mb-6 sm:mb-8 max-w-[15ch]"
         >
           <span className="gradient-text block">Todo tu proceso</span>
           <span className="gradient-text block">de ventas,</span>
@@ -210,7 +200,8 @@ export function Hero() {
         {/* Subtext */}
         <motion.p
           custom={2} variants={fadeUp} initial="hidden" animate="visible"
-          className="text-base md:text-lg text-white/50 leading-relaxed max-w-lg mb-12"
+          className="text-sm sm:text-base md:text-lg text-white/50 leading-relaxed
+                     max-w-xs sm:max-w-md lg:max-w-lg mb-8 sm:mb-10"
         >
           Desde la captación hasta el cierre: automatizamos tu atención,
           seguimiento y gestión para que tu negocio funcione con{' '}
@@ -220,13 +211,14 @@ export function Hero() {
         {/* CTAs */}
         <motion.div
           custom={3} variants={fadeUp} initial="hidden" animate="visible"
-          className="flex flex-col sm:flex-row gap-4 mb-20"
+          className="flex flex-col sm:flex-row gap-3 sm:gap-4 w-full max-w-xs sm:max-w-none sm:w-auto mb-12 sm:mb-16"
         >
           <a
             href="https://wa.me/521XXXXXXXXXX?text=Hola,%20me%20interesa%20conocer%20más%20sobre%20Delta%20Kilo%20Soluciones"
             target="_blank" rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2.5 px-8 py-4 text-sm font-semibold group
-                       bg-[#D4AF37] text-[#0e0e0e] rounded-lg
+            className="inline-flex items-center justify-center gap-2.5
+                       px-6 py-4 text-sm font-semibold group
+                       bg-[#D4AF37] text-[#0e0e0e] rounded-xl
                        hover:bg-[#E5C158] active:bg-[#C49A2E]
                        transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-[#D4AF37]/25"
           >
@@ -238,7 +230,7 @@ export function Hero() {
           </a>
           <a
             href="#como-funciona"
-            className="btn-secondary inline-flex items-center justify-center gap-2.5 px-7 py-4 text-sm font-medium group"
+            className="btn-secondary inline-flex items-center justify-center gap-2.5 px-6 py-4 text-sm font-medium group"
           >
             <span className="w-5 h-5 rounded-full border border-[#D4AF37]/40 flex items-center justify-center flex-shrink-0">
               <svg className="w-2.5 h-2.5 text-[#D4AF37] ml-0.5" fill="currentColor" viewBox="0 0 8 10">
@@ -253,43 +245,49 @@ export function Hero() {
         {/* Stats row */}
         <motion.div
           custom={4} variants={fadeUp} initial="hidden" animate="visible"
-          className="flex items-center justify-center gap-0 divide-x divide-white/8"
+          className="flex items-center justify-center divide-x divide-white/10"
         >
           {[
             { num: '6+',   label: 'Soluciones\nintegradas' },
-            { num: '100%', label: 'Personalizado\npara tu negocio' },
+            { num: '100%', label: 'Personalizado\npara ti' },
             { num: '1',    label: 'Sistema\nconectado' },
           ].map((stat, i) => (
-            <div key={i} className="px-6 sm:px-8 first:pl-0 last:pr-0 text-center">
-              <div className="text-2xl sm:text-3xl font-bold text-white tracking-tight">{stat.num}</div>
-              <div className="text-[9px] sm:text-[10px] text-white/30 uppercase tracking-wider mt-1 leading-tight whitespace-pre-line">{stat.label}</div>
+            <div key={i} className="px-5 sm:px-8 first:pl-0 last:pr-0 text-center">
+              <div className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight leading-none">
+                {stat.num}
+              </div>
+              <div className="text-[9px] sm:text-[10px] text-white/30 uppercase tracking-wider mt-2 leading-snug whitespace-pre-line">
+                {stat.label}
+              </div>
             </div>
           ))}
         </motion.div>
 
-        {/* Scroll indicator */}
+        {/* Scroll indicator — solo desktop */}
         <motion.div
           initial={{ opacity: 0 }} animate={{ opacity: 1 }}
-          transition={{ delay: 2.2, duration: 1 }}
-          className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+          transition={{ delay: 2.4, duration: 1 }}
+          className="hidden lg:flex flex-col items-center gap-2 mt-16"
         >
-          <span className="text-[10px] text-white/25 tracking-[0.2em] uppercase">Scroll</span>
+          <span className="text-[10px] text-white/20 tracking-[0.2em] uppercase">Scroll</span>
           <motion.div
             animate={{ y: [0, 6, 0] }}
             transition={{ duration: 1.6, repeat: Infinity, ease: 'easeInOut' }}
-            className="w-px h-8 bg-gradient-to-b from-[#D4AF37]/40 to-transparent"
+            className="w-px h-8 bg-gradient-to-b from-[#D4AF37]/30 to-transparent"
           />
         </motion.div>
       </div>
 
-      {/* Mobile: Spline below content */}
-      <div className="lg:hidden relative h-[70vw] max-h-[400px] overflow-hidden pointer-events-none mt-[-4rem]">
-        <div className="absolute inset-0 bg-gradient-to-b from-[#080808] via-transparent to-[#080808] z-20" />
+      {/* ── Mobile: Spline debajo del contenido ── */}
+      <div className="lg:hidden relative h-[65vw] max-h-[380px] overflow-hidden pointer-events-none">
+        <div className="absolute inset-0 bg-gradient-to-b from-[#080808]/60 via-transparent to-[#080808] z-20" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#080808]/40 to-transparent z-10" />
         <SplineScene
           scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
-          className="w-full h-full"
+          className="w-full h-full scale-110"
         />
       </div>
+
     </section>
   );
 }
