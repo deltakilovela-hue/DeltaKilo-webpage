@@ -29,7 +29,7 @@ export function TrustBar() {
       <div className="divider-line" />
 
       {/* Stats row */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-10 sm:py-14">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-10 sm:py-14">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}

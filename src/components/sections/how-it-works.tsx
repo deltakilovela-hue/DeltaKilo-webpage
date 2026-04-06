@@ -29,7 +29,7 @@ export function HowItWorks() {
     <section className="section-padding relative bg-[#080808]">
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
 
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         <div className="text-center mb-16">
           <motion.p
             initial={{ opacity: 0 }}

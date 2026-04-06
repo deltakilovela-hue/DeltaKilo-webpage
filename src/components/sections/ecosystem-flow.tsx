@@ -30,7 +30,7 @@ export function EcosystemFlow() {
         style={{ background: 'radial-gradient(ellipse 70% 50% at 50% 50%, rgba(13,207,207,0.03) 0%, transparent 70%)' }}
       />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         {/* Header */}
         <div className="text-center mb-10 lg:mb-16">
           <motion.p

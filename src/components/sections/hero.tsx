@@ -120,12 +120,12 @@ export function Hero() {
         {/* pointer-events-none en el wrapper para no bloquear el mouse al robot Spline */}
         <motion.div
           style={{ opacity: contentOpacity, y: contentY }}
-          className="absolute inset-0 flex items-center pointer-events-none
-                     px-6 sm:px-10 lg:px-16 xl:px-24
-                     pt-24 pb-0"
+          className="absolute inset-0 flex items-center pointer-events-none pt-24 pb-0"
         >
+          {/* Centrado con max-w igual que el resto de secciones */}
+          <div className="w-full max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           {/* Columna de texto — pointer-events-auto solo en el contenido real */}
-          <div className="pointer-events-auto w-full lg:max-w-[52%] xl:max-w-[48%] space-y-6 sm:space-y-7">
+          <div className="pointer-events-auto w-full lg:max-w-[52%] xl:max-w-[46%] space-y-6 sm:space-y-7">
 
             {/* Línea accent dorada */}
             <div className="w-12 h-px bg-gradient-to-r from-[#D4AF37]/60 to-transparent" />
@@ -187,15 +187,16 @@ export function Hero() {
               </a>
             </div>
           </div>
+          </div>{/* cierre max-w-7xl */}
         </motion.div>
 
-        {/* ── STATS — aparecen como última capa ── */}
+        {/* ── STATS — aparecen como última capa, mismo contenedor centrado ── */}
         <motion.div
           style={{ opacity: statsOpacity, y: statsY }}
-          className="absolute bottom-10 sm:bottom-12 pointer-events-none
-                     left-6 sm:left-10 lg:left-16 xl:left-24
-                     flex items-center divide-x divide-white/10"
+          className="absolute bottom-10 sm:bottom-12 left-0 right-0 pointer-events-none"
         >
+          <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+          <div className="flex items-center divide-x divide-white/10">
           {[
             { num: '6+',   label: 'Soluciones\nintegradas' },
             { num: '100%', label: 'Personalizado\npara ti' },
@@ -210,6 +211,8 @@ export function Hero() {
               </div>
             </div>
           ))}
+          </div>
+          </div>
         </motion.div>
 
         {/* ── Floating badges del robot (desktop, aparecen con contenido) ── */}
