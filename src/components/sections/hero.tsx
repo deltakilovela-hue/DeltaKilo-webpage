@@ -86,13 +86,13 @@ export function Hero() {
           <DeltaShape size={180} opacity={0.025} className="right-[6%] top-[8%]" />
         </motion.div>
 
-        {/* ── ROBOT — full screen, sticky ── */}
+        {/* ── ROBOT — full screen, sticky. pointer-events activos para que Spline capte el mouse ── */}
         <motion.div
           style={{ scale: robotScale, opacity: robotOpacity }}
-          className="absolute inset-0 w-full h-full pointer-events-none"
+          className="absolute inset-0 w-full h-full"
         >
           {/* Glow dorado detrás del robot */}
-          <div className="absolute inset-0"
+          <div className="absolute inset-0 pointer-events-none"
             style={{ background: 'radial-gradient(ellipse 55% 60% at 65% 52%, rgba(212,175,55,0.05) 0%, transparent 70%)' }} />
 
           {/* Bottom fade */}
@@ -117,14 +117,15 @@ export function Hero() {
         </motion.div>
 
         {/* ── CONTENIDO DEL HERO — se revela con el scroll ── */}
+        {/* pointer-events-none en el wrapper para no bloquear el mouse al robot Spline */}
         <motion.div
           style={{ opacity: contentOpacity, y: contentY }}
-          className="absolute inset-0 flex items-center
+          className="absolute inset-0 flex items-center pointer-events-none
                      px-6 sm:px-10 lg:px-16 xl:px-24
                      pt-24 pb-0"
         >
-          {/* Columna de texto — max 50% en desktop, full en mobile */}
-          <div className="w-full lg:max-w-[52%] xl:max-w-[48%] space-y-6 sm:space-y-7">
+          {/* Columna de texto — pointer-events-auto solo en el contenido real */}
+          <div className="pointer-events-auto w-full lg:max-w-[52%] xl:max-w-[48%] space-y-6 sm:space-y-7">
 
             {/* Línea accent dorada */}
             <div className="w-12 h-px bg-gradient-to-r from-[#D4AF37]/60 to-transparent" />
@@ -191,7 +192,7 @@ export function Hero() {
         {/* ── STATS — aparecen como última capa ── */}
         <motion.div
           style={{ opacity: statsOpacity, y: statsY }}
-          className="absolute bottom-10 sm:bottom-12
+          className="absolute bottom-10 sm:bottom-12 pointer-events-none
                      left-6 sm:left-10 lg:left-16 xl:left-24
                      flex items-center divide-x divide-white/10"
         >
@@ -214,7 +215,7 @@ export function Hero() {
         {/* ── Floating badges del robot (desktop, aparecen con contenido) ── */}
         <motion.div
           style={{ opacity: statsOpacity }}
-          className="hidden lg:block absolute bottom-16 right-[46%] z-30"
+          className="hidden lg:block absolute bottom-16 right-[46%] z-30 pointer-events-none"
         >
           <div className="glass-card rounded-xl px-4 py-3 shadow-2xl">
             <div className="flex items-center gap-2.5">
@@ -229,7 +230,7 @@ export function Hero() {
 
         <motion.div
           style={{ opacity: statsOpacity }}
-          className="hidden lg:block absolute top-28 right-10 z-30"
+          className="hidden lg:block absolute top-28 right-10 z-30 pointer-events-none"
         >
           <div className="glass-card rounded-xl px-4 py-3 shadow-2xl">
             <div className="flex items-center gap-2.5">
