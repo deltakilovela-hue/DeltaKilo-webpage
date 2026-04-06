@@ -34,7 +34,7 @@ export function WhyDeltaKilo() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
 
           {/* Left: Statement */}
-          <div>
+          <div className="text-center lg:text-left">
             <motion.p
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}

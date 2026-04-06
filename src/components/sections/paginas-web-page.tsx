@@ -362,19 +362,25 @@ function DemoHeader({
   question, title, sub,
 }: { question: string; title: string; sub?: string }) {
   return (
-    <div className="text-center mb-12 sm:mb-16 space-y-3">
+    <div className="text-center mb-14 sm:mb-20 space-y-4 max-w-2xl mx-auto px-2">
       <motion.p
         initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }} transition={{ duration: 0.5 }}
-        className="text-[#D4AF37] font-semibold text-xs sm:text-sm tracking-[0.15em] uppercase"
+        className="text-[#D4AF37] font-semibold text-[11px] sm:text-xs tracking-[0.2em] uppercase"
       >
         {question}
       </motion.p>
+      {/* Separador dorado */}
+      <motion.div
+        initial={{ scaleX: 0 }} whileInView={{ scaleX: 1 }}
+        viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.05 }}
+        className="w-10 h-px bg-gradient-to-r from-transparent via-[#D4AF37]/60 to-transparent mx-auto origin-center"
+      />
       <motion.h2
         initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.1 }}
-        className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold gradient-text
-                   leading-tight max-w-xl mx-auto px-2"
+        className="text-2xl sm:text-3xl md:text-4xl lg:text-[2.8rem] font-bold gradient-text
+                   leading-tight"
       >
         {title}
       </motion.h2>
@@ -382,7 +388,7 @@ function DemoHeader({
         <motion.p
           initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}
           viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-sm sm:text-base text-white/40 max-w-md mx-auto leading-relaxed px-4"
+          className="text-sm sm:text-base text-white/40 max-w-sm sm:max-w-md mx-auto leading-relaxed"
         >
           {sub}
         </motion.p>
@@ -410,11 +416,11 @@ export function PaginasWebPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
 
             {/* ── Left: Copy ── */}
-            <div className="space-y-6 sm:space-y-8">
+            <div className="space-y-6 sm:space-y-8 text-center lg:text-left">
               <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}>
                 <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full
-                                bg-[#D4AF37]/10 border border-[#D4AF37]/25">
+                                bg-[#D4AF37]/10 border border-[#D4AF37]/25 mx-auto lg:mx-0">
                   <Globe className="w-3.5 h-3.5 text-[#D4AF37] flex-shrink-0" />
                   <span className="text-[10px] sm:text-xs font-semibold text-[#D4AF37]/80 tracking-[0.12em] uppercase">
                     Páginas Web Premium
@@ -438,7 +444,7 @@ export function PaginasWebPage() {
 
               <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }}
                 transition={{ duration: 0.7, delay: 0.25 }}
-                className="text-sm sm:text-base text-white/50 leading-relaxed max-w-md">
+                className="text-sm sm:text-base text-white/50 leading-relaxed max-w-md mx-auto lg:mx-0">
                 Diseñamos sitios web modernos, rápidos y enfocados en convertir visitantes en clientes.
                 No solo presencia —{' '}
                 <span className="text-white/70 font-medium">una herramienta de ventas activa</span>.
@@ -446,7 +452,7 @@ export function PaginasWebPage() {
 
               <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.35 }}
-                className="flex flex-col sm:flex-row gap-3">
+                className="flex flex-col sm:flex-row gap-3 items-center lg:items-start">
                 <a
                   href="https://wa.me/521XXXXXXXXXX?text=Hola,%20quiero%20una%20página%20web%20profesional"
                   target="_blank" rel="noopener noreferrer"
@@ -473,7 +479,7 @@ export function PaginasWebPage() {
               {/* Mini stats */}
               <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}
                 transition={{ delay: 0.5 }}
-                className="flex items-center gap-6 sm:gap-8 pt-6 border-t border-white/[0.07]">
+                className="flex items-center justify-center lg:justify-start gap-6 sm:gap-8 pt-6 border-t border-white/[0.07]">
                 {[
                   { n: 100, s: '%', label: 'Responsive' },
                   { n: 2, s: 's', label: 'Carga' },
@@ -547,7 +553,7 @@ export function PaginasWebPage() {
               viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.1 }}
               className="space-y-4"
             >
-              <p className="text-xs text-white/25 uppercase tracking-widest mb-5">
+              <p className="text-xs text-white/25 uppercase tracking-widest mb-5 text-center lg:text-left">
                 Tarjetas con efecto glow — pasa el cursor
               </p>
               {[
