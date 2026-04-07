@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 export function WhatsAppButton() {
   return (
     <motion.a
-      href="https://wa.me/521XXXXXXXXXX?text=Hola,%20me%20interesa%20conocer%20más%20sobre%20Delta%20Kilo%20Soluciones"
+      href="https://wa.me/5215663864984?text=Hola,%20me%20interesa%20conocer%20más%20sobre%20Delta%20Kilo%20Soluciones"
       target="_blank"
       rel="noopener noreferrer"
       initial={{ scale: 0, opacity: 0 }}

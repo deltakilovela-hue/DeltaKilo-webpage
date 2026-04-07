@@ -54,7 +54,7 @@ export default function ContactoPage() {
 
               <div className="space-y-5 mb-10">
                 <a
-                  href="https://wa.me/521XXXXXXXXXX?text=Hola,%20quiero%20agendar%20una%20llamada%20gratuita%20con%20Delta%20Kilo"
+                  href="https://wa.me/5215663864984?text=Hola,%20quiero%20agendar%20una%20llamada%20gratuita%20con%20Delta%20Kilo"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-start gap-4 p-5 rounded-xl border border-[#1e1e1e] bg-[#0f0f0f] hover:border-[#0dcfcf]/20 transition-all group"

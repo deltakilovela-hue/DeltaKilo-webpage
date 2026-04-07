@@ -1,10 +1,11 @@
 'use client';
 
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import { SplineScene } from '@/components/ui/spline-scene';
 import { ElegantShape } from '@/components/ui/elegant-shape';
-import { ArrowRight, ChevronRight } from 'lucide-react';
+import { VideoModal } from '@/components/ui/video-modal';
+import { ArrowRight, ChevronRight, Play } from 'lucide-react';
 
 /* ── Delta triangle decorativo ── */
 function DeltaShape({ className = '', size = 120, opacity = 0.05 }: {
@@ -34,6 +35,7 @@ function DeltaShape({ className = '', size = 120, opacity = 0.05 }: {
 
 export function Hero() {
   const containerRef = useRef<HTMLDivElement>(null);
+  const [videoOpen, setVideoOpen] = useState(false);
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -64,7 +66,8 @@ export function Hero() {
   const statsY       = useTransform(smooth, [0.42, 0.75], [30, 0]);
 
   return (
-    /* Contenedor scroll — 200vh de altura para el efecto */
+    <>
+    {/* Contenedor scroll — 200vh de altura para el efecto */}
     <div ref={containerRef} style={{ height: '200vh' }}>
       {/* ── Panel sticky que ocupa el viewport ── */}
       <div className="sticky top-0 h-screen overflow-hidden bg-[#080808]">
@@ -160,7 +163,7 @@ export function Hero() {
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4
                             w-full max-w-xs sm:max-w-none sm:w-auto">
               <a
-                href="https://wa.me/521XXXXXXXXXX?text=Hola,%20me%20interesa%20conocer%20más%20sobre%20Delta%20Kilo%20Soluciones"
+                href="https://wa.me/5215663864984?text=Hola,%20me%20interesa%20conocer%20más%20sobre%20Delta%20Kilo%20Soluciones"
                 target="_blank" rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2.5
                            px-6 py-4 text-sm font-semibold group
@@ -174,17 +177,17 @@ export function Hero() {
                 Hablar por WhatsApp
                 <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
               </a>
-              <a href="#como-funciona"
+              <button
+                onClick={() => setVideoOpen(true)}
                 className="btn-secondary inline-flex items-center justify-center gap-2.5
-                           px-6 py-4 text-sm font-medium group">
-                <span className="w-5 h-5 rounded-full border border-[#D4AF37]/40 flex items-center justify-center flex-shrink-0">
-                  <svg className="w-2.5 h-2.5 text-[#D4AF37] ml-0.5" fill="currentColor" viewBox="0 0 8 10">
-                    <path d="M0 0l8 5-8 5V0z" />
-                  </svg>
+                           px-6 py-4 text-sm font-medium group"
+              >
+                <span className="w-5 h-5 rounded-full border border-[#D4AF37]/40 flex items-center justify-center flex-shrink-0 group-hover:bg-[#D4AF37]/10 transition-colors">
+                  <Play size={9} className="text-[#D4AF37] ml-0.5" fill="currentColor" />
                 </span>
                 Ver cómo funciona
                 <ArrowRight size={13} className="opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
-              </a>
+              </button>
             </div>
           </div>
           </div>{/* cierre max-w-7xl */}
@@ -268,5 +271,13 @@ export function Hero() {
 
       </div>
     </div>
+
+    {/* ── Video modal — "Ver cómo funciona" ── */}
+    <VideoModal
+      isOpen={videoOpen}
+      onClose={() => setVideoOpen(false)}
+      src="/images/DeltaKilo soluciones RealEstate.mp4"
+    />
+    </>
   );
 }

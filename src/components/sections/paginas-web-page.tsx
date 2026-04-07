@@ -454,7 +454,7 @@ export function PaginasWebPage() {
                 transition={{ duration: 0.6, delay: 0.35 }}
                 className="flex flex-col sm:flex-row gap-3 items-center lg:items-start">
                 <a
-                  href="https://wa.me/521XXXXXXXXXX?text=Hola,%20quiero%20una%20página%20web%20profesional"
+                  href="https://wa.me/5215663864984?text=Hola,%20quiero%20una%20página%20web%20profesional"
                   target="_blank" rel="noopener noreferrer"
                   className="inline-flex items-center justify-center gap-2.5
                              px-6 py-4 text-sm font-semibold rounded-xl
@@ -857,7 +857,7 @@ export function PaginasWebPage() {
 
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <a
-                href="https://wa.me/521XXXXXXXXXX?text=Hola,%20me%20interesa%20una%20página%20web%20profesional"
+                href="https://wa.me/5215663864984?text=Hola,%20me%20interesa%20una%20página%20web%20profesional"
                 target="_blank" rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2.5 px-7 py-4 text-sm font-semibold
                            bg-[#D4AF37] text-[#0e0e0e] rounded-xl

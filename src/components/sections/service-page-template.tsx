@@ -123,7 +123,7 @@ export function ServicePageTemplate({
             className="flex flex-col sm:flex-row items-center justify-center gap-3"
           >
             <a
-              href="https://wa.me/521XXXXXXXXXX?text=Hola,%20me%20interesa%20conocer%20más%20sobre%20este%20servicio"
+              href="https://wa.me/5215663864984?text=Hola,%20me%20interesa%20conocer%20más%20sobre%20este%20servicio"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-6 py-3.5 bg-[#0dcfcf] text-black font-semibold text-sm rounded-xl hover:bg-[#0bbdbd] transition-all hover:shadow-[0_0_24px_rgba(13,207,207,0.3)] group"

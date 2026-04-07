@@ -179,7 +179,7 @@ export function Navbar() {
           {/* ── Desktop CTA ── */}
           <div className="hidden md:flex items-center gap-3">
             <a
-              href="https://wa.me/521XXXXXXXXXX?text=Hola,%20me%20interesa%20conocer%20más%20sobre%20Delta%20Kilo%20Soluciones"
+              href="https://wa.me/5215663864984?text=Hola,%20me%20interesa%20conocer%20más%20sobre%20Delta%20Kilo%20Soluciones"
               target="_blank" rel="noopener noreferrer"
               className="btn-primary inline-flex items-center gap-2 px-5 py-2.5 text-sm"
             >
@@ -277,7 +277,7 @@ export function Navbar() {
               {/* CTA */}
               <div className="p-4 border-t border-white/5">
                 <a
-                  href="https://wa.me/521XXXXXXXXXX?text=Hola,%20me%20interesa%20conocer%20más%20sobre%20Delta%20Kilo%20Soluciones"
+                  href="https://wa.me/5215663864984?text=Hola,%20me%20interesa%20conocer%20más%20sobre%20Delta%20Kilo%20Soluciones"
                   target="_blank" rel="noopener noreferrer"
                   className="btn-primary flex items-center justify-center gap-2 w-full py-3.5 text-sm"
                 >
