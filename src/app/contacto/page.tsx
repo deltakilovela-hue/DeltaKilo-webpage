@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { MessageCircle, Mail, Clock } from "lucide-react";
-import { ContactForm } from "@/components/sections/contact-form";
+import { GHLForm } from "@/components/sections/ghl-form";
 
 export const metadata: Metadata = {
   title: "Contacto",
@@ -54,7 +54,7 @@ export default function ContactoPage() {
 
               <div className="space-y-5 mb-10">
                 <a
-                  href="https://wa.me/5215663864984?text=Hola,%20quiero%20agendar%20una%20llamada%20gratuita%20con%20Delta%20Kilo"
+                  href="https://wa.me/5215663864984?text=Hola,%20quiero%20agendar%20una%20llamada%20gratuita%20💊%20con%20Delta%20Kilo"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-start gap-4 p-5 rounded-xl border border-[#1e1e1e] bg-[#0f0f0f] hover:border-[#0dcfcf]/20 transition-all group"
@@ -114,8 +114,8 @@ export default function ContactoPage() {
               </div>
             </div>
 
-            {/* Right: Form */}
-            <ContactForm />
+            {/* Right: GHL Form */}
+            <GHLForm />
           </div>
         </div>
       </section>

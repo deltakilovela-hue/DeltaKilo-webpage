@@ -18,7 +18,7 @@ export function CTASection({
   headline = 'Convierte tu proceso de ventas en un sistema que escala.',
   subtext = 'Agenda una llamada gratuita de 30 minutos. Te mostramos exactamente qué necesitas y cómo lo implementamos sin burocracia.',
   primaryLabel = 'Hablar por WhatsApp',
-  primaryHref = 'https://wa.me/5215663864984?text=Hola,%20quiero%20agendar%20una%20llamada%20gratuita',
+  primaryHref = 'https://wa.me/5215663864984?text=Hola,%20quiero%20agendar%20una%20llamada%20gratuita%20💊',
   secondaryLabel = 'Ver servicios',
   secondaryHref = '/servicios',
 }: CTASectionProps) {

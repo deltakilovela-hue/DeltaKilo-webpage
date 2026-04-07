@@ -163,7 +163,7 @@ export function Hero() {
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4
                             w-full max-w-xs sm:max-w-none sm:w-auto">
               <a
-                href="https://wa.me/5215663864984?text=Hola,%20me%20interesa%20conocer%20más%20sobre%20Delta%20Kilo%20Soluciones"
+                href="https://wa.me/5215663864984?text=Hola,%20me%20interesa%20conocer%20más%20sobre%20Delta%20Kilo%20Soluciones%20💊"
                 target="_blank" rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2.5
                            px-6 py-4 text-sm font-semibold group
