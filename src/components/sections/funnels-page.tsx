@@ -253,6 +253,24 @@ export function FunnelsPage() {
         </div>
       </section>
 
+      {/* ── VISUAL PREVIEW NB2 ── */}
+      <section className="pb-16 bg-[#080808]">
+        <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
+          <div className="relative rounded-2xl overflow-hidden border border-[#0dcfcf]/12 shadow-[0_0_80px_rgba(13,207,207,0.04)]">
+            <div className="absolute top-4 left-4 z-20 flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/60 backdrop-blur-md border border-white/10">
+              <div className="w-1.5 h-1.5 rounded-full bg-[#0dcfcf] animate-pulse" />
+              <span className="text-[10px] uppercase tracking-widest text-white/50 font-medium">Vista previa</span>
+            </div>
+            <img
+              src="/images/nb2/funnels.png"
+              alt="Vista previa Funnels Automáticos"
+              className="w-full h-auto object-cover"
+            />
+            <div className="absolute bottom-0 inset-x-0 h-28 bg-gradient-to-t from-[#080808] via-[#080808]/60 to-transparent pointer-events-none" />
+          </div>
+        </div>
+      </section>
+
       {/* ── EL PROBLEMA EN PALABRAS SIMPLES ── */}
       <section className="py-20 sm:py-28 bg-[#080808] border-t border-white/[0.05]">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">

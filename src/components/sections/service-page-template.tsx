@@ -32,6 +32,8 @@ interface ServicePageProps {
   subtitle: string;
   description: string;
   icon: IconName;
+  previewImageSrc?: string;
+  previewImageAlt?: string;
   problem: {
     title: string;
     description: string;
@@ -55,6 +57,8 @@ export function ServicePageTemplate({
   subtitle,
   description,
   icon: iconName,
+  previewImageSrc,
+  previewImageAlt,
   problem,
   solution,
   features,
@@ -139,6 +143,56 @@ export function ServicePageTemplate({
               Solicitar información
             </Link>
           </motion.div>
+        </div>
+      </section>
+
+      {/* Visual Preview */}
+      <section className="pb-16 bg-[#080808]">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6">
+          <div className="relative rounded-2xl overflow-hidden border border-[#0dcfcf]/12 shadow-[0_0_80px_rgba(13,207,207,0.04)]">
+            {/* Top label */}
+            <div className="absolute top-4 left-4 z-20 flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/60 backdrop-blur-md border border-white/10">
+              <div className="w-1.5 h-1.5 rounded-full bg-[#0dcfcf] animate-pulse" />
+              <span className="text-[10px] uppercase tracking-widest text-white/50 font-medium">Vista previa</span>
+            </div>
+
+            {previewImageSrc ? (
+              <>
+                <img
+                  src={previewImageSrc}
+                  alt={previewImageAlt ?? `Vista previa de ${title}`}
+                  className="w-full h-auto object-cover"
+                />
+                <div className="absolute bottom-0 inset-x-0 h-28 bg-gradient-to-t from-[#080808] via-[#080808]/60 to-transparent pointer-events-none" />
+              </>
+            ) : (
+              /* Placeholder until NB2 image is generated */
+              <div className="relative h-64 md:h-80 bg-[#0a0a0a] flex items-center justify-center overflow-hidden">
+                <div
+                  className="absolute inset-0 opacity-[0.04]"
+                  style={{
+                    backgroundImage:
+                      "linear-gradient(#ffffff 1px, transparent 1px), linear-gradient(90deg, #ffffff 1px, transparent 1px)",
+                    backgroundSize: "48px 48px",
+                  }}
+                />
+                <div
+                  className="absolute inset-0"
+                  style={{
+                    background:
+                      "radial-gradient(ellipse 60% 50% at 50% 50%, rgba(13,207,207,0.05), transparent 70%)",
+                  }}
+                />
+                <div className="relative z-10 text-center">
+                  <Icon size={40} className="text-[#0dcfcf]/20 mx-auto mb-3" />
+                  <p className="text-xs text-white/20 uppercase tracking-widest">
+                    Imagen NB2 — próximamente
+                  </p>
+                </div>
+                <div className="absolute bottom-0 inset-x-0 h-16 bg-gradient-to-t from-[#080808] to-transparent" />
+              </div>
+            )}
+          </div>
         </div>
       </section>
 

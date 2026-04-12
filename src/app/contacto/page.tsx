@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { MessageCircle, Mail, Clock } from "lucide-react";
+import { MessageCircle, Mail, Clock, TrendingUp, Users, Zap } from "lucide-react";
 import { GHLForm } from "@/components/sections/ghl-form";
 
 export const metadata: Metadata = {
@@ -38,6 +38,57 @@ export default function ContactoPage() {
           <p className="text-white/45 text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
             Agenda una llamada gratuita. En 30 minutos analizamos tu situación y te mostramos qué sistema necesitas y cómo lo implementamos.
           </p>
+        </div>
+      </section>
+
+      {/* Visual Stats Banner */}
+      <section className="pb-0 bg-[#080808]">
+        <div className="max-w-5xl mx-auto px-6">
+          <div className="relative rounded-2xl overflow-hidden border border-[#0dcfcf]/10 bg-[#0a0a0a]">
+            {/* Grid background */}
+            <div
+              className="absolute inset-0 opacity-[0.04]"
+              style={{
+                backgroundImage:
+                  "linear-gradient(#ffffff 1px, transparent 1px), linear-gradient(90deg, #ffffff 1px, transparent 1px)",
+                backgroundSize: "40px 40px",
+              }}
+            />
+            <div
+              className="absolute inset-0 pointer-events-none"
+              style={{
+                background:
+                  "radial-gradient(ellipse 70% 80% at 50% 0%, rgba(13,207,207,0.05), transparent 70%)",
+              }}
+            />
+
+            {/* NB2 image slot */}
+            <img
+              src="/images/nb2/contacto-preview.png"
+              alt="Delta Kilo — consultoría"
+              className="w-full h-auto object-cover relative z-10"
+              onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
+            />
+
+            {/* Stats overlay */}
+            <div className="relative z-20 grid grid-cols-3 divide-x divide-white/5 border-t border-white/5">
+              {[
+                { icon: TrendingUp, value: "+340%", label: "Leads calificados" },
+                { icon: Users, value: "100+", label: "Negocios implementados" },
+                { icon: Zap, value: "30 min", label: "Sesión gratuita" },
+              ].map(({ icon: Icon, value, label }) => (
+                <div key={label} className="flex items-center gap-3 px-6 py-5">
+                  <div className="w-9 h-9 rounded-xl bg-[#0dcfcf]/10 flex items-center justify-center flex-shrink-0">
+                    <Icon size={16} className="text-[#0dcfcf]" />
+                  </div>
+                  <div>
+                    <p className="text-lg font-bold text-white leading-none">{value}</p>
+                    <p className="text-xs text-white/40 mt-0.5">{label}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 

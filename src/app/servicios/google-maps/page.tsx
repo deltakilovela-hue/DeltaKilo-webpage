@@ -10,6 +10,7 @@ export const metadata: Metadata = {
 
 const data = {
   eyebrow: "Presencia local",
+  previewImageSrc: "/images/nb2/google-maps.png",
   title: "Google Maps y Local SEO",
   subtitle: "Que te encuentren cuando más importa.",
   description:
