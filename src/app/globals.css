@@ -118,13 +118,13 @@ body {
 
 /* ─── SECTION PADDING ────────────────────────── */
 .section-padding {
-  padding-top: 96px;
-  padding-bottom: 96px;
+  padding-top: 72px;
+  padding-bottom: 72px;
 }
 @media (max-width: 768px) {
   .section-padding {
-    padding-top: 64px;
-    padding-bottom: 64px;
+    padding-top: 48px;
+    padding-bottom: 48px;
   }
 }
 

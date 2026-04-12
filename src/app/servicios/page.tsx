@@ -98,7 +98,7 @@ export default function ServiciosPage() {
               "radial-gradient(ellipse 60% 50% at 50% 0%, rgba(13,207,207,0.07) 0%, transparent 70%)",
           }}
         />
-        <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 text-center relative z-10">
           <p className="text-xs uppercase tracking-widest text-[#0dcfcf] font-semibold mb-4">
             El ecosistema Delta Kilo
           </p>
@@ -115,7 +115,7 @@ export default function ServiciosPage() {
 
       {/* Services Grid */}
       <section className="section-padding bg-[#080808] border-t border-white/5">
-        <div className="max-w-6xl mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             {services.map((service) => {
               const Icon = service.icon;
@@ -190,7 +190,7 @@ export default function ServiciosPage() {
 
       {/* Ecosystem note */}
       <section className="py-20 bg-[#080808] border-t border-white/5">
-        <div className="max-w-4xl mx-auto px-6 text-center">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 text-center">
           <p className="text-xs uppercase tracking-widest text-[#0dcfcf] font-semibold mb-4">
             La lógica del sistema
           </p>

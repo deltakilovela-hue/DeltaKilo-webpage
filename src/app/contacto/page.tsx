@@ -28,7 +28,7 @@ export default function ContactoPage() {
               "radial-gradient(ellipse 60% 50% at 50% 0%, rgba(13,207,207,0.07) 0%, transparent 70%)",
           }}
         />
-        <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
+        <div className="max-w-6xl mx-auto px-6 text-center relative z-10">
           <p className="text-xs uppercase tracking-widest text-[#0dcfcf] font-semibold mb-4">
             Hablemos
           </p>
@@ -43,7 +43,7 @@ export default function ContactoPage() {
 
       {/* Visual Stats Banner */}
       <section className="pb-0 bg-[#080808]">
-        <div className="max-w-5xl mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           <div className="relative rounded-2xl overflow-hidden border border-[#0dcfcf]/10 bg-[#0a0a0a]">
             {/* Grid background */}
             <div
@@ -93,7 +93,7 @@ export default function ContactoPage() {
 
       {/* Contact Section */}
       <section className="section-padding bg-[#080808] border-t border-white/5">
-        <div className="max-w-5xl mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
 
             {/* Left: Info */}
