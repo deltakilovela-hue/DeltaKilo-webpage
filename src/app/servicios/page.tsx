@@ -150,7 +150,6 @@ export default function ServiciosPage() {
                       src={service.imageSrc}
                       alt={service.title}
                       className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-80 transition-opacity duration-500"
-                      onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
                     />
                     {/* Large icon watermark */}
                     <div className="absolute inset-0 flex items-center justify-center">

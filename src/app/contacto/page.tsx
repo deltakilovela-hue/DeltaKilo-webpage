@@ -67,7 +67,6 @@ export default function ContactoPage() {
               src="/images/nb2/contacto-preview.png"
               alt="Delta Kilo — consultoría"
               className="w-full h-auto object-cover relative z-10"
-              onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
             />
 
             {/* Stats overlay */}
