@@ -10,6 +10,7 @@ export const metadata: Metadata = {
 
 const data = {
   eyebrow: "Comunicación centralizada",
+  previewImageSrc: "/images/nb2/gestion-llamadas.png",
   title: "Gestión de Llamadas",
   subtitle: "Cero leads perdidos por falta de respuesta.",
   description:

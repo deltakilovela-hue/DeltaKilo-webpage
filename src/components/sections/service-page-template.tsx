@@ -32,6 +32,8 @@ interface ServicePageProps {
   subtitle: string;
   description: string;
   icon: IconName;
+  previewImageSrc?: string;
+  previewImageAlt?: string;
   problem: {
     title: string;
     description: string;
@@ -55,6 +57,8 @@ export function ServicePageTemplate({
   subtitle,
   description,
   icon: iconName,
+  previewImageSrc,
+  previewImageAlt,
   problem,
   solution,
   features,
@@ -81,7 +85,7 @@ export function ServicePageTemplate({
           style={{ background: 'radial-gradient(ellipse 60% 50% at 50% 0%, rgba(13,207,207,0.07) 0%, transparent 70%)' }}
         />
 
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 text-center relative z-10">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 text-center relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
@@ -95,7 +99,7 @@ export function ServicePageTemplate({
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-4xl md:text-5xl lg:text-6xl font-bold gradient-text mb-4 leading-tight"
+            className="text-4xl md:text-6xl lg:text-7xl font-bold gradient-text mb-4 leading-tight"
           >
             {title}
           </motion.h1>
@@ -142,13 +146,63 @@ export function ServicePageTemplate({
         </div>
       </section>
 
+      {/* Visual Preview */}
+      <section className="pb-16 bg-[#080808]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12">
+          <div className="relative rounded-2xl overflow-hidden border border-[#0dcfcf]/12 shadow-[0_0_80px_rgba(13,207,207,0.04)]">
+            {/* Top label */}
+            <div className="absolute top-4 left-4 z-20 flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/60 backdrop-blur-md border border-white/10">
+              <div className="w-1.5 h-1.5 rounded-full bg-[#0dcfcf] animate-pulse" />
+              <span className="text-[10px] uppercase tracking-widest text-white/50 font-medium">Vista previa</span>
+            </div>
+
+            {previewImageSrc ? (
+              <>
+                <img
+                  src={previewImageSrc}
+                  alt={previewImageAlt ?? `Vista previa de ${title}`}
+                  className="w-full h-auto object-cover"
+                />
+                <div className="absolute bottom-0 inset-x-0 h-28 bg-gradient-to-t from-[#080808] via-[#080808]/60 to-transparent pointer-events-none" />
+              </>
+            ) : (
+              /* Placeholder until NB2 image is generated */
+              <div className="relative h-64 md:h-80 bg-[#0a0a0a] flex items-center justify-center overflow-hidden">
+                <div
+                  className="absolute inset-0 opacity-[0.04]"
+                  style={{
+                    backgroundImage:
+                      "linear-gradient(#ffffff 1px, transparent 1px), linear-gradient(90deg, #ffffff 1px, transparent 1px)",
+                    backgroundSize: "48px 48px",
+                  }}
+                />
+                <div
+                  className="absolute inset-0"
+                  style={{
+                    background:
+                      "radial-gradient(ellipse 60% 50% at 50% 50%, rgba(13,207,207,0.05), transparent 70%)",
+                  }}
+                />
+                <div className="relative z-10 text-center">
+                  <Icon size={40} className="text-[#0dcfcf]/20 mx-auto mb-3" />
+                  <p className="text-xs text-white/20 uppercase tracking-widest">
+                    Imagen NB2 — próximamente
+                  </p>
+                </div>
+                <div className="absolute bottom-0 inset-x-0 h-16 bg-gradient-to-t from-[#080808] to-transparent" />
+              </div>
+            )}
+          </div>
+        </div>
+      </section>
+
       {/* Problem */}
       <section className="section-padding bg-[#080808] border-t border-white/5">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6">
+        <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
             <div>
               <p className="text-xs uppercase tracking-widest text-[#0dcfcf] font-semibold mb-4">El problema</p>
-              <h2 className="text-2xl md:text-3xl font-bold gradient-text mb-4 leading-tight">{problem.title}</h2>
+              <h2 className="text-2xl md:text-4xl font-bold gradient-text mb-4 leading-tight">{problem.title}</h2>
               <p className="text-white/45 text-sm leading-relaxed">{problem.description}</p>
             </div>
             <div className="space-y-3">
@@ -174,11 +228,11 @@ export function ServicePageTemplate({
 
       {/* Solution */}
       <section className="section-padding bg-[#080808] border-t border-white/5">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6">
+        <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12">
           <div className="relative rounded-2xl border border-[#0dcfcf]/15 bg-[#0f0f0f] p-8 md:p-12 overflow-hidden">
             <div className="absolute -top-24 -right-24 w-64 h-64 bg-[#0dcfcf]/4 rounded-full blur-3xl pointer-events-none" />
             <p className="text-xs uppercase tracking-widest text-[#0dcfcf] font-semibold mb-4">La solución</p>
-            <h2 className="text-2xl md:text-3xl font-bold gradient-text mb-4 leading-tight max-w-2xl">{solution.title}</h2>
+            <h2 className="text-2xl md:text-4xl font-bold gradient-text mb-4 leading-tight max-w-2xl">{solution.title}</h2>
             <p className="text-white/50 text-base leading-relaxed max-w-2xl">{solution.description}</p>
           </div>
         </div>
@@ -186,9 +240,9 @@ export function ServicePageTemplate({
 
       {/* Features */}
       <section className="section-padding bg-[#080808] border-t border-white/5">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6">
+        <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12">
           <p className="text-xs uppercase tracking-widest text-[#0dcfcf] font-semibold mb-3">Qué incluye</p>
-          <h2 className="text-2xl md:text-3xl font-bold gradient-text mb-10">Todo lo que necesitas, nada más.</h2>
+          <h2 className="text-2xl md:text-4xl font-bold gradient-text mb-10">Todo lo que necesitas, nada más.</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {features.map((f, i) => (
               <motion.div
@@ -218,9 +272,9 @@ export function ServicePageTemplate({
 
       {/* How it works */}
       <section className="section-padding bg-[#080808] border-t border-white/5">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6">
+        <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12">
           <p className="text-xs uppercase tracking-widest text-[#0dcfcf] font-semibold mb-3">Cómo funciona</p>
-          <h2 className="text-2xl md:text-3xl font-bold gradient-text mb-10">El proceso paso a paso.</h2>
+          <h2 className="text-2xl md:text-4xl font-bold gradient-text mb-10">El proceso paso a paso.</h2>
           <div className="space-y-4">
             {howItWorks.map((step, i) => (
               <motion.div
@@ -244,7 +298,7 @@ export function ServicePageTemplate({
 
       {/* Benefits + Use Cases */}
       <section className="section-padding bg-[#080808] border-t border-white/5">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6">
+        <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             <div>
               <p className="text-xs uppercase tracking-widest text-[#0dcfcf] font-semibold mb-4">Beneficios</p>
@@ -278,7 +332,7 @@ export function ServicePageTemplate({
 
       {/* Related Services */}
       <section className="section-padding bg-[#080808] border-t border-white/5">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6">
+        <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12">
           <p className="text-xs uppercase tracking-widest text-[#0dcfcf] font-semibold mb-3">Parte del ecosistema</p>
           <h2 className="text-xl font-bold gradient-text mb-8">Este servicio se conecta con:</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -301,7 +355,7 @@ export function ServicePageTemplate({
 
       {/* FAQ */}
       <section className="section-padding bg-[#080808] border-t border-white/5">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6">
+        <div className="max-w-5xl mx-auto px-4 sm:px-8">
           <p className="text-xs uppercase tracking-widest text-[#0dcfcf] font-semibold mb-3 text-center">FAQ</p>
           <h2 className="text-2xl font-bold gradient-text mb-10 text-center">Preguntas frecuentes</h2>
           <div className="space-y-4">

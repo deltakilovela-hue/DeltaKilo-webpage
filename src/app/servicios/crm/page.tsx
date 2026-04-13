@@ -10,6 +10,7 @@ export const metadata: Metadata = {
 
 const data = {
   eyebrow: "Gestión comercial",
+  previewImageSrc: "/images/nb2/crm.png",
   title: "CRM para tu Equipo",
   subtitle: "Nunca más pierdas un prospecto por desorganización.",
   description:
