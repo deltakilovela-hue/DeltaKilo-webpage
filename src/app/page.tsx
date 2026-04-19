@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import { Hero } from "@/components/sections/hero";
+import { TimelineSection } from "@/components/sections/timeline-section";
 import { TrustBar } from "@/components/sections/trust-bar";
 import { ProblemSection } from "@/components/sections/problem-section";
 import { ServicesHub } from "@/components/sections/services-hub";
@@ -18,6 +19,7 @@ export default function HomePage() {
   return (
     <>
       <Hero />
+      <TimelineSection />
       <TrustBar />
       <ProblemSection />
       <ServicesHub />

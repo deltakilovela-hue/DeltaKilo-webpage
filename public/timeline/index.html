@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Delta Kilo — Historia</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body, #root { width: 100%; height: 100%; overflow: hidden; background: #0A0E12; }
+    body { font-family: 'Inter', system-ui, sans-serif; }
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/react@18.3.1/umd/react.production.min.js" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script type="text/babel" src="animations.jsx"></script>
+  <script type="text/babel" src="scenes-ui.jsx"></script>
+  <script type="text/babel" src="scenes-1-3.jsx"></script>
+  <script type="text/babel" src="scenes-4-6.jsx"></script>
+  <script type="text/babel" src="scenes-7-10.jsx"></script>
+
+  <script type="text/babel">
+    const SCENES = [
+      { start: 0,    end: 5.2,  Comp: Scene1Origin },
+      { start: 5.2,  end: 10.8, Comp: Scene2Discovery },
+      { start: 10.8, end: 16.4, Comp: Scene3First },
+      { start: 16.4, end: 22.2, Comp: Scene4Clients },
+      { start: 22.2, end: 28.2, Comp: Scene5Learning },
+      { start: 28.2, end: 34.0, Comp: Scene6Evolution },
+      { start: 34.0, end: 39.8, Comp: Scene7Strategic },
+      { start: 39.8, end: 45.2, Comp: Scene8Present },
+      { start: 45.2, end: 50.4, Comp: Scene9Future },
+      { start: 50.4, end: 56.0, Comp: Scene10Logo },
+    ];
+    const DURATION = 56.0;
+
+    function SceneFader({ start, end, Comp, fade = 0.4 }) {
+      const { time } = useTimeline();
+      if (time < start - fade || time > end + fade) return null;
+      let op = 1;
+      if (time < start) op = (time - (start - fade)) / fade;
+      else if (time > end) op = 1 - (time - end) / fade;
+      op = Math.max(0, Math.min(1, op));
+      return (
+        <Sprite start={start} end={end} keepMounted={true}>
+          <div style={{ position: 'absolute', inset: 0, opacity: op }}>
+            <Comp />
+          </div>
+        </Sprite>
+      );
+    }
+
+    function Video() {
+      return (
+        <div style={{ position: 'absolute', inset: 0 }}>
+          {SCENES.map((s, i) => <SceneFader key={i} {...s} />)}
+          <div style={{
+            position: 'absolute', inset: 0, pointerEvents: 'none',
+            background: 'url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'120\' height=\'120\'><filter id=\'n\'><feTurbulence type=\'fractalNoise\' baseFrequency=\'0.9\' numOctaves=\'2\'/></filter><rect width=\'120\' height=\'120\' filter=\'url(%23n)\' opacity=\'0.35\'/></svg>")',
+            opacity: 0.04,
+            mixBlendMode: 'overlay',
+          }} />
+        </div>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById('root')).render(
+      <Stage width={1920} height={1080} duration={DURATION}
+             background="#0A0E12" persistKey="dk-timeline" loop={true}>
+        <Video />
+      </Stage>
+    );
+  </script>
+</body>
+</html>
