@@ -412,7 +412,8 @@ export function PaginasWebPage() {
           style={{ background: 'radial-gradient(ellipse 70% 50% at 50% 0%, rgba(212,175,55,0.10) 0%, transparent 65%)' }} />
 
         <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-8 lg:px-12
-                        pt-28 pb-16 sm:pt-32 sm:pb-20 lg:pt-36 lg:pb-28">
+                        pb-16 sm:pb-20 lg:pb-28"
+             style={{ paddingTop: '9rem' }}>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
 
             {/* ── Left: Copy ── */}
