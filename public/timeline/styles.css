@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background: #000;
+  overflow: hidden;
+  font-family: 'Inter', system-ui, sans-serif;
+}
+#root { width: 100%; height: 100%; }
+
+/* Utility */
+.mono { font-family: 'JetBrains Mono', ui-monospace, monospace; }
+
+@keyframes dk-scanline {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+@keyframes dk-pulse {
+  0%, 100% { opacity: 0.35; }
+  50% { opacity: 1; }
+}
+@keyframes dk-dash {
+  to { stroke-dashoffset: -40; }
+}
