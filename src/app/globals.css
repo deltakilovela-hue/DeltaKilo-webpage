@@ -277,3 +277,40 @@ body {
   outline-offset: 3px;
   border-radius: 4px;
 }
+
+/* ─── DATA GRID HERO ─────────────────────────── */
+.data-grid-hero {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+.grid-container {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  pointer-events: none;
+}
+.grid-container::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    circle 280px at var(--mouse-x, -9999px) var(--mouse-y, -9999px),
+    rgba(13, 207, 207, calc(0.18 * var(--mouse-glow-opacity, 0))),
+    transparent 70%
+  );
+  z-index: 2;
+}
+.grid-cell {
+  border-radius: 2px;
+}
+.hero-content {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+}
+@keyframes cell-pulse {
+  from { opacity: var(--opacity-min, 0.05); }
+  to   { opacity: var(--opacity-max, 0.4); }
+}
