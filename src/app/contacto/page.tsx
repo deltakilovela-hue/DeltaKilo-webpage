@@ -1,12 +1,10 @@
 import type { Metadata } from "next";
-import { MessageCircle, Mail, Clock, TrendingUp, Users, Zap, Mic } from "lucide-react";
-import Image from "next/image";
-import Script from "next/script";
+import { MessageCircle, Mail, Clock, TrendingUp, Users, Zap } from "lucide-react";
 import { GHLForm } from "@/components/sections/ghl-form";
 import { ContactHero } from "@/components/ui/animated-hero-section";
 import { ContainerScroll } from "@/components/ui/container-scroll-animation";
+import { VoiceWidgetInline } from "@/components/ui/voice-widget-inline";
 import DataGridHero from "@/components/ui/data-grid-hero";
-import { VoiceChatButton } from "@/components/ui/voice-chat-button";
 
 export const metadata: Metadata = {
   title: "Contacto",
@@ -20,79 +18,32 @@ export default function ContactoPage() {
       {/* ── 1. PONG HERO ─────────────────────────── */}
       <ContactHero />
 
-      {/* ── 2. CONTAINER SCROLL ──────────────────── */}
+      {/* ── 2. VOICE AGENT — ContainerScroll ─────── */}
       <section className="bg-[#080808] overflow-hidden">
         <ContainerScroll
           titleComponent={
             <div className="mb-6">
               <p className="text-xs uppercase tracking-widest text-[#0dcfcf] font-semibold mb-4">
-                Sin rodeos
+                Agente de voz IA
               </p>
               <h2 className="text-4xl md:text-5xl font-bold gradient-text leading-tight mb-4">
-                Todo inicia con una
+                ¿Prefieres hablar
                 <br />
                 <span className="gradient-text-cyan text-5xl md:text-7xl font-bold leading-none">
-                  llamada de 30 min
+                  con un agente?
                 </span>
               </h2>
               <p className="text-white/45 text-base md:text-lg max-w-xl mx-auto leading-relaxed">
-                Sin compromisos. Analizamos tu negocio y te mostramos exactamente qué sistema necesitas.
+                Resuelve tus dudas en tiempo real, 24/7. Sin esperas, sin formularios.
               </p>
             </div>
           }
         >
-          <Image
-            src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=1400&q=80"
-            alt="Equipo Delta Kilo — sesión de consultoría"
-            height={720}
-            width={1400}
-            className="mx-auto object-cover h-full w-full object-center rounded-2xl"
-            draggable={false}
-          />
+          <VoiceWidgetInline />
         </ContainerScroll>
       </section>
 
-      {/* ── 3. VOICE AGENT CTA ───────────────────── */}
-      <section className="bg-[#080808] py-20">
-        <div className="max-w-2xl mx-auto px-6 text-center">
-          <div className="relative rounded-2xl border border-[#0dcfcf]/15 bg-[#0a0a0a] p-10 overflow-hidden">
-            {/* Glow background */}
-            <div
-              className="absolute inset-0 pointer-events-none"
-              style={{
-                background:
-                  "radial-gradient(ellipse 70% 60% at 50% 0%, rgba(13,207,207,0.07) 0%, transparent 70%)",
-              }}
-            />
-            {/* Mic icon */}
-            <div className="relative z-10 w-14 h-14 rounded-full bg-[#0dcfcf]/10 border border-[#0dcfcf]/20 flex items-center justify-center mx-auto mb-6 glow-pulse">
-              <Mic size={22} className="text-[#0dcfcf]" />
-            </div>
-            <p className="relative z-10 text-xs uppercase tracking-widest text-[#0dcfcf] font-semibold mb-3">
-              Agente de voz IA
-            </p>
-            <h3 className="relative z-10 text-2xl md:text-3xl font-bold gradient-text mb-3 leading-snug">
-              ¿Prefieres hablar?
-            </h3>
-            <p className="relative z-10 text-white/45 text-sm md:text-base max-w-sm mx-auto leading-relaxed mb-8">
-              Nuestro agente de voz resuelve tus dudas en tiempo real, 24/7. Sin esperas, sin formularios.
-            </p>
-            <div className="relative z-10">
-              <VoiceChatButton />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── Chat widget — agente de voz Delta Kilo ── */}
-      <Script
-        src="https://widgets.leadconnectorhq.com/loader.js"
-        data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js"
-        data-widget-id="6a00deff01f21c429efb8509"
-        strategy="afterInteractive"
-      />
-
-      {/* ── 4. STATS BANNER ──────────────────────── */}
+      {/* ── 3. STATS BANNER ──────────────────────── */}
       <section className="pb-0 bg-[#080808]">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           <div className="relative rounded-2xl overflow-hidden border border-[#0dcfcf]/10 bg-[#0a0a0a]">
