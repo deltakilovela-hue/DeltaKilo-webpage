@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { MessageCircle, Mail, Clock, TrendingUp, Users, Zap } from "lucide-react";
 import Image from "next/image";
+import Script from "next/script";
 import { GHLForm } from "@/components/sections/ghl-form";
 import { ContactHero } from "@/components/ui/animated-hero-section";
 import { ContainerScroll } from "@/components/ui/container-scroll-animation";
@@ -49,6 +50,14 @@ export default function ContactoPage() {
           />
         </ContainerScroll>
       </section>
+
+      {/* ── Chat widget — agente de voz Delta Kilo ── */}
+      <Script
+        src="https://widgets.leadconnectorhq.com/loader.js"
+        data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js"
+        data-widget-id="6a00deff01f21c429efb8509"
+        strategy="afterInteractive"
+      />
 
       {/* ── 3. STATS BANNER ──────────────────────── */}
       <section className="pb-0 bg-[#080808]">
