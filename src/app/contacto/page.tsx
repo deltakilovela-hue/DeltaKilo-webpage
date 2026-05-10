@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
-import { MessageCircle, Mail, Clock, TrendingUp, Users, Zap } from "lucide-react";
+import { MessageCircle, Mail, Clock, TrendingUp, Users, Zap, Mic } from "lucide-react";
 import Image from "next/image";
 import Script from "next/script";
 import { GHLForm } from "@/components/sections/ghl-form";
 import { ContactHero } from "@/components/ui/animated-hero-section";
 import { ContainerScroll } from "@/components/ui/container-scroll-animation";
 import DataGridHero from "@/components/ui/data-grid-hero";
+import { VoiceChatButton } from "@/components/ui/voice-chat-button";
 
 export const metadata: Metadata = {
   title: "Contacto",
@@ -51,6 +52,38 @@ export default function ContactoPage() {
         </ContainerScroll>
       </section>
 
+      {/* ── 3. VOICE AGENT CTA ───────────────────── */}
+      <section className="bg-[#080808] py-20">
+        <div className="max-w-2xl mx-auto px-6 text-center">
+          <div className="relative rounded-2xl border border-[#0dcfcf]/15 bg-[#0a0a0a] p-10 overflow-hidden">
+            {/* Glow background */}
+            <div
+              className="absolute inset-0 pointer-events-none"
+              style={{
+                background:
+                  "radial-gradient(ellipse 70% 60% at 50% 0%, rgba(13,207,207,0.07) 0%, transparent 70%)",
+              }}
+            />
+            {/* Mic icon */}
+            <div className="relative z-10 w-14 h-14 rounded-full bg-[#0dcfcf]/10 border border-[#0dcfcf]/20 flex items-center justify-center mx-auto mb-6 glow-pulse">
+              <Mic size={22} className="text-[#0dcfcf]" />
+            </div>
+            <p className="relative z-10 text-xs uppercase tracking-widest text-[#0dcfcf] font-semibold mb-3">
+              Agente de voz IA
+            </p>
+            <h3 className="relative z-10 text-2xl md:text-3xl font-bold gradient-text mb-3 leading-snug">
+              ¿Prefieres hablar?
+            </h3>
+            <p className="relative z-10 text-white/45 text-sm md:text-base max-w-sm mx-auto leading-relaxed mb-8">
+              Nuestro agente de voz resuelve tus dudas en tiempo real, 24/7. Sin esperas, sin formularios.
+            </p>
+            <div className="relative z-10">
+              <VoiceChatButton />
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ── Chat widget — agente de voz Delta Kilo ── */}
       <Script
         src="https://widgets.leadconnectorhq.com/loader.js"
@@ -59,7 +92,7 @@ export default function ContactoPage() {
         strategy="afterInteractive"
       />
 
-      {/* ── 3. STATS BANNER ──────────────────────── */}
+      {/* ── 4. STATS BANNER ──────────────────────── */}
       <section className="pb-0 bg-[#080808]">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           <div className="relative rounded-2xl overflow-hidden border border-[#0dcfcf]/10 bg-[#0a0a0a]">
