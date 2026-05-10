@@ -116,6 +116,20 @@ const PIXEL_MAP = {
     [1, 0, 0, 0],
     [1, 1, 1, 1],
   ],
+  K: [
+    [1, 0, 0, 1],
+    [1, 0, 1, 0],
+    [1, 1, 0, 0],
+    [1, 0, 1, 0],
+    [1, 0, 0, 1],
+  ],
+  C: [
+    [1, 1, 1, 1],
+    [1, 0, 0, 0],
+    [1, 0, 0, 0],
+    [1, 0, 0, 0],
+    [1, 1, 1, 1],
+  ],
 }
 
 interface Pixel {
@@ -171,7 +185,7 @@ export function ContactHero() {
       const BALL_SPEED = 6 * scale
 
       pixelsRef.current = []
-      const words = ["SOLUTIONS", "START TODAY"]
+      const words = ["DELTA KILO", "SOLUCIONES"]
 
       const calculateWordWidth = (word: string, pixelSize: number) => {
         return (
