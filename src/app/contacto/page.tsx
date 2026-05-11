@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { MessageCircle, Mail, Clock, TrendingUp, Users, Zap } from "lucide-react";
+import Image from "next/image";
 import { GHLForm } from "@/components/sections/ghl-form";
 import { ContactHero } from "@/components/ui/animated-hero-section";
 import { ContainerScroll } from "@/components/ui/container-scroll-animation";
@@ -18,32 +19,46 @@ export default function ContactoPage() {
       {/* ── 1. PONG HERO ─────────────────────────── */}
       <ContactHero />
 
-      {/* ── 2. VOICE AGENT — ContainerScroll ─────── */}
+      {/* ── 2. CONTAINER SCROLL ──────────────────── */}
       <section className="bg-[#080808] overflow-hidden">
         <ContainerScroll
           titleComponent={
             <div className="mb-6">
               <p className="text-xs uppercase tracking-widest text-[#0dcfcf] font-semibold mb-4">
-                Agente de voz IA
+                Sin rodeos
               </p>
               <h2 className="text-4xl md:text-5xl font-bold gradient-text leading-tight mb-4">
-                ¿Prefieres hablar
+                Todo inicia con una
                 <br />
                 <span className="gradient-text-cyan text-5xl md:text-7xl font-bold leading-none">
-                  con un agente?
+                  llamada de 30 min
                 </span>
               </h2>
               <p className="text-white/45 text-base md:text-lg max-w-xl mx-auto leading-relaxed">
-                Resuelve tus dudas en tiempo real, 24/7. Sin esperas, sin formularios.
+                Sin compromisos. Analizamos tu negocio y te mostramos exactamente qué sistema necesitas.
               </p>
             </div>
           }
         >
-          <VoiceWidgetInline />
+          <Image
+            src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=1400&q=80"
+            alt="Equipo Delta Kilo — sesión de consultoría"
+            height={720}
+            width={1400}
+            className="mx-auto object-cover h-full w-full object-center rounded-2xl"
+            draggable={false}
+          />
         </ContainerScroll>
       </section>
 
-      {/* ── 3. STATS BANNER ──────────────────────── */}
+      {/* ── 3. AGENTE DE VOZ ─────────────────────── */}
+      <section className="bg-[#080808] py-20">
+        <div className="max-w-2xl mx-auto px-6">
+          <VoiceWidgetInline />
+        </div>
+      </section>
+
+      {/* ── 4. STATS BANNER ──────────────────────── */}
       <section className="pb-0 bg-[#080808]">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           <div className="relative rounded-2xl overflow-hidden border border-[#0dcfcf]/10 bg-[#0a0a0a]">
@@ -88,7 +103,7 @@ export default function ContactoPage() {
         </div>
       </section>
 
-      {/* ── 4. CONTACT SECTION ───────────────────── */}
+      {/* ── 5. CONTACT SECTION ───────────────────── */}
       <section className="section-padding bg-[#080808] border-t border-white/5 mt-16">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
@@ -169,7 +184,7 @@ export default function ContactoPage() {
         </div>
       </section>
 
-      {/* ── 5. DATA GRID — solo animación ────────── */}
+      {/* ── 6. DATA GRID — solo animación ────────── */}
       <DataGridHero
         rows={22}
         cols={36}
