@@ -6,7 +6,6 @@ export function VoiceWidgetInline() {
   const [ready, setReady] = useState(false);
   const [active, setActive] = useState(false);
 
-  // Poll until the chat-widget custom element appears in the DOM
   useEffect(() => {
     const id = setInterval(() => {
       if (document.querySelector("chat-widget")) {
@@ -36,8 +35,7 @@ export function VoiceWidgetInline() {
         onLoad={() => setTimeout(() => setReady(true), 800)}
       />
 
-      {/* Card interior — imita la UI del agente de voz */}
-      <div className="relative h-full w-full flex flex-col items-center justify-center gap-6 bg-[#050a0a] overflow-hidden">
+      <div className="relative flex flex-col items-center justify-center gap-6 py-4">
         {/* Fondo radial */}
         <div
           className="absolute inset-0 pointer-events-none"
@@ -63,7 +61,6 @@ export function VoiceWidgetInline() {
             />
           ))}
 
-          {/* Botón mic central */}
           <button
             onClick={openWidget}
             disabled={!ready}
@@ -76,21 +73,13 @@ export function VoiceWidgetInline() {
                 : "0 0 24px rgba(0,100,255,0.5), 0 0 48px rgba(0,100,255,0.15)",
             }}
           >
-            {/* Mic icon SVG */}
-            <svg
-              width="32"
-              height="32"
-              viewBox="0 0 24 24"
-              fill="white"
-              xmlns="http://www.w3.org/2000/svg"
-            >
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
               <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z" />
               <path d="M19 10v2a7 7 0 0 1-14 0v-2M12 19v4M8 23h8" stroke="white" strokeWidth="2" fill="none" strokeLinecap="round" />
             </svg>
           </button>
         </div>
 
-        {/* Label */}
         <div className="relative z-10 text-center">
           <p className="text-white font-semibold text-base md:text-lg mb-1">
             {ready ? "Presiona para iniciar llamada" : "Cargando agente…"}
