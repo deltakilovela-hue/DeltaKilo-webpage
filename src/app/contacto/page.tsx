@@ -16,12 +16,8 @@ export const metadata: Metadata = {
 export default function ContactoPage() {
   return (
     <>
-      {/* ── 1. AGENTE DE VOZ ─────────────────────── */}
-      <section className="bg-[#080808] py-20 mt-16">
-        <div className="max-w-2xl mx-auto px-6">
-          <VoiceWidgetInline />
-        </div>
-      </section>
+      {/* ── 1. AGENTE DE VOZ — hero ──────────────── */}
+      <VoiceWidgetInline />
 
       {/* ── 2. PONG HERO ─────────────────────────── */}
       <ContactHero />
