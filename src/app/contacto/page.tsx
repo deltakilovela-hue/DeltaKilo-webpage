@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import { MessageCircle, Mail, Clock, TrendingUp, Users, Zap } from "lucide-react";
 import Image from "next/image";
+import Script from "next/script";
 import { GHLForm } from "@/components/sections/ghl-form";
 import { ContactHero } from "@/components/ui/animated-hero-section";
 import { ContainerScroll } from "@/components/ui/container-scroll-animation";
-import { VoiceWidgetInline } from "@/components/ui/voice-widget-inline";
 import DataGridHero from "@/components/ui/data-grid-hero";
 
 export const metadata: Metadata = {
@@ -51,12 +51,13 @@ export default function ContactoPage() {
         </ContainerScroll>
       </section>
 
-      {/* ── 3. AGENTE DE VOZ ─────────────────────── */}
-      <section className="bg-[#080808] py-20">
-        <div className="max-w-2xl mx-auto px-6">
-          <VoiceWidgetInline />
-        </div>
-      </section>
+      {/* ── 3. GHL VOICE WIDGET ──────────────────── */}
+      <Script
+        src="https://widgets.leadconnectorhq.com/loader.js"
+        data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js"
+        data-widget-id="6a00deff01f21c429efb8509"
+        strategy="afterInteractive"
+      />
 
       {/* ── 4. STATS BANNER ──────────────────────── */}
       <section className="pb-0 bg-[#080808]">
