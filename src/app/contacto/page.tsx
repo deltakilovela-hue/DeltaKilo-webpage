@@ -16,15 +16,15 @@ export const metadata: Metadata = {
 export default function ContactoPage() {
   return (
     <>
-      {/* ── 1. PONG HERO ─────────────────────────── */}
-      <ContactHero />
-
-      {/* ── 2. AGENTE DE VOZ ─────────────────────── */}
-      <section className="bg-[#080808] py-20">
+      {/* ── 1. AGENTE DE VOZ ─────────────────────── */}
+      <section className="bg-[#080808] py-20 mt-16">
         <div className="max-w-2xl mx-auto px-6">
           <VoiceWidgetInline />
         </div>
       </section>
+
+      {/* ── 2. PONG HERO ─────────────────────────── */}
+      <ContactHero />
 
       {/* ── 3. CONTAINER SCROLL ──────────────────── */}
       <section className="bg-[#080808] overflow-hidden">
