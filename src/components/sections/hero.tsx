@@ -124,18 +124,15 @@ export function Hero() {
         {/* pointer-events-none en el wrapper para no bloquear el mouse al robot Spline */}
         <motion.div
           style={{ opacity: contentOpacity, y: contentY }}
-          className="absolute inset-0 flex items-center pointer-events-none pt-24 pb-0"
+          className="absolute inset-0 flex items-center pointer-events-none pt-20 pb-28"
         >
           {/* Centrado con max-w igual que el resto de secciones */}
           <div className="w-full max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           {/* Columna de texto — pointer-events-auto solo en el contenido real */}
-          <div className="pointer-events-auto w-full lg:max-w-[52%] xl:max-w-[46%] space-y-6 sm:space-y-7">
-
-            {/* Línea accent dorada */}
-            <div className="w-12 h-px bg-gradient-to-r from-[#D4AF37]/60 to-transparent" />
+          <div className="pointer-events-auto w-full lg:max-w-[52%] xl:max-w-[48%] space-y-4 sm:space-y-5">
 
             {/* Eyebrow badge */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-2 rounded-full
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full
                             bg-[#D4AF37]/10 border border-[#D4AF37]/25">
               <span className="w-1.5 h-1.5 rounded-full bg-[#D4AF37] animate-pulse flex-shrink-0" />
               <AnimatedShinyText

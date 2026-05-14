@@ -144,8 +144,8 @@ body {
 
 /* ─── FLUID TYPOGRAPHY ───────────────────────── */
 .text-display {
-  font-size: clamp(2.4rem, 5.5vw, 5.6rem);
-  line-height: 1.05;
+  font-size: clamp(2rem, 3.8vw, 4.25rem);
+  line-height: 1.06;
   letter-spacing: -0.025em;
   font-weight: 700;
 }
