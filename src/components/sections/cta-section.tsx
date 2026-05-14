@@ -2,6 +2,7 @@
 import { motion } from 'framer-motion';
 import { ArrowRight, MessageCircle } from 'lucide-react';
 import Link from 'next/link';
+import { AnimatedShinyText } from '@/components/ui/animated-shiny-text';
 
 interface CTASectionProps {
   eyebrow?: string;
@@ -52,7 +53,9 @@ export function CTASection({
           className="inline-flex items-center gap-2 mb-8 px-4 py-2 rounded-full bg-[#D4AF37]/10 border border-[#D4AF37]/30"
         >
           <span className="w-1.5 h-1.5 rounded-full bg-[#D4AF37] animate-pulse" />
-          <span className="text-xs font-semibold tracking-widest uppercase text-[#D4AF37]">{eyebrow}</span>
+          <AnimatedShinyText shimmerWidth={200} className="text-xs font-semibold tracking-widest uppercase text-[#D4AF37]/80">
+            {eyebrow}
+          </AnimatedShinyText>
         </motion.div>
 
         <motion.h2

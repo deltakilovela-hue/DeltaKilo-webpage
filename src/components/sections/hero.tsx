@@ -6,6 +6,7 @@ import { SplineScene } from '@/components/ui/spline-scene';
 import { ElegantShape } from '@/components/ui/elegant-shape';
 import { VideoModal } from '@/components/ui/video-modal';
 import { ArrowRight, ChevronRight, Play } from 'lucide-react';
+import { AnimatedShinyText } from '@/components/ui/animated-shiny-text';
 
 /* ── Delta triangle decorativo ── */
 function DeltaShape({ className = '', size = 120, opacity = 0.05 }: {
@@ -137,15 +138,17 @@ export function Hero() {
             <div className="inline-flex items-center gap-2 px-3.5 py-2 rounded-full
                             bg-[#D4AF37]/10 border border-[#D4AF37]/25">
               <span className="w-1.5 h-1.5 rounded-full bg-[#D4AF37] animate-pulse flex-shrink-0" />
-              <span className="text-[10px] sm:text-xs font-semibold tracking-[0.13em] uppercase text-[#D4AF37]/80">
+              <AnimatedShinyText
+                shimmerWidth={180}
+                className="text-[10px] sm:text-xs font-semibold tracking-[0.13em] uppercase text-[#D4AF37]/80"
+              >
                 Automatización · Sistemas · Resultados
-              </span>
+              </AnimatedShinyText>
               <ChevronRight size={11} className="opacity-50 text-[#D4AF37]" />
             </div>
 
             {/* Headline */}
-            <h1 className="text-[2.6rem] sm:text-[3.4rem] md:text-[4.2rem] lg:text-[4.8rem] xl:text-[5.6rem]
-                           font-bold leading-[1.06] tracking-[-0.025em]">
+            <h1 className="text-display">
               <span className="gradient-text block">Todo tu proceso</span>
               <span className="gradient-text block">de ventas,</span>
               <span className="gradient-text-gold block">conectado en</span>

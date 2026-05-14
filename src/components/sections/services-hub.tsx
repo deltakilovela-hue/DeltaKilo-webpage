@@ -2,6 +2,8 @@
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { Globe, Zap, Bot, Users, MapPin, Phone, ArrowUpRight } from 'lucide-react';
+import { BlurFade } from '@/components/ui/blur-fade';
+import { AnimatedShinyText } from '@/components/ui/animated-shiny-text';
 
 const services = [
   {
@@ -74,43 +76,38 @@ export function ServicesHub() {
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-12 md:mb-16">
           <div className="text-center md:text-left">
-            <motion.p
-              initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}
-              className="text-xs uppercase tracking-widest text-[#D4AF37] font-semibold mb-4"
-            >
-              El ecosistema Delta Kilo
-            </motion.p>
-            <motion.h2
-              initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
-              className="text-3xl md:text-4xl lg:text-5xl font-bold gradient-text leading-tight"
-            >
-              No son herramientas aisladas.<br className="hidden md:block" />
-              Es un sistema que trabaja junto.
-            </motion.h2>
+            <BlurFade delay={0} inView>
+              <div className="inline-flex items-center gap-2 mb-5 px-3.5 py-1.5 rounded-full
+                              bg-[#D4AF37]/8 border border-[#D4AF37]/20">
+                <AnimatedShinyText
+                  shimmerWidth={160}
+                  className="text-[10px] sm:text-xs font-semibold uppercase tracking-[0.14em] text-[#D4AF37]/80"
+                >
+                  El ecosistema Delta Kilo
+                </AnimatedShinyText>
+              </div>
+            </BlurFade>
+            <BlurFade delay={0.1} inView>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold gradient-text leading-tight">
+                No son herramientas aisladas.<br className="hidden md:block" />
+                Es un sistema que trabaja junto.
+              </h2>
+            </BlurFade>
           </div>
-          <motion.p
-            initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="text-white/40 max-w-xs text-base leading-relaxed flex-shrink-0 text-center md:text-left mx-auto md:mx-0"
-          >
-            Cada pieza conecta con las demás. El resultado: un negocio que escala sin caos.
-          </motion.p>
+          <BlurFade delay={0.2} inView className="flex-shrink-0">
+            <p className="text-white/40 max-w-xs text-sm sm:text-base leading-relaxed text-center md:text-left mx-auto md:mx-0">
+              Cada pieza conecta con las demás. El resultado: un negocio que escala sin caos.
+            </p>
+          </BlurFade>
         </div>
 
-        {/* Grid — premium cards 21st.dev style */}
+        {/* Grid — premium cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {services.map((service, i) => {
             const Icon = service.icon;
             return (
-              <motion.div
-                key={service.href}
-                initial={{ opacity: 0, y: 28 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.08, duration: 0.5 }}
-                whileHover={{ scale: 1.02, y: -4 }}
-              >
+              <BlurFade key={service.href} delay={i * 0.09} inView>
+              <motion.div whileHover={{ scale: 1.02, y: -4 }} transition={{ duration: 0.2 }}>
                 <Link
                   href={service.href}
                   className="group relative flex flex-col h-full rounded-3xl overflow-hidden
@@ -175,6 +172,7 @@ export function ServicesHub() {
                   </div>
                 </Link>
               </motion.div>
+              </BlurFade>
             );
           })}
         </div>

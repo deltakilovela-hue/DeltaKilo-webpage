@@ -1,5 +1,7 @@
 'use client';
 import { motion } from 'framer-motion';
+import { Marquee } from '@/components/ui/marquee';
+import { NumberTicker } from '@/components/ui/number-ticker';
 
 const industries = [
   '🏪 Retail',
@@ -17,10 +19,10 @@ const industries = [
 ];
 
 const stats = [
-  { value: '6+',    label: 'Servicios integrados' },
-  { value: '100%',  label: 'Proyectos personalizados' },
-  { value: '24/7',  label: 'Automatización activa' },
-  { value: '1',     label: 'Sistema conectado' },
+  { value: 6,     suffix: '+',  label: 'Servicios integrados' },
+  { value: 100,   suffix: '%',  label: 'Proyectos personalizados' },
+  { value: 24,    suffix: '/7', label: 'Automatización activa' },
+  { value: 1,     suffix: '',   label: 'Sistema conectado' },
 ];
 
 export function TrustBar() {
@@ -28,14 +30,14 @@ export function TrustBar() {
     <section className="relative bg-[#080808] overflow-hidden">
       <div className="divider-line" />
 
-      {/* Stats row */}
+      {/* Stats row — NumberTicker */}
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-10 sm:py-14">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-6"
+          className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6"
         >
           {stats.map((stat, i) => (
             <motion.div
@@ -43,17 +45,29 @@ export function TrustBar() {
               initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.08, duration: 0.5 }}
+              transition={{ delay: i * 0.1, duration: 0.5 }}
               className="relative group"
             >
-              <div className="p-5 rounded-2xl border border-[#1a1a1a] bg-[#0d0d0d] hover:border-[#0dcfcf]/15 transition-all duration-300 text-center">
-                {/* Glow */}
-                <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                  style={{ background: 'radial-gradient(ellipse 80% 60% at 50% 0%, rgba(13,207,207,0.04) 0%, transparent 70%)' }}
+              <div className="p-5 sm:p-6 rounded-2xl border border-[#1a1a1a] bg-[#0d0d0d]
+                              hover:border-[#0dcfcf]/20 transition-all duration-300 text-center
+                              hover:shadow-[0_0_32px_rgba(13,207,207,0.06)]">
+                {/* Glow on hover */}
+                <div
+                  className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                  style={{ background: 'radial-gradient(ellipse 80% 60% at 50% 0%, rgba(13,207,207,0.05) 0%, transparent 70%)' }}
                 />
                 <div className="relative">
-                  <div className="text-3xl md:text-4xl font-bold gradient-text-cyan mb-1 tracking-tight">{stat.value}</div>
-                  <div className="text-xs text-white/35 uppercase tracking-widest font-medium leading-tight">{stat.label}</div>
+                  <div className="text-3xl sm:text-4xl font-bold gradient-text-cyan mb-1.5 tracking-tight tabular-nums leading-none">
+                    <NumberTicker
+                      value={stat.value}
+                      delay={i * 0.1}
+                      className="gradient-text-cyan font-bold text-3xl sm:text-4xl tracking-tight"
+                    />
+                    <span className="gradient-text-cyan">{stat.suffix}</span>
+                  </div>
+                  <div className="text-[10px] sm:text-xs text-white/35 uppercase tracking-widest font-medium leading-tight">
+                    {stat.label}
+                  </div>
                 </div>
               </div>
             </motion.div>
@@ -63,24 +77,32 @@ export function TrustBar() {
 
       <div className="divider-line" />
 
-      {/* Industry marquee */}
-      <div className="py-5 overflow-hidden relative">
+      {/* Industry Marquee — Magic UI with pauseOnHover */}
+      <div className="py-4 overflow-hidden relative">
         {/* Left/right fade masks */}
-        <div className="absolute left-0 top-0 bottom-0 w-24 z-10 pointer-events-none"
-          style={{ background: 'linear-gradient(90deg, #080808, transparent)' }} />
-        <div className="absolute right-0 top-0 bottom-0 w-24 z-10 pointer-events-none"
-          style={{ background: 'linear-gradient(-90deg, #080808, transparent)' }} />
+        <div
+          className="absolute left-0 top-0 bottom-0 w-20 sm:w-28 z-10 pointer-events-none"
+          style={{ background: 'linear-gradient(90deg, #080808 60%, transparent)' }}
+        />
+        <div
+          className="absolute right-0 top-0 bottom-0 w-20 sm:w-28 z-10 pointer-events-none"
+          style={{ background: 'linear-gradient(-90deg, #080808 60%, transparent)' }}
+        />
 
-        <div className="marquee-track">
-          {[...industries, ...industries].map((item, i) => (
+        <Marquee pauseOnHover className="[--duration:28s] [--gap:0.5rem]">
+          {industries.map((item, i) => (
             <div
               key={i}
-              className="flex items-center gap-2 px-5 py-2 mx-2 rounded-full border border-[#1e1e1e] bg-[#0e0e0e] text-white/35 text-sm font-medium whitespace-nowrap flex-shrink-0"
+              className="flex items-center gap-2 px-4 py-2 mx-1.5 rounded-full
+                         border border-[#1e1e1e] bg-[#0e0e0e]
+                         text-white/35 text-sm font-medium whitespace-nowrap
+                         hover:border-[#0dcfcf]/20 hover:text-white/55 hover:bg-[#0dcfcf]/[0.04]
+                         transition-all duration-200 cursor-default"
             >
               {item}
             </div>
           ))}
-        </div>
+        </Marquee>
       </div>
 
       <div className="divider-line" />

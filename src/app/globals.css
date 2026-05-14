@@ -118,13 +118,45 @@ body {
 
 /* ─── SECTION PADDING ────────────────────────── */
 .section-padding {
-  padding-top: 72px;
-  padding-bottom: 72px;
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+@media (max-width: 1024px) {
+  .section-padding {
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
 }
 @media (max-width: 768px) {
   .section-padding {
-    padding-top: 48px;
-    padding-bottom: 48px;
+    padding-top: 52px;
+    padding-bottom: 52px;
+  }
+}
+
+/* ─── FLUID TYPOGRAPHY ───────────────────────── */
+.text-display {
+  font-size: clamp(2.2rem, 6vw, 5.6rem);
+  line-height: 1.06;
+  letter-spacing: -0.025em;
+  font-weight: 700;
+}
+.text-heading {
+  font-size: clamp(1.75rem, 4vw, 3.25rem);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+}
+.text-subheading {
+  font-size: clamp(1.125rem, 2.5vw, 1.5rem);
+  line-height: 1.3;
+  font-weight: 600;
+}
+/* ─── MOBILE TOUCH TARGETS ───────────────────── */
+@media (max-width: 640px) {
+  .btn-primary, .btn-secondary {
+    min-height: 52px;
+    border-radius: 14px;
   }
 }
 
@@ -175,7 +207,7 @@ body {
   animation: aurora 20s ease infinite;
 }
 
-/* ─── MARQUEE ─────────────────────────────────── */
+/* ─── MARQUEE (custom legacy) ──────────────────── */
 @keyframes marquee {
   0%   { transform: translateX(0); }
   100% { transform: translateX(-50%); }
@@ -187,6 +219,31 @@ body {
 }
 .marquee-track:hover {
   animation-play-state: paused;
+}
+
+/* ─── MAGIC UI MARQUEE ──────────────────────────── */
+@keyframes marquee-x {
+  from { transform: translateX(0); }
+  to   { transform: translateX(calc(-100% - var(--gap, 1rem))); }
+}
+@keyframes marquee-y {
+  from { transform: translateY(0); }
+  to   { transform: translateY(calc(-100% - var(--gap, 1rem))); }
+}
+.animate-marquee {
+  animation: marquee-x var(--duration, 40s) linear infinite;
+}
+.animate-marquee-vertical {
+  animation: marquee-y var(--duration, 40s) linear infinite;
+}
+
+/* ─── MAGIC UI SHINY TEXT ───────────────────────── */
+@keyframes shiny-text {
+  0%, 90%, 100% { background-position: calc(-100% - var(--shiny-width, 100px)) 0; }
+  30%, 60%      { background-position: calc(100% + var(--shiny-width, 100px)) 0; }
+}
+.animate-shiny-text {
+  animation: shiny-text 5s infinite;
 }
 
 /* ─── GLOW PULSE ─────────────────────────────── */
