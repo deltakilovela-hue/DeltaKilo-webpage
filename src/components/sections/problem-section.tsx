@@ -27,7 +27,7 @@ export function ProblemSection() {
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
 
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-center">
 
           {/* Left: Problems */}
           <div className="text-center lg:text-left">
@@ -44,7 +44,7 @@ export function ProblemSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="text-3xl md:text-4xl font-bold gradient-text mb-8 leading-tight"
+              className="text-heading gradient-text mb-8"
             >
               Tu negocio está creciendo,<br />pero sin control se convierte<br />en caos.
             </motion.h2>
@@ -57,7 +57,8 @@ export function ProblemSection() {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.1 }}
-                  className="flex items-start gap-4 p-4 rounded-xl border border-[#1e1e1e] bg-[#0f0f0f]"
+                  className="flex items-start gap-4 p-4 sm:p-5 rounded-xl border border-[#1e1e1e] bg-[#0f0f0f]
+                              hover:border-[#0dcfcf]/20 transition-colors duration-300"
                 >
                   <span className="text-xl mt-0.5">{p.icon}</span>
                   <p className="text-sm text-white/55 leading-relaxed">{p.problem}</p>

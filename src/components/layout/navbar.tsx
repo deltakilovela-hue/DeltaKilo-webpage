@@ -57,37 +57,18 @@ export function Navbar() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 h-[68px] flex items-center justify-between">
 
           {/* ── Logo ── */}
-          <Link href="/" className="flex items-center gap-3 group flex-shrink-0">
-            <div className="relative w-9 h-9">
-              <svg viewBox="0 0 90 90" fill="none" className="w-full h-full">
-                {/* Outer triangle — cyan fill + stroke */}
-                <polygon points="45,5 85,77 5,77"
-                  fill="rgba(13,207,207,0.12)"
-                  stroke="#0dcfcf" strokeWidth="4.5" strokeLinejoin="round" />
-                {/* Mid triangle — cyan dim */}
-                <polygon points="45,20 72,71 18,71"
-                  fill="none"
-                  stroke="rgba(13,207,207,0.45)" strokeWidth="2.5" strokeLinejoin="round" />
-                {/* Inner triangle — white/dim */}
-                <polygon points="45,34 62,65 28,65"
-                  fill="none"
-                  stroke="rgba(255,255,255,0.18)" strokeWidth="1.5" strokeLinejoin="round" />
-                {/* Figure: body */}
-                <circle cx="45" cy="51" r="2.5" fill="rgba(13,207,207,0.7)" />
-                {/* Figure: arms up */}
-                <line x1="38" y1="56" x2="45" y2="53" stroke="rgba(13,207,207,0.6)" strokeWidth="1.5" strokeLinecap="round"/>
-                <line x1="52" y1="56" x2="45" y2="53" stroke="rgba(13,207,207,0.6)" strokeWidth="1.5" strokeLinecap="round"/>
-                {/* Figure: legs */}
-                <line x1="42" y1="57" x2="40" y2="63" stroke="rgba(13,207,207,0.5)" strokeWidth="1.5" strokeLinecap="round"/>
-                <line x1="48" y1="57" x2="50" y2="63" stroke="rgba(13,207,207,0.5)" strokeWidth="1.5" strokeLinecap="round"/>
-              </svg>
-              {/* Logo glow on hover */}
-              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                style={{ filter: 'drop-shadow(0 0 10px rgba(13,207,207,0.7))' }} />
-            </div>
-            <div className="leading-none">
-              <span className="block text-white font-bold text-[14px] tracking-[0.18em] uppercase">Delta Kilo</span>
-              <span className="block text-[#0dcfcf] text-[10px] tracking-[0.22em] uppercase font-medium mt-0.5">Soluciones</span>
+          <Link href="/" className="flex items-center gap-2.5 group flex-shrink-0">
+            {/* Logo image in white pill */}
+            <div className="relative h-10 rounded-xl bg-white px-2 py-1 overflow-hidden
+                            shadow-[0_0_0_1px_rgba(255,255,255,0.12)]
+                            group-hover:shadow-[0_0_16px_rgba(13,207,207,0.25),0_0_0_1px_rgba(13,207,207,0.3)]
+                            transition-all duration-300 flex items-center">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/logo-dk.png"
+                alt="Delta Kilo Soluciones"
+                className="h-full w-auto object-contain"
+              />
             </div>
           </Link>
 

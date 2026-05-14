@@ -16,16 +16,16 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           {/* Brand */}
           <div className="space-y-4">
-            <div className="flex items-center gap-3">
-              <div className="w-7 h-7">
-                <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
-                  <polygon points="40,4 76,72 4,72" stroke="#0dcfcf" strokeWidth="6" fill="none" strokeLinejoin="round" />
-                  <polygon points="40,18 66,66 14,66" stroke="#ffffff" strokeWidth="3" fill="none" strokeLinejoin="round" opacity="0.25" />
-                </svg>
-              </div>
-              <div>
-                <span className="text-white font-bold text-sm tracking-widest uppercase">Delta Kilo</span>
-                <span className="block text-[9px] tracking-[0.2em] text-[#0dcfcf] uppercase font-medium">Soluciones</span>
+            <div className="flex items-center">
+              {/* Logo real en pill blanco */}
+              <div className="h-12 rounded-xl bg-white px-3 py-1.5 overflow-hidden flex items-center
+                              shadow-[0_0_0_1px_rgba(255,255,255,0.08)]">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/logo-dk.png"
+                  alt="Delta Kilo Soluciones"
+                  className="h-full w-auto object-contain"
+                />
               </div>
             </div>
             <p className="text-sm text-white/40 leading-relaxed max-w-xs">

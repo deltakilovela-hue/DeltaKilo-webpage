@@ -63,7 +63,7 @@ export function HowItWorks() {
           <div className="hidden lg:block absolute top-9 left-[10%] right-[10%] h-px
                           bg-gradient-to-r from-transparent via-[#0dcfcf]/25 to-transparent" />
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6 lg:gap-8">
             {steps.map((step, i) => (
               <BlurFade key={step.number} delay={i * 0.12} inView>
                 <div className="relative h-full p-6 sm:p-7 rounded-2xl border border-[#1e1e1e] bg-[#0f0f0f]

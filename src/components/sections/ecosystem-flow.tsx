@@ -42,9 +42,9 @@ export function EcosystemFlow() {
           <motion.h2
             initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-3xl md:text-4xl font-bold gradient-text mb-4 leading-tight"
+            className="text-heading gradient-text mb-4"
           >
-            No son 6 servicios.<br />Es un sistema con 6 dimensiones.
+            No son 6 servicios.<br className="hidden sm:block" />Es un sistema con 6 dimensiones.
           </motion.h2>
           <motion.p
             initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}
@@ -57,9 +57,9 @@ export function EcosystemFlow() {
 
         {/* Flow diagram — desktop: horizontal track */}
         <div className="hidden lg:block">
-          <div className="relative flex items-center justify-between gap-0">
+          <div className="relative max-w-5xl mx-auto flex items-center justify-between gap-0">
             {/* Connector line */}
-            <div className="absolute top-10 left-[8%] right-[8%] h-px">
+            <div className="absolute top-10 left-[6%] right-[6%] h-px">
               <motion.div
                 initial={{ scaleX: 0 }} whileInView={{ scaleX: 1 }} viewport={{ once: true }}
                 transition={{ duration: 1.2, ease: 'easeInOut', delay: 0.4 }}

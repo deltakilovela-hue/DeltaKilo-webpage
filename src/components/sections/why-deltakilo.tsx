@@ -71,7 +71,7 @@ export function WhyDeltaKilo() {
           </div>
 
           {/* Right: Differentiators */}
-          <div className="space-y-3 sm:space-y-4">
+          <div className="space-y-3 sm:space-y-4 lg:space-y-5">
             {differentiators.map((item, i) => (
               <BlurFade key={i} delay={i * 0.1} direction="left" inView>
                 <div className="flex gap-4 p-5 sm:p-6 rounded-xl border border-[#1e1e1e] bg-[#0f0f0f]

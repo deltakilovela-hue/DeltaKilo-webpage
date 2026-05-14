@@ -74,7 +74,7 @@ export function ServicesHub() {
 
       <div className="relative max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-12 md:mb-16">
+        <div className="flex flex-col md:flex-row md:items-start justify-between gap-8 mb-12 md:mb-16">
           <div className="text-center md:text-left">
             <BlurFade delay={0} inView>
               <div className="inline-flex items-center gap-2 mb-5 px-3.5 py-1.5 rounded-full
