@@ -9,7 +9,7 @@ import {
 } from 'lucide-react';
 
 /* ═══════════════════════════════════════════════════════════════
-   SPOTLIGHT CARD — 21st.dev inspired, mouse-glow on hover
+   SPOTLIGHT CARD — mouse-glow on hover
    ═══════════════════════════════════════════════════════════════ */
 function SpotlightCard({
   children, className = '', color = 'rgba(212,175,55,0.15)',
@@ -46,29 +46,6 @@ function SpotlightCard({
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   ANIMATED COUNTER
-   ═══════════════════════════════════════════════════════════════ */
-function Counter({ to, suffix = '' }: { to: number; suffix?: string }) {
-  const [val, setVal] = useState(0);
-  const ref = useRef<HTMLSpanElement>(null);
-  const inView = useInView(ref, { once: true });
-
-  useEffect(() => {
-    if (!inView) return;
-    let start = 0;
-    const step = to / 40;
-    const t = setInterval(() => {
-      start += step;
-      if (start >= to) { setVal(to); clearInterval(t); }
-      else setVal(Math.floor(start));
-    }, 35);
-    return () => clearInterval(t);
-  }, [inView, to]);
-
-  return <span ref={ref}>{val}{suffix}</span>;
-}
-
-/* ═══════════════════════════════════════════════════════════════
    MOCK BROWSER — wireframe de un sitio web
    ═══════════════════════════════════════════════════════════════ */
 function MockBrowser() {
@@ -84,7 +61,7 @@ function MockBrowser() {
         <div className="flex-1 mx-3">
           <div className="bg-[#111] rounded-lg px-3 py-1.5 flex items-center gap-2 max-w-xs mx-auto">
             <div className="w-2 h-2 rounded-full bg-emerald-400 flex-shrink-0" />
-            <span className="text-[11px] text-white/40 font-mono truncate">tuclienta.com</span>
+            <span className="text-[11px] text-white/40 font-mono truncate">tunegocio.com</span>
           </div>
         </div>
       </div>
@@ -211,7 +188,7 @@ function FormDemo() {
           </motion.div>
           <div className="space-y-1">
             <h4 className="text-lg font-bold text-white">¡Mensaje recibido!</h4>
-            <p className="text-sm text-white/50">Te contactaremos en menos de 2 horas hábiles.</p>
+            <p className="text-sm text-white/50">Te contactaremos en menos de 24 horas.</p>
           </div>
           <button onClick={reset}
             className="text-xs text-[#D4AF37]/60 hover:text-[#D4AF37] transition-colors underline underline-offset-4 mt-2">
@@ -269,7 +246,7 @@ function FormDemo() {
               ¿Qué necesitas?
             </label>
             <div className={fieldClass('message')}>
-              <textarea placeholder="Describe tu proyecto o negocio…" rows={4}
+              <textarea placeholder="Cuéntanos sobre tu negocio…" rows={4}
                 value={fields.message}
                 onChange={e => { setFields(p => ({ ...p, message: e.target.value })); if (errors.message) setErrors(p => ({ ...p, message: '' })); }}
                 onFocus={() => setFocused('message')} onBlur={() => setFocused(null)}
@@ -301,7 +278,7 @@ function FormDemo() {
 
           <p className="text-center text-[11px] text-white/20 flex items-center justify-center gap-1.5 pt-1">
             <ShieldCheck className="w-3 h-3" />
-            Datos seguros · Sin spam · Respuesta en &lt;2h
+            Notificación inmediata · Sin spam · Respuesta en &lt;24h
           </p>
         </motion.form>
       )}
@@ -316,17 +293,16 @@ function ButtonShowcase() {
   const [clicked, setClicked] = useState<number | null>(null);
 
   const btns = [
-    { label: 'Contratar ahora', style: 'bg-[#D4AF37] text-[#0e0e0e] font-bold hover:bg-[#E5C158] shadow-lg hover:shadow-[#D4AF37]/30 hover:shadow-xl', tag: 'Primario' },
-    { label: 'Saber más', style: 'bg-transparent text-white border border-white/20 hover:border-[#D4AF37]/50 hover:text-[#D4AF37]', tag: 'Secundario' },
-    { label: '⚡ Empezar hoy', style: 'bg-white/5 text-white border border-white/10 hover:bg-white/10 backdrop-blur-sm', tag: 'Ghost' },
-    { label: 'Ver demo →', style: 'text-[#D4AF37] hover:text-[#E5C158] underline underline-offset-4 decoration-[#D4AF37]/40', tag: 'Link' },
+    { label: 'Quiero mi página web', style: 'bg-[#D4AF37] text-[#0e0e0e] font-bold hover:bg-[#E5C158] shadow-lg hover:shadow-[#D4AF37]/30 hover:shadow-xl', tag: 'Primario' },
+    { label: 'Ver cómo funciona', style: 'bg-transparent text-white border border-white/20 hover:border-[#D4AF37]/50 hover:text-[#D4AF37]', tag: 'Secundario' },
+    { label: '⚡ Solicitar propuesta', style: 'bg-white/5 text-white border border-white/10 hover:bg-white/10 backdrop-blur-sm', tag: 'Ghost' },
+    { label: 'Hablar por WhatsApp →', style: 'text-[#D4AF37] hover:text-[#E5C158] underline underline-offset-4 decoration-[#D4AF37]/40', tag: 'Link' },
   ];
 
   return (
     <div className="space-y-4">
       {btns.map((btn, i) => (
         <div key={i} className="flex items-center gap-3 sm:gap-4">
-          {/* Tag label */}
           <div className="w-20 shrink-0 text-right hidden sm:block">
             <span className="text-[10px] text-white/30 uppercase tracking-wider">{btn.tag}</span>
           </div>
@@ -340,7 +316,6 @@ function ButtonShowcase() {
             {clicked === i ? '✓ ¡Perfecto!' : btn.label}
           </motion.button>
 
-          {/* Mobile tag */}
           <span className="text-[9px] text-white/25 uppercase tracking-wider sm:hidden w-12 shrink-0">
             {btn.tag}
           </span>
@@ -356,7 +331,7 @@ function ButtonShowcase() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   SECTION HEADER — estilo "¿Así te gustaría…?"
+   SECTION HEADER
    ═══════════════════════════════════════════════════════════════ */
 function DemoHeader({
   question, title, sub,
@@ -370,7 +345,6 @@ function DemoHeader({
       >
         {question}
       </motion.p>
-      {/* Separador dorado */}
       <motion.div
         initial={{ scaleX: 0 }} whileInView={{ scaleX: 1 }}
         viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.05 }}
@@ -379,8 +353,7 @@ function DemoHeader({
       <motion.h2
         initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.1 }}
-        className="text-2xl sm:text-3xl md:text-4xl lg:text-[2.8rem] font-bold gradient-text
-                   leading-tight"
+        className="text-2xl sm:text-3xl md:text-4xl lg:text-[2.8rem] font-bold gradient-text leading-tight"
       >
         {title}
       </motion.h2>
@@ -411,8 +384,7 @@ export function PaginasWebPage() {
         <div className="absolute inset-0 pointer-events-none"
           style={{ background: 'radial-gradient(ellipse 70% 50% at 50% 0%, rgba(212,175,55,0.10) 0%, transparent 65%)' }} />
 
-        <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-8 lg:px-12
-                        pb-16 sm:pb-20 lg:pb-28"
+        <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 pb-16 sm:pb-20 lg:pb-28"
              style={{ paddingTop: '9rem' }}>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
 
@@ -424,38 +396,45 @@ export function PaginasWebPage() {
                                 bg-[#D4AF37]/10 border border-[#D4AF37]/25 mx-auto lg:mx-0">
                   <Globe className="w-3.5 h-3.5 text-[#D4AF37] flex-shrink-0" />
                   <span className="text-[10px] sm:text-xs font-semibold text-[#D4AF37]/80 tracking-[0.12em] uppercase">
-                    Páginas Web Premium
+                    Páginas web conectadas a ventas
                   </span>
                 </div>
               </motion.div>
 
               <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 0.1 }}
-                className="space-y-3">
-                <p className="text-[#D4AF37] font-bold text-base sm:text-lg tracking-wide">
-                  ¿Así te gustaría tu portada?
-                </p>
-                <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold
+                className="space-y-4">
+                <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-[3.2rem] font-bold
                                leading-[1.07] tracking-[-0.02em]">
-                  <span className="gradient-text">Tu sitio web,</span>
+                  <span className="text-white">Páginas web para negocios</span>
                   <br />
-                  <span className="gradient-text-gold">hecho para vender.</span>
+                  <span className="gradient-text-gold">que quieren vender más,</span>
+                  <br />
+                  <span className="text-white/60 text-2xl sm:text-3xl lg:text-4xl font-medium">
+                    no solo verse bien.
+                  </span>
                 </h1>
               </motion.div>
 
-              <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }}
+              <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}
                 transition={{ duration: 0.7, delay: 0.25 }}
-                className="text-sm sm:text-base text-white/50 leading-relaxed max-w-md mx-auto lg:mx-0">
-                Diseñamos sitios web modernos, rápidos y enfocados en convertir visitantes en clientes.
-                No solo presencia —{' '}
-                <span className="text-white/70 font-medium">una herramienta de ventas activa</span>.
-              </motion.p>
+                className="space-y-3 text-sm sm:text-base text-white/50 leading-relaxed max-w-md mx-auto lg:mx-0">
+                <p>
+                  Creamos sitios web profesionales, rápidos y conectados a tu proceso comercial
+                  para que tus visitantes entiendan tu valor, confíen en tu negocio
+                  y sepan exactamente cómo contactarte.
+                </p>
+                <p className="text-white/70 font-medium border-l-2 border-[#D4AF37]/40 pl-3 text-sm">
+                  Tu página no debe ser solo presencia digital.
+                  Debe ser una herramienta activa para generar clientes.
+                </p>
+              </motion.div>
 
               <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.35 }}
                 className="flex flex-col sm:flex-row gap-3 items-center lg:items-start">
                 <a
-                  href="https://wa.me/5215663864984?text=Hola,%20quiero%20una%20página%20web%20profesional%20💊"
+                  href="https://wa.me/5215663864984?text=Hola,%20quiero%20una%20página%20web%20profesional"
                   target="_blank" rel="noopener noreferrer"
                   className="inline-flex items-center justify-center gap-2.5
                              px-6 py-4 text-sm font-semibold rounded-xl
@@ -466,33 +445,29 @@ export function PaginasWebPage() {
                   <svg className="w-4 h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
                   </svg>
-                  Quiero este diseño
+                  Quiero mi página web
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </a>
                 <a href="#demo-elementos"
                   className="inline-flex items-center justify-center gap-2 px-6 py-4 text-sm font-medium
                              border border-white/10 text-white/60 rounded-xl
                              hover:border-white/20 hover:text-white transition-all">
-                  Ver el demo ↓
+                  Ver cómo funciona ↓
                 </a>
               </motion.div>
 
               {/* Mini stats */}
               <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}
                 transition={{ delay: 0.5 }}
-                className="flex items-center justify-center lg:justify-start gap-6 sm:gap-8 pt-6 border-t border-white/[0.07]">
+                className="flex items-center justify-center lg:justify-start gap-8 pt-6 border-t border-white/[0.07]">
                 {[
-                  { n: 100, s: '%', label: 'Responsive' },
-                  { n: 2, s: 's', label: 'Carga' },
-                  { n: 15, s: 'd', label: 'Entrega' },
+                  { val: '24/7', label: 'Tu web trabaja' },
+                  { val: '<2s', label: 'De carga' },
+                  { val: '100%', label: 'Responsive' },
                 ].map((stat, i) => (
                   <div key={i} className="text-center">
-                    <div className="text-xl sm:text-2xl font-bold text-white leading-none">
-                      <Counter to={stat.n} suffix={stat.s} />
-                    </div>
-                    <div className="text-[10px] text-white/30 uppercase tracking-wider mt-1.5">
-                      {stat.label}
-                    </div>
+                    <div className="text-xl sm:text-2xl font-bold text-white leading-none">{stat.val}</div>
+                    <div className="text-[10px] text-white/30 uppercase tracking-wider mt-1.5">{stat.label}</div>
                   </div>
                 ))}
               </motion.div>
@@ -508,7 +483,7 @@ export function PaginasWebPage() {
               <div className="flex items-center justify-center gap-2 mt-4">
                 <div className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
                 <span className="text-[11px] text-white/30">
-                  Demo — así puede verse tu sitio web
+                  Así puede verse la primera impresión de tu negocio
                 </span>
               </div>
             </motion.div>
@@ -516,7 +491,7 @@ export function PaginasWebPage() {
         </div>
       </section>
 
-      {/* ── VISUAL PREVIEW NB2 ── */}
+      {/* ── VISUAL PREVIEW ── */}
       <section className="pb-16 bg-[#080808]">
         <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
           <div className="relative rounded-2xl overflow-hidden border border-[#0dcfcf]/12 shadow-[0_0_80px_rgba(13,207,207,0.04)]">
@@ -526,23 +501,38 @@ export function PaginasWebPage() {
             </div>
             <img
               src="/images/nb2/paginas-web.png"
-              alt="Vista previa Páginas Web Profesionales"
+              alt="Vista previa Páginas Web"
               className="w-full h-auto object-cover"
             />
             <div className="absolute bottom-0 inset-x-0 h-28 bg-gradient-to-t from-[#080808] via-[#080808]/60 to-transparent pointer-events-none" />
           </div>
+          {/* Context copy */}
+          <motion.div
+            initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }} transition={{ delay: 0.2 }}
+            className="max-w-2xl mx-auto text-center mt-10 space-y-3"
+          >
+            <p className="text-white/50 text-sm sm:text-base leading-relaxed">
+              Tu sitio web es muchas veces el primer contacto entre tu marca y un posible cliente.
+            </p>
+            <p className="text-white/35 text-sm leading-relaxed">
+              En segundos, una persona decide si confía en ti, si entiende lo que ofreces
+              y si vale la pena escribirte. Por eso diseñamos páginas que se ven profesionales,
+              cargan rápido y guían al visitante hacia una acción clara.
+            </p>
+          </motion.div>
         </div>
       </section>
 
       {/* ══════════════════════════════════════════
-          2. ELEMENTOS INTERACTIVOS
+          2. BOTONES / INTERACCIÓN
           ══════════════════════════════════════════ */}
       <section id="demo-elementos" className="py-20 sm:py-28 lg:py-32 bg-[#080808] border-t border-white/[0.05]">
         <div className="max-w-6xl mx-auto px-5 sm:px-8 lg:px-12">
           <DemoHeader
-            question="¿Imaginas botones así de interactivos para tus clientes?"
-            title="Cada elemento diseñado para que actúen."
-            sub="Hover, animaciones, feedback inmediato — cada interacción comunica calidad."
+            question="Cada elemento diseñado con intención"
+            title="Cada clic debe acercar al cliente a contactarte."
+            sub="No llenamos tu página de efectos solo porque se ven bien. Cada botón y sección está pensado para que el usuario avance: entender, confiar y tomar acción."
           />
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10 items-start">
@@ -566,30 +556,27 @@ export function PaginasWebPage() {
               </div>
             </motion.div>
 
-            {/* Feature cards with SpotlightCard */}
+            {/* 3 principles */}
             <motion.div
               initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.1 }}
               className="space-y-4"
             >
-              <p className="text-xs text-white/25 uppercase tracking-widest mb-5 text-center lg:text-left">
-                Tarjetas con efecto glow — pasa el cursor
-              </p>
               {[
                 {
-                  icon: <Zap className="w-5 h-5 text-[#D4AF37]" />,
-                  title: 'Velocidad que retiene clientes',
-                  desc: 'Google penaliza sitios lentos. Tu web carga en menos de 2 segundos.',
+                  icon: <MousePointer2 className="w-5 h-5 text-[#D4AF37]" />,
+                  title: 'Botones claros',
+                  desc: 'Indicamos exactamente qué debe hacer el visitante. Sin ambigüedad, sin distracciones.',
+                },
+                {
+                  icon: <ShieldCheck className="w-5 h-5 text-[#D4AF37]" />,
+                  title: 'Diseño que genera confianza',
+                  desc: 'Una página moderna comunica profesionalismo antes de que te escriban.',
                 },
                 {
                   icon: <Smartphone className="w-5 h-5 text-[#D4AF37]" />,
-                  title: '100% móvil, tablet y desktop',
-                  desc: 'El 70% de tus clientes llega desde el celular. Nada se rompe.',
-                },
-                {
-                  icon: <BarChart3 className="w-5 h-5 text-[#D4AF37]" />,
-                  title: 'Métricas que puedes leer',
-                  desc: 'Dashboard claro: visitas, fuentes, conversiones. Sin tecnicismos.',
+                  title: 'Experiencia sin fricción',
+                  desc: 'Todo debe sentirse fácil desde celular, tablet o computadora. Sin errores, sin confusión.',
                 },
               ].map((card, i) => (
                 <SpotlightCard key={i} className="p-5 sm:p-6">
@@ -611,14 +598,68 @@ export function PaginasWebPage() {
       </section>
 
       {/* ══════════════════════════════════════════
-          3. FORM DEMO
+          3. VELOCIDAD / CLARIDAD / MEDICIÓN
+          ══════════════════════════════════════════ */}
+      <section className="py-20 sm:py-28 bg-[#080808] border-t border-white/[0.05]">
+        <div className="max-w-6xl mx-auto px-5 sm:px-8 lg:px-12">
+          <DemoHeader
+            question="Rendimiento que no negocias"
+            title="Una página lenta o confusa también pierde clientes."
+            sub="Un cliente interesado no siempre te da una segunda oportunidad. Si tu página tarda en cargar o no deja claro cómo contactarte, esa oportunidad se puede perder."
+          />
+
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 max-w-4xl mx-auto">
+            {[
+              {
+                icon: <Zap className="w-7 h-7 text-[#D4AF37]" />,
+                title: 'Rápida',
+                desc: 'Para que el visitante no se vaya antes de conocerte. Menos de 2 segundos de carga, optimizada para cualquier conexión.',
+                stat: '< 2s',
+              },
+              {
+                icon: <Globe className="w-7 h-7 text-[#D4AF37]" />,
+                title: 'Clara',
+                desc: 'Para que entienda qué haces, por qué elegirte y cuál es el siguiente paso. Sin texto de relleno.',
+                stat: '100%',
+              },
+              {
+                icon: <BarChart3 className="w-7 h-7 text-[#D4AF37]" />,
+                title: 'Medible',
+                desc: 'Para saber cuántas personas llegan, desde dónde vienen y qué acciones realizan. Decisiones con datos.',
+                stat: '24/7',
+              },
+            ].map((item, i) => (
+              <motion.div key={i}
+                initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }} transition={{ delay: i * 0.1 }}>
+                <SpotlightCard className="p-7 h-full flex flex-col gap-5">
+                  <div className="flex items-start justify-between">
+                    <div className="w-14 h-14 rounded-2xl bg-[#D4AF37]/10 border border-[#D4AF37]/20
+                                    flex items-center justify-center">
+                      {item.icon}
+                    </div>
+                    <span className="font-mono text-2xl font-black text-[#D4AF37]/20">{item.stat}</span>
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-bold text-white mb-2">{item.title}</h3>
+                    <p className="text-sm text-white/40 leading-relaxed">{item.desc}</p>
+                  </div>
+                </SpotlightCard>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════════
+          4. FORM DEMO
           ══════════════════════════════════════════ */}
       <section className="py-20 sm:py-28 lg:py-32 bg-[#080808] border-t border-white/[0.05]">
         <div className="max-w-6xl mx-auto px-5 sm:px-8 lg:px-12">
           <DemoHeader
-            question="¿Qué tal un formulario que realmente funciona?"
-            title="Tener formularios que funcionen al 100%."
-            sub="Validación en tiempo real, feedback instantáneo. Complétalo — funciona de verdad."
+            question="El puente entre el interés y la venta"
+            title="Formularios que sí generan oportunidades."
+            sub="Un formulario no debe ser solo una caja para capturar datos. Debe ser el puente entre una persona interesada y tu proceso de ventas."
           />
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-14 items-start max-w-4xl mx-auto">
@@ -640,16 +681,17 @@ export function PaginasWebPage() {
               className="space-y-8">
               <div>
                 <p className="text-xs text-[#D4AF37]/60 uppercase tracking-widest mb-5">
-                  Lo que incluye cada formulario
+                  Cada formulario puede incluir
                 </p>
                 <div className="space-y-4">
                   {[
-                    'Validación en tiempo real mientras escribe',
-                    'Mensajes de error claros y amigables',
-                    'Animación de éxito que genera confianza',
-                    'Notificación a tu celular por cada lead',
-                    'Conexión con WhatsApp y tu CRM',
-                    'Anti-spam — sin captchas molestos',
+                    'Validación en tiempo real',
+                    'Mensajes claros para el usuario',
+                    'Confirmación automática al enviar',
+                    'Notificación inmediata a tu equipo',
+                    'Conexión con WhatsApp',
+                    'Integración con CRM',
+                    'Protección anti-spam',
                   ].map((item, i) => (
                     <motion.div key={i}
                       initial={{ opacity: 0, x: 14 }} whileInView={{ opacity: 1, x: 0 }}
@@ -666,10 +708,10 @@ export function PaginasWebPage() {
               </div>
 
               <div className="p-5 rounded-xl bg-[#D4AF37]/[0.06] border border-[#D4AF37]/15">
-                <p className="text-sm text-white/55 leading-relaxed">
-                  <span className="text-[#D4AF37] font-semibold">Cada formulario</span> queda
-                  conectado con tu flujo de ventas. Cuando alguien lo llena,
-                  tú recibes el lead en tu celular en segundos.
+                <p className="text-sm text-white/60 leading-relaxed">
+                  <span className="text-[#D4AF37] font-semibold">Cuando alguien llena tu formulario,</span>{' '}
+                  tu negocio debe enterarse al instante. Lo conectamos con tu WhatsApp, correo o CRM
+                  para que ningún lead se pierda.
                 </p>
               </div>
             </motion.div>
@@ -678,24 +720,26 @@ export function PaginasWebPage() {
       </section>
 
       {/* ══════════════════════════════════════════
-          4. BENTO FEATURES — SpotlightCard grid
+          5. BENTO FEATURES
           ══════════════════════════════════════════ */}
       <section className="py-20 sm:py-28 lg:py-32 bg-[#080808] border-t border-white/[0.05]">
         <div className="max-w-6xl mx-auto px-5 sm:px-8 lg:px-12">
           <DemoHeader
-            question="¿Todo esto en tu sitio web?"
-            title="Todo lo que incluye tu página web."
+            question="Todo en un solo proyecto"
+            title="Todo lo que necesita una página web para trabajar por tu negocio."
           />
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {[
-              { icon: <Layers className="w-6 h-6 text-[#D4AF37]" />, title: 'Diseño personalizado', desc: 'Sin plantillas. Tu marca, tu identidad, desde cero.', span: 'lg:col-span-2' },
-              { icon: <Zap className="w-6 h-6 text-[#D4AF37]" />, title: 'Ultra rápido', desc: 'Menos de 2 segundos. Google lo premia con mejor posición.', span: '' },
-              { icon: <Globe className="w-6 h-6 text-[#D4AF37]" />, title: 'SEO desde el día 1', desc: 'Estructura técnica para que te encuentren en Google.', span: '' },
-              { icon: <Smartphone className="w-6 h-6 text-[#D4AF37]" />, title: '100% Responsive', desc: 'Perfecto en celular, tablet y escritorio sin excepción.', span: '' },
-              { icon: <Code2 className="w-6 h-6 text-[#D4AF37]" />, title: 'Integración CRM', desc: 'Cada lead de tu web entra directo a tu sistema de ventas.', span: 'lg:col-span-2' },
-              { icon: <BarChart3 className="w-6 h-6 text-[#D4AF37]" />, title: 'Analytics integrado', desc: 'Reportes claros de visitas, fuentes y comportamiento.', span: '' },
-              { icon: <ShieldCheck className="w-6 h-6 text-[#D4AF37]" />, title: 'SSL + Seguridad', desc: 'Candado verde, dominio propio, configuración segura.', span: '' },
+              { icon: <Layers className="w-6 h-6 text-[#D4AF37]" />, title: 'Diseño personalizado', desc: 'Alineado a tu marca, tu cliente ideal y tu objetivo comercial. Sin plantillas genéricas.', span: 'lg:col-span-2' },
+              { icon: <Globe className="w-6 h-6 text-[#D4AF37]" />, title: 'Copy estratégico', desc: 'No solo diseñamos. Estructuramos mensajes para explicar tu valor y llevar al usuario a contactarte.', span: '' },
+              { icon: <Zap className="w-6 h-6 text-[#D4AF37]" />, title: 'Carga rápida', desc: 'Optimizamos el sitio para que abra rápido y no pierdas visitantes por lentitud.', span: '' },
+              { icon: <Smartphone className="w-6 h-6 text-[#D4AF37]" />, title: 'Versión móvil impecable', desc: 'Tu página se adapta correctamente a celular, tablet y computadora.', span: '' },
+              { icon: <Code2 className="w-6 h-6 text-[#D4AF37]" />, title: 'Formularios conectados', desc: 'Cada solicitud puede llegar a WhatsApp, correo o CRM. Cero leads perdidos.', span: 'lg:col-span-2' },
+              { icon: <BarChart3 className="w-6 h-6 text-[#D4AF37]" />, title: 'Analytics integrado', desc: 'Medimos visitas, fuentes de tráfico y acciones importantes.', span: '' },
+              { icon: <ShieldCheck className="w-6 h-6 text-[#D4AF37]" />, title: 'Seguridad SSL', desc: 'Tu sitio queda configurado con conexión segura y dominio profesional.', span: '' },
+              { icon: <MousePointer2 className="w-6 h-6 text-[#D4AF37]" />, title: 'Botones de conversión', desc: 'Llamados a la acción en puntos estratégicos para guiar al visitante.', span: '' },
+              { icon: <Globe className="w-6 h-6 text-[#D4AF37]" />, title: 'SEO básico desde el inicio', desc: 'Configuramos la estructura inicial para que Google pueda entender tu sitio.', span: '' },
             ].map((feat, i) => (
               <motion.div key={i} className={feat.span}
                 initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }}
@@ -715,22 +759,27 @@ export function PaginasWebPage() {
       </section>
 
       {/* ══════════════════════════════════════════
-          5. METRICS
+          6. STATS
           ══════════════════════════════════════════ */}
       <section className="py-16 sm:py-20 bg-[#080808] border-t border-white/[0.05]">
         <div className="max-w-5xl mx-auto px-5 sm:px-8">
+          <motion.p
+            initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}
+            className="text-center text-xs uppercase tracking-widest text-[#D4AF37]/60 font-semibold mb-10">
+            Tu web trabaja incluso cuando tú no estás disponible
+          </motion.p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 sm:gap-10 text-center">
             {[
-              { n: 340, s: '%', label: 'Más leads', sub: 'promedio vs. sin sistema' },
-              { n: 15, s: 'd', label: 'Entrega típica', sub: 'desde briefing al lanzamiento' },
-              { n: 100, s: '%', label: 'Personalizado', sub: 'sin plantillas genéricas' },
-              { n: 24, s: '/7', label: 'Tu web trabaja', sub: 'sin días de descanso' },
+              { val: '24/7', label: 'Siempre activa', sub: 'Recibe solicitudes todos los días, a cualquier hora' },
+              { val: '<2s', label: 'De carga', sub: 'Sitios optimizados para cargar rápido' },
+              { val: '100%', label: 'Responsive', sub: 'Diseñada para verse bien en celular, tablet y desktop' },
+              { val: '∞', label: 'Conectada a ventas', sub: 'Formularios, WhatsApp y CRM trabajando juntos' },
             ].map((stat, i) => (
               <motion.div key={i}
                 initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }} transition={{ delay: i * 0.1 }}>
                 <div className="text-3xl sm:text-4xl md:text-5xl font-bold gradient-text-gold mb-2 leading-none">
-                  <Counter to={stat.n} suffix={stat.s} />
+                  {stat.val}
                 </div>
                 <div className="text-sm font-semibold text-white mb-1">{stat.label}</div>
                 <div className="text-[11px] text-white/30 leading-snug">{stat.sub}</div>
@@ -741,11 +790,14 @@ export function PaginasWebPage() {
       </section>
 
       {/* ══════════════════════════════════════════
-          6. ANTES / DESPUÉS
+          7. ANTES / DESPUÉS
           ══════════════════════════════════════════ */}
       <section className="py-20 sm:py-28 lg:py-32 bg-[#080808] border-t border-white/[0.05]">
         <div className="max-w-6xl mx-auto px-5 sm:px-8 lg:px-12">
-          <DemoHeader question="¿Ves la diferencia?" title="Sin DK vs. Con Delta Kilo." />
+          <DemoHeader
+            question="La diferencia es clara"
+            title="La diferencia entre tener una página y tener un sistema web."
+          />
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5 max-w-4xl mx-auto">
             {/* Sin */}
@@ -757,16 +809,16 @@ export function PaginasWebPage() {
                                   flex items-center justify-center flex-shrink-0">
                     <span className="text-xs text-red-400 font-bold">✕</span>
                   </div>
-                  <span className="text-sm font-bold text-red-400/80">Sin una web profesional</span>
+                  <span className="text-sm font-bold text-red-400/80">Sin una página profesional</span>
                 </div>
                 <div className="space-y-4">
                   {[
-                    'Carga lenta — los visitantes se van en 3 segundos',
-                    'Diseño genérico que no inspira confianza',
-                    'Sin CTAs claros — nadie sabe qué hacer',
-                    'No aparece en Google',
-                    'Leads perdidos por formularios rotos',
-                    'Sin conexión con tu proceso de ventas',
+                    'Tu negocio depende solo de redes sociales',
+                    'El cliente no encuentra información clara',
+                    'No hay un lugar formal para presentar tus servicios',
+                    'Los interesados escriben, pero no siempre reciben seguimiento',
+                    'No sabes cuántas personas visitan tu página',
+                    'Los formularios no están conectados a tu proceso de ventas',
                   ].map((item, i) => (
                     <div key={i} className="flex items-start gap-3">
                       <div className="w-4 h-4 rounded-full bg-red-500/10 flex items-center justify-center flex-shrink-0 mt-0.5">
@@ -792,12 +844,12 @@ export function PaginasWebPage() {
                 </div>
                 <div className="space-y-4">
                   {[
-                    'Carga en menos de 2 segundos — retención alta',
-                    'Diseño premium que genera confianza instantánea',
-                    'CTAs estratégicos que dirigen al cliente a contactarte',
-                    'SEO técnico desde el día uno',
-                    'Formularios conectados con WhatsApp y CRM',
-                    'Parte de tu sistema completo de ventas',
+                    'Tu negocio tiene una presencia profesional y confiable',
+                    'El cliente entiende rápido qué haces y cómo contactarte',
+                    'Tu página guía al visitante hacia una acción clara',
+                    'Cada lead puede llegar a WhatsApp, correo o CRM',
+                    'Puedes medir visitas, fuentes y conversiones',
+                    'Tu sitio se convierte en parte de tu sistema comercial',
                   ].map((item, i) => (
                     <div key={i} className="flex items-start gap-3">
                       <div className="w-4 h-4 rounded-full bg-[#D4AF37]/15 flex items-center justify-center flex-shrink-0 mt-0.5">
@@ -814,23 +866,25 @@ export function PaginasWebPage() {
       </section>
 
       {/* ══════════════════════════════════════════
-          7. PROCESO
+          8. PROCESO — 5 pasos
           ══════════════════════════════════════════ */}
       <section className="py-20 sm:py-28 lg:py-32 bg-[#080808] border-t border-white/[0.05]">
         <div className="max-w-5xl mx-auto px-5 sm:px-8 lg:px-12">
           <DemoHeader
-            question="¿Cómo lo hacemos?"
-            title="4 pasos del briefing al lanzamiento."
+            question="De cero a lanzado"
+            title="De una idea suelta a una página lista para vender."
           />
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {[
-              { n: '01', title: 'Briefing estratégico', desc: 'Entendemos tu negocio, tu cliente ideal y el objetivo principal del sitio.' },
-              { n: '02', title: 'Estructura y diseño', desc: 'Wireframes y propuesta visual revisada y aprobada por ti antes de construir.' },
-              { n: '03', title: 'Desarrollo premium', desc: 'Código limpio, animaciones, performance optimizado y SEO técnico.' },
-              { n: '04', title: 'Lanzamiento live', desc: 'Publicamos, conectamos con tus herramientas y tu sitio empieza a generar.' },
+              { n: '01', title: 'Diagnóstico comercial', desc: 'Entendemos tu negocio, tus servicios, tu cliente ideal y el objetivo principal de la página.' },
+              { n: '02', title: 'Estructura estratégica', desc: 'Definimos las secciones, mensajes, botones y recorrido que debe seguir el visitante.' },
+              { n: '03', title: 'Diseño y desarrollo', desc: 'Construimos una página moderna, rápida, responsive y alineada a tu marca.' },
+              { n: '04', title: 'Conexión comercial', desc: 'Integramos formularios, WhatsApp, correo, CRM o las herramientas que uses para recibir prospectos.' },
+              { n: '05', title: 'Lanzamiento y medición', desc: 'Publicamos tu sitio y dejamos lista la medición para saber qué está pasando con tus visitantes.' },
             ].map((step, i) => (
               <motion.div key={i}
+                className={i === 4 ? 'sm:col-span-2 lg:col-span-1' : ''}
                 initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }} transition={{ delay: i * 0.1 }}>
                 <SpotlightCard className="p-6 sm:p-7 h-full">
@@ -847,7 +901,7 @@ export function PaginasWebPage() {
       </section>
 
       {/* ══════════════════════════════════════════
-          8. CTA FINAL
+          9. CTA FINAL
           ══════════════════════════════════════════ */}
       <section className="py-20 sm:py-28 lg:py-32 bg-[#080808] border-t border-white/[0.05] relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none"
@@ -858,47 +912,52 @@ export function PaginasWebPage() {
             viewport={{ once: true }} transition={{ duration: 0.7 }}
             className="space-y-6">
 
-            {/* Top line */}
             <div className="w-12 h-px bg-gradient-to-r from-transparent via-[#D4AF37]/50 to-transparent mx-auto" />
 
-            <div className="space-y-2">
+            <div className="space-y-3">
               <p className="text-[#D4AF37] font-semibold text-xs sm:text-sm uppercase tracking-widest">
                 Próximo paso
               </p>
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold gradient-text leading-tight">
-                ¿Lista tu web<br />para vender?
+                Tu próxima página puede ser más que una presentación bonita.
               </h2>
             </div>
 
-            <p className="text-sm sm:text-base text-white/40 leading-relaxed max-w-sm mx-auto">
-              Cuéntanos sobre tu negocio. En menos de 24 horas tienes una propuesta personalizada.
+            <p className="text-sm sm:text-base text-white/45 leading-relaxed max-w-sm mx-auto">
+              Puede ser el lugar donde tus clientes entienden tu valor, confían en tu negocio
+              y dan el primer paso para comprarte.
+            </p>
+
+            <p className="text-white/35 text-sm leading-relaxed max-w-sm mx-auto">
+              Cuéntanos qué haces y te ayudamos a convertirlo en una página clara,
+              profesional y orientada a generar oportunidades.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <a
-                href="https://wa.me/5215663864984?text=Hola,%20me%20interesa%20una%20página%20web%20profesional%20💊"
-                target="_blank" rel="noopener noreferrer"
+              <Link href="/contacto"
                 className="inline-flex items-center justify-center gap-2.5 px-7 py-4 text-sm font-semibold
                            bg-[#D4AF37] text-[#0e0e0e] rounded-xl
                            hover:bg-[#E5C158] transition-all duration-300
-                           shadow-lg hover:shadow-[#D4AF37]/25 hover:shadow-xl group"
+                           shadow-lg hover:shadow-[#D4AF37]/25 hover:shadow-xl group">
+                Quiero una propuesta
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </Link>
+              <a
+                href="https://wa.me/5215663864984?text=Hola,%20me%20interesa%20una%20página%20web%20profesional"
+                target="_blank" rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2.5 px-6 py-4 text-sm font-semibold
+                           border border-white/10 text-white/70 rounded-xl
+                           hover:border-[#D4AF37]/30 hover:text-white transition-all group"
               >
-                <svg className="w-4 h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                <svg className="w-4 h-4 flex-shrink-0 text-[#D4AF37]/60" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
                 </svg>
-                Comenzar por WhatsApp
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                Hablar por WhatsApp
               </a>
-              <Link href="/contacto"
-                className="inline-flex items-center justify-center gap-2 px-6 py-4 text-sm font-medium
-                           border border-white/10 text-white/60 rounded-xl
-                           hover:border-white/20 hover:text-white transition-all">
-                Solicitar propuesta
-              </Link>
             </div>
 
             <p className="text-[11px] text-white/20 pt-2">
-              Sin compromiso · Propuesta gratuita · Respuesta en &lt;24h
+              Propuesta sin compromiso · Respuesta en menos de 24 horas · Atención personalizada
             </p>
           </motion.div>
         </div>

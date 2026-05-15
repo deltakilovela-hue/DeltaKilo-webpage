@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { PaginasWebPage } from "@/components/sections/paginas-web-page";
 
 export const metadata: Metadata = {
-  title: "Páginas Web Profesionales — Delta Kilo Soluciones",
+  title: "Páginas Web Conectadas a Ventas — Delta Kilo Soluciones",
   description:
-    "¿Así te gustaría tu página web? Diseñamos sitios modernos, rápidos y diseñados para vender. Demo interactivo disponible.",
+    "Páginas web profesionales, rápidas y conectadas a tu proceso comercial. Para que tus visitantes entiendan tu valor, confíen en tu negocio y sepan cómo contactarte.",
 };
 
 export default function PaginasWebRoute() {
