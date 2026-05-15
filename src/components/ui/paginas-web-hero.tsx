@@ -45,7 +45,7 @@ const CenterImage = () => {
         backgroundSize,
         opacity,
         backgroundImage:
-          'url(https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?q=80&w=2669&auto=format&fit=crop)',
+          'url(https://assets.cdn.filesafe.space/VDsSxD2SvuHi58jp058d/media/6a06bd73ea36308bcf743fdc.png)',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
       }}
@@ -171,7 +171,7 @@ const ParallaxImages = () => {
   return (
     <div className="mx-auto max-w-5xl px-4 pt-[200px]">
       <ParallaxImg
-        src="https://images.unsplash.com/photo-1551650975-87deedd944c3?q=80&w=2574&auto=format&fit=crop"
+        src="https://assets.cdn.filesafe.space/VDsSxD2SvuHi58jp058d/media/6a06bd732e98e28fa1ecb88e.png"
         alt="Diseño de landing page moderno"
         start={-200}
         end={200}
@@ -179,7 +179,7 @@ const ParallaxImages = () => {
         label="Landing page"
       />
       <ParallaxImg
-        src="https://images.unsplash.com/photo-1547658719-da2b51169166?q=80&w=2564&auto=format&fit=crop"
+        src="https://assets.cdn.filesafe.space/VDsSxD2SvuHi58jp058d/media/6a06bd73937389dca039a79e.png"
         alt="Sitio web para negocio profesional"
         start={200}
         end={-250}
@@ -187,7 +187,7 @@ const ParallaxImages = () => {
         label="Sitio profesional"
       />
       <ParallaxImg
-        src="https://images.unsplash.com/photo-1559028012-481c04fa702d?q=80&w=2574&auto=format&fit=crop"
+        src="https://assets.cdn.filesafe.space/VDsSxD2SvuHi58jp058d/media/6a06bd732e98e28fa1ecb88d.png"
         alt="Diseño web responsive en pantalla"
         start={-200}
         end={200}
@@ -195,7 +195,7 @@ const ParallaxImages = () => {
         label="Diseño responsive"
       />
       <ParallaxImg
-        src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop"
+        src="https://assets.cdn.filesafe.space/VDsSxD2SvuHi58jp058d/media/6a06bd73937389dca039a79d.png"
         alt="Dashboard y métricas web"
         start={0}
         end={-500}
