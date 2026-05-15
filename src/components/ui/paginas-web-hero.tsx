@@ -51,11 +51,11 @@ const CenterImage = () => {
       }}
     >
       {/* Dark overlay so text is readable */}
-      <div className="absolute inset-0 bg-black/50" />
+      <div className="absolute inset-0 bg-black/70" />
 
       {/* Hero text — visible only when image is still centered */}
       <motion.div
-        style={{ opacity: useTransform(scrollY, [0, 600], [1, 0]) }}
+        style={{ opacity: useTransform(scrollY, [0, 400], [1, 0]) }}
         className="absolute inset-0 flex flex-col items-center justify-center gap-5 px-6 text-center"
       >
         <span className="text-[10px] sm:text-xs font-semibold tracking-[0.22em] uppercase text-[#D4AF37]/80">
@@ -169,37 +169,41 @@ const ParallaxImg = ({ className, alt, src, start, end, label }: ParallaxImgProp
 ───────────────────────────────────────────── */
 const ParallaxImages = () => {
   return (
-    <div className="mx-auto max-w-5xl px-4 pt-[200px]">
+    <div className="mx-auto max-w-5xl px-8 pt-[620px] space-y-32">
+      {/* Row 1 — left-aligned, medium */}
       <ParallaxImg
         src="https://assets.cdn.filesafe.space/VDsSxD2SvuHi58jp058d/media/6a06bd732e98e28fa1ecb88e.png"
         alt="Diseño de landing page moderno"
-        start={-200}
-        end={200}
-        className="w-1/3"
+        start={-120}
+        end={120}
+        className="w-5/12"
         label="Landing page"
       />
+      {/* Row 2 — center, large */}
       <ParallaxImg
         src="https://assets.cdn.filesafe.space/VDsSxD2SvuHi58jp058d/media/6a06bd73937389dca039a79e.png"
         alt="Sitio web para negocio profesional"
-        start={200}
-        end={-250}
-        className="mx-auto w-2/3"
+        start={150}
+        end={-150}
+        className="mx-auto w-3/4"
         label="Sitio profesional"
       />
+      {/* Row 3 — right-aligned, medium */}
       <ParallaxImg
         src="https://assets.cdn.filesafe.space/VDsSxD2SvuHi58jp058d/media/6a06bd732e98e28fa1ecb88d.png"
         alt="Diseño web responsive en pantalla"
-        start={-200}
-        end={200}
-        className="ml-auto w-1/3"
+        start={-120}
+        end={120}
+        className="ml-auto w-5/12"
         label="Diseño responsive"
       />
+      {/* Row 4 — slightly left-offset, medium */}
       <ParallaxImg
         src="https://assets.cdn.filesafe.space/VDsSxD2SvuHi58jp058d/media/6a06bd73937389dca039a79d.png"
         alt="Dashboard y métricas web"
-        start={0}
-        end={-500}
-        className="ml-24 w-5/12"
+        start={80}
+        end={-200}
+        className="ml-16 w-1/2"
         label="Conectada a métricas"
       />
     </div>
@@ -221,16 +225,17 @@ const PageTypeItem = ({ title, category, forWho }: PageTypeItemProps) => {
       initial={{ y: 48, opacity: 0 }}
       whileInView={{ y: 0, opacity: 1 }}
       transition={{ ease: 'easeInOut', duration: 0.75 }}
-      className="mb-9 flex items-center justify-between border-b border-white/[0.06] px-3 pb-9
+      className="mb-10 flex flex-col sm:flex-row sm:items-center justify-between gap-2
+                 border-b border-white/[0.06] px-3 pb-10
                  group hover:border-[#D4AF37]/20 transition-colors duration-300"
     >
       <div>
-        <p className="mb-1.5 text-xl text-white group-hover:text-[#D4AF37] transition-colors">{title}</p>
-        <p className="text-sm uppercase text-white/30 tracking-wider">{category}</p>
+        <p className="mb-1.5 text-xl sm:text-2xl text-white group-hover:text-[#D4AF37] transition-colors">{title}</p>
+        <p className="text-xs uppercase text-white/25 tracking-widest">{category}</p>
       </div>
-      <div className="flex items-center gap-1.5 text-end text-sm uppercase text-white/30">
-        <p className="text-xs tracking-wider">{forWho}</p>
-        <MapPin size={13} className="text-[#D4AF37]/40" />
+      <div className="flex items-center gap-1.5 sm:text-end text-xs uppercase text-white/25 tracking-wider">
+        <p>{forWho}</p>
+        <MapPin size={12} className="text-[#D4AF37]/30 flex-shrink-0" />
       </div>
     </motion.div>
   );
@@ -240,13 +245,13 @@ const PageTypesSection = () => {
   return (
     <section
       id="que-incluye"
-      className="mx-auto max-w-5xl px-4 py-48 text-white"
+      className="mx-auto max-w-5xl px-6 sm:px-8 py-32 text-white"
     >
       <motion.h2
         initial={{ y: 48, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
         transition={{ ease: 'easeInOut', duration: 0.75 }}
-        className="mb-4 text-4xl font-black uppercase text-white"
+        className="mb-4 text-4xl sm:text-5xl font-black uppercase text-white"
       >
         Páginas que{' '}
         <span
@@ -262,7 +267,7 @@ const PageTypesSection = () => {
         initial={{ y: 24, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
         transition={{ ease: 'easeInOut', duration: 0.75, delay: 0.1 }}
-        className="mb-20 text-white/35 text-base max-w-lg"
+        className="mb-16 text-white/40 text-base max-w-lg leading-relaxed"
       >
         Cada negocio tiene un objetivo diferente. Diseñamos según el tuyo.
       </motion.p>
