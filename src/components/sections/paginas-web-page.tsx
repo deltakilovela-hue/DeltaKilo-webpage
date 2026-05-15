@@ -31,8 +31,8 @@ function SpotlightCard({
       onMouseMove={move}
       onMouseEnter={() => setOp(1)}
       onMouseLeave={() => setOp(0)}
-      className={`relative overflow-hidden rounded-2xl border border-white/[0.07] bg-[#0f0f0f]
-                  hover:border-[#D4AF37]/30 transition-colors duration-300 ${className}`}
+      className={`relative overflow-hidden rounded-2xl border border-white/[0.11] bg-[#111111]
+                  hover:border-[#D4AF37]/35 transition-colors duration-300 ${className}`}
     >
       <div
         className="pointer-events-none absolute inset-0 transition-opacity duration-300 z-0"
@@ -587,7 +587,7 @@ export function PaginasWebPage() {
             title="Todo lo que necesita una página web para trabajar por tu negocio."
           />
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
             {[
               { icon: <Layers className="w-6 h-6 text-[#D4AF37]" />, title: 'Diseño personalizado', desc: 'Alineado a tu marca, tu cliente ideal y tu objetivo comercial. Sin plantillas genéricas.', span: 'lg:col-span-2' },
               { icon: <Globe className="w-6 h-6 text-[#D4AF37]" />, title: 'Copy estratégico', desc: 'No solo diseñamos. Estructuramos mensajes para explicar tu valor y llevar al usuario a contactarte.', span: '' },
@@ -602,9 +602,9 @@ export function PaginasWebPage() {
               <motion.div key={i} className={feat.span}
                 initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }} transition={{ delay: i * 0.06 }}>
-                <SpotlightCard className="p-6 sm:p-7 h-full">
+                <SpotlightCard className="p-7 sm:p-8 h-full">
                   <div className="w-12 h-12 rounded-2xl bg-[#D4AF37]/10 border border-[#D4AF37]/20
-                                  flex items-center justify-center mb-5">
+                                  flex items-center justify-center mb-6">
                     {feat.icon}
                   </div>
                   <h3 className="text-sm sm:text-base font-bold text-white mb-2.5">{feat.title}</h3>
@@ -626,12 +626,12 @@ export function PaginasWebPage() {
             className="text-center text-xs uppercase tracking-widest text-[#D4AF37]/60 font-semibold mb-10">
             Tu web trabaja incluso cuando tú no estás disponible
           </motion.p>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 sm:gap-10 text-center">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-10 sm:gap-12 text-center">
             {[
-              { val: '24/7', label: 'Siempre activa', sub: 'Recibe solicitudes todos los días, a cualquier hora' },
-              { val: '<2s', label: 'De carga', sub: 'Sitios optimizados para cargar rápido' },
-              { val: '100%', label: 'Responsive', sub: 'Diseñada para verse bien en celular, tablet y desktop' },
-              { val: '∞', label: 'Conectada a ventas', sub: 'Formularios, WhatsApp y CRM trabajando juntos' },
+              { val: '24/7', label: 'Siempre activa', sub: 'Sin días de descanso' },
+              { val: '<2s', label: 'De carga', sub: 'Optimizada para velocidad' },
+              { val: '100%', label: 'Responsive', sub: 'Celular, tablet y desktop' },
+              { val: '∞', label: 'Conectada', sub: 'WhatsApp, correo y CRM' },
             ].map((stat, i) => (
               <motion.div key={i}
                 initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }}
@@ -661,7 +661,7 @@ export function PaginasWebPage() {
             {/* Sin */}
             <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }} transition={{ duration: 0.6 }}>
-              <div className="rounded-2xl border border-red-500/15 bg-red-500/[0.03] p-6 sm:p-8 h-full">
+              <div className="rounded-2xl border border-red-500/15 bg-red-500/[0.03] p-7 sm:p-10 h-full">
                 <div className="flex items-center gap-3 mb-7 pb-5 border-b border-red-500/10">
                   <div className="w-7 h-7 rounded-full bg-red-500/15 border border-red-500/30
                                   flex items-center justify-center flex-shrink-0">
@@ -669,7 +669,7 @@ export function PaginasWebPage() {
                   </div>
                   <span className="text-sm font-bold text-red-400/80">Sin una página profesional</span>
                 </div>
-                <div className="space-y-4">
+                <div className="space-y-5">
                   {[
                     'Tu negocio depende solo de redes sociales',
                     'El cliente no encuentra información clara',
@@ -692,7 +692,7 @@ export function PaginasWebPage() {
             {/* Con DK */}
             <motion.div initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.1 }}>
-              <div className="rounded-2xl border border-[#D4AF37]/20 bg-[#D4AF37]/[0.03] p-6 sm:p-8 h-full">
+              <div className="rounded-2xl border border-[#D4AF37]/20 bg-[#D4AF37]/[0.03] p-7 sm:p-10 h-full">
                 <div className="flex items-center gap-3 mb-7 pb-5 border-b border-[#D4AF37]/10">
                   <div className="w-7 h-7 rounded-full bg-[#D4AF37]/15 border border-[#D4AF37]/30
                                   flex items-center justify-center flex-shrink-0">
@@ -733,7 +733,7 @@ export function PaginasWebPage() {
             title="De una idea suelta a una página lista para vender."
           />
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
             {[
               { n: '01', title: 'Diagnóstico comercial', desc: 'Entendemos tu negocio, tus servicios, tu cliente ideal y el objetivo principal de la página.' },
               { n: '02', title: 'Estructura estratégica', desc: 'Definimos las secciones, mensajes, botones y recorrido que debe seguir el visitante.' },
@@ -745,8 +745,8 @@ export function PaginasWebPage() {
                 className={i === 4 ? 'sm:col-span-2 lg:col-span-1' : ''}
                 initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }} transition={{ delay: i * 0.1 }}>
-                <SpotlightCard className="p-6 sm:p-7 h-full">
-                  <div className="text-4xl font-bold text-[#D4AF37]/15 font-mono mb-5 leading-none">
+                <SpotlightCard className="p-7 sm:p-9 h-full">
+                  <div className="text-4xl font-bold text-[#D4AF37]/15 font-mono mb-6 leading-none">
                     {step.n}
                   </div>
                   <h3 className="text-sm sm:text-base font-bold text-white mb-2.5">{step.title}</h3>
