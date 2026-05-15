@@ -127,40 +127,41 @@ export function WhyDeltaKilo() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.25 }}
-          className="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-4 lg:gap-6"
+          className="flex flex-col gap-4 lg:gap-6"
         >
-          {/* Left: step tabs */}
-          <div className="flex lg:flex-col gap-2 overflow-x-auto lg:overflow-visible pb-2 lg:pb-0 snap-x snap-mandatory lg:snap-none">
+          {/* Top: step tabs — always visible, no scroll */}
+          <div className="grid grid-cols-5 gap-2">
             {steps.map((step, i) => (
               <button
                 key={step.id}
                 onClick={() => setActive(i)}
-                className={`group relative flex-shrink-0 snap-start flex items-center gap-3 px-4 py-3.5 rounded-xl text-left transition-all duration-200 w-40 lg:w-full
+                className={`group relative flex flex-col items-center gap-1.5 px-2 py-3 rounded-xl text-center transition-all duration-200
                   ${active === i
                     ? 'bg-[#0dcfcf]/10 border border-[#0dcfcf]/25 text-white'
                     : 'border border-transparent hover:bg-white/[0.03] hover:border-white/8 text-white/50 hover:text-white/80'
                   }`}
               >
-                {/* Active indicator */}
+                {/* Active indicator bottom bar */}
                 {active === i && (
                   <motion.div
                     layoutId="activeBar"
-                    className="absolute left-0 top-2 bottom-2 w-0.5 rounded-full bg-[#0dcfcf]"
+                    className="absolute bottom-0 left-3 right-3 h-0.5 rounded-full bg-[#0dcfcf]"
                     transition={{ type: 'spring', stiffness: 400, damping: 30 }}
                   />
                 )}
 
-                {/* Number + label */}
-                <span className={`font-mono text-[11px] font-bold transition-colors flex-shrink-0
+                {/* Number */}
+                <span className={`font-mono text-[10px] font-bold transition-colors
                   ${active === i ? 'text-[#0dcfcf]' : 'text-white/20 group-hover:text-white/40'}`}>
                   {step.number}
                 </span>
-                <span className="text-sm font-semibold truncate">{step.label}</span>
+                {/* Label */}
+                <span className="text-xs sm:text-sm font-semibold leading-tight">{step.label}</span>
               </button>
             ))}
           </div>
 
-          {/* Right: content panel */}
+          {/* Content panel */}
           <div className="relative min-h-[260px] lg:min-h-[320px]">
             <AnimatePresence mode="wait">
               <motion.div
@@ -197,17 +198,11 @@ export function WhyDeltaKilo() {
                     </p>
                   </div>
 
-                  {/* Step dots nav */}
-                  <div className="flex items-center gap-2 mt-2">
-                    {steps.map((_, i) => (
-                      <button
-                        key={i}
-                        onClick={() => setActive(i)}
-                        className={`h-1 rounded-full transition-all duration-300 ${
-                          active === i ? 'w-6 bg-[#0dcfcf]' : 'w-2 bg-white/15 hover:bg-white/30'
-                        }`}
-                      />
-                    ))}
+                  {/* Progress indicator */}
+                  <div className="flex items-center gap-1.5 mt-2">
+                    <span className="text-[11px] font-mono text-[#0dcfcf]/40">{steps[active].number}</span>
+                    <span className="text-[11px] text-white/20">/</span>
+                    <span className="text-[11px] font-mono text-white/20">05</span>
                   </div>
                 </div>
               </motion.div>
