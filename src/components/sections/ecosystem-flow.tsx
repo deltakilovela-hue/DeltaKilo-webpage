@@ -1,15 +1,57 @@
 'use client';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { Globe, Zap, Bot, Users, MapPin, Phone, ArrowRight } from 'lucide-react';
+import { Monitor, Filter, Sparkles, BarChart3, Headphones, Navigation, ArrowRight } from 'lucide-react';
 
 const nodes = [
-  { icon: Globe,  label: 'Web',        color: '#0dcfcf', href: '/servicios/paginas-web',      desc: 'Atrae tráfico' },
-  { icon: Zap,    label: 'Funnels',    color: '#0dcfcf', href: '/servicios/funnels',           desc: 'Convierte' },
-  { icon: Bot,    label: 'IA',         color: '#0dcfcf', href: '/servicios/asistentes-ia',     desc: 'Atiende 24/7' },
-  { icon: Users,  label: 'CRM',        color: '#0dcfcf', href: '/servicios/crm',               desc: 'Gestiona' },
-  { icon: Phone,  label: 'Llamadas',   color: '#0dcfcf', href: '/servicios/gestion-llamadas',  desc: 'Retiene' },
-  { icon: MapPin, label: 'Maps',       color: '#0dcfcf', href: '/servicios/google-maps',       desc: 'Posiciona' },
+  {
+    icon: Monitor,
+    label: 'Web',
+    href: '/servicios/paginas-web',
+    desc: 'Atrae tráfico',
+    gradient: 'from-[#0dcfcf]/20 to-[#0dcfcf]/5',
+    glow: 'rgba(13,207,207,0.35)',
+  },
+  {
+    icon: Filter,
+    label: 'Funnels',
+    href: '/servicios/funnels',
+    desc: 'Convierte',
+    gradient: 'from-[#0dcfcf]/20 to-[#0dcfcf]/5',
+    glow: 'rgba(13,207,207,0.35)',
+  },
+  {
+    icon: Sparkles,
+    label: 'IA',
+    href: '/servicios/asistentes-ia',
+    desc: 'Atiende 24/7',
+    gradient: 'from-[#0dcfcf]/20 to-[#0dcfcf]/5',
+    glow: 'rgba(13,207,207,0.35)',
+  },
+  {
+    icon: BarChart3,
+    label: 'CRM',
+    href: '/servicios/crm',
+    desc: 'Gestiona',
+    gradient: 'from-[#0dcfcf]/20 to-[#0dcfcf]/5',
+    glow: 'rgba(13,207,207,0.35)',
+  },
+  {
+    icon: Headphones,
+    label: 'Llamadas',
+    href: '/servicios/gestion-llamadas',
+    desc: 'Retiene',
+    gradient: 'from-[#0dcfcf]/20 to-[#0dcfcf]/5',
+    glow: 'rgba(13,207,207,0.35)',
+  },
+  {
+    icon: Navigation,
+    label: 'Maps',
+    href: '/servicios/google-maps',
+    desc: 'Posiciona',
+    gradient: 'from-[#0dcfcf]/20 to-[#0dcfcf]/5',
+    glow: 'rgba(13,207,207,0.35)',
+  },
 ];
 
 const flow = [
@@ -85,10 +127,21 @@ export function EcosystemFlow() {
                   transition={{ delay: 0.1 + i * 0.1 }}
                   className="flex flex-col items-center gap-3 flex-1 relative z-10"
                 >
-                  <Link href={node.href} className="group flex flex-col items-center gap-3">
-                    {/* Node circle */}
-                    <div className="w-20 h-20 rounded-full bg-[#0d0d0d] border border-[#1e1e1e] flex items-center justify-center group-hover:border-[#0dcfcf]/30 group-hover:bg-[#0f0f0f] transition-all duration-300 shadow-[0_0_0_4px_rgba(13,207,207,0.03)] group-hover:shadow-[0_0_0_4px_rgba(13,207,207,0.08),0_0_20px_rgba(13,207,207,0.12)]">
-                      <Icon size={22} className="text-[#0dcfcf]" />
+                  <Link href={node.href} className="group flex flex-col items-center gap-4">
+                    {/* Node — rounded square with gradient */}
+                    <div className="relative">
+                      {/* Outer glow ring */}
+                      <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-md"
+                        style={{ background: node.glow, transform: 'scale(1.15)' }} />
+                      {/* Icon box */}
+                      <div className={`relative w-20 h-20 rounded-2xl bg-gradient-to-br ${node.gradient}
+                                        border border-[#0dcfcf]/10 group-hover:border-[#0dcfcf]/40
+                                        flex items-center justify-center
+                                        transition-all duration-300
+                                        shadow-[inset_0_1px_0_rgba(13,207,207,0.08)]
+                                        group-hover:shadow-[inset_0_1px_0_rgba(13,207,207,0.15),0_8px_24px_rgba(13,207,207,0.12)]`}>
+                        <Icon size={26} strokeWidth={1.5} className="text-[#0dcfcf] group-hover:scale-110 transition-transform duration-300" />
+                      </div>
                     </div>
                     {/* Label */}
                     <div className="text-center">
@@ -96,7 +149,6 @@ export function EcosystemFlow() {
                       <div className="text-[11px] text-white/30 mt-0.5">{node.desc}</div>
                     </div>
                   </Link>
-
                   {/* Step number */}
                   <div className="text-[10px] font-bold text-[#0dcfcf]/20 font-mono">0{i+1}</div>
                 </motion.div>
@@ -119,10 +171,21 @@ export function EcosystemFlow() {
               >
                 <Link
                   href={node.href}
-                  className="group flex flex-col items-center gap-3 p-5 rounded-2xl border border-[#1e1e1e] bg-[#0d0d0d] card-glow text-center"
+                  className="group flex flex-col items-center gap-4 p-5 rounded-2xl
+                             border border-[#1e1e1e] bg-[#0d0d0d]
+                             hover:border-[#0dcfcf]/25 hover:bg-[#0d1212]
+                             transition-all duration-300 text-center"
                 >
-                  <div className="w-12 h-12 rounded-full bg-[#0dcfcf]/10 flex items-center justify-center group-hover:bg-[#0dcfcf]/15 transition-colors">
-                    <Icon size={18} className="text-[#0dcfcf]" />
+                  {/* Icon container */}
+                  <div className="relative">
+                    <div className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm"
+                      style={{ background: node.glow, transform: 'scale(1.2)' }} />
+                    <div className={`relative w-14 h-14 rounded-xl bg-gradient-to-br ${node.gradient}
+                                      border border-[#0dcfcf]/10 group-hover:border-[#0dcfcf]/35
+                                      flex items-center justify-center transition-all duration-300
+                                      shadow-[inset_0_1px_0_rgba(13,207,207,0.08)]`}>
+                      <Icon size={22} strokeWidth={1.5} className="text-[#0dcfcf] group-hover:scale-110 transition-transform duration-300" />
+                    </div>
                   </div>
                   <div>
                     <div className="text-sm font-semibold text-white group-hover:text-[#0dcfcf] transition-colors">{node.label}</div>

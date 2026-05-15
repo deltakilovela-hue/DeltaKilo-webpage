@@ -13,7 +13,7 @@ const services = [
     href: '/servicios/paginas-web',
     tag: 'Presencia digital',
     number: '01',
-    img: 'https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=600&q=70&auto=format&fit=crop',
+    img: 'https://assets.cdn.filesafe.space/VDsSxD2SvuHi58jp058d/media/6a06a692dbe569a25d249a7e.png',
   },
   {
     icon: Zap,
@@ -22,7 +22,7 @@ const services = [
     href: '/servicios/funnels',
     tag: 'Captación',
     number: '02',
-    img: 'https://images.unsplash.com/photo-1533750349088-cd871a92f312?w=600&q=70&auto=format&fit=crop',
+    img: 'https://assets.cdn.filesafe.space/VDsSxD2SvuHi58jp058d/media/6a06a692ea36308bcf739e10.png',
   },
   {
     icon: Bot,
@@ -31,7 +31,7 @@ const services = [
     href: '/servicios/asistentes-ia',
     tag: 'IA',
     number: '03',
-    img: 'https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=600&q=70&auto=format&fit=crop',
+    img: 'https://assets.cdn.filesafe.space/VDsSxD2SvuHi58jp058d/media/6a06a692ea36308bcf739e0f.png',
   },
   {
     icon: Users,
@@ -40,7 +40,7 @@ const services = [
     href: '/servicios/crm',
     tag: 'Gestión',
     number: '04',
-    img: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&q=70&auto=format&fit=crop',
+    img: 'https://assets.cdn.filesafe.space/VDsSxD2SvuHi58jp058d/media/6a06a6920a69f1e7664a8eae.png',
   },
   {
     icon: MapPin,
@@ -49,7 +49,7 @@ const services = [
     href: '/servicios/google-maps',
     tag: 'Local SEO',
     number: '05',
-    img: 'https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?w=600&q=70&auto=format&fit=crop',
+    img: 'https://assets.cdn.filesafe.space/VDsSxD2SvuHi58jp058d/media/6a06a692ff331dd879111de9.png',
   },
   {
     icon: Phone,
@@ -58,7 +58,7 @@ const services = [
     href: '/servicios/gestion-llamadas',
     tag: 'Comunicación',
     number: '06',
-    img: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600&q=70&auto=format&fit=crop',
+    img: 'https://assets.cdn.filesafe.space/VDsSxD2SvuHi58jp058d/media/6a06a692937389dca0345744.png',
   },
 ];
 
