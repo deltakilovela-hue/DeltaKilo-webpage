@@ -1,12 +1,13 @@
 'use client';
 
-import { useState, useRef, useEffect } from 'react';
-import { motion, useInView, AnimatePresence } from 'framer-motion';
+import { useState, useRef } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import {
   ArrowRight, CheckCircle2, Zap, Globe, MousePointer2,
   Layers, Code2, BarChart3, ShieldCheck, Smartphone,
 } from 'lucide-react';
+import { PaginasWebScrollHero } from '@/components/ui/paginas-web-hero';
 
 /* ═══════════════════════════════════════════════════════════════
    SPOTLIGHT CARD — mouse-glow on hover
@@ -377,152 +378,9 @@ export function PaginasWebPage() {
   return (
     <>
       {/* ══════════════════════════════════════════
-          1. HERO
+          1. HERO — parallax scroll
           ══════════════════════════════════════════ */}
-      <section className="relative bg-[#080808] overflow-hidden">
-        <div className="absolute inset-0 grid-bg opacity-40 pointer-events-none" />
-        <div className="absolute inset-0 pointer-events-none"
-          style={{ background: 'radial-gradient(ellipse 70% 50% at 50% 0%, rgba(212,175,55,0.10) 0%, transparent 65%)' }} />
-
-        <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 pb-16 sm:pb-20 lg:pb-28"
-             style={{ paddingTop: '9rem' }}>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-
-            {/* ── Left: Copy ── */}
-            <div className="space-y-6 sm:space-y-8 text-center lg:text-left">
-              <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}>
-                <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full
-                                bg-[#D4AF37]/10 border border-[#D4AF37]/25 mx-auto lg:mx-0">
-                  <Globe className="w-3.5 h-3.5 text-[#D4AF37] flex-shrink-0" />
-                  <span className="text-[10px] sm:text-xs font-semibold text-[#D4AF37]/80 tracking-[0.12em] uppercase">
-                    Páginas web conectadas a ventas
-                  </span>
-                </div>
-              </motion.div>
-
-              <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, delay: 0.1 }}
-                className="space-y-4">
-                <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-[3.2rem] font-bold
-                               leading-[1.07] tracking-[-0.02em]">
-                  <span className="text-white">Páginas web para negocios</span>
-                  <br />
-                  <span className="gradient-text-gold">que quieren vender más,</span>
-                  <br />
-                  <span className="text-white/60 text-2xl sm:text-3xl lg:text-4xl font-medium">
-                    no solo verse bien.
-                  </span>
-                </h1>
-              </motion.div>
-
-              <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}
-                transition={{ duration: 0.7, delay: 0.25 }}
-                className="space-y-3 text-sm sm:text-base text-white/50 leading-relaxed max-w-md mx-auto lg:mx-0">
-                <p>
-                  Creamos sitios web profesionales, rápidos y conectados a tu proceso comercial
-                  para que tus visitantes entiendan tu valor, confíen en tu negocio
-                  y sepan exactamente cómo contactarte.
-                </p>
-                <p className="text-white/70 font-medium border-l-2 border-[#D4AF37]/40 pl-3 text-sm">
-                  Tu página no debe ser solo presencia digital.
-                  Debe ser una herramienta activa para generar clientes.
-                </p>
-              </motion.div>
-
-              <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.35 }}
-                className="flex flex-col sm:flex-row gap-3 items-center lg:items-start">
-                <a
-                  href="https://wa.me/5215663864984?text=Hola,%20quiero%20una%20página%20web%20profesional"
-                  target="_blank" rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2.5
-                             px-6 py-4 text-sm font-semibold rounded-xl
-                             bg-[#D4AF37] text-[#0e0e0e]
-                             hover:bg-[#E5C158] transition-all duration-300
-                             shadow-lg hover:shadow-[#D4AF37]/25 hover:shadow-xl group"
-                >
-                  <svg className="w-4 h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
-                  </svg>
-                  Quiero mi página web
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </a>
-                <a href="#demo-elementos"
-                  className="inline-flex items-center justify-center gap-2 px-6 py-4 text-sm font-medium
-                             border border-white/10 text-white/60 rounded-xl
-                             hover:border-white/20 hover:text-white transition-all">
-                  Ver cómo funciona ↓
-                </a>
-              </motion.div>
-
-              {/* Mini stats */}
-              <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}
-                transition={{ delay: 0.5 }}
-                className="flex items-center justify-center lg:justify-start gap-8 pt-6 border-t border-white/[0.07]">
-                {[
-                  { val: '24/7', label: 'Tu web trabaja' },
-                  { val: '<2s', label: 'De carga' },
-                  { val: '100%', label: 'Responsive' },
-                ].map((stat, i) => (
-                  <div key={i} className="text-center">
-                    <div className="text-xl sm:text-2xl font-bold text-white leading-none">{stat.val}</div>
-                    <div className="text-[10px] text-white/30 uppercase tracking-wider mt-1.5">{stat.label}</div>
-                  </div>
-                ))}
-              </motion.div>
-            </div>
-
-            {/* ── Right: Mock browser ── */}
-            <motion.div
-              initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.9, delay: 0.3, ease: 'easeOut' }}
-              className="w-full"
-            >
-              <MockBrowser />
-              <div className="flex items-center justify-center gap-2 mt-4">
-                <div className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                <span className="text-[11px] text-white/30">
-                  Así puede verse la primera impresión de tu negocio
-                </span>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── VISUAL PREVIEW ── */}
-      <section className="pb-16 bg-[#080808]">
-        <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
-          <div className="relative rounded-2xl overflow-hidden border border-[#0dcfcf]/12 shadow-[0_0_80px_rgba(13,207,207,0.04)]">
-            <div className="absolute top-4 left-4 z-20 flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/60 backdrop-blur-md border border-white/10">
-              <div className="w-1.5 h-1.5 rounded-full bg-[#0dcfcf] animate-pulse" />
-              <span className="text-[10px] uppercase tracking-widest text-white/50 font-medium">Vista previa</span>
-            </div>
-            <img
-              src="/images/nb2/paginas-web.png"
-              alt="Vista previa Páginas Web"
-              className="w-full h-auto object-cover"
-            />
-            <div className="absolute bottom-0 inset-x-0 h-28 bg-gradient-to-t from-[#080808] via-[#080808]/60 to-transparent pointer-events-none" />
-          </div>
-          {/* Context copy */}
-          <motion.div
-            initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }} transition={{ delay: 0.2 }}
-            className="max-w-2xl mx-auto text-center mt-10 space-y-3"
-          >
-            <p className="text-white/50 text-sm sm:text-base leading-relaxed">
-              Tu sitio web es muchas veces el primer contacto entre tu marca y un posible cliente.
-            </p>
-            <p className="text-white/35 text-sm leading-relaxed">
-              En segundos, una persona decide si confía en ti, si entiende lo que ofreces
-              y si vale la pena escribirte. Por eso diseñamos páginas que se ven profesionales,
-              cargan rápido y guían al visitante hacia una acción clara.
-            </p>
-          </motion.div>
-        </div>
-      </section>
+      <PaginasWebScrollHero />
 
       {/* ══════════════════════════════════════════
           2. BOTONES / INTERACCIÓN
