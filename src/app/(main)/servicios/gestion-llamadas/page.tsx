@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 
 import { ServicePageTemplate } from "@/components/sections/service-page-template";
 import { GestionLlamadasHero } from "@/components/ui/gestion-llamadas-hero";
+import { VoiceDemoSection } from "@/components/sections/voice-demo-section";
 
 export const metadata: Metadata = {
   title: "Gestión de Llamadas y Comunicación Centralizada",
@@ -82,6 +83,7 @@ export default function GestionLlamadasPage() {
   return (
     <>
       <GestionLlamadasHero />
+      <VoiceDemoSection />
       <div id="servicio">
         <ServicePageTemplate {...data} />
       </div>
