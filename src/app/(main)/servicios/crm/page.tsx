@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
 import { ServicePageTemplate } from "@/components/sections/service-page-template";
+import { CrmHero } from "@/components/ui/crm-hero";
 
 export const metadata: Metadata = {
   title: "Implementación de CRM",
@@ -10,7 +11,7 @@ export const metadata: Metadata = {
 
 const data = {
   eyebrow: "Gestión comercial",
-  previewImageSrc: "/images/nb2/crm.png",
+  previewImageSrc: "https://assets.cdn.filesafe.space/VDsSxD2SvuHi58jp058d/media/6a07c6160a69f1e76681227c.png",
   title: "CRM para tu Equipo",
   subtitle: "Nunca más pierdas un prospecto por desorganización.",
   description:
@@ -78,5 +79,12 @@ const data = {
 };
 
 export default function CRMPage() {
-  return <ServicePageTemplate {...data} />;
+  return (
+    <>
+      <CrmHero />
+      <div id="servicio">
+        <ServicePageTemplate {...data} />
+      </div>
+    </>
+  );
 }
