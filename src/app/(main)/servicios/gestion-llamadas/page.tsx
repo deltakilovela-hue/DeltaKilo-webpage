@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
 import { ServicePageTemplate } from "@/components/sections/service-page-template";
+import { GestionLlamadasHero } from "@/components/ui/gestion-llamadas-hero";
 
 export const metadata: Metadata = {
   title: "Gestión de Llamadas y Comunicación Centralizada",
@@ -10,7 +11,7 @@ export const metadata: Metadata = {
 
 const data = {
   eyebrow: "Comunicación centralizada",
-  previewImageSrc: "/images/nb2/gestion-llamadas.png",
+  previewImageSrc: "https://assets.cdn.filesafe.space/VDsSxD2SvuHi58jp058d/media/6a07d7790a69f1e7668329f6.png",
   title: "Gestión de Llamadas",
   subtitle: "Cero leads perdidos por falta de respuesta.",
   description:
@@ -78,5 +79,12 @@ const data = {
 };
 
 export default function GestionLlamadasPage() {
-  return <ServicePageTemplate {...data} />;
+  return (
+    <>
+      <GestionLlamadasHero />
+      <div id="servicio">
+        <ServicePageTemplate {...data} />
+      </div>
+    </>
+  );
 }
