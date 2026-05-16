@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Script from "next/script";
 import { Phone, Mic, Volume2 } from "lucide-react";
 
 /* ── Animated waveform bars ─────────────────────────────────────────────────── */
@@ -51,14 +50,6 @@ function PulseRing() {
 export function VoiceDemoSection() {
   return (
     <>
-      {/* LeadConnector voice widget */}
-      <Script
-        src="https://widgets.leadconnectorhq.com/loader.js"
-        data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js"
-        data-widget-id="6a00deff01f21c429efb8509"
-        strategy="afterInteractive"
-      />
-
       <section className="relative bg-[#080808] border-t border-white/5 overflow-hidden">
         {/* Background grid */}
         <div
@@ -231,6 +222,5 @@ export function VoiceDemoSection() {
           </div>
         </div>
       </section>
-    </>
   );
 }
