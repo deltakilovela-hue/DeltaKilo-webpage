@@ -54,7 +54,6 @@ function PulseRing() {
 /* ── Main section ────────────────────────────────────────────────────────────── */
 export function VoiceDemoSection() {
   return (
-    <>
       <section className="relative bg-[#080808] border-t border-white/5 overflow-hidden">
         {/* Background grid */}
         <div
