@@ -245,7 +245,7 @@ const PageTypesSection = () => {
   return (
     <section
       id="que-incluye"
-      className="mx-auto max-w-5xl px-6 sm:px-8 py-32 text-white"
+      className="relative z-10 mx-auto max-w-5xl px-6 sm:px-8 py-32 text-white"
     >
       <motion.h2
         initial={{ y: 48, opacity: 0 }}
@@ -315,7 +315,7 @@ const HeroParallax = () => {
   return (
     <div
       style={{ height: `calc(${SECTION_HEIGHT}px + 100vh)` }}
-      className="relative w-full"
+      className="relative w-full isolate"
     >
       <CenterImage />
       <ParallaxImages />
