@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Phone, Mic, Volume2 } from "lucide-react";
+import Link from "next/link";
 
 /* ── Animated waveform bars ─────────────────────────────────────────────────── */
 function Waveform() {
@@ -39,8 +40,12 @@ function PulseRing() {
         />
       ))}
       <div className="relative z-10 w-16 h-16 rounded-full bg-[#0dcfcf]/10 border border-[#0dcfcf]/30
-                      flex items-center justify-center">
-        <Mic size={24} className="text-[#0dcfcf]" />
+                      flex items-center justify-center
+                      cursor-pointer transition-all duration-300
+                      group-hover:bg-[#0dcfcf]/25 group-hover:border-[#0dcfcf]/60
+                      group-hover:shadow-[0_0_28px_rgba(13,207,207,0.45)]
+                      group-hover:scale-110">
+        <Mic size={24} className="text-[#0dcfcf] group-hover:scale-110 transition-transform duration-300" />
       </div>
     </div>
   );
@@ -143,8 +148,8 @@ export function VoiceDemoSection() {
                 transition={{ delay: 0.4 }}
                 className="mt-8 text-xs text-white/25 flex items-center gap-2"
               >
-                <span className="text-[#0dcfcf]/50">↗</span>
-                Haz clic en el botón de voz para comenzar la demo
+                <span className="text-[#0dcfcf]/50">→</span>
+                Haz clic en el micrófono para abrir el agente de voz
               </motion.p>
             </div>
 
@@ -169,9 +174,18 @@ export function VoiceDemoSection() {
                     </span>
                   </div>
 
-                  {/* Mic pulse */}
+                  {/* Mic pulse — click to open agent page */}
                   <div className="flex justify-center mb-8">
-                    <PulseRing />
+                    <Link href="/agente" className="group relative" aria-label="Probar agente de voz IA">
+                      <PulseRing />
+                      {/* Hover tooltip */}
+                      <span className="absolute -bottom-7 left-1/2 -translate-x-1/2
+                                       text-[10px] text-[#0dcfcf]/60 whitespace-nowrap
+                                       opacity-0 group-hover:opacity-100 transition-opacity duration-200
+                                       tracking-widest uppercase">
+                        Probar agente ↗
+                      </span>
+                    </Link>
                   </div>
 
                   {/* Waveform */}
