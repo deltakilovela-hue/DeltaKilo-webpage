@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
 import { ServicePageTemplate } from "@/components/sections/service-page-template";
+import { GoogleMapsHero } from "@/components/ui/google-maps-hero";
 
 export const metadata: Metadata = {
   title: "Optimización en Google Maps y Local SEO",
@@ -10,7 +11,7 @@ export const metadata: Metadata = {
 
 const data = {
   eyebrow: "Presencia local",
-  previewImageSrc: "/images/nb2/google-maps.png",
+  previewImageSrc: "https://assets.cdn.filesafe.space/VDsSxD2SvuHi58jp058d/media/6a07d215dbe569a25d5c2f22.png",
   title: "Google Maps y Local SEO",
   subtitle: "Que te encuentren cuando más importa.",
   description:
@@ -78,5 +79,12 @@ const data = {
 };
 
 export default function GoogleMapsPage() {
-  return <ServicePageTemplate {...data} />;
+  return (
+    <>
+      <GoogleMapsHero />
+      <div id="servicio">
+        <ServicePageTemplate {...data} />
+      </div>
+    </>
+  );
 }
