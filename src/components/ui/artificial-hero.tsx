@@ -22,9 +22,13 @@ export const ArtificialHero = () => {
     const c: HTMLCanvasElement = canvas;
     const gc: HTMLCanvasElement = grainCanvas;
 
-    const ctx = c.getContext('2d');
-    const grainCtx = gc.getContext('2d');
-    if (!ctx || !grainCtx) return;
+    const ctxRaw = c.getContext('2d');
+    const grainCtxRaw = gc.getContext('2d');
+    if (!ctxRaw || !grainCtxRaw) return;
+
+    // Non-null aliases for use inside nested function declarations
+    const ctx: CanvasRenderingContext2D = ctxRaw;
+    const grainCtx: CanvasRenderingContext2D = grainCtxRaw;
 
     const density = ' .:-=+*#%@';
 
