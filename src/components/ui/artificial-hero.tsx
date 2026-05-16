@@ -17,8 +17,13 @@ export const ArtificialHero = () => {
     const grainCanvas = grainCanvasRef.current;
     if (!canvas || !grainCanvas) return;
 
-    const ctx = canvas.getContext('2d');
-    const grainCtx = grainCanvas.getContext('2d');
+    // Non-null aliases for use inside nested function declarations
+    // (TypeScript doesn't carry narrowing into nested function scopes)
+    const c: HTMLCanvasElement = canvas;
+    const gc: HTMLCanvasElement = grainCanvas;
+
+    const ctx = c.getContext('2d');
+    const grainCtx = gc.getContext('2d');
     if (!ctx || !grainCtx) return;
 
     const density = ' .:-=+*#%@';
@@ -78,7 +83,7 @@ export const ArtificialHero = () => {
       orbGradient.addColorStop(0.5, `hsla(${hue}, 70%, 50%, 0.4)`);
       orbGradient.addColorStop(1, 'rgba(0, 0, 0, 0)');
       ctx.fillStyle = orbGradient;
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.fillRect(0, 0, c.width, c.height);
 
       const centerRadius = radius * 0.3;
       ctx.fillStyle = `hsla(${hue + 20}, 100%, 95%, 0.8)`;
@@ -149,8 +154,8 @@ export const ArtificialHero = () => {
       timeRef.current += 0.016;
       const time = timeRef.current;
 
-      const width = (canvas.width = grainCanvas.width = window.innerWidth);
-      const height = (canvas.height = grainCanvas.height = window.innerHeight);
+      const width = (c.width = gc.width = window.innerWidth);
+      const height = (c.height = gc.height = window.innerHeight);
 
       ctx.fillStyle = '#000';
       ctx.fillRect(0, 0, width, height);
