@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 const data = {
   eyebrow: "Inteligencia artificial",
-  previewImageSrc: "https://assets.cdn.filesafe.space/VDsSxD2SvuHi58jp058d/media/6a07bfedc8cbb628b7ee9300.png",
+  previewImageSrc: "https://assets.cdn.filesafe.space/VDsSxD2SvuHi58jp058d/media/6a07c179c56db4013f83235e.png",
   title: "Asistentes de IA",
   subtitle: "Tu equipo de ventas que nunca duerme.",
   description:
