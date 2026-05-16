@@ -1,7 +1,7 @@
 'use client';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { ArrowRight, MessageCircle, Globe, Zap, Bot, Users, MapPin, Phone } from 'lucide-react';
+import { ArrowRight, Globe, Zap, Bot, Users, MapPin, Phone } from 'lucide-react';
 import { CTASection } from '@/components/sections/cta-section';
 
 type IconName = 'Globe' | 'Zap' | 'Bot' | 'Users' | 'MapPin' | 'Phone';
@@ -160,29 +160,6 @@ export function ServicePageTemplate({
             {description}
           </motion.p>
 
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-3"
-          >
-            <a
-              href="https://wa.me/5215663864984?text=Hola,%20me%20interesa%20conocer%20más%20sobre%20este%20servicio%20💊"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3.5 bg-[#0dcfcf] text-black font-semibold text-sm rounded-xl hover:bg-[#0bbdbd] transition-all hover:shadow-[0_0_24px_rgba(13,207,207,0.3)] group"
-            >
-              <MessageCircle size={15} />
-              Hablar por WhatsApp
-              <ArrowRight size={13} className="group-hover:translate-x-1 transition-transform" />
-            </a>
-            <Link
-              href="/contacto"
-              className="inline-flex items-center gap-2 px-6 py-3.5 bg-white/5 text-white/70 font-medium text-sm rounded-xl border border-white/10 hover:bg-white/10 transition-all"
-            >
-              Solicitar información
-            </Link>
-          </motion.div>
         </div>
       </section>
 
