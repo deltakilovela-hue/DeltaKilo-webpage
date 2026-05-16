@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
 import { ServicePageTemplate } from "@/components/sections/service-page-template";
+import { ArtificialHero } from "@/components/ui/artificial-hero";
 
 export const metadata: Metadata = {
   title: "Asistentes de IA para Negocios",
@@ -78,5 +79,12 @@ const data = {
 };
 
 export default function AsistentesIAPage() {
-  return <ServicePageTemplate {...data} />;
+  return (
+    <>
+      <ArtificialHero />
+      <div id="servicio">
+        <ServicePageTemplate {...data} />
+      </div>
+    </>
+  );
 }
