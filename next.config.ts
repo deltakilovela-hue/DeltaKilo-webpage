@@ -17,16 +17,6 @@ const nextConfig: NextConfig = {
       },
     ],
   },
-  async redirects() {
-    return [
-      {
-        source: '/:path*',
-        has: [{ type: 'host', value: 'delta-kilo-webpage.vercel.app' }],
-        destination: 'https://www.deltakilo.com.mx/:path*',
-        permanent: true,
-      },
-    ];
-  },
 };
 
 export default nextConfig;
