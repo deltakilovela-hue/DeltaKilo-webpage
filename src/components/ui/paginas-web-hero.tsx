@@ -31,38 +31,43 @@ const CenterImage = () => {
     [0, SECTION_HEIGHT + 500],
     ['170%', '100%']
   );
-  const opacity = useTransform(
+  const bgOpacity = useTransform(
     scrollY,
     [SECTION_HEIGHT, SECTION_HEIGHT + 500],
     [1, 0]
   );
+  const textOpacity = useTransform(scrollY, [0, 400], [1, 0]);
 
   return (
-    <motion.div
-      className="sticky top-0 h-screen w-full"
-      style={{
-        clipPath,
-        backgroundSize,
-        opacity,
-        backgroundImage:
-          'url(https://assets.cdn.filesafe.space/VDsSxD2SvuHi58jp058d/media/6a06bd73ea36308bcf743fdc.png)',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-      }}
-    >
-      {/* Dark overlay so text is readable */}
-      <div className="absolute inset-0 bg-black/70" />
+    /* Outer wrapper: black base so text is always readable outside the clip */
+    <div className="sticky top-0 h-screen w-full bg-[#080808]">
 
-      {/* Hero text — visible only when image is still centered */}
+      {/* ── Clipped background image (clip animation stays on image only) ── */}
       <motion.div
-        style={{ opacity: useTransform(scrollY, [0, 400], [1, 0]) }}
-        className="absolute inset-0 flex flex-col items-center justify-center gap-5 px-6 text-center"
+        className="absolute inset-0"
+        style={{
+          clipPath,
+          backgroundSize,
+          opacity: bgOpacity,
+          backgroundImage:
+            'url(https://assets.cdn.filesafe.space/VDsSxD2SvuHi58jp058d/media/6a06bd73ea36308bcf743fdc.png)',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+        }}
+      >
+        <div className="absolute inset-0 bg-black/70" />
+      </motion.div>
+
+      {/* ── Hero text — OUTSIDE the clip, always full viewport width ── */}
+      <motion.div
+        style={{ opacity: textOpacity }}
+        className="relative z-10 h-full flex flex-col items-center justify-center gap-5 px-6 text-center"
       >
         <span className="text-[10px] sm:text-xs font-semibold tracking-[0.22em] uppercase text-[#D4AF37]/80">
           Páginas web conectadas a ventas
         </span>
 
-        <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black leading-[1.04] tracking-tight text-white max-w-3xl">
+        <h1 className="text-3xl sm:text-5xl lg:text-6xl xl:text-7xl font-black leading-[1.08] tracking-tight text-white w-full max-w-3xl">
           Páginas que{' '}
           <span
             className="bg-clip-text text-transparent"
@@ -112,7 +117,7 @@ const CenterImage = () => {
           <div className="w-px h-8 bg-gradient-to-b from-white/20 to-transparent" />
         </motion.div>
       </motion.div>
-    </motion.div>
+    </div>
   );
 };
 
