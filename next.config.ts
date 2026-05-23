@@ -4,6 +4,11 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       {
+        source: '/blog',
+        destination: 'https://blog.deltakilo.com.mx',
+        permanent: false,
+      },
+      {
         source: '/blog/:path*',
         destination: 'https://blog.deltakilo.com.mx/:path*',
         permanent: false,
