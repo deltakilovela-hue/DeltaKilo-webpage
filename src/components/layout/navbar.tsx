@@ -18,7 +18,7 @@ const services = [
 const navLinks = [
   { label: 'Inicio',    href: '/' },
   { label: 'Servicios', href: '/servicios', hasDropdown: true },
-  { label: 'Blog',      href: 'https://deltakilo.com.mx/blog', external: true },
+  { label: 'Blog',      href: 'https://www.deltakilo.com.mx/blog', external: true },
   { label: 'Contacto',  href: '/contacto' },
 ];
 

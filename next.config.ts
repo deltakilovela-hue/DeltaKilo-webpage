@@ -1,6 +1,15 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  async redirects() {
+    return [
+      {
+        source: '/blog/:path*',
+        destination: 'https://www.deltakilo.com.mx/blog/:path*',
+        permanent: false,
+      },
+    ];
+  },
   images: {
     remotePatterns: [
       {
