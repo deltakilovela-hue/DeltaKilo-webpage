@@ -53,7 +53,7 @@ export default function ContactoPage() {
           }
         >
           <Image
-            src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=1400&q=80"
+            src="https://assets.cdn.filesafe.space/VDsSxD2SvuHi58jp058d/media/6a11b1a13c3aed7c63952022.png"
             alt="Equipo Delta Kilo — sesión de consultoría"
             height={720}
             width={1400}

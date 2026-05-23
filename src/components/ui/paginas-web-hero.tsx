@@ -251,7 +251,7 @@ const PageTypesSection = () => {
         initial={{ y: 48, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
         transition={{ ease: 'easeInOut', duration: 0.75 }}
-        className="mb-4 text-4xl sm:text-5xl font-black uppercase text-white"
+        className="mb-4 text-3xl sm:text-4xl lg:text-5xl font-black uppercase text-white break-words"
       >
         Páginas que{' '}
         <span

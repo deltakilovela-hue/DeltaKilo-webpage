@@ -57,7 +57,7 @@ export function Navbar() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 h-[68px] flex items-center justify-between">
 
           {/* ── Logo ── */}
-          <Link href="/" className="flex items-center gap-2.5 group flex-shrink-0">
+          <Link href="/" className="flex items-center gap-3 group flex-shrink-0">
             {/* Logo image in white pill */}
             <div className="relative h-10 rounded-xl bg-white px-2 py-1 overflow-hidden
                             shadow-[0_0_0_1px_rgba(255,255,255,0.12)]
@@ -65,11 +65,15 @@ export function Navbar() {
                             transition-all duration-300 flex items-center">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="/logo-dk.png"
+                src="https://assets.cdn.filesafe.space/VDsSxD2SvuHi58jp058d/media/6a00c788bc1f77cc3563c8b6.png"
                 alt="Delta Kilo Soluciones"
                 className="h-full w-auto object-contain"
               />
             </div>
+            <span className="text-sm font-semibold text-white/80 group-hover:text-white transition-colors duration-200 leading-tight">
+              Delta Kilo<br />
+              <span className="text-[#0dcfcf] text-xs font-medium tracking-wide">Soluciones</span>
+            </span>
           </Link>
 
           {/* ── Desktop Nav ── */}

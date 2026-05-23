@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 
 import { ServicePageTemplate } from "@/components/sections/service-page-template";
 import { GestionLlamadasHero } from "@/components/ui/gestion-llamadas-hero";
@@ -87,6 +88,47 @@ export default function GestionLlamadasPage() {
       <div id="servicio">
         <ServicePageTemplate {...data} />
       </div>
+
+      {/* ── Agente de Voz CTA ── */}
+      <section className="bg-[#080808] border-t border-white/5 py-20">
+        <div className="max-w-3xl mx-auto px-6 sm:px-10 text-center">
+          <span className="inline-flex items-center gap-2 mb-5 px-3 py-1.5 rounded-full
+                           border border-[#0dcfcf]/20 bg-[#0dcfcf]/5">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#0dcfcf] animate-pulse" />
+            <span className="text-[11px] font-semibold tracking-[0.18em] uppercase text-[#0dcfcf]">
+              Demo en vivo
+            </span>
+          </span>
+          <h2 className="text-3xl sm:text-4xl font-black text-white mb-4 leading-tight">
+            Prueba el agente de voz{" "}
+            <span
+              className="bg-clip-text text-transparent"
+              style={{ backgroundImage: "linear-gradient(135deg, #0dcfcf 0%, #7dd3fc 100%)" }}
+            >
+              ahora mismo
+            </span>
+          </h2>
+          <p className="text-white/45 text-base leading-relaxed mb-8 max-w-lg mx-auto">
+            Escucha cómo suena un asistente de IA atendiendo llamadas, respondiendo preguntas
+            y calificando prospectos de forma automática, las 24 horas del día.
+          </p>
+          <Link
+            href="/agente"
+            className="inline-flex items-center gap-3 px-8 py-4 text-sm font-semibold rounded-xl
+                       bg-[#0dcfcf] text-black hover:bg-[#0bbdbd]
+                       transition-all duration-300 shadow-lg hover:shadow-[0_0_32px_rgba(13,207,207,0.35)]
+                       hover:scale-105 group"
+          >
+            <svg className="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
+            </svg>
+            Probar agente de voz IA
+            <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </Link>
+        </div>
+      </section>
     </>
   );
 }
