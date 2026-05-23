@@ -29,6 +29,10 @@ export const metadata: Metadata = {
     "Google Maps",
     "Delta Kilo Soluciones",
   ],
+  icons: {
+    icon: "https://assets.cdn.filesafe.space/VDsSxD2SvuHi58jp058d/media/6a00c788bc1f77cc3563c8b6.png",
+    apple: "https://assets.cdn.filesafe.space/VDsSxD2SvuHi58jp058d/media/6a00c788bc1f77cc3563c8b6.png",
+  },
   openGraph: {
     title: "Delta Kilo Soluciones",
     description: "Automatizamos tu proceso de ventas de principio a fin.",
