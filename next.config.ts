@@ -5,7 +5,7 @@ const nextConfig: NextConfig = {
     return [
       {
         source: '/blog/:path*',
-        destination: 'https://www.deltakilo.com.mx/blog/:path*',
+        destination: 'https://blog.deltakilo.com.mx/:path*',
         permanent: false,
       },
     ];
