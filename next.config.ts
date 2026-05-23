@@ -22,7 +22,7 @@ const nextConfig: NextConfig = {
       {
         source: '/:path*',
         has: [{ type: 'host', value: 'delta-kilo-webpage.vercel.app' }],
-        destination: 'https://deltakilo.com.mx/:path*',
+        destination: 'https://www.deltakilo.com.mx/:path*',
         permanent: true,
       },
     ];
