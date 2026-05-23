@@ -16,22 +16,20 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           {/* Brand */}
           <div className="space-y-4">
-            <div className="flex items-center gap-3">
-              {/* Logo real en pill blanco */}
-              <div className="h-12 rounded-xl bg-white px-3 py-1.5 overflow-hidden flex items-center
-                              shadow-[0_0_0_1px_rgba(255,255,255,0.08)]">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src="https://assets.cdn.filesafe.space/VDsSxD2SvuHi58jp058d/media/6a00c788bc1f77cc3563c8b6.png"
-                  alt="Delta Kilo Soluciones"
-                  className="h-full w-auto object-contain"
-                />
-              </div>
+            <a href="https://deltakilo.com.mx/" className="flex items-center gap-3 group w-fit">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="https://assets.cdn.filesafe.space/VDsSxD2SvuHi58jp058d/media/6a00c788bc1f77cc3563c8b6.png"
+                alt="Delta Kilo Soluciones"
+                className="h-14 w-auto object-contain
+                           group-hover:drop-shadow-[0_0_8px_rgba(13,207,207,0.5)]
+                           transition-all duration-300"
+              />
               <div className="leading-tight">
                 <p className="text-sm font-semibold text-white/80">Delta Kilo</p>
                 <p className="text-xs font-medium text-[#0dcfcf] tracking-wide">Soluciones</p>
               </div>
-            </div>
+            </a>
             <p className="text-sm text-white/40 leading-relaxed max-w-xs">
               Convertimos negocios en sistemas organizados, automatizados y escalables.
             </p>

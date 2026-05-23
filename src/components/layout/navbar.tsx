@@ -18,6 +18,7 @@ const services = [
 const navLinks = [
   { label: 'Inicio',    href: '/' },
   { label: 'Servicios', href: '/servicios', hasDropdown: true },
+  { label: 'Blog',      href: 'https://deltakilo.com.mx/blog', external: true },
   { label: 'Contacto',  href: '/contacto' },
 ];
 
@@ -57,24 +58,20 @@ export function Navbar() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 h-[68px] flex items-center justify-between">
 
           {/* ── Logo ── */}
-          <Link href="/" className="flex items-center gap-3 group flex-shrink-0">
-            {/* Logo image in white pill */}
-            <div className="relative h-10 rounded-xl bg-white px-2 py-1 overflow-hidden
-                            shadow-[0_0_0_1px_rgba(255,255,255,0.12)]
-                            group-hover:shadow-[0_0_16px_rgba(13,207,207,0.25),0_0_0_1px_rgba(13,207,207,0.3)]
-                            transition-all duration-300 flex items-center">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="https://assets.cdn.filesafe.space/VDsSxD2SvuHi58jp058d/media/6a00c788bc1f77cc3563c8b6.png"
-                alt="Delta Kilo Soluciones"
-                className="h-full w-auto object-contain"
-              />
-            </div>
+          <a href="https://deltakilo.com.mx/" className="flex items-center gap-3 group flex-shrink-0">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="https://assets.cdn.filesafe.space/VDsSxD2SvuHi58jp058d/media/6a00c788bc1f77cc3563c8b6.png"
+              alt="Delta Kilo Soluciones"
+              className="h-11 w-auto object-contain
+                         group-hover:drop-shadow-[0_0_8px_rgba(13,207,207,0.5)]
+                         transition-all duration-300"
+            />
             <span className="text-sm font-semibold text-white/80 group-hover:text-white transition-colors duration-200 leading-tight">
               Delta Kilo<br />
               <span className="text-[#0dcfcf] text-xs font-medium tracking-wide">Soluciones</span>
             </span>
-          </Link>
+          </a>
 
           {/* ── Desktop Nav ── */}
           <nav className="hidden md:flex items-center gap-1">
@@ -144,6 +141,17 @@ export function Navbar() {
                     )}
                   </AnimatePresence>
                 </div>
+              ) : link.external ? (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200
+                             text-white/55 hover:text-white hover:bg-white/5"
+                >
+                  {link.label}
+                </a>
               ) : (
                 <Link
                   key={link.href}
@@ -253,6 +261,14 @@ export function Navbar() {
                 </div>
 
                 <div className="pt-2 border-t border-white/5">
+                  <a
+                    href="https://deltakilo.com.mx/blog"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center px-3 py-2.5 rounded-xl text-sm font-medium text-white/60 hover:text-white hover:bg-white/5 transition-all"
+                  >
+                    Blog
+                  </a>
                   <Link href="/contacto" className="flex items-center px-3 py-2.5 rounded-xl text-sm font-medium text-white/60 hover:text-white hover:bg-white/5 transition-all">
                     Contacto
                   </Link>
