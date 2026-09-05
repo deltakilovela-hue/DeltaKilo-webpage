@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: "Funnels Automáticos de Venta",
   description:
     "Captamos leads calificados de forma automática. Flujos de venta que trabajan solos, 24/7.",
+  alternates: { canonical: "/servicios/funnels" },
 };
 
 export default function FunnelsRoute() {

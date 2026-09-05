@@ -10,6 +10,7 @@ export const metadata: Metadata = {
   title: "Contacto",
   description:
     "Agenda una llamada gratuita con Delta Kilo Soluciones. En 30 minutos te mostramos qué sistema necesitas y cómo lo implementamos.",
+  alternates: { canonical: "/contacto" },
 };
 
 const stats = [

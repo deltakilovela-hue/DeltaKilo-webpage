@@ -9,6 +9,7 @@ export const metadata: Metadata = {
   title: "Gestión de Llamadas y Comunicación Centralizada",
   description:
     "Centraliza llamadas, WhatsApp y mensajes en un solo lugar. Cero leads perdidos por falta de respuesta.",
+  alternates: { canonical: "/servicios/gestion-llamadas" },
 };
 
 const data = {
