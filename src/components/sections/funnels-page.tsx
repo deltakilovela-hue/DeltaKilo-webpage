@@ -287,9 +287,9 @@ export function FunnelsPage() {
               viewport={{ once: true }} transition={{ duration: 0.6 }}
               className="text-center lg:text-left">
               <p className="text-xs uppercase tracking-widest text-[#0dcfcf] font-semibold mb-4">El problema real</p>
-              <h2 className="text-3xl sm:text-4xl font-bold gradient-text leading-tight mb-6">
+              <h1 className="text-3xl sm:text-4xl font-bold gradient-text leading-tight mb-6">
                 Los leads llegan. El dinero se pierde en el seguimiento.
-              </h2>
+              </h1>
               <p className="text-white/50 text-base leading-relaxed mb-6">
                 El 78% de los clientes compra con el proveedor que responde primero.
                 Pero la mayoría de los negocios tarda horas o días en contactar a un prospecto.
