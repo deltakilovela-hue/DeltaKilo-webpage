@@ -3,6 +3,8 @@ import Script from "next/script";
 
 export const metadata: Metadata = {
   title: "Agente de Voz IA — Delta Kilo",
+  description:
+    "Habla en vivo con el agente de voz IA de Delta Kilo y escucha cómo atiende llamadas, responde preguntas y califica prospectos en tiempo real.",
   robots: { index: false, follow: false },
 };
 

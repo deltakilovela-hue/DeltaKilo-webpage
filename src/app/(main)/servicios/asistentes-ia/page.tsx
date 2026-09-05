@@ -8,6 +8,28 @@ export const metadata: Metadata = {
   description:
     "Atención 24/7 sin contratar personal. Asistentes de inteligencia artificial que venden, califican y responden por ti.",
   alternates: { canonical: "/servicios/asistentes-ia" },
+  openGraph: {
+    title: "Asistentes de IA para Negocios | Delta Kilo Soluciones",
+    description:
+      "Atención 24/7 sin contratar personal. Asistentes de inteligencia artificial que venden, califican y responden por ti.",
+    url: "/servicios/asistentes-ia",
+    siteName: "Delta Kilo Soluciones",
+    locale: "es_MX",
+    type: "website",
+    images: [{
+      url: "https://assets.cdn.filesafe.space/VDsSxD2SvuHi58jp058d/media/6a07c179c56db4013f83235e.png",
+      width: 1200,
+      height: 630,
+      alt: "Asistentes de IA — Delta Kilo Soluciones",
+    }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Asistentes de IA para Negocios | Delta Kilo Soluciones",
+    description:
+      "Atención 24/7 sin contratar personal. Asistentes de inteligencia artificial que venden, califican y responden por ti.",
+    images: ["https://assets.cdn.filesafe.space/VDsSxD2SvuHi58jp058d/media/6a07c179c56db4013f83235e.png"],
+  },
 };
 
 const data = {
@@ -79,9 +101,43 @@ const data = {
   ],
 };
 
+const asistentesIaServiceJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: data.title,
+  description: data.description,
+  serviceType: data.eyebrow,
+  areaServed: { "@type": "Country", name: "México" },
+  provider: { "@id": "https://www.deltakilo.com.mx/#organization" },
+  url: "https://www.deltakilo.com.mx/servicios/asistentes-ia",
+};
+
+const asistentesIaFaqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: data.faqs.map((f) => ({
+    "@type": "Question",
+    name: f.question,
+    acceptedAnswer: { "@type": "Answer", text: f.answer },
+  })),
+};
+
+const asistentesIaBreadcrumbJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Inicio", item: "https://www.deltakilo.com.mx" },
+    { "@type": "ListItem", position: 2, name: "Servicios", item: "https://www.deltakilo.com.mx/servicios" },
+    { "@type": "ListItem", position: 3, name: "Asistentes de IA", item: "https://www.deltakilo.com.mx/servicios/asistentes-ia" },
+  ],
+};
+
 export default function AsistentesIAPage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(asistentesIaServiceJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(asistentesIaFaqJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(asistentesIaBreadcrumbJsonLd) }} />
       <ArtificialHero />
       <div id="servicio">
         <ServicePageTemplate {...data} />

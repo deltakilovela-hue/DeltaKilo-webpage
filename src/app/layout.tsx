@@ -70,6 +70,7 @@ export const metadata: Metadata = {
 const organizationJsonLd = {
   "@context": "https://schema.org",
   "@type": "Organization",
+  "@id": "https://www.deltakilo.com.mx/#organization",
   name: "Delta Kilo Soluciones",
   url: "https://www.deltakilo.com.mx",
   logo: "https://assets.cdn.filesafe.space/VDsSxD2SvuHi58jp058d/media/6a00c788bc1f77cc3563c8b6.png",

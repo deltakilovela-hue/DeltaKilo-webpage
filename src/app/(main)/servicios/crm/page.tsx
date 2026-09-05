@@ -8,6 +8,28 @@ export const metadata: Metadata = {
   description:
     "Centraliza clientes, seguimientos y oportunidades en un solo panel. Nunca más pierdas un prospecto por falta de organización.",
   alternates: { canonical: "/servicios/crm" },
+  openGraph: {
+    title: "Implementación de CRM | Delta Kilo Soluciones",
+    description:
+      "Centraliza clientes, seguimientos y oportunidades en un solo panel. Nunca más pierdas un prospecto por falta de organización.",
+    url: "/servicios/crm",
+    siteName: "Delta Kilo Soluciones",
+    locale: "es_MX",
+    type: "website",
+    images: [{
+      url: "https://assets.cdn.filesafe.space/VDsSxD2SvuHi58jp058d/media/6a07c6160a69f1e76681227c.png",
+      width: 1200,
+      height: 630,
+      alt: "CRM para tu Equipo — Delta Kilo Soluciones",
+    }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Implementación de CRM | Delta Kilo Soluciones",
+    description:
+      "Centraliza clientes, seguimientos y oportunidades en un solo panel. Nunca más pierdas un prospecto por falta de organización.",
+    images: ["https://assets.cdn.filesafe.space/VDsSxD2SvuHi58jp058d/media/6a07c6160a69f1e76681227c.png"],
+  },
 };
 
 const data = {
@@ -79,9 +101,43 @@ const data = {
   ],
 };
 
+const crmServiceJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: data.title,
+  description: data.description,
+  serviceType: data.eyebrow,
+  areaServed: { "@type": "Country", name: "México" },
+  provider: { "@id": "https://www.deltakilo.com.mx/#organization" },
+  url: "https://www.deltakilo.com.mx/servicios/crm",
+};
+
+const crmFaqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: data.faqs.map((f) => ({
+    "@type": "Question",
+    name: f.question,
+    acceptedAnswer: { "@type": "Answer", text: f.answer },
+  })),
+};
+
+const crmBreadcrumbJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Inicio", item: "https://www.deltakilo.com.mx" },
+    { "@type": "ListItem", position: 2, name: "Servicios", item: "https://www.deltakilo.com.mx/servicios" },
+    { "@type": "ListItem", position: 3, name: "CRM", item: "https://www.deltakilo.com.mx/servicios/crm" },
+  ],
+};
+
 export default function CRMPage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(crmServiceJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(crmFaqJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(crmBreadcrumbJsonLd) }} />
       <CrmHero />
       <div id="servicio">
         <ServicePageTemplate {...data} />

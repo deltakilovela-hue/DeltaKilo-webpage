@@ -6,10 +6,32 @@ import { GestionLlamadasHero } from "@/components/ui/gestion-llamadas-hero";
 import { VoiceDemoSection } from "@/components/sections/voice-demo-section";
 
 export const metadata: Metadata = {
-  title: "Gestión de Llamadas y Comunicación Centralizada",
+  title: "Gestión de Llamadas y Mensajes",
   description:
     "Centraliza llamadas, WhatsApp y mensajes en un solo lugar. Cero leads perdidos por falta de respuesta.",
   alternates: { canonical: "/servicios/gestion-llamadas" },
+  openGraph: {
+    title: "Gestión de Llamadas y Mensajes | Delta Kilo Soluciones",
+    description:
+      "Centraliza llamadas, WhatsApp y mensajes en un solo lugar. Cero leads perdidos por falta de respuesta.",
+    url: "/servicios/gestion-llamadas",
+    siteName: "Delta Kilo Soluciones",
+    locale: "es_MX",
+    type: "website",
+    images: [{
+      url: "https://assets.cdn.filesafe.space/VDsSxD2SvuHi58jp058d/media/6a07d7790a69f1e7668329f6.png",
+      width: 1200,
+      height: 630,
+      alt: "Gestión de Llamadas — Delta Kilo Soluciones",
+    }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Gestión de Llamadas y Mensajes | Delta Kilo Soluciones",
+    description:
+      "Centraliza llamadas, WhatsApp y mensajes en un solo lugar. Cero leads perdidos por falta de respuesta.",
+    images: ["https://assets.cdn.filesafe.space/VDsSxD2SvuHi58jp058d/media/6a07d7790a69f1e7668329f6.png"],
+  },
 };
 
 const data = {
@@ -81,9 +103,43 @@ const data = {
   ],
 };
 
+const gestionLlamadasServiceJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: data.title,
+  description: data.description,
+  serviceType: data.eyebrow,
+  areaServed: { "@type": "Country", name: "México" },
+  provider: { "@id": "https://www.deltakilo.com.mx/#organization" },
+  url: "https://www.deltakilo.com.mx/servicios/gestion-llamadas",
+};
+
+const gestionLlamadasFaqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: data.faqs.map((f) => ({
+    "@type": "Question",
+    name: f.question,
+    acceptedAnswer: { "@type": "Answer", text: f.answer },
+  })),
+};
+
+const gestionLlamadasBreadcrumbJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Inicio", item: "https://www.deltakilo.com.mx" },
+    { "@type": "ListItem", position: 2, name: "Servicios", item: "https://www.deltakilo.com.mx/servicios" },
+    { "@type": "ListItem", position: 3, name: "Gestión de Llamadas", item: "https://www.deltakilo.com.mx/servicios/gestion-llamadas" },
+  ],
+};
+
 export default function GestionLlamadasPage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(gestionLlamadasServiceJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(gestionLlamadasFaqJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(gestionLlamadasBreadcrumbJsonLd) }} />
       <GestionLlamadasHero />
       <VoiceDemoSection />
       <div id="servicio">

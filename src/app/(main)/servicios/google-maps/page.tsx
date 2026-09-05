@@ -8,6 +8,28 @@ export const metadata: Metadata = {
   description:
     "Posiciona tu negocio en Google Maps donde tus clientes te buscan. Más visibilidad local, más llamadas, más clientes.",
   alternates: { canonical: "/servicios/google-maps" },
+  openGraph: {
+    title: "Optimización en Google Maps y Local SEO | Delta Kilo Soluciones",
+    description:
+      "Posiciona tu negocio en Google Maps donde tus clientes te buscan. Más visibilidad local, más llamadas, más clientes.",
+    url: "/servicios/google-maps",
+    siteName: "Delta Kilo Soluciones",
+    locale: "es_MX",
+    type: "website",
+    images: [{
+      url: "https://assets.cdn.filesafe.space/VDsSxD2SvuHi58jp058d/media/6a07d215dbe569a25d5c2f22.png",
+      width: 1200,
+      height: 630,
+      alt: "Google Maps y Local SEO — Delta Kilo Soluciones",
+    }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Optimización en Google Maps y Local SEO | Delta Kilo Soluciones",
+    description:
+      "Posiciona tu negocio en Google Maps donde tus clientes te buscan. Más visibilidad local, más llamadas, más clientes.",
+    images: ["https://assets.cdn.filesafe.space/VDsSxD2SvuHi58jp058d/media/6a07d215dbe569a25d5c2f22.png"],
+  },
 };
 
 const data = {
@@ -79,9 +101,43 @@ const data = {
   ],
 };
 
+const googleMapsServiceJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: data.title,
+  description: data.description,
+  serviceType: data.eyebrow,
+  areaServed: { "@type": "Country", name: "México" },
+  provider: { "@id": "https://www.deltakilo.com.mx/#organization" },
+  url: "https://www.deltakilo.com.mx/servicios/google-maps",
+};
+
+const googleMapsFaqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: data.faqs.map((f) => ({
+    "@type": "Question",
+    name: f.question,
+    acceptedAnswer: { "@type": "Answer", text: f.answer },
+  })),
+};
+
+const googleMapsBreadcrumbJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Inicio", item: "https://www.deltakilo.com.mx" },
+    { "@type": "ListItem", position: 2, name: "Servicios", item: "https://www.deltakilo.com.mx/servicios" },
+    { "@type": "ListItem", position: 3, name: "Google Maps y Local SEO", item: "https://www.deltakilo.com.mx/servicios/google-maps" },
+  ],
+};
+
 export default function GoogleMapsPage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(googleMapsServiceJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(googleMapsFaqJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(googleMapsBreadcrumbJsonLd) }} />
       <GoogleMapsHero />
       <div id="servicio">
         <ServicePageTemplate {...data} />

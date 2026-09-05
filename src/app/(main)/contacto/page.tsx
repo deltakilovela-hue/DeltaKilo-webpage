@@ -11,6 +11,37 @@ export const metadata: Metadata = {
   description:
     "Agenda una llamada gratuita con Delta Kilo Soluciones. En 30 minutos te mostramos qué sistema necesitas y cómo lo implementamos.",
   alternates: { canonical: "/contacto" },
+  openGraph: {
+    title: "Contacto | Delta Kilo Soluciones",
+    description:
+      "Agenda una llamada gratuita con Delta Kilo Soluciones. En 30 minutos te mostramos qué sistema necesitas y cómo lo implementamos.",
+    url: "/contacto",
+    siteName: "Delta Kilo Soluciones",
+    locale: "es_MX",
+    type: "website",
+    images: [{
+      url: "https://assets.cdn.filesafe.space/VDsSxD2SvuHi58jp058d/media/6a00c788bc1f77cc3563c8b6.png",
+      width: 1200,
+      height: 630,
+      alt: "Contacto — Delta Kilo Soluciones",
+    }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Contacto | Delta Kilo Soluciones",
+    description:
+      "Agenda una llamada gratuita con Delta Kilo Soluciones. En 30 minutos te mostramos qué sistema necesitas y cómo lo implementamos.",
+    images: ["https://assets.cdn.filesafe.space/VDsSxD2SvuHi58jp058d/media/6a00c788bc1f77cc3563c8b6.png"],
+  },
+};
+
+const contactoBreadcrumbJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Inicio", item: "https://www.deltakilo.com.mx" },
+    { "@type": "ListItem", position: 2, name: "Contacto", item: "https://www.deltakilo.com.mx/contacto" },
+  ],
 };
 
 const stats = [
@@ -29,6 +60,7 @@ const expectItems = [
 export default function ContactoPage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(contactoBreadcrumbJsonLd) }} />
       {/* ── 1. PONG HERO ─────────────────────────── */}
       <ContactHero />
 
@@ -40,13 +72,13 @@ export default function ContactoPage() {
               <p className="text-xs uppercase tracking-widest text-[#0dcfcf] font-semibold mb-4">
                 Sin rodeos
               </p>
-              <h2 className="text-4xl md:text-5xl font-bold gradient-text leading-tight mb-4">
+              <h1 className="text-4xl md:text-5xl font-bold gradient-text leading-tight mb-4">
                 Todo inicia con una
                 <br />
                 <span className="gradient-text-cyan text-5xl md:text-7xl font-bold leading-none">
                   llamada de 30 min
                 </span>
-              </h2>
+              </h1>
               <p className="text-white/45 text-base md:text-lg max-w-xl mx-auto leading-relaxed">
                 Sin compromisos. Analizamos tu negocio y te mostramos exactamente qué sistema necesitas.
               </p>

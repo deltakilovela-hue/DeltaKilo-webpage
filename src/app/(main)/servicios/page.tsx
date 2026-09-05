@@ -8,6 +8,37 @@ export const metadata: Metadata = {
   description:
     "Explora todos los servicios de Delta Kilo Soluciones: automatización, CRM, funnels, asistentes de IA, páginas web y más.",
   alternates: { canonical: "/servicios" },
+  openGraph: {
+    title: "Servicios | Delta Kilo Soluciones",
+    description:
+      "Explora todos los servicios de Delta Kilo Soluciones: automatización, CRM, funnels, asistentes de IA, páginas web y más.",
+    url: "/servicios",
+    siteName: "Delta Kilo Soluciones",
+    locale: "es_MX",
+    type: "website",
+    images: [{
+      url: "https://assets.cdn.filesafe.space/VDsSxD2SvuHi58jp058d/media/6a00c788bc1f77cc3563c8b6.png",
+      width: 1200,
+      height: 630,
+      alt: "Servicios — Delta Kilo Soluciones",
+    }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Servicios | Delta Kilo Soluciones",
+    description:
+      "Explora todos los servicios de Delta Kilo Soluciones: automatización, CRM, funnels, asistentes de IA, páginas web y más.",
+    images: ["https://assets.cdn.filesafe.space/VDsSxD2SvuHi58jp058d/media/6a00c788bc1f77cc3563c8b6.png"],
+  },
+};
+
+const serviciosBreadcrumbJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Inicio", item: "https://www.deltakilo.com.mx" },
+    { "@type": "ListItem", position: 2, name: "Servicios", item: "https://www.deltakilo.com.mx/servicios" },
+  ],
 };
 
 const services = [
@@ -82,6 +113,7 @@ const services = [
 export default function ServiciosPage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviciosBreadcrumbJsonLd) }} />
       {/* Hero */}
       <section className="relative pt-40 pb-20 bg-[#080808] overflow-hidden">
         <div
