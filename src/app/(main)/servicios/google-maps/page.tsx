@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: "Optimización en Google Maps y Local SEO",
   description:
     "Posiciona tu negocio en Google Maps donde tus clientes te buscan. Más visibilidad local, más llamadas, más clientes.",
+  alternates: { canonical: "/servicios/google-maps" },
 };
 
 const data = {

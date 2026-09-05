@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 
-const BASE_URL = "https://deltakilo.com.mx";
+const BASE_URL = "https://www.deltakilo.com.mx";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [

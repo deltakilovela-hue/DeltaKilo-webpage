@@ -14,6 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.deltakilo.com.mx"),
   title: {
     default: "Delta Kilo Soluciones | CRM, Automatización y Páginas Web para Negocios en México",
     template: "%s | Delta Kilo Soluciones",
@@ -66,6 +67,25 @@ export const metadata: Metadata = {
   },
 };
 
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Delta Kilo Soluciones",
+  url: "https://www.deltakilo.com.mx",
+  logo: "https://assets.cdn.filesafe.space/VDsSxD2SvuHi58jp058d/media/6a00c788bc1f77cc3563c8b6.png",
+  sameAs: [
+    "https://www.facebook.com/Deltakilosoluciones/",
+    "https://www.instagram.com/deltakilosoluciones",
+  ],
+};
+
+const websiteJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "Delta Kilo Soluciones",
+  url: "https://www.deltakilo.com.mx",
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -77,6 +97,14 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-[#080808] text-white">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
+        />
         <ScrollProgress />
         {children}
       </body>

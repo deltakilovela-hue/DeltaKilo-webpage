@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: "Implementación de CRM",
   description:
     "Centraliza clientes, seguimientos y oportunidades en un solo panel. Nunca más pierdas un prospecto por falta de organización.",
+  alternates: { canonical: "/servicios/crm" },
 };
 
 const data = {

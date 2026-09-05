@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: "Servicios",
   description:
     "Explora todos los servicios de Delta Kilo Soluciones: automatización, CRM, funnels, asistentes de IA, páginas web y más.",
+  alternates: { canonical: "/servicios" },
 };
 
 const services = [

@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: "Asistentes de IA para Negocios",
   description:
     "Atención 24/7 sin contratar personal. Asistentes de inteligencia artificial que venden, califican y responden por ti.",
+  alternates: { canonical: "/servicios/asistentes-ia" },
 };
 
 const data = {
