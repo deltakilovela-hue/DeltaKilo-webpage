@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
 
 import { EcosistemaHero } from "@/components/ui/ecosistema-hero";
+import { EcosystemStats } from "@/components/sections/ecosystem-stats";
 import { EcosystemTeam } from "@/components/sections/ecosystem-team";
+import { EcosystemContentMarquee } from "@/components/sections/ecosystem-content-marquee";
+import { EcosystemClients } from "@/components/sections/ecosystem-clients";
 import { EcosystemPortal } from "@/components/sections/ecosystem-portal";
 import { CTASection } from "@/components/sections/cta-section";
 
@@ -58,9 +61,12 @@ export default function EcosistemaPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(ecosistemaServiceJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(ecosistemaBreadcrumbJsonLd) }} />
       <EcosistemaHero />
+      <EcosystemStats />
       <div id="escuadron">
         <EcosystemTeam />
       </div>
+      <EcosystemContentMarquee />
+      <EcosystemClients />
       <EcosystemPortal />
       <CTASection
         eyebrow="¿Quieres ver tu diagnóstico gratis?"
