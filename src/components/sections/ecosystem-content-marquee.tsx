@@ -2,16 +2,20 @@
 import { motion } from 'framer-motion';
 import { Marquee } from '@/components/ui/marquee';
 
-// Piezas reales publicadas por AKBOT/Vox — portadas de blog de blog.deltakilo.com.mx
+// Piezas reales publicadas por AKBOT/Vox/Echo — Delta Kilo y sus clientes
 const pieces = [
-  { title: 'Negocio ordenado sin estar encima de todo', img: 'https://assets.cdn.filesafe.space/VDsSxD2SvuHi58jp058d/media/24bd4847-fdc3-4876-a887-ab04af223d05.png' },
-  { title: 'Cómo pedir reseñas de Google sin forzar', img: 'https://assets.cdn.filesafe.space/VDsSxD2SvuHi58jp058d/media/02cc06ad-1fb4-45ef-8a08-290fddcae39b.png' },
-  { title: 'El costo de responder tarde a clientes', img: 'https://assets.cdn.filesafe.space/VDsSxD2SvuHi58jp058d/media/3ef6a6e6-0a13-4f3c-a9ea-c865d681240b.png' },
-  { title: 'Recordatorios automáticos en clínicas', img: 'https://assets.cdn.filesafe.space/VDsSxD2SvuHi58jp058d/media/8c461d6b-10df-467a-a22a-241675189ee8.png' },
-  { title: 'Meta Business Agent en WhatsApp', img: 'https://assets.cdn.filesafe.space/VDsSxD2SvuHi58jp058d/media/fa4e2088-8a4b-418d-81ee-07c69ae1c9c8.png' },
-  { title: 'Catálogo por WhatsApp en mueblerías', img: 'https://assets.cdn.filesafe.space/VDsSxD2SvuHi58jp058d/media/78f6e887-555e-4c2b-84db-92c0351cf162.png' },
-  { title: 'Noticias de IA para negocios — semana 1', img: 'https://assets.cdn.filesafe.space/VDsSxD2SvuHi58jp058d/media/9506b2a6-a1d2-4053-9db7-e98b6315ed20.png' },
-  { title: 'Noticias de IA para negocios — semana 2', img: 'https://assets.cdn.filesafe.space/VDsSxD2SvuHi58jp058d/media/8c29a927-e1c9-4d11-ab97-c69ddbe8a574.png' },
+  { title: 'Negocio ordenado sin estar encima de todo', tag: 'Delta Kilo', img: 'https://assets.cdn.filesafe.space/VDsSxD2SvuHi58jp058d/media/24bd4847-fdc3-4876-a887-ab04af223d05.png' },
+  { title: 'Carrusel educativo de nutrición', tag: 'Karina Lara', img: '/ecosistema/clientes/karina-carrusel-01.jpg' },
+  { title: 'Cómo pedir reseñas de Google sin forzar', tag: 'Delta Kilo', img: 'https://assets.cdn.filesafe.space/VDsSxD2SvuHi58jp058d/media/02cc06ad-1fb4-45ef-8a08-290fddcae39b.png' },
+  { title: 'Septiembre, mes de raíces', tag: 'Xencalli', img: '/ecosistema/clientes/xencalli-story-01.jpg' },
+  { title: 'El costo de responder tarde a clientes', tag: 'Delta Kilo', img: 'https://assets.cdn.filesafe.space/VDsSxD2SvuHi58jp058d/media/3ef6a6e6-0a13-4f3c-a9ea-c865d681240b.png' },
+  { title: 'Análisis de laboratorio para el campo', tag: 'Fermier', img: '/ecosistema/clientes/fermier-post.jpg' },
+  { title: 'Recordatorios automáticos en clínicas', tag: 'Delta Kilo', img: 'https://assets.cdn.filesafe.space/VDsSxD2SvuHi58jp058d/media/8c461d6b-10df-467a-a22a-241675189ee8.png' },
+  { title: 'Segundo carrusel de hábitos saludables', tag: 'Karina Lara', img: '/ecosistema/clientes/karina-carrusel-03.jpg' },
+  { title: 'Meta Business Agent en WhatsApp', tag: 'Delta Kilo', img: 'https://assets.cdn.filesafe.space/VDsSxD2SvuHi58jp058d/media/fa4e2088-8a4b-418d-81ee-07c69ae1c9c8.png' },
+  { title: 'Domingo con sabor a México', tag: 'Xencalli', img: '/ecosistema/clientes/xencalli-story-07.jpg' },
+  { title: 'Catálogo por WhatsApp en mueblerías', tag: 'Delta Kilo', img: 'https://assets.cdn.filesafe.space/VDsSxD2SvuHi58jp058d/media/78f6e887-555e-4c2b-84db-92c0351cf162.png' },
+  { title: 'Story de contenido educativo', tag: 'Karina Lara', img: '/ecosistema/clientes/karina-story.jpg' },
 ];
 
 export function EcosystemContentMarquee() {
@@ -30,15 +34,20 @@ export function EcosystemContentMarquee() {
           transition={{ delay: 0.1 }}
           className="text-heading gradient-text"
         >
-          Esto ya lo publicó AKBOT y Vox.
+          Esto ya lo publicó AKBOT y Vox — para Delta Kilo y sus clientes.
         </motion.h2>
       </div>
 
       <Marquee repeat={2} pauseOnHover className="[--duration:45s]">
         {pieces.map((piece) => (
           <div key={piece.title} className="w-[200px] flex-shrink-0 rounded-xl overflow-hidden border border-white/10 bg-[#111111]">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={piece.img} alt={piece.title} className="w-full aspect-[4/5] object-cover" />
+            <div className="relative">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={piece.img} alt={piece.title} className="w-full aspect-[4/5] object-cover" />
+              <span className="absolute top-2 left-2 text-[9px] uppercase tracking-wide font-semibold px-2 py-1 rounded-full bg-black/60 backdrop-blur-sm text-[#0dcfcf] border border-[#0dcfcf]/30">
+                {piece.tag}
+              </span>
+            </div>
             <p className="text-[11px] text-white/45 px-3 py-2.5 leading-snug line-clamp-2">{piece.title}</p>
           </div>
         ))}
