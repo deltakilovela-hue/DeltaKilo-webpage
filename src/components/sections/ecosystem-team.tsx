@@ -6,37 +6,43 @@ const squad = [
     callsign: 'Echo',
     role: 'Diseño',
     desc: 'Crea cada pieza visual de tu marca — gráficos, imagen de blog, mockups — con tu identidad real, no una plantilla genérica.',
-    avatar: '/ecosistema/agentes/echo.png',
+    avatar: '/ecosistema/agentes/echo-mascota.png',
+    ring: ['#10b981', '#22d3ee'],
   },
   {
     callsign: 'Vox',
     role: 'Video',
     desc: 'Escribe, narra y anima tus videos cortos de principio a fin, sin que tengas que grabar ni editar nada.',
-    avatar: '/ecosistema/agentes/vox.png',
+    avatar: '/ecosistema/agentes/vox-mascota.png',
+    ring: ['#f97316', '#ec4899'],
   },
   {
     callsign: 'AKBOT',
     role: 'Contenido',
     desc: 'Publica tu blog y tus redes cada semana, con la voz de tu marca, sin que se te olvide ni un día.',
-    avatar: '/ecosistema/agentes/akbot.png',
+    avatar: '/ecosistema/agentes/akbot-mascota.png',
+    ring: ['#22d3ee', '#22c55e'],
   },
   {
     callsign: 'Lima',
     role: 'Leads & CRM',
     desc: 'Responde tu WhatsApp, clasifica cada prospecto y lo agenda directo en tu CRM, a cualquier hora.',
-    avatar: '/ecosistema/agentes/lima.png',
+    avatar: '/ecosistema/agentes/lima-mascota.png',
+    ring: ['#eab308', '#84cc16'],
   },
   {
     callsign: 'Sierra',
     role: 'SEO y presencia',
     desc: 'Vigila tu sitio, tu ficha de Google Maps y tus redes, y corrige lo que te está restando visibilidad.',
-    avatar: '/ecosistema/agentes/sierra.png',
+    avatar: '/ecosistema/agentes/sierra-mascota.png',
+    ring: ['#22d3ee', '#2563eb'],
   },
   {
     callsign: 'Tango',
     role: 'Pauta',
     desc: 'Diseña y opera tu inversión en Meta, Google y TikTok con un solo objetivo: bajar tu costo por cliente.',
-    avatar: '/ecosistema/agentes/tango.png',
+    avatar: '/ecosistema/agentes/tango-mascota.png',
+    ring: ['#ef4444', '#a855f7'],
   },
 ];
 
@@ -79,14 +85,14 @@ export function EcosystemTeam() {
               className="glass-card card-glow card-lift rounded-2xl p-6 flex flex-col gap-4"
             >
               <div className="flex items-center justify-between">
-                <div className="w-11 h-11 rounded-xl bg-[#0dcfcf]/8 border border-[#0dcfcf]/15 flex items-center justify-center overflow-hidden">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={agent.avatar}
-                    alt=""
-                    className="w-8 h-8 object-contain"
-                    style={{ mixBlendMode: 'screen' }}
-                  />
+                <div
+                  className="w-16 h-16 rounded-full p-[2px] shrink-0"
+                  style={{ background: `linear-gradient(135deg, ${agent.ring[0]}, ${agent.ring[1]})` }}
+                >
+                  <div className="w-full h-full rounded-full overflow-hidden bg-[#080808]">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={agent.avatar} alt={agent.callsign} className="w-full h-full object-cover" />
+                  </div>
                 </div>
                 <span className="font-mono text-[10px] uppercase tracking-widest text-white/20">
                   Agente 0{i + 1}
