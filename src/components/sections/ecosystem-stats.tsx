@@ -5,7 +5,7 @@ import { NumberTicker } from '@/components/ui/number-ticker';
 const stats = [
   { value: 6, suffix: '', label: 'Agentes de IA en el escuadrón' },
   { value: 557, suffix: '+', label: 'Piezas de contenido publicadas' },
-  { value: 82, suffix: '', label: 'Leads gestionados en el CRM (todos los clientes)' },
+  { value: 1632, suffix: '+', label: 'Leads gestionados en el CRM de clientes' },
 ];
 
 export function EcosystemStats() {
@@ -34,7 +34,7 @@ export function EcosystemStats() {
           ))}
         </div>
         <p className="text-center text-[10px] text-white/20 mt-8 font-mono">
-          Datos reales de la cuenta de Delta Kilo Soluciones, actualizados 09/2026
+          Datos reales de las cuentas de Delta Kilo y sus clientes, actualizados 09/2026
         </p>
       </div>
     </section>
