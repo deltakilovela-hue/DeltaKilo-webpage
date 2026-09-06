@@ -62,7 +62,7 @@ export function EcosistemaHero() {
             className="flex flex-col sm:flex-row items-center justify-center gap-3"
           >
             <a
-              href="https://wa.me/5215663864984?text=Hola,%20quiero%20conocer%20el%20ecosistema%20de%20Delta%20Kilo%20💊"
+              href="https://wa.me/5215663864984?text=Hola,%20quiero%20conocer%20el%20ecosistema%20de%20Delta%20Kilo%20%F0%9F%92%8A"
               target="_blank"
               rel="noopener noreferrer"
               className="btn-primary inline-flex items-center gap-2.5 px-6 py-3.5 text-sm group"
