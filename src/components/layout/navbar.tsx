@@ -16,10 +16,11 @@ const services = [
 ];
 
 const navLinks = [
-  { label: 'Inicio',    href: '/' },
-  { label: 'Servicios', href: '/servicios', hasDropdown: true },
-  { label: 'Blog',      href: 'https://blog.deltakilo.com.mx', external: true },
-  { label: 'Contacto',  href: '/contacto' },
+  { label: 'Inicio',     href: '/' },
+  { label: 'Servicios',  href: '/servicios', hasDropdown: true },
+  { label: 'Ecosistema', href: '/ecosistema' },
+  { label: 'Blog',       href: 'https://blog.deltakilo.com.mx', external: true },
+  { label: 'Contacto',   href: '/contacto' },
 ];
 
 export function Navbar() {
@@ -243,6 +244,9 @@ export function Navbar() {
               <div className="flex-1 overflow-y-auto p-4 space-y-1">
                 <Link href="/" className="flex items-center px-3 py-2.5 rounded-xl text-sm font-medium text-white/60 hover:text-white hover:bg-white/5 transition-all">
                   Inicio
+                </Link>
+                <Link href="/ecosistema" className="flex items-center px-3 py-2.5 rounded-xl text-sm font-medium text-white/60 hover:text-white hover:bg-white/5 transition-all">
+                  Ecosistema
                 </Link>
 
                 {/* Services group */}

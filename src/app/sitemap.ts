@@ -28,6 +28,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
+      url: `${BASE_URL}/ecosistema`,
+      lastModified: lastModified("src/app/(main)/ecosistema/page.tsx"),
+      changeFrequency: "monthly",
+      priority: 0.85,
+    },
+    {
       url: `${BASE_URL}/servicios`,
       lastModified: lastModified("src/app/(main)/servicios/page.tsx"),
       changeFrequency: "monthly",
