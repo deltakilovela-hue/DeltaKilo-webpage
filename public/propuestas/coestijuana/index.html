@@ -1,0 +1,1035 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Diagnóstico — Grupo COES × Delta Kilo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800;900&family=Cormorant+Garamond:ital,wght@1,400;1,500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --teal:   #00C8C8;
+      --tdim:   rgba(0,200,200,0.12);
+      --tglow:  rgba(0,200,200,0.25);
+      --gold:   #C9A84C;
+      --gdim:   rgba(201,168,76,0.1);
+      --gborder:rgba(201,168,76,0.22);
+      --red:    #E05B5B;
+      --rdim:   rgba(224,91,91,0.1);
+      --bg:     #05070C;
+      --card:   #0B0E17;
+      --border: rgba(255,255,255,0.07);
+      --text:   #FFFFFF;
+      --muted:  #7A8A9A;
+      --serif:  'Cormorant Garamond', Georgia, serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Geist', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .c { max-width: 960px; margin: 0 auto; padding: 0 28px; }
+    a { color: inherit; text-decoration: none; }
+
+    /* ── NAVBAR ─────────────────────────────── */
+    nav {
+      position: sticky; top: 0; z-index: 99;
+      background: rgba(5,7,12,0.9);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
+      display: flex; align-items: center;
+      justify-content: space-between;
+      height: 60px; max-width: 960px;
+      margin: 0 auto; padding: 0 28px;
+    }
+    .nav-logos { display: flex; align-items: center; gap: 16px; }
+    .nav-dk { height: 28px; width: auto; }
+    .nav-sep { width: 1px; height: 26px; background: rgba(255,255,255,0.12); }
+    .nav-coes { height: 28px; width: auto; }
+    .nav-badge {
+      font-size: 11px; font-weight: 600;
+      color: var(--gold); background: var(--gdim);
+      border: 1px solid var(--gborder);
+      border-radius: 100px; padding: 4px 14px;
+      letter-spacing: .04em;
+    }
+    @media(max-width:600px){ .nav-badge { display: none; } }
+
+    /* ── STRIP ──────────────────────────────── */
+    .strip {
+      background: linear-gradient(90deg, #0A0906, #0C0A08);
+      border-bottom: 1px solid rgba(201,168,76,0.12);
+      padding: 16px 0;
+    }
+    .strip-inner {
+      display: flex; align-items: center; gap: 36px;
+      max-width: 960px; margin: 0 auto; padding: 0 28px;
+      flex-wrap: wrap;
+    }
+    .strip-tag {
+      font-family: var(--serif); font-style: italic;
+      font-size: 14px; color: var(--gold); opacity: .9;
+      white-space: nowrap;
+    }
+    .strip-tag b { font-style: normal; font-weight: 600; font-family: 'Geist', sans-serif;
+      font-size: 10px; letter-spacing: .1em; text-transform: uppercase;
+      color: var(--muted); display: block; margin-bottom: 1px;
+    }
+    .strip-divider { width: 1px; height: 32px; background: rgba(255,255,255,0.08); }
+    .strip-stats { display: flex; gap: 28px; flex-wrap: wrap; }
+    .sstat { display: flex; flex-direction: column; }
+    .sstat-n { font-size: 16px; font-weight: 800; color: var(--text); }
+    .sstat-n span { color: var(--gold); }
+    .sstat-l { font-size: 11px; color: var(--muted); margin-top: 1px; }
+
+    /* ── HERO ───────────────────────────────── */
+    .hero {
+      padding: 88px 0 72px; text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .hero-glow {
+      position: absolute; top: -100px; left: 50%;
+      transform: translateX(-50%);
+      width: 700px; height: 500px;
+      background: radial-gradient(ellipse,
+        rgba(0,200,200,0.1) 0%,
+        rgba(201,168,76,0.05) 45%,
+        transparent 70%);
+      pointer-events: none;
+    }
+    .hero-grid {
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.022) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.022) 1px, transparent 1px);
+      background-size: 56px 56px;
+      mask-image: radial-gradient(ellipse 80% 55% at 50% 0%, black, transparent);
+      pointer-events: none;
+    }
+    .hero-pill {
+      display: inline-block; font-size: 11px; font-weight: 700;
+      letter-spacing: .09em; text-transform: uppercase;
+      color: var(--teal); background: var(--tdim);
+      border: 1px solid rgba(0,200,200,0.18);
+      border-radius: 100px; padding: 5px 16px;
+      margin-bottom: 32px;
+    }
+    .hero h1 {
+      font-size: clamp(32px, 5.6vw, 60px);
+      font-weight: 900; line-height: 1.12;
+      letter-spacing: -.025em; margin-bottom: 10px;
+    }
+    .hero-italic {
+      display: block; font-family: var(--serif);
+      font-size: clamp(20px, 3.2vw, 36px);
+      font-style: italic; color: var(--gold);
+      margin-bottom: 24px;
+    }
+    .hero p {
+      font-size: 17px; color: var(--muted);
+      max-width: 540px; margin: 0 auto 44px; line-height: 1.7;
+    }
+    .hero-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .btn-p {
+      font-size: 15px; font-weight: 700;
+      color: #05070C; background: var(--teal);
+      border-radius: 10px; padding: 13px 30px;
+      transition: transform .2s, box-shadow .2s;
+      display: inline-block;
+    }
+    .btn-p:hover { transform: translateY(-2px); box-shadow: 0 8px 28px var(--tglow); }
+    .btn-s {
+      font-size: 15px; font-weight: 700;
+      color: var(--text); background: transparent;
+      border: 1px solid var(--border);
+      border-radius: 10px; padding: 12px 28px;
+      display: inline-block;
+    }
+
+    /* ── SECTION BASE ───────────────────────── */
+    section { padding: 80px 0; border-top: 1px solid var(--border); }
+    .s-label {
+      font-size: 11px; font-weight: 700; letter-spacing: .11em;
+      text-transform: uppercase; color: var(--teal);
+      display: block; margin-bottom: 12px;
+    }
+    .s-title {
+      font-size: clamp(24px, 3.8vw, 38px); font-weight: 800;
+      line-height: 1.15; letter-spacing: -.02em;
+    }
+    .s-sub {
+      font-size: 16px; color: var(--muted);
+      line-height: 1.7; margin-top: 10px;
+    }
+
+    /* ── DIAGNÓSTICO ────────────────────────── */
+    .pain-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 14px; margin-top: 44px;
+    }
+    .p-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 13px; padding: 22px;
+      border-top: 2px solid rgba(224,91,91,0.45);
+    }
+    .p-card .ico { font-size: 24px; margin-bottom: 10px; }
+    .p-card h3 { font-size: 14px; font-weight: 700; margin-bottom: 5px; }
+    .p-card p { font-size: 13px; color: var(--muted); line-height: 1.55; }
+    .p-card .ev {
+      display: inline-block; margin-top: 10px; font-size: 11px; font-weight: 600;
+      color: var(--red); background: var(--rdim);
+      border-radius: 100px; padding: 3px 10px;
+    }
+
+    .diag-note {
+      margin-top: 28px; padding: 18px 22px;
+      background: var(--tdim); border: 1px solid rgba(0,200,200,0.18);
+      border-radius: 12px; font-size: 13px; color: var(--text); line-height: 1.6;
+    }
+    .diag-note b { color: var(--teal); }
+
+    /* ── SOLUCIÓN VISUAL ────────────────────── */
+    .sol-wrap {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 44px; align-items: center; margin-top: 44px;
+    }
+    @media(max-width:680px){ .sol-wrap { grid-template-columns: 1fr; } }
+    .sol-copy h2 { font-size: clamp(22px, 3.5vw, 34px); font-weight: 800; line-height: 1.2; }
+    .sol-copy p { font-size: 15px; color: var(--muted); line-height: 1.7; margin-top: 10px; }
+    .sol-diagram {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 16px; padding: 28px;
+    }
+    .fl { margin-bottom: 14px; }
+    .fl-label {
+      font-size: 10px; font-weight: 700; letter-spacing: .1em;
+      text-transform: uppercase; color: var(--muted); margin-bottom: 6px;
+    }
+    .fl-row { display: flex; gap: 7px; flex-wrap: wrap; }
+    .chip {
+      font-size: 12px; font-weight: 600;
+      padding: 5px 11px; border-radius: 100px;
+    }
+    .chip-s {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1); color: var(--muted);
+    }
+    .chip-p {
+      background: var(--tdim); border: 1px solid rgba(0,200,200,0.22); color: var(--teal);
+    }
+    .chip-o {
+      background: rgba(0,230,118,0.07); border: 1px solid rgba(0,230,118,0.18); color: #00E676;
+    }
+    .fl-div { height: 1px; background: var(--border); margin: 12px 0; }
+    .arr { text-align: center; color: var(--teal); font-size: 18px; margin: 4px 0; }
+
+    /* ── FUNCIONALIDADES ────────────────────── */
+    .feat-intro { text-align: center; margin-bottom: 48px; }
+    .feat-intro .s-sub { max-width: 480px; margin: 10px auto 0; }
+    .feat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+    }
+    .f-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 13px; padding: 24px;
+      transition: border-color .22s, transform .22s;
+      position: relative; overflow: hidden;
+    }
+    .f-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--teal), transparent);
+      opacity: 0; transition: opacity .22s;
+    }
+    .f-card:hover { border-color: rgba(0,200,200,0.28); transform: translateY(-2px); }
+    .f-card:hover::before { opacity: 1; }
+    .f-num { font-size: 10px; font-weight: 700; letter-spacing: .1em; color: var(--teal); margin-bottom: 8px; }
+    .f-ico {
+      width: 42px; height: 42px; font-size: 19px;
+      background: var(--tdim); border: 1px solid rgba(0,200,200,0.14);
+      border-radius: 10px; display: flex; align-items: center;
+      justify-content: center; margin-bottom: 12px;
+    }
+    .f-card h3 { font-size: 15px; font-weight: 700; line-height: 1.3; margin-bottom: 6px; }
+    .f-card p { font-size: 13px; color: var(--muted); line-height: 1.6; }
+    .f-tag {
+      display: inline-block; font-size: 11px; font-weight: 600;
+      color: var(--teal); background: var(--tdim);
+      border-radius: 100px; padding: 3px 9px; margin-top: 10px;
+    }
+    .f-tag.fase2 { color: var(--gold); background: var(--gdim); }
+
+    /* ── RESULTADO ──────────────────────────── */
+    .res-box {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 20px; overflow: hidden; margin-top: 48px;
+    }
+    .res-top {
+      padding: 40px 44px;
+      background: linear-gradient(135deg, #0A0D0E, var(--card));
+      border-bottom: 1px solid var(--border);
+    }
+    .res-top h2 { font-size: clamp(22px, 3.5vw, 34px); font-weight: 800; line-height: 1.2; }
+    .res-top p { font-size: 15px; color: var(--muted); margin-top: 8px; line-height: 1.6; max-width: 500px; }
+    .res-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+    }
+    @media(max-width:680px){ .res-grid { grid-template-columns: repeat(2,1fr); } }
+    .res-item {
+      padding: 28px; border-right: 1px solid var(--border);
+    }
+    .res-item:last-child { border-right: none; }
+    .res-n { font-size: 36px; font-weight: 900; color: var(--teal); line-height: 1; margin-bottom: 6px; }
+    .res-item h4 { font-size: 14px; font-weight: 700; margin-bottom: 4px; }
+    .res-item p { font-size: 12px; color: var(--muted); line-height: 1.55; }
+
+    /* ── INVERSIÓN ──────────────────────────── */
+    .price-wrap {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 40px;
+      align-items: start; margin-top: 44px;
+    }
+    @media(max-width:760px){ .price-wrap { grid-template-columns: 1fr; } }
+    .stack-list { display: flex; flex-direction: column; gap: 0; }
+    .stack-item {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 16px 0; border-bottom: 1px solid var(--border);
+      gap: 16px;
+    }
+    .stack-item h4 { font-size: 14px; font-weight: 700; }
+    .stack-item p { font-size: 12px; color: var(--muted); margin-top: 2px; }
+    .stack-val { font-size: 14px; font-weight: 700; color: var(--muted); text-decoration: line-through; white-space: nowrap; }
+    .stack-item.onetime { align-items: center; }
+    .stack-vwrap { text-align: right; }
+    .stack-tag { font-size: 10px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: var(--gold); margin-top: 2px; }
+    .stack-total {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 18px 0 0; margin-top: 6px;
+    }
+    .stack-total span:first-child { font-size: 13px; font-weight: 700; color: var(--text); text-transform: uppercase; letter-spacing: .04em; }
+    .stack-total span:last-child { font-size: 18px; font-weight: 800; color: var(--muted); text-decoration: line-through; }
+    .stack-note { font-size: 11.5px; color: var(--muted); margin-top: 10px; line-height: 1.6; }
+
+    .price-card {
+      background: linear-gradient(160deg, var(--card), #0A0D0E);
+      border: 1px solid rgba(201,168,76,0.28);
+      border-radius: 20px; padding: 36px 32px;
+      text-align: center; position: relative; overflow: hidden;
+    }
+    .price-card::before {
+      content: ''; position: absolute; top: -60%; left: -20%;
+      width: 140%; height: 140%;
+      background: radial-gradient(ellipse, rgba(201,168,76,0.1) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .price-badge {
+      display: inline-block; font-size: 11px; font-weight: 700;
+      letter-spacing: .08em; text-transform: uppercase; color: var(--gold);
+      background: var(--gdim); border: 1px solid var(--gborder);
+      border-radius: 100px; padding: 5px 14px; margin-bottom: 20px;
+    }
+    .price-amount { font-size: clamp(40px, 6vw, 56px); font-weight: 900; color: var(--text); line-height: 1; }
+    .price-amount span { font-size: 16px; font-weight: 600; color: var(--muted); }
+    .price-freq { font-size: 13px; color: var(--muted); margin-top: 6px; }
+    .price-list { text-align: left; margin: 26px 0; display: flex; flex-direction: column; gap: 11px; }
+    .price-list div { display: flex; align-items: flex-start; gap: 9px; font-size: 13px; color: var(--text); line-height: 1.4; }
+    .price-list div::before { content: '✓'; color: var(--gold); font-weight: 700; flex-shrink: 0; }
+    .price-cta {
+      display: block; width: 100%; text-align: center;
+      font-size: 15px; font-weight: 700; color: #05070C;
+      background: var(--gold); border-radius: 10px; padding: 14px;
+      transition: transform .2s;
+    }
+    .price-cta:hover { transform: translateY(-2px); }
+    .price-fine { font-size: 11px; color: var(--muted); line-height: 1.6; margin-top: 14px; text-align: left; }
+    .price-fine b { color: var(--text); font-weight: 700; }
+
+    /* ── CTA FINAL ──────────────────────────── */
+    .cta {
+      padding: 96px 0; text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .cta::before {
+      content: ''; position: absolute;
+      bottom: -80px; left: 50%; transform: translateX(-50%);
+      width: 640px; height: 440px;
+      background: radial-gradient(ellipse,
+        rgba(0,200,200,0.1) 0%, rgba(201,168,76,0.04) 40%, transparent 70%);
+      pointer-events: none;
+    }
+    .cta h2 {
+      font-size: clamp(26px, 5vw, 48px);
+      font-weight: 900; letter-spacing: -.025em; line-height: 1.12;
+      margin-bottom: 8px;
+    }
+    .cta-serif {
+      display: block; font-family: var(--serif);
+      font-size: clamp(20px, 3.5vw, 36px);
+      font-style: italic; color: var(--gold);
+      margin-bottom: 20px;
+    }
+    .cta > .c > p {
+      font-size: 16px; color: var(--muted);
+      max-width: 460px; margin: 0 auto 36px; line-height: 1.7;
+    }
+    .cta-note { font-size: 12px; color: var(--muted); margin-top: 24px; }
+
+    /* ── FOOTER ─────────────────────────────── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 28px 0; text-align: center;
+    }
+    footer p { font-size: 12px; color: var(--muted); }
+    .tc { color: var(--teal); }
+    .gc { color: var(--gold); }
+
+    /* ── GALERÍA (mockups como si estuvieran en redes) ─ */
+    .gal-block { margin-top: 56px; }
+    .gal-block:first-of-type { margin-top: 44px; }
+    .gal-block-head { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 20px; gap: 12px; flex-wrap: wrap; }
+    .gal-block-title { font-size: 15px; font-weight: 700; color: var(--text); }
+    .gal-block-note { font-size: 12px; color: var(--muted); }
+
+    /* Feed (posts) */
+    .feed-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    @media(max-width:680px){ .feed-grid { grid-template-columns: 1fr; max-width: 340px; margin: 0 auto; } }
+    .feed-card {
+      background: #fff; border-radius: 14px; overflow: hidden;
+      box-shadow: 0 20px 44px rgba(0,0,0,0.35);
+    }
+    .feed-head {
+      display: flex; align-items: center; gap: 9px;
+      padding: 10px 12px;
+    }
+    .feed-avatar {
+      width: 30px; height: 30px; border-radius: 50%;
+      background: #0A1128; display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .feed-avatar svg { width: 16px; height: 16px; }
+    .feed-user { font-size: 13px; font-weight: 700; color: #111; flex: 1; }
+    .feed-more { color: #666; font-size: 14px; letter-spacing: 1px; }
+    .feed-img-wrap { aspect-ratio: 1 / 1; overflow: hidden; background: #0A1128; }
+    .feed-img-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .feed-actions { display: flex; align-items: center; gap: 14px; padding: 10px 12px 4px; color: #222; }
+    .feed-actions svg { width: 21px; height: 21px; }
+    .feed-actions .sp { flex: 1; }
+    .feed-caption { padding: 4px 12px 14px; font-size: 12.5px; color: #222; line-height: 1.5; }
+    .feed-caption b { margin-right: 5px; }
+
+    /* Stories */
+    .stories-row {
+      display: flex; gap: 16px; overflow-x: auto;
+      padding: 4px 4px 16px; scroll-snap-type: x proximity;
+      -webkit-overflow-scrolling: touch;
+    }
+    .stories-row::-webkit-scrollbar { height: 6px; }
+    .stories-row::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.12); border-radius: 100px; }
+    .story-frame {
+      position: relative; flex: 0 0 auto; width: 168px; aspect-ratio: 9 / 16;
+      border-radius: 18px; overflow: hidden; scroll-snap-align: start;
+      background: #0A1128; box-shadow: 0 20px 44px rgba(0,0,0,0.45);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    .story-frame img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .story-bar { position: absolute; top: 8px; left: 8px; right: 8px; display: flex; gap: 4px; z-index: 2; }
+    .story-bar span { flex: 1; height: 2.5px; border-radius: 100px; background: rgba(255,255,255,0.35); }
+    .story-bar span:first-child { background: #fff; }
+    .story-head {
+      position: absolute; top: 16px; left: 8px; right: 8px;
+      display: flex; align-items: center; gap: 6px; z-index: 2;
+    }
+    .story-avatar {
+      width: 20px; height: 20px; border-radius: 50%; background: #C9A84C;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .story-avatar svg { width: 11px; height: 11px; }
+    .story-user { font-size: 10.5px; font-weight: 700; color: #fff; text-shadow: 0 1px 3px rgba(0,0,0,0.5); }
+    .story-time { font-size: 10px; color: rgba(255,255,255,0.75); text-shadow: 0 1px 3px rgba(0,0,0,0.5); }
+    .story-frame::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,0.35) 0%, transparent 22%);
+      pointer-events: none;
+    }
+    .story-cap {
+      margin-top: 10px; font-size: 11px; color: var(--muted); text-align: center;
+      width: 168px; flex: 0 0 auto;
+    }
+    .stories-wrap { display: flex; gap: 16px; overflow-x: auto; padding: 4px 4px 6px; scroll-snap-type: x proximity; -webkit-overflow-scrolling: touch; }
+    .stories-wrap::-webkit-scrollbar { height: 6px; }
+    .stories-wrap::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.12); border-radius: 100px; }
+    .story-item { flex: 0 0 auto; width: 168px; }
+
+    @media(max-width:600px){
+      .hero { padding: 60px 0 52px; }
+      section { padding: 56px 0; }
+      .hero-btns { flex-direction: column; align-items: stretch; text-align: center; }
+      .res-top { padding: 28px; }
+      .strip-divider { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAVBAR ──────────────────────────────────────── -->
+<nav>
+  <div class="nav-inner">
+    <div class="nav-logos">
+      <img class="nav-dk" src="assets/delta-kilo-logo.png" alt="Delta Kilo" />
+      <div class="nav-sep"></div>
+      <img class="nav-coes" src="assets/coes-logo.png" alt="Grupo COES" />
+    </div>
+    <span class="nav-badge">Diagnóstico confidencial · 2026</span>
+  </div>
+</nav>
+
+<!-- ── STRIP ────────────────────────────────────────── -->
+<div class="strip">
+  <div class="strip-inner">
+    <div class="strip-tag"><b>Grupo COES</b>Seguridad privada inteligente y logística binacional.</div>
+    <div class="strip-divider"></div>
+    <div class="strip-stats">
+      <div class="sstat">
+        <span class="sstat-n">2005</span>
+        <span class="sstat-l">Operando desde</span>
+      </div>
+      <div class="sstat">
+        <span class="sstat-n">MX <span>⇄</span> EU</span>
+        <span class="sstat-l">Operación binacional</span>
+      </div>
+      <div class="sstat">
+        <span class="sstat-n">488</span>
+        <span class="sstat-l">Seguidores totales (IG+FB)</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── HERO ─────────────────────────────────────────── -->
+<div class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-grid"></div>
+  <div class="c">
+    <div class="hero-pill">Diagnóstico real · coes.com.mx + redes</div>
+    <h1>Han cuidado a artistas,<br />producciones y ejecutivos.</h1>
+    <span class="hero-italic">En Google, nadie los está cuidando a ustedes.</span>
+    <p>Hicimos un diagnóstico directo sobre coes.com.mx, su Instagram y su Facebook — sin encuestas, sin suposiciones. Esto es lo que encontramos, y lo que Delta Kilo propone para cerrar la brecha entre su reputación real y su huella digital.</p>
+    <div class="hero-btns">
+      <a href="#diagnostico" class="btn-p">Ver el diagnóstico →</a>
+      <a href="#inversion" class="btn-s">Ver el precio</a>
+    </div>
+  </div>
+</div>
+
+<!-- ── DIAGNÓSTICO ──────────────────────────────────── -->
+<section id="diagnostico">
+  <div class="c">
+    <span class="s-label">El diagnóstico</span>
+    <h2 class="s-title">6 cosas que encontramos<br />al revisar su presencia digital.</h2>
+    <p class="s-sub">Evidencia directa — no es una opinión, es lo que ve Google y lo que ve cualquier prospecto que los busque hoy.</p>
+    <div class="pain-grid">
+      <div class="p-card">
+        <div class="ico">🔍</div>
+        <h3>Invisibles para Google</h3>
+        <p>coes.com.mx no tiene título, ni descripción, ni datos estructurados. En un resultado de búsqueda va a aparecer como una URL pelona, no como "Grupo COES — Seguridad privada Tijuana".</p>
+        <span class="ev">Verificado en el HTML del sitio</span>
+      </div>
+      <div class="p-card">
+        <div class="ico">📍</div>
+        <h3>Sin ficha en Google Maps</h3>
+        <p>No existe una ficha de Google Business. Ya tienen domicilio y teléfono públicos en Facebook (Blvd. Salinas, Aviación) — es justo lo que alguien busca antes de contratar seguridad o un traslado.</p>
+        <span class="ev">Confirmado — no hay ficha</span>
+      </div>
+      <div class="p-card">
+        <div class="ico">🏷️</div>
+        <h3>7 títulos principales a la vez</h3>
+        <p>El sitio tiene 7 etiquetas H1 en una sola página (debería ser 1). Para Google es como gritar 7 mensajes distintos al mismo tiempo — no identifica cuál es el central.</p>
+        <span class="ev">7 &lt;h1&gt; detectados</span>
+      </div>
+      <div class="p-card">
+        <div class="ico">⭐</div>
+        <h3>Cero reseñas, en cualquier canal</h3>
+        <p>456 seguidores en Facebook y 32 en Instagram — pero ninguna reseña registrada. Con el nivel de clientes que manejan, esa confianza no se está capturando en ningún lado público.</p>
+        <span class="ev">0 opiniones en Facebook</span>
+      </div>
+      <div class="p-card">
+        <div class="ico">📅</div>
+        <h3>Casi un año de silencio</h3>
+        <p>Instagram tuvo actividad seguida en 2025 y después un salto de meses hasta la publicación más reciente. La constancia sostiene el alcance — las rachas no.</p>
+        <span class="ev">Hueco visible en el feed</span>
+      </div>
+      <div class="p-card">
+        <div class="ico">🖼️</div>
+        <h3>Imágenes sin texto alternativo</h3>
+        <p>Ninguna de las fotos del sitio tiene atributo "alt". Ni Google ni un lector de pantalla saben qué muestran esas imágenes — se pierde SEO y accesibilidad al mismo tiempo.</p>
+        <span class="ev">7 de 7 imágenes sin alt</span>
+      </div>
+    </div>
+    <div class="diag-note">
+      <b>Dato a favor:</b> coes.com.mx ya está construido sobre la misma infraestructura que usa Delta Kilo todos los días (GoHighLevel). Esto significa que la corrección técnica no requiere reconstruir el sitio desde cero — se arregla desde dentro de la misma plataforma.
+    </div>
+  </div>
+</section>
+
+<!-- ── SOLUCIÓN ─────────────────────────────────────── -->
+<section id="solucion">
+  <div class="c">
+    <div class="sol-wrap">
+      <div class="sol-copy">
+        <span class="s-label">La propuesta</span>
+        <h2>Cada hallazgo, resuelto<br />por un especialista distinto.</h2>
+        <p>No es un solo arreglo — es un sistema. Sierra corrige lo técnico y construye la ficha de Google. AKBOT y Vox sostienen la cadencia de contenido. Lima conecta WhatsApp a un CRM real para que ninguna cotización se pierda en un celular personal.</p>
+      </div>
+      <div class="sol-diagram">
+        <div class="fl">
+          <div class="fl-label">Hoy entra por</div>
+          <div class="fl-row">
+            <span class="chip chip-s">WhatsApp personal</span>
+            <span class="chip chip-s">Instagram</span>
+            <span class="chip chip-s">Facebook</span>
+            <span class="chip chip-s">Web sin SEO</span>
+          </div>
+        </div>
+        <div class="arr">↓</div>
+        <div class="fl">
+          <div class="fl-label">Delta Kilo conecta</div>
+          <div class="fl-row">
+            <span class="chip chip-p" style="font-size:13px; padding:8px 16px;">Sierra + AKBOT/Vox + Lima</span>
+          </div>
+        </div>
+        <div class="arr">↓</div>
+        <div class="fl">
+          <div class="fl-label">Resultado</div>
+          <div class="fl-row">
+            <span class="chip chip-o">Ficha de Maps activa</span>
+            <span class="chip chip-o">Contenido constante</span>
+            <span class="chip chip-o">Cotización sin perderse</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FUNCIONALIDADES ──────────────────────────────── -->
+<section id="funcionalidades">
+  <div class="c">
+    <div class="feat-intro">
+      <span class="s-label">Lo que incluye</span>
+      <h2 class="s-title">7 acciones concretas.<br />Priorizadas por impacto.</h2>
+      <p class="s-sub">Empezamos por lo que se nota más rápido — no por lo más caro de implementar.</p>
+    </div>
+    <div class="feat-grid">
+
+      <div class="f-card">
+        <div class="f-num">01</div>
+        <div class="f-ico">🛠️</div>
+        <h3>Corrección técnica del sitio</h3>
+        <p>Título, meta descripción, canonical, un solo H1, datos estructurados y texto alternativo en cada imagen.</p>
+        <span class="f-tag">Sierra · Técnico</span>
+      </div>
+
+      <div class="f-card">
+        <div class="f-num">02</div>
+        <div class="f-ico">📍</div>
+        <h3>Ficha de Google Business</h3>
+        <p>Creación y optimización completa — dirección, teléfono, horarios, categoría de negocio y fotos reales.</p>
+        <span class="f-tag">Sierra · Maps</span>
+      </div>
+
+      <div class="f-card">
+        <div class="f-num">03</div>
+        <div class="f-ico">⭐</div>
+        <h3>Solicitud automática de reseñas</h3>
+        <p>Después de cada servicio, se pide la reseña sin que nadie del equipo tenga que acordarse de hacerlo.</p>
+        <span class="f-tag">Reputación</span>
+      </div>
+
+      <div class="f-card">
+        <div class="f-num">04</div>
+        <div class="f-ico">📅</div>
+        <h3>Calendario de contenido</h3>
+        <p>Cadencia constante en Instagram y Facebook, con el material real que ya tienen — unidades, operativos, clientes de alto perfil.</p>
+        <span class="f-tag">AKBOT + Vox</span>
+      </div>
+
+      <div class="f-card">
+        <div class="f-num">05</div>
+        <div class="f-ico">💬</div>
+        <h3>WhatsApp oficial + CRM</h3>
+        <p>Una línea oficial conectada a un CRM — ninguna solicitud de cotización o escolta depende de un celular personal.</p>
+        <span class="f-tag">Lima</span>
+      </div>
+
+      <div class="f-card">
+        <div class="f-num">06</div>
+        <div class="f-ico">🌙</div>
+        <h3>Respuesta fuera de horario</h3>
+        <p>Seguridad y traslados no operan de 9 a 6 — el primer contacto tampoco debería depender de eso.</p>
+        <span class="f-tag">Lima · Automático</span>
+      </div>
+
+      <div class="f-card">
+        <div class="f-num">07</div>
+        <div class="f-ico">📈</div>
+        <h3>Pauta dirigida (fase 2)</h3>
+        <p>Cuando la base esté sólida: campañas hacia producción de eventos, seguridad corporativa y logística ejecutiva.</p>
+        <span class="f-tag fase2">Tango · Opcional</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── GALERÍA ──────────────────────────────────────── -->
+<section id="galeria">
+  <div class="c">
+    <span class="s-label">Así se vería</span>
+    <h2 class="s-title">No es una promesa.<br />Ya está diseñado.</h2>
+    <p class="s-sub">Formatos reales, en el mismo lenguaje visual de Grupo COES — listos para publicar en feed e historias.</p>
+
+    <div class="gal-block">
+      <div class="gal-block-head">
+        <span class="gal-block-title">En el feed</span>
+        <span class="gal-block-note">Instagram / Facebook</span>
+      </div>
+      <div class="feed-grid">
+
+        <div class="feed-card">
+          <div class="feed-head">
+            <div class="feed-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="1.6"><path d="M12 2 L21 6.5 V15 L12 22 L3 15 V6.5 Z"/></svg></div>
+            <span class="feed-user">coesmx</span>
+            <span class="feed-more">•••</span>
+          </div>
+          <div class="feed-img-wrap"><img src="assets/gallery/post-01-vehiculos.jpg" alt="Post — Vehículos blindados" /></div>
+          <div class="feed-actions">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 11.5a8.38 8.38 0 0 1-8.83 8.38 8.5 8.5 0 0 1-4-1L3 20l1.13-5.17A8.5 8.5 0 1 1 21 11.5z"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+            <span class="sp"></span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M19 21 12 16l-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+          </div>
+          <div class="feed-caption"><b>coesmx</b>Protección de nivel ejecutivo. Discreción total.</div>
+        </div>
+
+        <div class="feed-card">
+          <div class="feed-head">
+            <div class="feed-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="1.6"><path d="M12 2 L21 6.5 V15 L12 22 L3 15 V6.5 Z"/></svg></div>
+            <span class="feed-user">coesmx</span>
+            <span class="feed-more">•••</span>
+          </div>
+          <div class="feed-img-wrap"><img src="assets/gallery/post-02-testimonio.jpg" alt="Post — Testimonio IE Security" /></div>
+          <div class="feed-actions">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 11.5a8.38 8.38 0 0 1-8.83 8.38 8.5 8.5 0 0 1-4-1L3 20l1.13-5.17A8.5 8.5 0 1 1 21 11.5z"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+            <span class="sp"></span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M19 21 12 16l-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+          </div>
+          <div class="feed-caption"><b>coesmx</b>Lo que dicen quienes ya confían en nosotros.</div>
+        </div>
+
+        <div class="feed-card">
+          <div class="feed-head">
+            <div class="feed-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="1.6"><path d="M12 2 L21 6.5 V15 L12 22 L3 15 V6.5 Z"/></svg></div>
+            <span class="feed-user">coesmx</span>
+            <span class="feed-more">•••</span>
+          </div>
+          <div class="feed-img-wrap"><img src="assets/gallery/post-03-dato.jpg" alt="Post — Dato de autoridad" /></div>
+          <div class="feed-actions">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 11.5a8.38 8.38 0 0 1-8.83 8.38 8.5 8.5 0 0 1-4-1L3 20l1.13-5.17A8.5 8.5 0 1 1 21 11.5z"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+            <span class="sp"></span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M19 21 12 16l-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+          </div>
+          <div class="feed-caption"><b>coesmx</b>8 de cada 10 buscan referencias antes de contratar.</div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="gal-block">
+      <div class="gal-block-head">
+        <span class="gal-block-title">En sus historias</span>
+        <span class="gal-block-note">Desliza para ver las 11 →</span>
+      </div>
+      <div class="stories-wrap">
+
+        <div class="story-item">
+          <div class="story-frame">
+            <div class="story-bar"><span></span><span></span><span></span></div>
+            <div class="story-head">
+              <div class="story-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="#0A1128" stroke-width="2"><path d="M12 2 L21 6.5 V15 L12 22 L3 15 V6.5 Z"/></svg></div>
+              <span class="story-user">coesmx</span><span class="story-time">2h</span>
+            </div>
+            <img src="assets/gallery/story-00-cobertura-evento.jpg" alt="Story — Cobertura de evento" />
+          </div>
+          <p class="story-cap">Cobertura de evento</p>
+        </div>
+
+        <div class="story-item">
+          <div class="story-frame">
+            <div class="story-bar"><span></span><span></span><span></span></div>
+            <div class="story-head">
+              <div class="story-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="#0A1128" stroke-width="2"><path d="M12 2 L21 6.5 V15 L12 22 L3 15 V6.5 Z"/></svg></div>
+              <span class="story-user">coesmx</span><span class="story-time">4h</span>
+            </div>
+            <img src="assets/gallery/story-01-antes-traslado.jpg" alt="Story — Antes de cada traslado" />
+          </div>
+          <p class="story-cap">Checklist antes de salir</p>
+        </div>
+
+        <div class="story-item">
+          <div class="story-frame">
+            <div class="story-bar"><span></span><span></span><span></span></div>
+            <div class="story-head">
+              <div class="story-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="#0A1128" stroke-width="2"><path d="M12 2 L21 6.5 V15 L12 22 L3 15 V6.5 Z"/></svg></div>
+              <span class="story-user">coesmx</span><span class="story-time">6h</span>
+            </div>
+            <img src="assets/gallery/story-02-listos-salir.jpg" alt="Story — Listos para salir" />
+          </div>
+          <p class="story-cap">Alistamiento de flota</p>
+        </div>
+
+        <div class="story-item">
+          <div class="story-frame">
+            <div class="story-bar"><span></span><span></span><span></span></div>
+            <div class="story-head">
+              <div class="story-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="#0A1128" stroke-width="2"><path d="M12 2 L21 6.5 V15 L12 22 L3 15 V6.5 Z"/></svg></div>
+              <span class="story-user">coesmx</span><span class="story-time">8h</span>
+            </div>
+            <img src="assets/gallery/story-03-dia-vida.jpg" alt="Story — Un día en la vida" />
+          </div>
+          <p class="story-cap">Un día en la vida</p>
+        </div>
+
+        <div class="story-item">
+          <div class="story-frame">
+            <div class="story-bar"><span></span><span></span><span></span></div>
+            <div class="story-head">
+              <div class="story-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="#0A1128" stroke-width="2"><path d="M12 2 L21 6.5 V15 L12 22 L3 15 V6.5 Z"/></svg></div>
+              <span class="story-user">coesmx</span><span class="story-time">10h</span>
+            </div>
+            <img src="assets/gallery/story-04-binacional.jpg" alt="Story — Coordinación binacional" />
+          </div>
+          <p class="story-cap">Coordinación binacional</p>
+        </div>
+
+        <div class="story-item">
+          <div class="story-frame">
+            <div class="story-bar"><span></span><span></span><span></span></div>
+            <div class="story-head">
+              <div class="story-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="#0A1128" stroke-width="2"><path d="M12 2 L21 6.5 V15 L12 22 L3 15 V6.5 Z"/></svg></div>
+              <span class="story-user">coesmx</span><span class="story-time">12h</span>
+            </div>
+            <img src="assets/gallery/story-05-semana-coes.jpg" alt="Story — Esta semana en COES" />
+          </div>
+          <p class="story-cap">Esta semana en COES</p>
+        </div>
+
+        <div class="story-item">
+          <div class="story-frame">
+            <div class="story-bar"><span></span><span></span><span></span></div>
+            <div class="story-head">
+              <div class="story-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="#0A1128" stroke-width="2"><path d="M12 2 L21 6.5 V15 L12 22 L3 15 V6.5 Z"/></svg></div>
+              <span class="story-user">coesmx</span><span class="story-time">14h</span>
+            </div>
+            <img src="assets/gallery/story-06-testimonio-inhouse.jpg" alt="Story — Testimonio In House" />
+          </div>
+          <p class="story-cap">Testimonio en video</p>
+        </div>
+
+        <div class="story-item">
+          <div class="story-frame">
+            <div class="story-bar"><span></span><span></span><span></span></div>
+            <div class="story-head">
+              <div class="story-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="#0A1128" stroke-width="2"><path d="M12 2 L21 6.5 V15 L12 22 L3 15 V6.5 Z"/></svg></div>
+              <span class="story-user">coesmx</span><span class="story-time">16h</span>
+            </div>
+            <img src="assets/gallery/story-07-antes-despues.jpg" alt="Story — Antes y después" />
+          </div>
+          <p class="story-cap">Antes / Después</p>
+        </div>
+
+        <div class="story-item">
+          <div class="story-frame">
+            <div class="story-bar"><span></span><span></span><span></span></div>
+            <div class="story-head">
+              <div class="story-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="#0A1128" stroke-width="2"><path d="M12 2 L21 6.5 V15 L12 22 L3 15 V6.5 Z"/></svg></div>
+              <span class="story-user">coesmx</span><span class="story-time">18h</span>
+            </div>
+            <img src="assets/gallery/story-08-conoce-equipo.jpg" alt="Story — Conoce al equipo" />
+          </div>
+          <p class="story-cap">Conoce al equipo</p>
+        </div>
+
+        <div class="story-item">
+          <div class="story-frame">
+            <div class="story-bar"><span></span><span></span><span></span></div>
+            <div class="story-head">
+              <div class="story-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="#0A1128" stroke-width="2"><path d="M12 2 L21 6.5 V15 L12 22 L3 15 V6.5 Z"/></svg></div>
+              <span class="story-user">coesmx</span><span class="story-time">20h</span>
+            </div>
+            <img src="assets/gallery/story-09-sabias-esto.jpg" alt="Story — ¿Sabías esto?" />
+          </div>
+          <p class="story-cap">Dato + encuesta</p>
+        </div>
+
+        <div class="story-item">
+          <div class="story-frame">
+            <div class="story-bar"><span></span><span></span><span></span></div>
+            <div class="story-head">
+              <div class="story-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="#0A1128" stroke-width="2"><path d="M12 2 L21 6.5 V15 L12 22 L3 15 V6.5 Z"/></svg></div>
+              <span class="story-user">coesmx</span><span class="story-time">22h</span>
+            </div>
+            <img src="assets/gallery/story-10-temporada-alta.jpg" alt="Story — Temporada alta" />
+          </div>
+          <p class="story-cap">Cuenta regresiva</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── RESULTADO ────────────────────────────────────── -->
+<section>
+  <div class="c">
+    <span class="s-label">El resultado</span>
+    <h2 class="s-title">Una reputación de primer nivel,<br />con la huella digital que le corresponde.</h2>
+    <div class="res-box">
+      <div class="res-top">
+        <h2>Cada mensaje, cada reseña, cada cotización — en un solo lugar.</h2>
+        <p>El equipo de COES sigue enfocado en operar. Delta Kilo se encarga de que la parte digital refleje el mismo nivel de la operación.</p>
+      </div>
+      <div class="res-grid">
+        <div class="res-item">
+          <div class="res-n">+</div>
+          <h4>Velocidad de respuesta</h4>
+          <p>Atención inmediata, incluso fuera de horario.</p>
+        </div>
+        <div class="res-item">
+          <div class="res-n">0</div>
+          <h4>Cotizaciones perdidas</h4>
+          <p>Nada depende de un celular personal.</p>
+        </div>
+        <div class="res-item">
+          <div class="res-n">1</div>
+          <h4>Ficha de Google, activa</h4>
+          <p>Visible para quien los busque antes de contratar.</p>
+        </div>
+        <div class="res-item">
+          <div class="res-n">↑</div>
+          <h4>Presencia constante</h4>
+          <p>Contenido sin depender de acordarse.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── INVERSIÓN ────────────────────────────────────── -->
+<section id="inversion">
+  <div class="c">
+    <span class="s-label">La inversión</span>
+    <h2 class="s-title">Contratado por separado, esto cuesta más.<br />Junto, no.</h2>
+    <p class="s-sub">Precios de referencia del mercado para cada pieza — así se ve el valor real de lo que incluye el plan.</p>
+
+    <div class="price-wrap">
+      <div>
+        <div class="stack-list">
+          <div class="stack-item onetime">
+            <div>
+              <h4>Corrección técnica SEO + datos estructurados</h4>
+              <p>Título, meta, canonical, un solo H1, alt text</p>
+            </div>
+            <div class="stack-vwrap">
+              <span class="stack-val">$10,500</span>
+              <div class="stack-tag">Pago único</div>
+            </div>
+          </div>
+          <div class="stack-item">
+            <div>
+              <h4>Ficha de Google Business + reseñas</h4>
+              <p>Creación, optimización y solicitud automática</p>
+            </div>
+            <span class="stack-val">$1,800/mes</span>
+          </div>
+          <div class="stack-item">
+            <div>
+              <h4>Calendario de contenido</h4>
+              <p>Instagram y Facebook, cadencia constante</p>
+            </div>
+            <span class="stack-val">$3,500/mes</span>
+          </div>
+          <div class="stack-item">
+            <div>
+              <h4>WhatsApp oficial + CRM</h4>
+              <p>Línea conectada, respuesta fuera de horario</p>
+            </div>
+            <span class="stack-val">$2,700/mes</span>
+          </div>
+          <div class="stack-total">
+            <span>Valor de referencia mensual</span>
+            <span>$8,000/mes</span>
+          </div>
+        </div>
+        <p class="stack-note">Precios de referencia de mercado para servicios equivalentes contratados por separado en México. La corrección técnica es pago único (así se cobra normalmente el trabajo de sitio web); el resto son servicios recurrentes. No son un descuento sobre un precio inflado — es lo que realmente cuesta armar esto pieza por pieza con distintos proveedores.</p>
+      </div>
+
+      <div class="price-card">
+        <span class="price-badge">Plan Grupo COES</span>
+        <div class="price-amount">$4,000 <span>MXN</span></div>
+        <div class="price-freq">por mes, todo incluido*</div>
+        <div class="price-list">
+          <div>Corrección técnica y SEO del sitio (pago único, incluido el primer mes)</div>
+          <div>Ficha de Google Business y reseñas</div>
+          <div>Contenido para Instagram y Facebook</div>
+          <div>WhatsApp oficial conectado a CRM</div>
+          <div>Respuesta automática fuera de horario</div>
+          <div>Un solo punto de contacto — Delta Kilo</div>
+        </div>
+        <a href="https://wa.me/5215663864984?text=Hola%2C%20vengo%20del%20diagn%C3%B3stico%20que%20armaron%20para%20COES%20%F0%9F%8E%AF%20quiero%20arrancar%20el%20plan" class="price-cta">Arrancar con Delta Kilo →</a>
+        <p class="price-fine">*Además del plan, la plataforma (WhatsApp, número, mensajería) tiene un cargo variable según el uso — para el volumen que maneja Grupo COES, lo estimamos en <b>alrededor de $500 MXN/mes</b> adicionales.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA FINAL ────────────────────────────────────── -->
+<section class="cta">
+  <div class="c">
+    <span class="s-label">Siguiente paso</span>
+    <h2>Una llamada de 30 minutos.<br /><span class="cta-serif">Para empezar esta misma semana.</span></h2>
+    <p>Confirmamos los detalles del plan y arrancamos por lo que más impacto tiene primero — la ficha de Google y la corrección técnica del sitio.</p>
+    <div class="hero-btns">
+      <a href="https://wa.me/5215663864984?text=Hola%2C%20vengo%20del%20diagn%C3%B3stico%20que%20armaron%20para%20COES%20%F0%9F%8E%AF%20quiero%20platicar%20los%20siguientes%20pasos" class="btn-p">Agendar diagnóstico por WhatsApp →</a>
+    </div>
+    <p class="cta-note">Preparado por Delta Kilo Soluciones a partir de información pública de coes.com.mx, Instagram y Facebook.</p>
+  </div>
+</section>
+
+<!-- ── FOOTER ───────────────────────────────────────── -->
+<footer>
+  <p>© 2026 <span class="tc">Delta Kilo Soluciones</span> — Sistema inteligente para vender más, sin trabajar más.</p>
+</footer>
+
+</body>
+</html>
