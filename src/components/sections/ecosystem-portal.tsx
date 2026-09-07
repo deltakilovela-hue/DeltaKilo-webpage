@@ -1,33 +1,7 @@
 'use client';
 import { motion } from 'framer-motion';
-import { Users, ImagePlay, LineChart, Megaphone, CheckCircle2 } from 'lucide-react';
-
-const cards = [
-  {
-    label: 'Leads & CRM',
-    agent: 'Lima',
-    desc: 'Cuántos leads entraron y en qué etapa de tu pipeline están, en vivo.',
-    icon: Users,
-  },
-  {
-    label: 'Contenido',
-    agent: 'AKBOT · Vox',
-    desc: 'Lo que ya publicamos y lo que sigue programado: videos, stories, carruseles y blog.',
-    icon: ImagePlay,
-  },
-  {
-    label: 'SEO y presencia',
-    agent: 'Sierra',
-    desc: 'El score de tu sitio, tu ficha de Google Maps y tu engagement en redes.',
-    icon: LineChart,
-  },
-  {
-    label: 'Pauta',
-    agent: 'Tango',
-    desc: 'Tu plan de inversión en marketing digital y, cuando esté activa, tu campaña en vivo.',
-    icon: Megaphone,
-  },
-];
+import { CheckCircle2 } from 'lucide-react';
+import { DashboardPreview } from '@/components/ui/dashboard-preview';
 
 export function EcosystemPortal() {
   return (
@@ -77,32 +51,17 @@ export function EcosystemPortal() {
             </motion.ul>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {cards.map((card, i) => {
-              const Icon = card.icon;
-              return (
-                <motion.div
-                  key={card.label}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.08 }}
-                  className="rounded-2xl border border-[#1e1e1e] bg-[#111111] p-5 flex flex-col gap-3 card-lift"
-                >
-                  <div className="flex items-center justify-between">
-                    <div className="w-10 h-10 rounded-lg bg-[#D4AF37]/8 border border-[#D4AF37]/20 flex items-center justify-center">
-                      <Icon size={18} strokeWidth={1.5} className="text-[#D4AF37]" />
-                    </div>
-                    <span className="font-mono text-[9px] uppercase tracking-widest text-white/25">
-                      {card.agent}
-                    </span>
-                  </div>
-                  <h3 className="text-sm font-semibold text-white">{card.label}</h3>
-                  <p className="text-xs text-white/40 leading-relaxed">{card.desc}</p>
-                </motion.div>
-              );
-            })}
-          </div>
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.15 }}
+          >
+            <DashboardPreview />
+            <p className="text-center text-[10px] text-white/25 mt-3 font-mono">
+              Vista real del portal — datos de Delta Kilo Soluciones, 09/2026
+            </p>
+          </motion.div>
         </div>
       </div>
     </section>

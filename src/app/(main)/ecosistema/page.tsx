@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
 
 import { EcosistemaHero } from "@/components/ui/ecosistema-hero";
+import { EcosystemStats } from "@/components/sections/ecosystem-stats";
 import { EcosystemTeam } from "@/components/sections/ecosystem-team";
+import { EcosystemContentMarquee } from "@/components/sections/ecosystem-content-marquee";
+import { EcosystemClients } from "@/components/sections/ecosystem-clients";
 import { EcosystemPortal } from "@/components/sections/ecosystem-portal";
 import { CTASection } from "@/components/sections/cta-section";
 
@@ -58,16 +61,19 @@ export default function EcosistemaPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(ecosistemaServiceJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(ecosistemaBreadcrumbJsonLd) }} />
       <EcosistemaHero />
+      <EcosystemStats />
       <div id="escuadron">
         <EcosystemTeam />
       </div>
+      <EcosystemContentMarquee />
+      <EcosystemClients />
       <EcosystemPortal />
       <CTASection
         eyebrow="¿Quieres ver tu diagnóstico gratis?"
         headline="Te decimos gratis qué tan visible eres hoy."
         subtext="Revisamos tu sitio, tu ficha de Google Maps y tus redes — sin compromiso — y te mostramos exactamente qué se puede mejorar."
         primaryLabel="Pide tu diagnóstico gratis"
-        primaryHref="https://wa.me/5215663864984?text=Hola,%20quiero%20pedir%20mi%20diagn%C3%B3stico%20gratis%20💊"
+        primaryHref="https://wa.me/5215663864984?text=Hola,%20quiero%20pedir%20mi%20diagn%C3%B3stico%20gratis%20%F0%9F%92%8A"
         secondaryLabel="Ver servicios"
         secondaryHref="/servicios"
       />
