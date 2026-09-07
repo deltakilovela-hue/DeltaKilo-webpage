@@ -304,6 +304,25 @@
     .res-item h4 { font-size: 14px; font-weight: 700; margin-bottom: 4px; }
     .res-item p { font-size: 12px; color: var(--muted); line-height: 1.55; }
 
+    /* ── CADENCIA MENSUAL ───────────────────── */
+    .cadence-box {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 20px; overflow: hidden; margin-top: 44px;
+    }
+    .cadence-grid {
+      display: grid; grid-template-columns: repeat(5, 1fr);
+    }
+    @media(max-width:760px){ .cadence-grid { grid-template-columns: repeat(2,1fr); } }
+    .cadence-item {
+      padding: 28px 20px; border-right: 1px solid var(--border); border-bottom: 1px solid var(--border);
+      text-align: center;
+    }
+    @media(max-width:760px){ .cadence-item:nth-child(2n) { border-right: none; } }
+    @media(min-width:761px){ .cadence-item:last-child { border-right: none; } }
+    .cadence-n { font-size: 40px; font-weight: 900; color: var(--teal); line-height: 1; margin-bottom: 8px; }
+    .cadence-item h4 { font-size: 13px; font-weight: 700; line-height: 1.35; }
+    .cadence-note { padding: 18px 28px; font-size: 12px; color: var(--muted); text-align: center; border-top: 1px solid var(--border); }
+
     /* ── INVERSIÓN ──────────────────────────── */
     .price-wrap {
       display: grid; grid-template-columns: 1fr 1fr; gap: 40px;
@@ -409,6 +428,17 @@
     .gal-block-head { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 20px; gap: 12px; flex-wrap: wrap; }
     .gal-block-title { font-size: 15px; font-weight: 700; color: var(--text); }
     .gal-block-note { font-size: 12px; color: var(--muted); }
+
+    /* Video demo */
+    .video-wrap { display: flex; justify-content: center; }
+    .video-frame {
+      position: relative; width: 240px; aspect-ratio: 9 / 16;
+      border-radius: 22px; overflow: hidden;
+      background: #0A1128; box-shadow: 0 28px 60px rgba(0,0,0,0.5);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    .video-frame video { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .video-cap { margin-top: 16px; font-size: 13px; color: var(--muted); text-align: center; max-width: 380px; margin-left: auto; margin-right: auto; line-height: 1.6; }
 
     /* Feed (posts) */
     .feed-grid {
@@ -712,6 +742,19 @@
     <h2 class="s-title">No es una promesa.<br />Ya está diseñado.</h2>
     <p class="s-sub">Formatos reales, en el mismo lenguaje visual de Grupo COES — listos para publicar en feed e historias.</p>
 
+    <div class="gal-block" style="margin-top: 44px;">
+      <div class="gal-block-head">
+        <span class="gal-block-title">Video demo</span>
+        <span class="gal-block-note">Reel / Story</span>
+      </div>
+      <div class="video-wrap">
+        <div class="video-frame">
+          <video src="assets/video-demo.mp4" controls playsinline preload="metadata"></video>
+        </div>
+      </div>
+      <p class="video-cap">Un ejemplo real de lo que produciría Vox para el feed de Grupo COES — mismo lenguaje visual, listo para publicar.</p>
+    </div>
+
     <div class="gal-block">
       <div class="gal-block-head">
         <span class="gal-block-title">En el feed</span>
@@ -913,6 +956,40 @@
         </div>
 
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CADENCIA MENSUAL ─────────────────────────────── -->
+<section id="cadencia">
+  <div class="c">
+    <span class="s-label">Cada mes</span>
+    <h2 class="s-title">Esto es lo que publicamos.<br />Sin excepción.</h2>
+    <p class="s-sub">No es "contenido cuando se pueda" — es un volumen fijo, mes con mes.</p>
+    <div class="cadence-box">
+      <div class="cadence-grid">
+        <div class="cadence-item">
+          <div class="cadence-n">30</div>
+          <h4>Stories para Instagram y Facebook</h4>
+        </div>
+        <div class="cadence-item">
+          <div class="cadence-n">5</div>
+          <h4>Posts formato vertical</h4>
+        </div>
+        <div class="cadence-item">
+          <div class="cadence-n">5</div>
+          <h4>Carruseles</h4>
+        </div>
+        <div class="cadence-item">
+          <div class="cadence-n">3</div>
+          <h4>Videos</h4>
+        </div>
+        <div class="cadence-item">
+          <div class="cadence-n">2</div>
+          <h4>Posts en Google Maps</h4>
+        </div>
+      </div>
+      <p class="cadence-note">45 piezas de contenido al mes — diseñadas, aprobadas y publicadas por el equipo de Delta Kilo.</p>
     </div>
   </div>
 </section>
