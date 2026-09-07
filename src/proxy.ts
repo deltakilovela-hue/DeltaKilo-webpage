@@ -5,6 +5,10 @@ import { NextRequest, NextResponse } from 'next/server';
 //   - www.deltakilo.com.mx/propuestas/<slug>/   (works today, no DNS change)
 //   - propuestas.deltakilo.com.mx/<slug>/       (once the subdomain + Vercel
 //     domain are added — see Sistema-Diagnostico-Propuesta.md)
+// The bare subdomain root (propuestas.deltakilo.com.mx/) serves its own
+// branded landing page (public/propuestas/index.html) — it does NOT redirect
+// to the main site, since visitors land there only via a mistyped/missing
+// proposal link and shouldn't be bounced away without explanation.
 // Canonical URLs always end in "/" so the page's relative asset paths
 // (assets/...) resolve correctly. next.config.ts sets
 // skipTrailingSlashRedirect so Next's own default doesn't fight this.
@@ -24,14 +28,6 @@ export function proxy(request: NextRequest) {
   }
 
   if (isPropuestasHost) {
-    if (pathname === '/') {
-      const url = request.nextUrl.clone();
-      url.protocol = 'https';
-      url.hostname = 'www.deltakilo.com.mx';
-      url.port = '';
-      url.pathname = '/';
-      return NextResponse.redirect(url);
-    }
     if (!pathname.endsWith('/')) {
       const url = request.nextUrl.clone();
       url.pathname = `${pathname}/`;
@@ -42,7 +38,7 @@ export function proxy(request: NextRequest) {
     return NextResponse.rewrite(url);
   }
 
-  if (pathname.startsWith('/propuestas/') && pathname !== '/propuestas/') {
+  if (pathname === '/propuestas' || pathname.startsWith('/propuestas/')) {
     if (!pathname.endsWith('/')) {
       const url = request.nextUrl.clone();
       url.pathname = `${pathname}/`;

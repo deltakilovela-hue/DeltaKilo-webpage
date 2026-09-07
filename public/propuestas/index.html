@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Propuestas — Delta Kilo Soluciones</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --teal: #00C8C8;
+      --tdim: rgba(0,200,200,0.12);
+      --bg: #05070C;
+      --border: rgba(255,255,255,0.08);
+      --text: #FFFFFF;
+      --muted: #7A8A9A;
+    }
+    html, body { height: 100%; }
+    body {
+      font-family: 'Geist', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+      display: flex; align-items: center; justify-content: center;
+      text-align: center; padding: 24px;
+      position: relative; overflow: hidden;
+    }
+    .glow {
+      position: absolute; top: -20%; left: 50%; transform: translateX(-50%);
+      width: 700px; height: 500px;
+      background: radial-gradient(ellipse, rgba(0,200,200,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .wrap { position: relative; max-width: 460px; }
+    .logo { width: 84px; height: auto; margin: 0 auto 28px; display: block; }
+    .pill {
+      display: inline-block; font-size: 11px; font-weight: 700;
+      letter-spacing: .09em; text-transform: uppercase;
+      color: var(--teal); background: var(--tdim);
+      border: 1px solid rgba(0,200,200,0.18);
+      border-radius: 100px; padding: 5px 16px; margin-bottom: 22px;
+    }
+    h1 {
+      font-size: clamp(24px, 4vw, 32px); font-weight: 800;
+      line-height: 1.25; letter-spacing: -.02em; margin-bottom: 14px;
+    }
+    p { font-size: 15px; color: var(--muted); line-height: 1.7; margin-bottom: 32px; }
+    a.btn {
+      display: inline-block; font-size: 15px; font-weight: 700;
+      color: #05070C; background: var(--teal);
+      border-radius: 10px; padding: 13px 30px; text-decoration: none;
+      transition: transform .2s, box-shadow .2s;
+    }
+    a.btn:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0,200,200,0.25); }
+    .foot { margin-top: 40px; font-size: 12px; color: rgba(255,255,255,0.25); }
+  </style>
+</head>
+<body>
+  <div class="glow"></div>
+  <div class="wrap">
+    <img class="logo" src="assets/delta-kilo-logo.png" alt="Delta Kilo Soluciones" />
+    <span class="pill">Propuestas Delta Kilo</span>
+    <h1>Cada propuesta tiene su propio enlace confidencial.</h1>
+    <p>Si un asesor de Delta Kilo te compartió un link a esta dirección, ábrelo directamente — cada uno está armado específicamente para tu negocio.</p>
+    <a href="https://wa.me/5215663864984?text=Hola%2C%20llegu%C3%A9%20a%20propuestas.deltakilo.com.mx%20y%20no%20tengo%20mi%20enlace%20a%20la%20mano" class="btn">Escribir a Delta Kilo →</a>
+    <p class="foot">Delta Kilo Soluciones</p>
+  </div>
+</body>
+</html>
