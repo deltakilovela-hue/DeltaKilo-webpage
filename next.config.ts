@@ -1,6 +1,9 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  // Lets proxy.ts fully control trailing-slash behavior for /propuestas/*
+  // and the propuestas.* subdomain, without Next's default redirect fighting it.
+  skipTrailingSlashRedirect: true,
   async redirects() {
     return [
       {
