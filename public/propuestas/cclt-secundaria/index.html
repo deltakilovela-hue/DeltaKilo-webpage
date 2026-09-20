@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex, nofollow" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Delta Kilo Soluciones" />
+<meta property="og:title" content="Somos Ciencias — Comunicación digital CCLT Secundaria" />
+<meta property="og:description" content="Propuesta de comunicación digital para CCLT Secundaria: identidad, pilares y calendario de octubre 2026." />
+<meta property="og:url" content="https://propuestas.deltakilo.com.mx/cclt-secundaria/" />
+<title>Somos Ciencias Secundaria</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800;900&family=Nunito+Sans:wght@400;600;700&display=swap">
+<style>
+:root{
+  --blue:#023FCD; --blue-deep:#0032A8; --teal:#0DB3BF; --white:#FFFFFF; --grey:#E7E7E7;
+  --bg:#FFFFFF; --bg-alt:#EEF2FB; --ink:#0B1638; --ink-soft:#44507A; --line:#D5DBEE;
+  --card:#FFFFFF; --on-blue:#FFFFFF; --link:#023FCD; --photo-a:#C9D4F2; --photo-b:#9FB4EA;
+  --display:'Montserrat','Segoe UI',Arial,sans-serif; --text:'Nunito Sans','Segoe UI',Arial,sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#08112B; --bg-alt:#0C1A44; --ink:#EEF2FF; --ink-soft:#A9B6DD; --line:#1E2E66;
+  --card:#0F1E4F; --link:#5FD6E0; --photo-a:#1B3A93; --photo-b:#0F2566; }}
+:root[data-theme="dark"]{
+  --bg:#08112B; --bg-alt:#0C1A44; --ink:#EEF2FF; --ink-soft:#A9B6DD; --line:#1E2E66;
+  --card:#0F1E4F; --link:#5FD6E0; --photo-a:#1B3A93; --photo-b:#0F2566; }
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--text);font-size:17px;line-height:1.6}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;line-height:1.08}
+p{margin:0}
+.wrap{max-width:1120px;margin-inline:auto;padding-inline:20px}
+section{padding-block:72px}
+.alt{background:var(--bg-alt)}
+.eyebrow{font-family:var(--display);font-weight:700;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--link);margin-bottom:14px}
+h2{font-size:clamp(28px,4.4vw,44px);font-weight:800;letter-spacing:-.01em;margin-bottom:18px}
+.lead{max-width:62ch;color:var(--ink-soft);font-size:19px}
+.cap{display:inline-block;font-family:var(--display);font-weight:700;font-size:11px;letter-spacing:.08em;text-transform:uppercase;padding:5px 12px;border-radius:999px;background:var(--teal);color:#032E33}
+
+/* hero */
+.hero{background:var(--blue);color:var(--on-blue);position:relative;overflow:hidden;padding-block:64px 80px}
+.hero::before,.hero::after{content:"";position:absolute;border:2px solid rgba(255,255,255,.16);border-radius:50%;pointer-events:none}
+.hero::before{width:620px;height:620px;right:-180px;top:-200px}
+.hero::after{width:380px;height:380px;right:40px;bottom:-230px;border-color:rgba(13,179,191,.55)}
+.hero .wrap{position:relative;z-index:1}
+.brandline{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;margin-bottom:56px;font-family:var(--display);font-weight:700;font-size:13px;letter-spacing:.14em;text-transform:uppercase}
+.hero h1{font-weight:900;font-size:clamp(46px,10.5vw,116px);letter-spacing:-.03em;max-width:9ch}
+.hero h1 span{color:var(--teal)}
+.hero p.sub{margin-top:26px;max-width:46ch;font-size:20px;color:#DCE6FF}
+.hero .meta{margin-top:40px;display:flex;flex-wrap:wrap;gap:10px}
+.hero .meta .cap{background:rgba(255,255,255,.14);color:#fff}
+
+/* two audiences */
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;margin-top:36px}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:28px}
+.panel h3{font-size:22px;font-weight:800;margin-bottom:12px}
+.panel ul{margin:0;padding-left:18px;color:var(--ink-soft)}
+.panel li{margin-block:4px}
+.panel.blue{background:var(--blue);color:#fff;border-color:var(--blue)}
+.panel.blue ul{color:#DCE6FF}
+.panel .cap{margin-bottom:14px}
+.aud{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:0;margin-top:40px;border-top:2px solid var(--ink)}
+.aud div{padding:22px 24px 8px 0}
+.aud h3{font-size:18px;font-weight:800;margin-bottom:8px}
+.aud p{color:var(--ink-soft);font-size:16px}
+
+/* personality */
+.pers{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px 40px;margin-top:32px}
+.pers div{display:flex;align-items:baseline;gap:10px;padding-block:12px;border-bottom:1px solid var(--line);font-size:17px}
+.pers b{font-family:var(--display);font-weight:800}
+.pers span{color:var(--ink-soft)}
+
+/* pillars */
+.pillars{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-top:36px}
+.pillar{background:var(--card);border:1px solid var(--line);padding:22px;border-radius:6px}
+.pillar h3{font-size:18px;font-weight:800;margin-bottom:6px;color:var(--link)}
+.pillar p{font-size:15.5px;color:var(--ink-soft)}
+
+/* identity */
+.swatches{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-top:32px}
+.sw{border-radius:6px;padding:74px 16px 16px;font-family:var(--display);font-size:13px;font-weight:700;border:1px solid var(--line)}
+.sw small{display:block;font-family:var(--text);font-weight:600;opacity:.85;letter-spacing:.04em}
+.type{margin-top:36px;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+.type .big{font-family:var(--display);font-weight:900;font-size:clamp(38px,6vw,64px);line-height:1;letter-spacing:-.02em}
+.donts{margin-top:28px;padding:20px 24px;border-left:4px solid var(--teal);background:var(--card)}
+.donts b{font-family:var(--display)}
+
+/* calendar */
+.tabs{display:inline-flex;border:2px solid var(--blue);border-radius:999px;overflow:hidden;margin-top:8px}
+.tabs button{font-family:var(--display);font-weight:700;font-size:14px;padding:10px 22px;border:0;background:transparent;color:var(--link);cursor:pointer}
+.tabs button[aria-pressed="true"]{background:var(--blue);color:#fff}
+.tabs button:focus-visible,.cta a:focus-visible{outline:3px solid var(--teal);outline-offset:2px}
+.cal{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:26px 18px;margin-top:32px}
+.post .date{font-family:var(--display);font-weight:700;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:8px;display:flex;justify-content:space-between}
+.thumb{display:block;width:100%;padding:0;border:0;background:var(--bg-alt);cursor:zoom-in;border-radius:4px;overflow:hidden;line-height:0}
+.thumb img{width:100%;height:auto;display:block;transition:transform .25s}
+.thumb:hover img{transform:scale(1.02)}
+.thumb:focus-visible{outline:3px solid var(--teal);outline-offset:3px}
+.post h3{font-size:16px;font-weight:800;margin-top:12px;line-height:1.2}
+details{margin-top:6px;font-size:14.5px;color:var(--ink-soft)}
+summary{cursor:pointer;color:var(--link);font-weight:700;font-family:var(--display);font-size:12px;letter-spacing:.06em;text-transform:uppercase}
+details p{margin-top:8px}
+dialog{border:0;padding:0;background:transparent;max-width:min(92vw,720px);max-height:92vh}
+dialog::backdrop{background:rgba(3,10,38,.8)}
+dialog img{display:block;max-width:100%;max-height:92vh;margin:auto;border-radius:4px}
+.sub{font-size:20px;font-weight:800;margin-top:36px}
+.cal.stories{grid-template-columns:repeat(auto-fill,minmax(190px,1fr))}
+.note{margin-top:28px;font-size:15px;color:var(--ink-soft);max-width:70ch}
+
+/* sequence */
+.arc{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:0;margin-top:36px}
+.arc div{padding:20px 22px;border-top:4px solid var(--blue)}
+.arc div:nth-child(2){border-color:var(--teal)}
+.arc div:nth-child(3){border-color:var(--blue-deep)}
+.arc h3{font-size:18px;font-weight:800;margin-bottom:6px}
+.arc p{color:var(--ink-soft);font-size:16px}
+
+/* images */
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;margin-top:32px}
+.chk{list-style:none;padding:0;margin:0}
+.chk li{padding:9px 0 9px 30px;position:relative;border-bottom:1px solid var(--line);color:var(--ink-soft);font-size:16px}
+.chk li::before{content:"";position:absolute;left:0;top:15px;width:16px;height:9px;border-left:3px solid var(--teal);border-bottom:3px solid var(--teal);transform:rotate(-45deg) scale(.9)}
+
+/* workflow */
+.flow{list-style:none;margin:36px 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;counter-reset:s}
+.flow li{counter-increment:s;background:var(--card);border:1px solid var(--line);border-radius:6px;padding:16px 18px 16px 62px;position:relative;font-size:16px}
+.flow li::before{content:counter(s);position:absolute;left:16px;top:14px;width:32px;height:32px;border-radius:50%;background:var(--blue);color:#fff;font-family:var(--display);font-weight:800;display:grid;place-items:center;font-size:15px}
+
+/* CTA */
+.cta{background:var(--blue-deep);color:#fff;padding-block:80px;position:relative;overflow:hidden}
+.cta::after{content:"";position:absolute;width:520px;height:520px;border-radius:50%;border:2px solid rgba(13,179,191,.5);right:-160px;top:-160px}
+.cta .wrap{position:relative;z-index:1}
+.cta h2{color:#fff;font-size:clamp(32px,6vw,60px);font-weight:900;max-width:16ch}
+.cta .data{margin-top:32px;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;max-width:760px}
+.cta .data small{display:block;font-family:var(--display);font-weight:700;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--teal);margin-bottom:4px}
+.cta .data b{font-family:var(--display);font-size:22px;font-weight:800;line-height:1.2}
+.ctas{margin-top:34px;display:flex;flex-wrap:wrap;gap:10px}
+.ctas .cap{background:#fff;color:var(--blue-deep);font-size:12px;padding:8px 16px}
+footer{padding-block:28px;font-size:14px;color:var(--ink-soft);background:var(--bg)}
+@media (prefers-reduced-motion:reduce){.frame{transition:none}}
+@media (max-width:520px){section{padding-block:52px}.hero{padding-block:40px 56px}.brandline{margin-bottom:36px}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="brandline"><span>Colegio de Ciencias y Letras de Tepic</span><span class="cap">Nivel Secundaria</span></div>
+    <h1>Somos <span>Ciencias</span></h1>
+    <p class="sub">Propuesta de comunicación digital para CCLT Secundaria. Mostrar cómo se vive la escuela, con experiencias reales, no con publicidad.</p>
+    <div class="meta"><span class="cap">Primer mes · Octubre 2026</span><span class="cap">12 Feed + 12 Stories</span><span class="cap">Lun · Mié · Vie</span></div>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">Objetivo</div>
+    <h2>Una secundaria sólida, cercana y actual.</h2>
+    <p class="lead">Posicionar a CCLT Secundaria como una institución que acompaña el desarrollo académico, social y personal de sus alumnos. Cada contenido fortalece la confianza de las familias y el sentido de pertenencia de los estudiantes.</p>
+    <div class="grid2">
+      <div class="panel blue"><span class="cap">Para padres de familia</span><h3>Confianza y orden</h3><ul><li>Seguridad y disciplina</li><li>Valores y acompañamiento</li><li>Preparación académica y futuro</li></ul></div>
+      <div class="panel"><span class="cap">Para alumnos</span><h3>Identidad y comunidad</h3><ul><li>Amistades y actividades</li><li>Tecnología, deporte y experiencias</li><li>Expresión y pertenencia</li></ul></div>
+    </div>
+    <div class="aud">
+      <div><h3>Padres y madres</h3><p>Buscan una secundaria confiable y una propuesta completa. Necesitan información clara y evidencias de acompañamiento.</p></div>
+      <div><h3>Alumnos actuales</h3><p>Deben verse reflejados en una comunidad activa donde descubren sus capacidades.</p></div>
+      <div><h3>Familias en admisiones</h3><p>Quieren conocer la propuesta, las actividades, los espacios y los canales oficiales de información.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <div class="eyebrow">Personalidad</div>
+    <h2>Cómo se siente la comunicación.</h2>
+    <div class="pers">
+      <div><b>Institucional,</b><span>pero no distante</span></div>
+      <div><b>Juvenil,</b><span>pero no infantil</span></div>
+      <div><b>Aspiracional,</b><span>pero creíble</span></div>
+      <div><b>Moderna,</b><span>sin depender de tendencias</span></div>
+      <div><b>Cercana,</b><span>sin perder formalidad</span></div>
+      <div><b>Enérgica,</b><span>sin saturación visual</span></div>
+    </div>
+    <p class="note">Mensajes breves, concretos y centrados en experiencias. Sin frases exageradas, promesas absolutas ni lenguaje excesivamente comercial. #SomosCiencias se usa como identidad y comunidad, nunca de forma mecánica.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">Pilares de contenido</div>
+    <h2>Ocho temas para contar la Secundaria.</h2>
+    <div class="pillars">
+      <div class="pillar"><h3>Vida CCLT</h3><p>Comunidad, amistades, convivencia y experiencias cotidianas.</p></div>
+      <div class="pillar"><h3>Ciencias y tecnología</h3><p>Laboratorio, experimentación, proyectos, pensamiento lógico e innovación.</p></div>
+      <div class="pillar"><h3>Formación integral</h3><p>Disciplina, autonomía, comunicación, valores y preparación para el futuro.</p></div>
+      <div class="pillar"><h3>Arte y expresión</h3><p>Música, danza, teatro, creatividad y descubrimiento de talentos.</p></div>
+      <div class="pillar"><h3>Deporte</h3><p>Trabajo en equipo, constancia, coordinación y superación personal.</p></div>
+      <div class="pillar"><h3>Bienestar y acompañamiento</h3><p>Atención psicopedagógica, confianza, escucha y espacios seguros.</p></div>
+      <div class="pillar"><h3>Instalaciones</h3><p>Laboratorio, centro de tecnología, canchas, alberca y espacios de aprendizaje.</p></div>
+      <div class="pillar"><h3>Admisiones</h3><p>Propuesta educativa, proceso de ingreso, solicitud de información y visitas.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <div class="eyebrow">Identidad visual</div>
+    <h2>La fotografía manda. El diseño ordena.</h2>
+    <p class="lead">Titulares breves y contundentes, bloques azules de alto contraste, cápsulas de categoría, espacio negativo y curvas institucionales discretas.</p>
+    <div class="swatches">
+      <div class="sw" style="background:#023FCD;color:#fff">Azul principal<small>#023FCD</small></div>
+      <div class="sw" style="background:#0032A8;color:#fff">Azul oscuro<small>#0032A8</small></div>
+      <div class="sw" style="background:#0DB3BF;color:#032E33">Turquesa de acento<small>#0DB3BF</small></div>
+      <div class="sw" style="background:#FFFFFF;color:#0B1638">Blanco<small>#FFFFFF</small></div>
+      <div class="sw" style="background:#E7E7E7;color:#0B1638">Gris claro<small>#E7E7E7</small></div>
+    </div>
+    <div class="type">
+      <div class="panel"><div class="eyebrow">Titulares · Montserrat</div><div class="big">Eso es Ciencias</div></div>
+      <div class="panel"><div class="eyebrow">Textos · sans serif limpia</div><p>Los textos secundarios se mantienen claros y legibles, con jerarquía visual evidente entre titular, apoyo y llamada a la acción.</p></div>
+    </div>
+    <div class="donts"><b>No se altera:</b> el logotipo oficial de CCLT Secundaria, los uniformes ni los colores institucionales.</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">Primer mes · octubre 2026</div>
+    <h2>12 publicaciones, del 5 al 30 de octubre.</h2>
+    <p class="lead">Tres por semana (lunes, miércoles y viernes), cada una con su adaptación a Stories. Feed y Stories de cada fecha. Toca cualquier pieza para verla en grande.</p>
+    <h3 class="sub">Feed · 1080 × 1080</h3>
+    <div class="cal" id="cal"></div>
+    <h3 class="sub" style="margin-top:56px">Stories · 1080 × 1920</h3>
+    <div class="cal stories" id="cal2"></div>
+    <p class="note">Las fotografías de esta primera etapa están generadas con IA de forma temporal y se sustituirán por material real del colegio cuando esté disponible.</p>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <div class="eyebrow">Arco del mes</div>
+    <h2>De la pertenencia a la invitación.</h2>
+    <div class="arc">
+      <div><h3>Semanas 1 y 2</h3><p>Pertenencia y comunidad. Ciencias, tecnología, deporte y arte muestran la vida diaria.</p></div>
+      <div><h3>Semana 3</h3><p>Acompañamiento, laboratorio y amistad. Se construye la confianza de las familias.</p></div>
+      <div><h3>Semanas 4 y 5</h3><p>Formación, actividades y habilidades para el futuro, para cerrar con una invitación comercial moderada.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">Uso de imágenes</div>
+    <h2>Fotos reales primero. IA solo como puente.</h2>
+    <div class="two">
+      <div class="panel"><span class="cap">Material provisional con IA</span>
+        <ul class="chk" style="margin-top:14px">
+          <li>Uniformes rojos y azul marino</li>
+          <li>Sin escudos, palabras ni logotipos generados</li>
+          <li>Alumnos de secundaria de forma natural y respetuosa</li>
+          <li>Sin instalaciones específicas que parezcan reales</li>
+          <li>Se reemplaza gradualmente por fotografía original</li>
+        </ul></div>
+      <div class="panel"><span class="cap">Fotografía real</span>
+        <ul class="chk" style="margin-top:14px">
+          <li>Alumnos, docentes, actividades e instalaciones del colegio</li>
+          <li>No se alteran rostros, uniformes ni instalaciones</li>
+          <li>Naturales y sin deformaciones</li>
+        </ul></div>
+    </div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <div class="eyebrow">Flujo de trabajo</div>
+    <h2>Cada pieza pasa por ocho etapas.</h2>
+    <ol class="flow">
+      <li>Definir objetivo y público</li>
+      <li>Elegir una historia o experiencia concreta</li>
+      <li>Desarrollar concepto, titular y copy</li>
+      <li>Seleccionar o producir fotografía</li>
+      <li>Diseñar para Feed y Stories</li>
+      <li>Revisión institucional</li>
+      <li>Programar y publicar</li>
+      <li>Dar seguimiento a comentarios, mensajes y resultados</li>
+    </ol>
+    <div style="margin-top:56px" class="eyebrow">Control de calidad</div>
+    <h2>Antes de publicar, se verifica.</h2>
+    <div class="two">
+      <ul class="chk"><li>Logotipo oficial</li><li>Nombre correcto del colegio</li><li>Mención de Nivel Secundaria cuando corresponda</li><li>Ortografía y legibilidad</li><li>Coherencia de uniformes y colores</li></ul>
+      <ul class="chk"><li>Fotografías naturales y sin deformaciones</li><li>Información previamente validada</li><li>Jerarquía visual clara</li><li>Formato y zonas seguras correctas</li><li>CTA y datos de contacto vigentes</li></ul>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <div class="eyebrow" style="color:var(--teal)">Admisiones</div>
+    <h2>Conoce nuestra Secundaria.</h2>
+    <div class="data">
+      <div><small>WhatsApp</small><b>311 120 5909</b></div>
+      <div><small>Dirección</small><b>Medicina Humana No. 105, Col. SPAUAN, Tepic, Nayarit</b></div>
+    </div>
+    <div class="ctas"><span class="cap">Solicita información</span><span class="cap">Agenda una visita</span><span class="cap">Conoce nuestra propuesta educativa</span></div>
+    <p style="margin-top:28px;max-width:60ch;color:#C9D8FF;font-size:15px">No se publican fechas, costos, promociones, descuentos, requisitos ni horarios sin validación institucional.</p>
+  </div>
+</section>
+
+<footer><div class="wrap">CCLT Secundaria · Comunicación digital · Octubre 2026 · #SomosCiencias</div></footer>
+
+<dialog id="dlg"><img alt=""></dialog>
+<script>
+var P=[
+ ["Lun 5","Comunidad","01_comunidad","Octubre empieza en equipo","Un nuevo mes se vive mejor cuando avanzamos juntos.","En Secundaria CCLT, cada día abre oportunidades para aprender, convivir y construir nuevas experiencias. La comunidad también forma parte del crecimiento.","¿Qué es lo que más disfrutas de compartir con tu grupo?"],
+ ["Mié 7","Ciencias","02_ciencias","Aprender también es descubrir","La curiosidad es el inicio de cada gran descubrimiento.","Observar, experimentar y hacer preguntas transforma el aprendizaje en una experiencia cercana. En ciencias, cada hallazgo invita a seguir explorando.","¿Qué pregunta científica te gustaría investigar?"],
+ ["Vie 9","Tecnología","03_tecnologia","Ideas que se convierten en proyectos","La tecnología cobra sentido cuando una idea empieza a funcionar.","Colaborar, probar y mejorar permite que los alumnos desarrollen soluciones mientras fortalecen su creatividad y pensamiento lógico.","¿Qué proyecto te gustaría crear?"],
+ ["Lun 12","Deporte","04_deporte","Cada reto nos hace crecer","En la cancha también se aprende a confiar, decidir y trabajar en equipo.","El deporte impulsa disciplina, coordinación y compañerismo. Cada práctica es una oportunidad para superarse y celebrar el esfuerzo compartido.","¿Cuál es tu deporte favorito?"],
+ ["Mié 14","Arte y expresión","05_arte","Un espacio para expresarte","Cuando el talento encuentra un espacio, aparecen nuevas formas de comunicar.","La música, el teatro y la danza enriquecen la formación y ayudan a descubrir habilidades, emociones y maneras de conectar con los demás.","¿Con qué actividad artística te identificas más?"],
+ ["Vie 16","Acompañamiento","06_bienestar","Acompañar también es educar","Crecer se siente distinto cuando sabes que alguien te escucha.","El acompañamiento cercano fortalece la seguridad, la confianza y el bienestar de los alumnos durante una etapa llena de cambios y descubrimientos.","Conoce nuestro enfoque de formación integral."],
+ ["Lun 19","Laboratorio","07_laboratorio","Preguntar. Probar. Comprender.","La ciencia se vuelve memorable cuando puedes verla de cerca.","El laboratorio permite observar, registrar y comprender fenómenos mediante experiencias que conectan la teoría con la práctica.","¿Qué te gustaría observar bajo el microscopio?"],
+ ["Mié 21","Vida CCLT","08_amistad","Amistades que hacen escuela","Hay aprendizajes que también nacen en una conversación y una risa compartida.","La vida escolar se construye con vínculos, respeto y experiencias que fortalecen el sentido de pertenencia dentro de la comunidad.","Etiqueta a esa persona que hace mejores tus días."],
+ ["Vie 23","Formación","09_formacion","Disciplina que abre caminos","Cada vez que un alumno se atreve a participar, también aprende a confiar en sí mismo.","Comunicar ideas, prepararse y asumir nuevos retos son experiencias que desarrollan seguridad, responsabilidad y autonomía.","¿Qué habilidad te gustaría fortalecer este ciclo?"],
+ ["Lun 26","Actividades","10_actividad","Talento en movimiento","Moverse, crear y compartir también son maneras de aprender.","Las actividades complementarias ayudan a descubrir talentos, desarrollar constancia y disfrutar nuevas experiencias junto a otros alumnos.","¿Qué actividad te gustaría probar?"],
+ ["Mié 28","Propuesta educativa","11_futuro","El futuro se construye hoy","El futuro empieza con las habilidades que practicamos todos los días.","Pensar, colaborar, crear y resolver prepara a los alumnos para participar con confianza en un mundo que cambia constantemente.","Conoce nuestra propuesta educativa."],
+ ["Vie 30","Admisiones","12_admisiones","Ven a conocer Secundaria","Una etapa para descubrir capacidades, amistades y nuevas posibilidades.","Conoce la propuesta educativa de CCLT Secundaria y descubre una formación que integra ciencias, cultura, valores, tecnología, deporte y acompañamiento.","Solicita información por WhatsApp: 311 120 5909."]
+];
+var cal=document.getElementById('cal'),cal2=document.getElementById('cal2');
+function render(st){
+  return P.map(function(p,i){
+    var src='assets/img/'+(st?'story_':'feed_')+p[2]+'.jpg';
+    return '<article class="post"><div class="date"><span>'+p[0]+' de octubre</span><span>'+(i+1)+' / 12</span></div>'+
+    '<button class="thumb" type="button" data-i="'+i+'" data-s="'+(st?1:0)+'" aria-label="Ampliar: '+p[3]+'"><img src="'+src+'" alt="'+(st?'Story ':'Publicación ')+(i+1)+': '+p[3]+'"></button>'+
+    '<h3>'+p[3]+'</h3>'+(st?'':'<details><summary>Ver copy</summary><p><b>'+p[4]+'</b></p><p>'+p[5]+'</p><p>'+p[6]+'</p></details>')+'</article>';
+  }).join('');
+}
+cal.innerHTML=render(false);cal2.innerHTML=render(true);
+var dlg=document.getElementById('dlg'),dimg=dlg.querySelector('img');
+document.addEventListener('click',function(e){var t=e.target.closest('.thumb');if(!t)return;
+  var p=P[+t.dataset.i];dimg.src='assets/img/'+(t.dataset.s=='1'?'story_':'feed_')+p[2]+'.jpg';dimg.alt=p[3];dlg.showModal();});
+dlg.addEventListener('click',function(){dlg.close();});
+</script>
+
+</body>
+</html>
