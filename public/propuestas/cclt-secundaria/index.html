@@ -104,6 +104,8 @@ details p{margin-top:8px}
 dialog{border:0;padding:0;background:transparent;max-width:min(92vw,720px);max-height:92vh}
 dialog::backdrop{background:rgba(3,10,38,.8)}
 dialog img{display:block;max-width:100%;max-height:92vh;margin:auto;border-radius:4px}
+.sub{font-size:20px;font-weight:800;margin-top:36px}
+.cal.stories{grid-template-columns:repeat(auto-fill,minmax(190px,1fr))}
 .note{margin-top:28px;font-size:15px;color:var(--ink-soft);max-width:70ch}
 
 /* sequence */
@@ -225,12 +227,11 @@ footer{padding-block:28px;font-size:14px;color:var(--ink-soft);background:var(--
   <div class="wrap">
     <div class="eyebrow">Primer mes · octubre 2026</div>
     <h2>12 publicaciones, del 5 al 30 de octubre.</h2>
-    <p class="lead">Tres por semana (lunes, miércoles y viernes), cada una con su adaptación a Stories. Toca cualquier pieza para verla en grande.</p>
-    <div class="tabs" role="group" aria-label="Formato">
-      <button id="bf" type="button" aria-pressed="true">Feed</button>
-      <button id="bs" type="button" aria-pressed="false">Stories</button>
-    </div>
+    <p class="lead">Tres por semana (lunes, miércoles y viernes), cada una con su adaptación a Stories. Feed y Stories de cada fecha. Toca cualquier pieza para verla en grande.</p>
+    <h3 class="sub">Feed · 1080 × 1080</h3>
     <div class="cal" id="cal"></div>
+    <h3 class="sub" style="margin-top:56px">Stories · 1080 × 1920</h3>
+    <div class="cal stories" id="cal2"></div>
     <p class="note">Las fotografías de esta primera etapa están generadas con IA de forma temporal y se sustituirán por material real del colegio cuando esté disponible.</p>
   </div>
 </section>
@@ -324,23 +325,20 @@ var P=[
  ["Mié 28","Propuesta educativa","11_futuro","El futuro se construye hoy","El futuro empieza con las habilidades que practicamos todos los días.","Pensar, colaborar, crear y resolver prepara a los alumnos para participar con confianza en un mundo que cambia constantemente.","Conoce nuestra propuesta educativa."],
  ["Vie 30","Admisiones","12_admisiones","Ven a conocer Secundaria","Una etapa para descubrir capacidades, amistades y nuevas posibilidades.","Conoce la propuesta educativa de CCLT Secundaria y descubre una formación que integra ciencias, cultura, valores, tecnología, deporte y acompañamiento.","Solicita información por WhatsApp: 311 120 5909."]
 ];
-var cal=document.getElementById('cal'),mst=false;
-function render(){
-  cal.innerHTML=P.map(function(p,i){
-    var n=p[2].split('_')[0],src='assets/img/'+(mst?'story_':'feed_')+p[2]+'.jpg';
+var cal=document.getElementById('cal'),cal2=document.getElementById('cal2');
+function render(st){
+  return P.map(function(p,i){
+    var src='assets/img/'+(st?'story_':'feed_')+p[2]+'.jpg';
     return '<article class="post"><div class="date"><span>'+p[0]+' de octubre</span><span>'+(i+1)+' / 12</span></div>'+
-    '<button class="thumb" type="button" data-i="'+i+'" aria-label="Ampliar: '+p[3]+'"><img loading="lazy" src="'+src+'" alt="Publicación '+(i+1)+': '+p[3]+'"></button>'+
-    '<h3>'+p[3]+'</h3>'+(mst?'':'<details><summary>Ver copy</summary><p><b>'+p[4]+'</b></p><p>'+p[5]+'</p><p>'+p[6]+'</p></details>')+'</article>';
+    '<button class="thumb" type="button" data-i="'+i+'" data-s="'+(st?1:0)+'" aria-label="Ampliar: '+p[3]+'"><img src="'+src+'" alt="'+(st?'Story ':'Publicación ')+(i+1)+': '+p[3]+'"></button>'+
+    '<h3>'+p[3]+'</h3>'+(st?'':'<details><summary>Ver copy</summary><p><b>'+p[4]+'</b></p><p>'+p[5]+'</p><p>'+p[6]+'</p></details>')+'</article>';
   }).join('');
 }
-render();
+cal.innerHTML=render(false);cal2.innerHTML=render(true);
 var dlg=document.getElementById('dlg'),dimg=dlg.querySelector('img');
-cal.addEventListener('click',function(e){var t=e.target.closest('.thumb');if(!t)return;
-  var p=P[+t.dataset.i];dimg.src='assets/img/'+(mst?'story_':'feed_')+p[2]+'.jpg';dimg.alt=p[3];dlg.showModal();});
+document.addEventListener('click',function(e){var t=e.target.closest('.thumb');if(!t)return;
+  var p=P[+t.dataset.i];dimg.src='assets/img/'+(t.dataset.s=='1'?'story_':'feed_')+p[2]+'.jpg';dimg.alt=p[3];dlg.showModal();});
 dlg.addEventListener('click',function(){dlg.close();});
-var bf=document.getElementById('bf'),bs=document.getElementById('bs');
-function mode(s){mst=s;render();bf.setAttribute('aria-pressed',!s);bs.setAttribute('aria-pressed',s);}
-bf.onclick=function(){mode(false)};bs.onclick=function(){mode(true)};
 </script>
 
 </body>
