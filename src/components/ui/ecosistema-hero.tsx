@@ -1,7 +1,7 @@
 'use client';
 
 import { motion, type Variants } from 'framer-motion';
-import { Circle, ArrowRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 
 export function EcosistemaHero() {
@@ -33,19 +33,24 @@ export function EcosistemaHero() {
         <div className="max-w-3xl mx-auto text-center">
           <motion.div
             custom={0} variants={fadeUp} initial="hidden" animate="visible"
-            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.03] border border-white/[0.08] mb-8 md:mb-10"
+            className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-red-500/[0.08] border border-red-500/25 mb-8 md:mb-10"
           >
-            <Circle className="h-2 w-2 fill-[#0dcfcf]/80" />
-            <span className="text-sm text-white/60 tracking-wide">El ecosistema Delta Kilo</span>
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-500 opacity-75" />
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-red-500" />
+            </span>
+            <span className="text-xs sm:text-sm font-semibold text-red-400 tracking-wide uppercase">
+              Alguien está buscando tu negocio ahora mismo
+            </span>
           </motion.div>
 
           <motion.div custom={1} variants={fadeUp} initial="hidden" animate="visible">
             <h1 className="text-display mb-6 md:mb-8">
-              <span className="gradient-text">Un equipo completo de IA,</span>
+              <span className="gradient-text">Mientras dormías anoche,</span>
               <br />
-              <span className="gradient-text-cyan">trabajando en tu negocio</span>
+              <span className="gradient-text-cyan">alguien le escribió a tu negocio.</span>
               <br />
-              <span className="gradient-text">todos los días.</span>
+              <span className="gradient-text">Nadie contestó.</span>
             </h1>
           </motion.div>
 
