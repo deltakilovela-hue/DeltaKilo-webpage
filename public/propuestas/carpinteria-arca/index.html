@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Propuesta — Carpintería Arca × Delta Kilo</title>
+  <meta name="description" content="Ecosistema de captación, atención y seguimiento comercial para Carpintería Arca, Tepic, Nayarit." />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Delta Kilo Soluciones" />
+  <meta property="og:title" content="Propuesta para Carpintería Arca — Delta Kilo Soluciones" />
+  <meta property="og:description" content="De excelentes trabajos a cotizaciones constantes: captación, atención y seguimiento comercial para Carpintería Arca." />
+  <meta property="og:image" content="https://www.deltakilo.com.mx/propuestas/carpinteria-arca/assets/og-arca.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:url" content="https://propuestas.deltakilo.com.mx/carpinteria-arca/" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="theme-color" content="#1E120A" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Manrope:wght@400;500;600;700&display=swap">
+  <style>
+  /* Layout: una sola columna pensada para celular (como hojear un catálogo de taller), que se abre a dos columnas en pantallas anchas.
+     Mundo visual de Arca: nogal oscuro, dorado de veta, hueso. Delta Kilo firma con teal discreto. Look de una sola paleta oscura (deliberado). */
+  :root {
+    --nogal: #1E120A;      /* fondo principal */
+    --nogal-2: #2A1A10;    /* superficies */
+    --nogal-3: #3A2518;    /* bordes / superficies elevadas */
+    --hueso: #F2E9DD;      /* texto principal */
+    --hueso-2: #CDBEAB;    /* texto secundario */
+    --oro: #C9965F;        /* acento Arca */
+    --oro-claro: #E2B985;
+    --teal: #3FC7C2;       /* firma Delta Kilo */
+    --f-display: "Montserrat", "Segoe UI", system-ui, sans-serif;
+    --f-body: "Manrope", "Segoe UI", system-ui, sans-serif;
+    color-scheme: dark;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); background: var(--nogal); }
+  body { margin: 0; }
+  .btn-wa { display: inline-flex; align-items: center; gap: 12px; margin-top: 26px; background: #25D366; color: #0B2A17; font-family: var(--f-display); font-weight: 700; font-size: 17px; text-decoration: none; padding: 16px 26px; border-radius: 999px; box-shadow: 0 10px 26px rgba(37,211,102,0.25); }
+  .btn-wa:hover { filter: brightness(1.05); }
+  .btn-wa svg { flex: none; }
+  body {
+    background: var(--nogal);
+    color: var(--hueso);
+    font-family: var(--f-body);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  img, video { max-width: 100%; display: block; }
+  .wrap {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding-left: max(20px, env(safe-area-inset-left, 0px));
+    padding-right: max(20px, env(safe-area-inset-right, 0px));
+  }
+  section { padding-block: 56px; }
+  .eyebrow {
+    font-family: var(--f-display);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--oro);
+  }
+  h1, h2, h3 { font-family: var(--f-display); text-wrap: balance; margin: 0; }
+  h2 { font-weight: 300; font-size: clamp(28px, 7vw, 44px); line-height: 1.12; text-transform: uppercase; letter-spacing: 0.01em; }
+  h2 b, h1 b { font-weight: 700; color: var(--oro); }
+  .rule { width: 56px; height: 2px; background: var(--oro); border: 0; margin: 20px 0; }
+  .lead { color: var(--hueso-2); font-size: 17px; max-width: 62ch; margin: 0; }
+  p { margin: 0; }
+  
+  /* Hero */
+  .hero { position: relative; isolation: isolate; padding-block: 0; }
+  .hero-img { position: absolute; inset: 0; z-index: -1; }
+  .hero-img img { width: 100%; height: 100%; object-fit: cover; }
+  .hero-img::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(30,18,10,0.55) 0%, rgba(30,18,10,0.2) 30%, rgba(30,18,10,0.85) 70%, var(--nogal) 100%); }
+  .hero .wrap { padding-block: 28px 48px; display: grid; gap: 22px; min-height: 620px; align-content: space-between; }
+  .brand { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+  .brand img { width: 150px; height: auto; }
+  .brand .x { font-family: var(--f-display); color: var(--hueso-2); font-weight: 300; font-size: 22px; }
+  .brand .dk { font-family: var(--f-display); font-weight: 600; font-size: 14px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--hueso); line-height: 1.2; }
+  .brand .dk span { display: block; color: var(--teal); font-weight: 400; letter-spacing: 0.08em; font-size: 12px; }
+  .hero h1 { font-weight: 300; font-size: clamp(34px, 9vw, 60px); line-height: 1.05; text-transform: uppercase; }
+  .hero .sub { color: var(--hueso); font-size: 17px; max-width: 46ch; }
+  .place { display: inline-flex; gap: 8px; align-items: center; font-family: var(--f-display); font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--hueso-2); }
+  
+  /* Punto de partida */
+  .split { display: grid; gap: 28px; }
+  .facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  .fact { background: var(--nogal-2); border: 1px solid var(--nogal-3); border-radius: 14px; padding: 16px 12px; text-align: center; }
+  .fact strong { display: block; font-family: var(--f-display); font-weight: 700; font-size: clamp(22px, 6vw, 30px); color: var(--hueso); font-variant-numeric: tabular-nums; line-height: 1.1; }
+  .fact span { display: block; font-size: 12.5px; color: var(--hueso-2); margin-top: 6px; line-height: 1.35; }
+  .source { font-size: 12.5px; color: var(--hueso-2); margin-top: 10px; }
+  .list { display: grid; gap: 12px; margin: 0; padding: 0; list-style: none; }
+  .list li { display: grid; grid-template-columns: 22px 1fr; gap: 12px; align-items: start; }
+  .list li::before { content: ""; width: 10px; height: 10px; margin-top: 8px; border: 2px solid var(--oro); border-radius: 50%; }
+  .list li.plus::before { background: var(--oro); }
+  .list b { color: var(--hueso); font-weight: 700; }
+  .list span { color: var(--hueso-2); }
+  .quote { border-left: 2px solid var(--oro); padding: 4px 0 4px 18px; font-family: var(--f-display); font-weight: 400; font-size: 20px; line-height: 1.4; color: var(--hueso); }
+  
+  /* Resultados */
+  .results { display: grid; gap: 14px; margin-top: 28px; }
+  .result { background: var(--nogal-2); border-radius: 18px; padding: 24px 22px; display: grid; gap: 10px; }
+  .result .ico { width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center; background: rgba(201,150,95,0.14); color: var(--oro); }
+  .result h3 { font-weight: 600; font-size: 20px; line-height: 1.25; }
+  .result p { color: var(--hueso-2); font-size: 15.5px; }
+  .note { margin-top: 18px; background: rgba(63,199,194,0.08); border: 1px solid rgba(63,199,194,0.35); border-radius: 14px; padding: 16px 18px; font-size: 15px; color: var(--hueso); }
+  .note b { color: var(--teal); }
+  
+  /* Muestras */
+  .band { background: var(--nogal-2); }
+  .reels { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin-top: 26px; }
+  .reel { position: relative; border-radius: 14px; overflow: hidden; background: #000; aspect-ratio: 9 / 16; max-width: 100%; }
+  .reel video { width: 100%; height: 100%; object-fit: cover; }
+  .reel figcaption { position: absolute; left: 0; right: 0; bottom: 0; padding: 18px 8px 8px; font-size: 11.5px; font-family: var(--f-display); font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; background: linear-gradient(180deg, transparent, rgba(0,0,0,0.75)); pointer-events: none; }
+  .mocks { display: grid; gap: 14px; margin-top: 14px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .mock { border-radius: 14px; overflow: hidden; border: 1px solid var(--nogal-3); margin: 0; }
+  .mock figcaption { font-size: 12.5px; color: var(--hueso-2); padding: 10px 12px; background: var(--nogal); }
+  .disclaimer { font-size: 12.5px; color: var(--hueso-2); margin-top: 14px; }
+  
+  /* Flujo */
+  .flow { list-style: none; padding: 0; margin: 28px 0 0; display: grid; gap: 0; counter-reset: paso; }
+  .flow li { position: relative; display: grid; grid-template-columns: 40px 1fr; gap: 14px; padding-bottom: 22px; }
+  .flow li::before { counter-increment: paso; content: counter(paso); width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; font-family: var(--f-display); font-weight: 700; color: var(--nogal); background: var(--oro); font-variant-numeric: tabular-nums; }
+  .flow li::after { content: ""; position: absolute; left: 19px; top: 44px; bottom: 4px; width: 2px; background: var(--nogal-3); }
+  .flow li:last-child::after { display: none; }
+  .flow li:last-child::before { background: var(--hueso); }
+  .flow h3 { font-weight: 600; font-size: 17px; padding-top: 8px; }
+  .flow p { color: var(--hueso-2); font-size: 15px; }
+  .stages { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+  .stage { font-size: 12.5px; padding: 6px 12px; border-radius: 999px; border: 1px solid var(--nogal-3); color: var(--hueso-2); background: var(--nogal-2); }
+  .stage.win { border-color: var(--oro); color: var(--oro-claro); }
+  
+  /* Planes */
+  .plans { display: grid; gap: 16px; margin-top: 28px; }
+  .plan { border: 1px solid var(--nogal-3); border-radius: 20px; padding: 26px 22px; background: var(--nogal-2); display: grid; gap: 14px; align-content: start; }
+  .plan.reco { border-color: var(--oro); background: linear-gradient(180deg, rgba(201,150,95,0.12), var(--nogal-2) 40%); }
+  .plan .tag { justify-self: start; font-family: var(--f-display); font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--nogal); background: var(--oro); padding: 5px 10px; border-radius: 999px; }
+  .plan h3 { font-weight: 600; font-size: 20px; }
+  .price { font-family: var(--f-display); font-weight: 700; font-size: 40px; line-height: 1; font-variant-numeric: tabular-nums; }
+  .price small { font-size: 15px; font-weight: 400; color: var(--hueso-2); }
+  .plan .desc { color: var(--hueso-2); font-size: 15px; }
+  .plan ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 9px; }
+  .plan li { display: grid; grid-template-columns: 18px 1fr; gap: 10px; font-size: 15px; }
+  .plan li::before { content: "✓"; color: var(--oro); font-weight: 700; }
+  .plan li.inc { color: var(--hueso); font-weight: 600; }
+  .plan li.inc::before { content: "＋"; }
+  .goal { border-top: 1px solid var(--nogal-3); padding-top: 14px; font-size: 14.5px; color: var(--hueso); }
+  .table-wrap { overflow-x: auto; margin-top: 26px; border: 1px solid var(--nogal-3); border-radius: 16px; }
+  table { width: 100%; border-collapse: collapse; font-size: 15px; min-width: 300px; }
+  caption { text-align: left; padding: 16px 18px 6px; font-family: var(--f-display); font-weight: 600; font-size: 16px; }
+  th, td { text-align: left; padding: 12px 18px; border-top: 1px solid var(--nogal-3); vertical-align: top; }
+  th { font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--hueso-2); font-weight: 600; }
+  td.num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; font-weight: 600; }
+  th.num { text-align: right; }
+  .fine { font-size: 13px; color: var(--hueso-2); margin-top: 14px; max-width: 70ch; }
+  
+  /* Próximo paso */
+  .next { background: var(--nogal-2); border-top: 1px solid var(--nogal-3); }
+  .qs { display: grid; gap: 10px; margin-top: 22px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .q { background: var(--nogal); border: 1px solid var(--nogal-3); border-radius: 12px; padding: 14px; font-size: 14.5px; color: var(--hueso); }
+  .sign { margin-top: 30px; display: grid; gap: 4px; }
+  .sign b { font-family: var(--f-display); font-size: 18px; }
+  .sign span { color: var(--hueso-2); font-size: 14.5px; }
+  .sign .dk { color: var(--teal); }
+  footer { padding-block: 26px 40px; font-size: 12.5px; color: var(--hueso-2); text-align: center; }
+  
+  @media (min-width: 760px) {
+    section { padding-block: 84px; }
+    .split { grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+    .results { grid-template-columns: repeat(3, 1fr); }
+    .plans { grid-template-columns: 1fr 1fr; }
+    .hero .wrap { min-height: 680px; }
+    .mocks { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 420px) {
+    .qs { grid-template-columns: 1fr; }
+    .mocks { grid-template-columns: 1fr; }
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .hero h1, .hero .sub { animation: rise 0.9s cubic-bezier(.2,.7,.2,1) both; }
+    .hero .sub { animation-delay: 0.15s; }
+    @keyframes rise { from { opacity: 0.001; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+  }
+  a { color: var(--oro-claro); }
+  :focus-visible { outline: 2px solid var(--oro-claro); outline-offset: 3px; }
+  </style>
+</head>
+<body>
+<header class="hero">
+  <div class="hero-img"><img src="assets/hero.jpg" alt="Cocina de nogal con isla de granito iluminada al anochecer (visualización conceptual)"></div>
+  <div class="wrap">
+    <div class="brand">
+      <img src="assets/logo-arca.png" alt="Carpintería Arca">
+      <span class="x">×</span>
+      <span class="dk">Delta Kilo<span>Soluciones</span></span>
+    </div>
+    <div style="display:grid;gap:18px">
+      <span class="place">Propuesta · Tepic, Nayarit</span>
+      <h1>De excelentes trabajos a <b>cotizaciones constantes</b></h1>
+      <p class="sub">Un ecosistema de captación, atención y seguimiento para que la calidad de Carpintería Arca llegue a más hogares en Tepic.</p>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section>
+    <div class="wrap split">
+      <div>
+        <span class="eyebrow">Lo que vimos</span>
+        <h2 style="margin-top:10px">Un producto de <b>gama alta</b></h2>
+        <hr class="rule">
+        <ul class="list">
+          <li class="plus"><div><b>Trabajo competitivo.</b> <span>Cocinas integrales, vestidores, muebles de baño, puertas y trabajos a medida con acabados de gama media-alta.</span></div></li>
+          <li class="plus"><div><b>Una historia que pocos tienen.</b> <span>Cuatro generaciones de experiencia y calidad, un diferenciador frente a carpinterías genéricas.</span></div></li>
+          <li><div><b>Presencia digital por crecer.</b> <span>Hoy el canal activo es Facebook; no encontramos sitio web ni ficha propia en Google Maps.</span></div></li>
+          <li><div><b>Contacto por ordenar.</b> <span>Las consultas llegan por Messenger y WhatsApp, y en sus materiales aparecen dos números distintos.</span></div></li>
+          <li><div><b>Seguimiento por confirmar.</b> <span>No vimos señales de un sistema para dar seguimiento a cotizaciones; lo revisamos juntos.</span></div></li>
+        </ul>
+      </div>
+      <div style="display:grid;gap:22px">
+        <div>
+          <span class="eyebrow">Punto de partida en Facebook</span>
+          <div class="facts" style="margin-top:14px">
+            <div class="fact"><strong>402</strong><span>seguidores</span></div>
+            <div class="fact"><strong>3</strong><span>reseñas, todas positivas</span></div>
+            <div class="fact"><strong>5 may</strong><span>última publicación</span></div>
+          </div>
+          <p class="source">Revisión de su página pública, 19 de octubre de 2026.</p>
+        </div>
+        <p class="quote">La calidad de su carpintería no es el reto. El reto es que su presencia digital todavía no refleja el nivel de trabajo que hacen.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap">
+      <span class="eyebrow">La propuesta</span>
+      <h2 style="margin-top:10px">Tres resultados, <b>no solo redes</b></h2>
+      <hr class="rule">
+      <div class="results">
+        <article class="result">
+          <div class="ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg></div>
+          <h3>Que los encuentren</h3>
+          <p>Presencia en Google, portafolio digital, publicaciones constantes y campañas locales para quienes buscan cocinas, clósets o muebles a medida.</p>
+        </article>
+        <article class="result">
+          <div class="ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v11H8l-4 4z"/><path d="M8 10h8"/></svg></div>
+          <h3>Que cada consulta sea una oportunidad</h3>
+          <p>WhatsApp, Facebook e Instagram en un solo CRM. Sabemos qué quiere fabricar cada persona y reunimos lo necesario para cotizar.</p>
+        </article>
+        <article class="result">
+          <div class="ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg></div>
+          <h3>Que ninguna cotización se olvide</h3>
+          <p>Recordatorios y seguimientos personalizados para quien pidió información, recibió cotización o lo está pensando.</p>
+        </article>
+      </div>
+      <p class="note"><b>El agente de IA no da precios.</b> Su trabajo es atender, preguntar el tipo de proyecto, medidas aproximadas, ubicación y fecha deseada, y entregar la oportunidad lista al responsable del taller. Los precios y la contratación siguen en manos de Arca.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <span class="eyebrow">Así se vería</span>
+      <h2 style="margin-top:10px">Contenido a la <b>altura de su trabajo</b></h2>
+      <hr class="rule">
+      <p class="lead">Preparamos estas muestras para Arca: videos verticales para redes, piezas gráficas y una página web con portafolio y botón de cotización.</p>
+      <div class="reels">
+        <figure class="reel" style="margin:0"><video src="assets/video-cocina.mp4" poster="assets/thumb-cocina.jpg" controls playsinline preload="none" aria-label="Video muestra: cocina"></video><figcaption>Cocinas</figcaption></figure>
+        <figure class="reel" style="margin:0"><video src="assets/video-vestidores.mp4" poster="assets/thumb-vestidores.jpg" controls playsinline preload="none" aria-label="Video muestra: vestidores"></video><figcaption>Vestidores</figcaption></figure>
+        <figure class="reel" style="margin:0"><video src="assets/video-marca.mp4" poster="assets/thumb-marca.jpg" controls playsinline preload="none" aria-label="Video muestra: cuatro generaciones"></video><figcaption>4 generaciones</figcaption></figure>
+      </div>
+      <div class="mocks">
+        <figure class="mock"><img src="assets/landing.jpg" alt="Diseño de página web para Carpintería Arca con portafolio y botón de cotizar" loading="lazy"><figcaption>Página web con portafolio y cotización por WhatsApp</figcaption></figure>
+        <figure class="mock"><img src="assets/posters.jpg" alt="Serie de piezas gráficas para redes de Carpintería Arca" loading="lazy"><figcaption>Serie de piezas para redes sociales</figcaption></figure>
+      </div>
+      <p class="disclaimer">Muestras conceptuales elaboradas para esta propuesta. Las imágenes son visualizaciones y no proyectos reales de Arca; en la versión final usaremos fotos y videos de sus trabajos.</p>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap">
+      <span class="eyebrow">Cómo funciona</span>
+      <h2 style="margin-top:10px">De la búsqueda <b>al proyecto</b></h2>
+      <hr class="rule">
+      <ol class="flow">
+        <li><div><h3>Redes, Google y publicidad</h3><p>Personas que buscan carpintería a medida en Tepic encuentran a Arca.</p></div></li>
+        <li><div><h3>Agente IA de Arca</h3><p>Responde, pregunta, clasifica y reúne la información del proyecto.</p></div></li>
+        <li><div><h3>CRM de cotizaciones</h3><p>Registra a cada cliente y avisa al responsable del taller.</p>
+          <div class="stages" aria-label="Etapas del embudo">
+            <span class="stage">Nuevo contacto</span><span class="stage">Calificado</span><span class="stage">Visita o medición</span><span class="stage">Cotización enviada</span><span class="stage">Seguimiento</span><span class="stage win">Proyecto ganado</span>
+          </div></div></li>
+        <li><div><h3>Seguimiento automático</h3><p>Recupera conversaciones y cotizaciones que quedaron pendientes.</p></div></li>
+        <li><div><h3>Visita, cotización y cierre</h3><p>Lo hace Arca. Ustedes conservan el control de precios y contratación.</p></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <span class="eyebrow">Inversión</span>
+      <h2 style="margin-top:10px">Dos formas <b>de empezar</b></h2>
+      <hr class="rule">
+      <div class="plans">
+        <article class="plan">
+          <h3>Plan 1 · Presencia y captación</h3>
+          <div class="price">$4,500 <small>MXN / mes</small></div>
+          <p class="desc">Para profesionalizar su presencia digital y empezar a generar oportunidades.</p>
+          <ul>
+            <li>10 videos cortos con material de Arca</li>
+            <li>30 historias y 5 publicaciones o carruseles</li>
+            <li>Programación de contenido en redes</li>
+            <li>Configuración u optimización de Google Business</li>
+            <li>Automatización básica de comentarios y reseñas</li>
+            <li>CRM para registrar contactos y cotizaciones</li>
+            <li>Reporte mensual de prospectos</li>
+          </ul>
+        </article>
+        <article class="plan reco">
+          <span class="tag">Recomendado</span>
+          <h3>Plan 2 · Ecosistema comercial Arca</h3>
+          <div class="price">$7,000 <small>MXN / mes</small></div>
+          <p class="desc">Todo lo del Plan 1, más:</p>
+          <ul>
+            <li class="inc">Agente IA para WhatsApp, Messenger e Instagram</li>
+            <li class="inc">Calificación de prospectos por tipo de mueble, ubicación, medidas y presupuesto aproximado</li>
+            <li class="inc">Embudo comercial de contacto a proyecto ganado</li>
+            <li class="inc">Tres seguimientos personalizados para cotizaciones sin respuesta</li>
+            <li class="inc">Notificaciones al responsable comercial</li>
+            <li class="inc">Panel para medir consultas, cotizaciones y proyectos cerrados</li>
+          </ul>
+          <p class="goal">Objetivo: que el taller se concentre en fabricar y cerrar proyectos, mientras el sistema organiza la captación y el seguimiento.</p>
+        </article>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <caption>Implementación inicial (pago único)</caption>
+          <thead><tr><th scope="col">Concepto</th><th scope="col" class="num">Inversión</th></tr></thead>
+          <tbody>
+            <tr><td>Landing sencilla con portafolio y WhatsApp</td><td class="num">$2,000</td></tr>
+            <tr><td>Landing con formulario de precalificación y chat</td><td class="num">$4,000</td></tr>
+            <tr><td>Configuración de redes desde cero, si se requiere</td><td class="num">$1,500</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="fine">Precios en pesos mexicanos, sujetos a definir alcance e impuestos. Los costos de uso de WhatsApp, IA, mensajería, pauta publicitaria, dominio y hosting se cotizan por separado según consumo.</p>
+    </div>
+  </section>
+
+  <section class="next">
+    <div class="wrap">
+      <span class="eyebrow">Siguiente paso</span>
+      <h2 style="margin-top:10px">Platiquemos <b>15 minutos</b></h2>
+      <hr class="rule">
+      <p class="lead">Ustedes ya saben fabricar muebles de calidad. Nosotros les ayudamos a convertir esa calidad en más oportunidades, con un proceso medible y organizado. En una llamada corta revisamos:</p>
+      <div class="qs">
+        <div class="q">Cuántas cotizaciones reciben al mes</div>
+        <div class="q">De dónde llegan las consultas</div>
+        <div class="q">Quién responde los mensajes</div>
+        <div class="q">Cuánto tardan en enviar una cotización</div>
+        <div class="q">Cuántos proyectos pueden fabricar a la vez</div>
+        <div class="q">Qué parte de las cotizaciones se contrata</div>
+      </div>
+      <div class="sign">
+        <b>Jonathan</b>
+        <span class="dk">Delta Kilo Soluciones</span>
+        <span>Escríbanos y agendamos la llamada.</span>
+      </div>
+      <a class="btn-wa" href="https://wa.me/5215663864984?text=Hola%2C%20vengo%20de%20la%20propuesta%20que%20armaron%20para%20Carpinter%C3%ADa%20Arca%20%F0%9F%AA%B5%20quiero%20platicarla" target="_blank" rel="noopener"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.2.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 2.9 2.9 0 0 0-.9 2.2 5.1 5.1 0 0 0 1.1 2.7 11.6 11.6 0 0 0 4.4 3.9c1.6.7 2.3.8 3.1.6a2.6 2.6 0 0 0 1.7-1.2 2.1 2.1 0 0 0 .2-1.2c-.1-.1-.3-.2-.5-.3z"/></svg>Platicar la propuesta por WhatsApp</a>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap">Propuesta preparada para Carpintería Arca · Tepic, Nayarit · Octubre 2026</div></footer>
+</body>
+</html>
