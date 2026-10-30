@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Propuesta — Áurea Centro Histórico × Delta Kilo</title>
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Delta Kilo Soluciones" />
+  <meta property="og:title" content="Propuesta comercial — Áurea Centro Histórico × Delta Kilo" />
+  <meta property="og:description" content="Diagnóstico y ecosistema de atracción, calificación y seguimiento de prospectos para Áurea Centro Histórico, de R+G Desarrollos." />
+  <meta property="og:image" content="https://www.deltakilo.com.mx/propuestas/aurea/assets/og-aurea.jpg" />
+  <meta property="og:url" content="https://propuestas.deltakilo.com.mx/aurea/" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800;900&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,400;1,500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --teal:   #00C8C8;
+      --tdim:   rgba(0,200,200,0.12);
+      --tglow:  rgba(0,200,200,0.25);
+      --gold:   #C9A84C;
+      --gdim:   rgba(201,168,76,0.1);
+      --gborder:rgba(201,168,76,0.22);
+      --red:    #E05B5B;
+      --rdim:   rgba(224,91,91,0.1);
+      --bg:     #05070C;
+      --card:   #0B0E17;
+      --border: rgba(255,255,255,0.07);
+      --text:   #FFFFFF;
+      --muted:  #8494A4;
+      --serif:  'Cormorant Garamond', Georgia, serif;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Geist', system-ui, sans-serif;
+      background: var(--bg); color: var(--text);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    img { max-width: 100%; display: block; }
+    .c { max-width: 1040px; margin: 0 auto; padding: 0 28px; }
+    a { color: inherit; text-decoration: none; }
+    .tc { color: var(--teal); }
+    .gc { color: var(--gold); }
+
+    /* Marcador de dato pendiente (borrador) */
+    .tbd {
+      display: inline-block; color: var(--gold);
+      border: 1px dashed rgba(201,168,76,0.6);
+      border-radius: 6px; padding: 0 7px;
+      font-weight: 700; white-space: nowrap;
+    }
+
+    /* ── BORRADOR ───────────────────────────── */
+    .draft {
+      background: repeating-linear-gradient(135deg, #1A1406 0 12px, #15110A 12px 24px);
+      border-bottom: 1px solid var(--gborder);
+      color: var(--gold); font-size: 12px; font-weight: 600;
+      text-align: center; padding: 8px 16px; letter-spacing: .02em;
+    }
+
+    /* ── NAVBAR ─────────────────────────────── */
+    nav {
+      position: sticky; top: 0; z-index: 99;
+      background: rgba(5,7,12,0.9);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      height: 60px; max-width: 1040px; margin: 0 auto; padding: 0 28px;
+    }
+    .nav-logos { display: flex; align-items: center; gap: 16px; }
+    .nav-dk { height: 28px; width: auto; }
+    .nav-sep { width: 1px; height: 26px; background: rgba(255,255,255,0.12); }
+    .nav-aurea { line-height: 1; }
+    .nav-aurea b {
+      display: block; font-family: var(--serif); font-weight: 600;
+      font-size: 21px; letter-spacing: .14em; color: var(--gold);
+    }
+    .nav-aurea span { display: block; font-size: 8px; letter-spacing: .28em; color: var(--muted); margin-top: 2px; }
+    .nav-badge {
+      font-size: 11px; font-weight: 600; color: var(--gold);
+      background: var(--gdim); border: 1px solid var(--gborder);
+      border-radius: 100px; padding: 4px 14px; letter-spacing: .04em;
+    }
+    @media(max-width:600px){ .nav-badge { display: none; } }
+
+    /* ── STRIP ──────────────────────────────── */
+    .strip {
+      background: linear-gradient(90deg, #0A0906, #0C0A08);
+      border-bottom: 1px solid rgba(201,168,76,0.12);
+      padding: 16px 0;
+    }
+    .strip-inner {
+      display: flex; align-items: center; gap: 32px; flex-wrap: wrap;
+      max-width: 1040px; margin: 0 auto; padding: 0 28px;
+    }
+    .strip-tag { font-family: var(--serif); font-style: italic; font-size: 15px; color: var(--gold); white-space: nowrap; }
+    .strip-tag b {
+      font-style: normal; font-weight: 600; font-family: 'Geist', sans-serif;
+      font-size: 10px; letter-spacing: .1em; text-transform: uppercase;
+      color: var(--muted); display: block; margin-bottom: 1px;
+    }
+    .strip-divider { width: 1px; height: 32px; background: rgba(255,255,255,0.08); }
+    .strip-stats { display: flex; gap: 28px; flex-wrap: wrap; }
+    .sstat { display: flex; flex-direction: column; }
+    .sstat-n { font-size: 16px; font-weight: 800; }
+    .sstat-n span { color: var(--gold); }
+    .sstat-l { font-size: 11px; color: var(--muted); margin-top: 1px; }
+
+    /* ── HERO ───────────────────────────────── */
+    .hero {
+      position: relative; overflow: hidden;
+      min-height: 620px; display: flex; align-items: flex-end;
+      padding: 120px 0 72px;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background: url('assets/img/fachada-atardecer.jpg') center 35% / cover no-repeat;
+    }
+    .hero-bg::after {
+      content: ''; position: absolute; inset: 0;
+      background:
+        linear-gradient(180deg, rgba(5,7,12,0.35) 0%, rgba(5,7,12,0.55) 45%, rgba(5,7,12,0.97) 100%),
+        linear-gradient(90deg, rgba(5,7,12,0.75) 0%, transparent 70%);
+    }
+    .hero .c { position: relative; width: 100%; }
+    .hero-pill {
+      display: inline-block; font-size: 11px; font-weight: 700;
+      letter-spacing: .09em; text-transform: uppercase;
+      color: var(--teal); background: rgba(0,200,200,0.14);
+      border: 1px solid rgba(0,200,200,0.25);
+      border-radius: 100px; padding: 5px 16px; margin-bottom: 26px;
+      backdrop-filter: blur(6px);
+    }
+    .hero h1 {
+      font-size: clamp(34px, 5.8vw, 64px); font-weight: 900;
+      line-height: 1.08; letter-spacing: -.025em; max-width: 760px;
+    }
+    .hero-italic {
+      display: block; font-family: var(--serif); font-style: italic;
+      font-size: clamp(22px, 3.2vw, 36px); color: var(--gold);
+      margin: 12px 0 22px;
+    }
+    .hero p { font-size: 17px; color: #C5CFD8; max-width: 560px; line-height: 1.7; margin-bottom: 36px; }
+    .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn-p {
+      font-size: 15px; font-weight: 700; color: #05070C; background: var(--teal);
+      border-radius: 10px; padding: 13px 30px; display: inline-block;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .btn-p:hover { transform: translateY(-2px); box-shadow: 0 8px 28px var(--tglow); }
+    .btn-s {
+      font-size: 15px; font-weight: 700; color: var(--text);
+      border: 1px solid rgba(255,255,255,0.22); background: rgba(5,7,12,0.4);
+      border-radius: 10px; padding: 12px 28px; display: inline-block;
+    }
+
+    /* ── SECTION BASE ───────────────────────── */
+    section { padding: 88px 0; border-top: 1px solid var(--border); }
+    .s-label {
+      font-size: 11px; font-weight: 700; letter-spacing: .11em;
+      text-transform: uppercase; color: var(--teal); display: block; margin-bottom: 12px;
+    }
+    .s-title { font-size: clamp(26px, 3.8vw, 40px); font-weight: 800; line-height: 1.15; letter-spacing: -.02em; }
+    .s-title em { font-family: var(--serif); font-weight: 500; color: var(--gold); }
+    .s-sub { font-size: 16px; color: var(--muted); line-height: 1.7; margin-top: 12px; max-width: 640px; }
+
+    /* ── PRODUCTO ───────────────────────────── */
+    .prod-wrap { display: grid; grid-template-columns: 1fr 1.1fr; gap: 48px; align-items: center; margin-top: 44px; }
+    @media(max-width:820px){ .prod-wrap { grid-template-columns: 1fr; } }
+    .prod-list { display: flex; flex-direction: column; gap: 18px; }
+    .prod-item { display: flex; gap: 14px; }
+    .prod-ico {
+      flex-shrink: 0; width: 38px; height: 38px; border-radius: 10px;
+      background: var(--gdim); border: 1px solid var(--gborder);
+      display: flex; align-items: center; justify-content: center; font-size: 17px;
+    }
+    .prod-item h3 { font-size: 15px; font-weight: 700; margin-bottom: 3px; }
+    .prod-item p { font-size: 13.5px; color: var(--muted); line-height: 1.6; }
+    .prod-mosaic { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 200px 200px; gap: 10px; }
+    .prod-mosaic img { width: 100%; height: 100%; object-fit: cover; border-radius: 12px; }
+    .prod-mosaic img:first-child { grid-row: span 2; }
+
+    .typ-table { margin-top: 40px; border: 1px solid var(--border); border-radius: 14px; overflow: hidden; }
+    .typ-row { display: grid; grid-template-columns: 1.1fr 2fr .8fr 1fr; gap: 12px; padding: 14px 20px; border-bottom: 1px solid var(--border); font-size: 13.5px; align-items: center; }
+    .typ-row:last-child { border-bottom: none; }
+    .typ-row.head { background: var(--card); font-size: 10.5px; font-weight: 700; letter-spacing: .09em; text-transform: uppercase; color: var(--muted); }
+    .typ-row b { font-weight: 700; }
+    .typ-row .gc { font-weight: 700; }
+    .typ-row span.m { color: var(--muted); }
+    .typ-note { margin-top: 12px; font-size: 12px; color: var(--muted); line-height: 1.6; }
+    @media(max-width:640px){
+      .typ-row { grid-template-columns: 1fr 1fr; row-gap: 4px; }
+      .typ-row.head { display: none; }
+      .typ-row > :nth-child(2) { grid-column: 1 / -1; order: 3; color: var(--muted); font-size: 12.5px; }
+    }
+
+    /* ── DIAGNÓSTICO ────────────────────────── */
+    .pain-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 14px; margin-top: 44px; }
+    .p-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 13px; padding: 22px; border-top: 2px solid rgba(224,91,91,0.45);
+    }
+    .p-card .ico { font-size: 22px; margin-bottom: 10px; }
+    .p-card h3 { font-size: 14.5px; font-weight: 700; margin-bottom: 6px; line-height: 1.35; }
+    .p-card p { font-size: 13px; color: var(--muted); line-height: 1.58; }
+    .p-card .ev {
+      display: inline-block; margin-top: 12px; font-size: 11px; font-weight: 600;
+      color: var(--red); background: var(--rdim); border-radius: 100px; padding: 3px 10px;
+    }
+    .diag-note {
+      margin-top: 28px; padding: 20px 24px;
+      background: var(--tdim); border: 1px solid rgba(0,200,200,0.18);
+      border-radius: 12px; font-size: 14px; line-height: 1.65;
+    }
+    .diag-note b { color: var(--teal); }
+
+    /* ── PRUEBA COMPRADOR INCÓGNITO ─────────── */
+    .ms-kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 44px; }
+    @media(max-width:860px){ .ms-kpis { grid-template-columns: repeat(2, 1fr); } }
+    .ms-kpi { background: var(--card); border: 1px solid var(--border); border-radius: 13px; padding: 20px; }
+    .ms-kpi .n { font-size: 34px; font-weight: 900; line-height: 1; }
+    .ms-kpi .n small { font-size: 15px; font-weight: 600; color: var(--muted); margin-left: 3px; }
+    .ms-kpi p { font-size: 12.5px; color: var(--muted); line-height: 1.5; margin-top: 8px; }
+    .ms-kpi.ok .n { color: var(--teal); }
+    .ms-kpi.bad .n { color: var(--red); }
+
+    .ms-wrap { display: grid; grid-template-columns: 1.05fr 1fr; gap: 40px; margin-top: 40px; align-items: start; }
+    @media(max-width:900px){ .ms-wrap { grid-template-columns: 1fr; } }
+    .ms-h { font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-bottom: 16px; }
+    .ms-tl { list-style: none; border-left: 1px solid var(--border); margin-left: 6px; }
+    .ms-tl li { position: relative; padding: 0 0 18px 22px; }
+    .ms-tl li::before {
+      content: ''; position: absolute; left: -6px; top: 4px; width: 11px; height: 11px;
+      border-radius: 50%; background: var(--muted); box-shadow: 0 0 0 4px var(--bg);
+    }
+    .ms-tl li.ok::before { background: var(--teal); }
+    .ms-tl li.bad::before { background: var(--red); }
+    .ms-tl .t { font-size: 11.5px; font-weight: 700; color: var(--muted); letter-spacing: .03em; }
+    .ms-tl h4 { font-size: 14px; font-weight: 700; margin: 3px 0 2px; line-height: 1.35; }
+    .ms-tl p { font-size: 12.5px; color: var(--muted); line-height: 1.55; }
+    .ms-tl .tag { display: inline-block; margin-top: 6px; font-size: 11px; font-weight: 600; border-radius: 100px; padding: 2px 9px; }
+    .ms-tl li.ok .tag { color: var(--teal); background: var(--tdim); }
+    .ms-tl li.bad .tag { color: var(--red); background: var(--rdim); }
+
+    .ms-good { background: var(--tdim); border: 1px solid rgba(0,200,200,0.18); border-radius: 13px; padding: 20px 22px; font-size: 13.5px; line-height: 1.6; }
+    .ms-good b { color: var(--teal); display: block; margin-bottom: 6px; }
+    .ms-good ul { padding-left: 18px; color: var(--muted); }
+
+    .ms-fix { margin-top: 18px; display: grid; gap: 10px; }
+    .ms-row { background: var(--card); border: 1px solid var(--border); border-radius: 13px; padding: 16px 18px; display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    @media(max-width:520px){ .ms-row { grid-template-columns: 1fr; gap: 8px; } }
+    .ms-row .k { font-size: 10.5px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; margin-bottom: 3px; }
+    .ms-row .hoy .k { color: var(--red); }
+    .ms-row .con .k { color: var(--teal); }
+    .ms-row p { font-size: 13px; line-height: 1.5; color: var(--muted); }
+    .ms-row .con p { color: var(--text); }
+    .ms-row .ag { display: block; margin-top: 4px; font-size: 11px; color: var(--gold); font-weight: 600; }
+    .ms-limit { margin-top: 26px; font-size: 12px; color: var(--muted); line-height: 1.6; }
+
+    /* ── META / EMBUDO ──────────────────────── */
+    .goal-wrap { display: grid; grid-template-columns: 1fr 1.2fr; gap: 44px; margin-top: 44px; align-items: start; }
+    @media(max-width:820px){ .goal-wrap { grid-template-columns: 1fr; } }
+    .goal-card {
+      background: linear-gradient(160deg, var(--card), #0A0D0E);
+      border: 1px solid var(--gborder); border-radius: 18px; padding: 32px;
+    }
+    .goal-card .k { font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+    .goal-card .big { font-size: 56px; font-weight: 900; line-height: 1; margin: 10px 0 6px; }
+    .goal-card .big span { font-size: 18px; color: var(--muted); font-weight: 600; }
+    .goal-card p { font-size: 13.5px; color: var(--muted); line-height: 1.65; margin-top: 10px; }
+    .goal-math { margin-top: 18px; padding-top: 18px; border-top: 1px solid var(--border); font-size: 13px; color: var(--muted); line-height: 1.8; }
+    .goal-math b { color: var(--text); }
+
+    .funnel { display: flex; flex-direction: column; gap: 8px; }
+    .fn-step {
+      display: flex; align-items: center; justify-content: space-between; gap: 14px;
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 10px; padding: 14px 18px; margin: 0 auto; width: 100%;
+    }
+    .fn-step:nth-child(2){ width: 94%; } .fn-step:nth-child(3){ width: 88%; }
+    .fn-step:nth-child(4){ width: 82%; } .fn-step:nth-child(5){ width: 76%; }
+    .fn-step:nth-child(6){ width: 70%; border-color: rgba(0,200,200,0.35); background: var(--tdim); }
+    .fn-step h4 { font-size: 14px; font-weight: 700; }
+    .fn-step p { font-size: 11.5px; color: var(--muted); margin-top: 2px; }
+    .fn-n { font-size: 15px; font-weight: 800; white-space: nowrap; }
+    .fn-note { font-size: 12px; color: var(--muted); margin-top: 14px; line-height: 1.6; text-align: center; }
+    @media(max-width:520px){ .fn-step { width: 100% !important; } }
+
+    /* ── SOLUCIÓN ───────────────────────────── */
+    .sol-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 44px; align-items: center; margin-top: 44px; }
+    @media(max-width:820px){ .sol-wrap { grid-template-columns: 1fr; } }
+    .sol-copy h2 { font-size: clamp(22px, 3.2vw, 32px); font-weight: 800; line-height: 1.2; }
+    .sol-copy p { font-size: 15px; color: var(--muted); line-height: 1.7; margin-top: 12px; }
+    .sol-diagram { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 26px; }
+    .fl-label { font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-bottom: 7px; }
+    .fl-row { display: flex; gap: 7px; flex-wrap: wrap; }
+    .chip { font-size: 12px; font-weight: 600; padding: 5px 11px; border-radius: 100px; }
+    .chip-s { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: #AAB6C2; }
+    .chip-p { background: var(--tdim); border: 1px solid rgba(0,200,200,0.22); color: var(--teal); }
+    .chip-g { background: var(--gdim); border: 1px solid var(--gborder); color: var(--gold); }
+    .chip-o { background: rgba(0,230,118,0.07); border: 1px solid rgba(0,230,118,0.2); color: #00E676; }
+    .arr { text-align: center; color: var(--teal); font-size: 16px; margin: 8px 0; }
+
+    .feat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 16px; margin-top: 52px; }
+    .f-card {
+      background: var(--card); border: 1px solid var(--border); border-radius: 13px; padding: 24px;
+      position: relative; overflow: hidden; transition: border-color .22s, transform .22s;
+    }
+    .f-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, transparent, var(--teal), transparent);
+      opacity: 0; transition: opacity .22s;
+    }
+    .f-card:hover { border-color: rgba(0,200,200,0.28); transform: translateY(-2px); }
+    .f-card:hover::before { opacity: 1; }
+    .f-num { font-size: 10px; font-weight: 700; letter-spacing: .1em; color: var(--teal); margin-bottom: 8px; }
+    .f-ico {
+      width: 42px; height: 42px; font-size: 19px; background: var(--tdim);
+      border: 1px solid rgba(0,200,200,0.14); border-radius: 10px;
+      display: flex; align-items: center; justify-content: center; margin-bottom: 12px;
+    }
+    .f-card h3 { font-size: 15px; font-weight: 700; line-height: 1.3; margin-bottom: 6px; }
+    .f-card p { font-size: 13px; color: var(--muted); line-height: 1.6; }
+    .f-card ul { list-style: none; margin-top: 10px; display: flex; flex-direction: column; gap: 5px; }
+    .f-card li { font-size: 12.5px; color: #B4C0CC; padding-left: 14px; position: relative; line-height: 1.45; }
+    .f-card li::before { content: '›'; position: absolute; left: 0; color: var(--teal); font-weight: 700; }
+    .f-tag {
+      display: inline-block; font-size: 11px; font-weight: 600; color: var(--teal);
+      background: var(--tdim); border-radius: 100px; padding: 3px 9px; margin-top: 12px;
+    }
+    .f-tag.gold { color: var(--gold); background: var(--gdim); }
+
+    /* ── CONTENIDO DE MUESTRA ───────────────── */
+    .mock-wrap { display: grid; grid-template-columns: auto 1fr; gap: 36px; margin-top: 44px; align-items: start; }
+    @media(max-width:900px){ .mock-wrap { grid-template-columns: 1fr; } }
+    .mock-k { font-size: 10.5px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-bottom: 12px; }
+    .stories { display: flex; gap: 14px; }
+    @media(max-width:900px){ .stories { justify-content: center; } }
+    .story {
+      width: 196px; aspect-ratio: 9 / 16; border-radius: 22px; overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 24px 50px rgba(0,0,0,0.45);
+    }
+    .story img, .post img { width: 100%; height: 100%; object-fit: cover; }
+    .posts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .post {
+      aspect-ratio: 4 / 5; border-radius: 10px; overflow: hidden;
+      box-shadow: 0 16px 36px rgba(0,0,0,0.35); transition: transform .3s;
+    }
+    .post:hover, .story:hover { transform: translateY(-3px); }
+    .story { transition: transform .3s; }
+    .mock-note { font-size: 12px; color: var(--muted); margin-top: 18px; line-height: 1.6; }
+
+    /* ── VIDEOS ─────────────────────────────── */
+    .vid-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+    .lang { display: inline-flex; background: var(--card); border: 1px solid var(--border); border-radius: 100px; padding: 4px; }
+    .lang button {
+      font: 600 12.5px 'Geist', sans-serif; color: var(--muted); background: none; border: 0;
+      border-radius: 100px; padding: 7px 16px; cursor: pointer; letter-spacing: .03em;
+    }
+    .lang button[aria-pressed="true"] { color: #05070C; background: var(--gold); }
+    .vid-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 36px; }
+    @media(max-width:860px){ .vid-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; } }
+    .vid-frame {
+      aspect-ratio: 9 / 16; border-radius: 18px; overflow: hidden; background: #000;
+      border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 24px 50px rgba(0,0,0,0.45);
+    }
+    .vid-frame video { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .vid-cap { margin-top: 12px; }
+    .vid-cap h3 { font-size: 14px; font-weight: 700; display: flex; gap: 8px; align-items: baseline; flex-wrap: wrap; }
+    .vid-cap h3 span { font-size: 11px; font-weight: 600; color: var(--gold); }
+    .vid-cap p { font-size: 12.5px; color: var(--muted); line-height: 1.5; margin-top: 3px; }
+    @media(max-width:600px){ .vid-frame { border-radius: 14px; } .vid-cap h3 { font-size: 13px; } }
+    @media(max-width:600px){
+      .stories { gap: 10px; }
+      .story { width: calc(50% - 5px); border-radius: 16px; }
+      .posts { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+    }
+
+    /* ── ROADMAP ────────────────────────────── */
+    .road { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 44px; }
+    @media(max-width:860px){ .road { grid-template-columns: repeat(2, 1fr); } }
+    @media(max-width:520px){ .road { grid-template-columns: 1fr; } }
+    .r-card { background: var(--card); border: 1px solid var(--border); border-radius: 13px; padding: 22px; position: relative; }
+    .r-when { font-size: 11px; font-weight: 700; letter-spacing: .09em; text-transform: uppercase; color: var(--gold); }
+    .r-card h3 { font-size: 17px; font-weight: 800; margin: 6px 0 12px; }
+    .r-card ul { list-style: none; display: flex; flex-direction: column; gap: 7px; }
+    .r-card li { font-size: 12.5px; color: var(--muted); line-height: 1.5; padding-left: 14px; position: relative; }
+    .r-card li::before { content: ''; position: absolute; left: 0; top: 7px; width: 5px; height: 5px; border-radius: 50%; background: var(--teal); }
+
+    /* ── ESQUEMAS ───────────────────────────── */
+    .plans { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 44px; align-items: stretch; }
+    @media(max-width:900px){ .plans { grid-template-columns: 1fr; max-width: 520px; margin-left: auto; margin-right: auto; } }
+    .plan {
+      background: var(--card); border: 1px solid var(--border); border-radius: 18px;
+      padding: 30px 26px; display: flex; flex-direction: column; position: relative;
+    }
+    .plan.rec {
+      border-color: rgba(201,168,76,0.45);
+      background: linear-gradient(165deg, #12100A, var(--card) 55%);
+      box-shadow: 0 20px 60px rgba(201,168,76,0.08);
+    }
+    .plan-badge {
+      position: absolute; top: -12px; left: 26px; font-size: 10.5px; font-weight: 700;
+      letter-spacing: .08em; text-transform: uppercase; color: #05070C;
+      background: var(--gold); border-radius: 100px; padding: 4px 12px;
+    }
+    .plan-k { font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--teal); }
+    .plan h3 { font-size: 22px; font-weight: 800; margin: 6px 0 6px; }
+    .plan .who { font-size: 13px; color: var(--muted); line-height: 1.55; min-height: 40px; }
+    .plan-price { margin: 22px 0 4px; font-size: 15px; line-height: 1.9; }
+    .plan-price .tbd { font-size: 20px; }
+    .plan-price small { display: block; font-size: 12px; color: var(--muted); line-height: 1.5; }
+    .plan ul { list-style: none; margin: 18px 0 0; display: flex; flex-direction: column; gap: 9px; flex: 1; }
+    .plan li { display: flex; gap: 9px; font-size: 13px; line-height: 1.45; }
+    .plan li::before { content: '✓'; color: var(--gold); font-weight: 700; flex-shrink: 0; }
+    .plan li.no { color: var(--muted); }
+    .plan li.no::before { content: '—'; color: var(--muted); }
+    .plans-fine {
+      margin-top: 26px; padding: 20px 24px; border: 1px solid var(--border); border-radius: 12px;
+      font-size: 12.5px; color: var(--muted); line-height: 1.75;
+    }
+    .plans-fine b { color: var(--text); }
+
+    /* ── NECESITAMOS ────────────────────────── */
+    .need-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 12px; margin-top: 36px; }
+    .need { display: flex; gap: 12px; align-items: flex-start; background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 16px 18px; }
+    .need-n { flex-shrink: 0; width: 26px; height: 26px; border-radius: 50%; background: var(--gdim); border: 1px solid var(--gborder); color: var(--gold); font-size: 12px; font-weight: 800; display: flex; align-items: center; justify-content: center; }
+    .need p { font-size: 13px; line-height: 1.5; }
+    .need p span { display: block; font-size: 12px; color: var(--muted); margin-top: 2px; }
+
+    /* ── CTA ────────────────────────────────── */
+    .cta { padding: 100px 0; text-align: center; position: relative; overflow: hidden; }
+    .cta::before {
+      content: ''; position: absolute; bottom: -80px; left: 50%; transform: translateX(-50%);
+      width: 640px; height: 440px; max-width: 100%;
+      background: radial-gradient(ellipse, rgba(0,200,200,0.1) 0%, rgba(201,168,76,0.05) 40%, transparent 70%);
+      pointer-events: none;
+    }
+    .cta h2 { font-size: clamp(28px, 5vw, 50px); font-weight: 900; letter-spacing: -.025em; line-height: 1.1; }
+    .cta-serif { display: block; font-family: var(--serif); font-style: italic; font-size: clamp(20px, 3.4vw, 34px); color: var(--gold); margin: 10px 0 20px; }
+    .cta p { font-size: 16px; color: var(--muted); max-width: 500px; margin: 0 auto 34px; line-height: 1.7; }
+    .cta .hero-btns { justify-content: center; }
+    .cta-note { font-size: 12px; color: var(--muted); margin-top: 22px; }
+
+    footer { border-top: 1px solid var(--border); padding: 28px 0; text-align: center; }
+    footer p { font-size: 12px; color: var(--muted); line-height: 1.7; }
+
+    @media(max-width:600px){
+      .c, .nav-inner, .strip-inner { padding-left: 16px; padding-right: 16px; }
+      .hero { min-height: 560px; padding: 90px 0 52px; }
+      section { padding: 60px 0; }
+      .hero-btns { flex-direction: column; align-items: stretch; text-align: center; }
+      .strip-divider { display: none; }
+      .strip-inner { gap: 14px; }
+      .strip-stats { gap: 18px; }
+      .prod-mosaic { grid-template-rows: 150px 150px; }
+      .goal-card { padding: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+
+<nav>
+  <div class="nav-inner">
+    <div class="nav-logos">
+      <img class="nav-dk" src="assets/delta-kilo-logo.png" alt="Delta Kilo" />
+      <div class="nav-sep"></div>
+      <div class="nav-aurea"><b>ÁUREA</b><span>CENTRO HISTÓRICO</span></div>
+    </div>
+    <span class="nav-badge">Propuesta confidencial · R+G Desarrollos</span>
+  </div>
+</nav>
+
+<div class="strip">
+  <div class="strip-inner">
+    <div class="strip-tag"><b>Preparado para</b>R+G Desarrollos · Mazatlán</div>
+    <div class="strip-divider"></div>
+    <div class="strip-stats">
+      <div class="sstat"><div class="sstat-n"><span>31</span> residencias</div><div class="sstat-l">13 plantas distintas</div></div>
+      <div class="sstat"><div class="sstat-n">45–148 <span>m²</span></div><div class="sstat-l">De 1 recámara a penthouse</div></div>
+      <div class="sstat"><div class="sstat-n">Art Deco</div><div class="sstat-l">Restauración · Centro Histórico</div></div>
+      <div class="sstat"><div class="sstat-n"><span>2.5–3 %</span></div><div class="sstat-l">Meta de absorción mensual</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="hero">
+  <div class="hero-bg" role="img" aria-label="Fachada de Áurea Centro Histórico al atardecer (render)"></div>
+  <div class="c">
+    <div class="hero-pill">Propuesta comercial · Áurea Centro Histórico</div>
+    <h1>Áurea ya está lista para venderse.</h1>
+    <span class="hero-italic">Falta construirle el camino al comprador.</span>
+    <p>Un ecosistema comercial que atrae al comprador correcto, lo califica en minutos y lo entrega a sus asesores con cita agendada. Todo medido, de la pauta al apartado.</p>
+    <div class="hero-btns">
+      <a href="#diagnostico" class="btn-p">Ver el diagnóstico</a>
+      <a href="#esquemas" class="btn-s">Ver esquemas de colaboración</a>
+    </div>
+  </div>
+</div>
+
+<!-- ── PRODUCTO ─────────────────────────────── -->
+<section id="producto">
+  <div class="c">
+    <span class="s-label">Lo que entendimos</span>
+    <h2 class="s-title">No es un edificio más. <em>Es una pieza de historia habitable.</em></h2>
+    <p class="s-sub">Antes de proponer cualquier campaña, estudiamos el producto. Esto es lo que vamos a vender y a quién creemos que le habla.</p>
+
+    <div class="prod-wrap">
+      <div class="prod-list">
+        <div class="prod-item">
+          <div class="prod-ico">🏛️</div>
+          <div><h3>Restauración Art Deco frente al mar</h3><p>Niños Héroes esquina Sixto Osuna, entre Olas Altas y la Plazuela Machado. El único Centro Histórico de México con conexión directa a la playa.</p></div>
+        </div>
+        <div class="prod-item">
+          <div class="prod-ico">🗝️</div>
+          <div><h3>31 residencias, 13 plantas distintas</h3><p>De 45 m² (1 recámara) hasta el penthouse Del Oro de 148 m² con terraza privada. Cada planta tiene nombre e identidad propia.</p></div>
+        </div>
+        <div class="prod-item">
+          <div class="prod-ico">☕</div>
+          <div><h3>Experiencia de hotel boutique</h3><p>Concierge, coffee station, patio central con huanacaxtle y jacuzzi, estación de bicicletas y rooftop con fogatero, yoga y cine al aire libre.</p></div>
+        </div>
+        <div class="prod-item">
+          <div class="prod-ico">🌎</div>
+          <div><h3>Un comprador que piensa en estilo de vida e inversión</h3><p>Por tamaño, amenidades y un dossier en inglés, el perfil apunta a inversionista y segunda vivienda, nacional y extranjero. Lo validamos con su histórico de ventas.</p></div>
+        </div>
+      </div>
+      <div class="prod-mosaic">
+        <img src="assets/img/patio.jpg" alt="Patio central con huanacaxtle (render)" />
+        <img src="assets/img/sala.jpg" alt="Sala (render)" />
+        <img src="assets/img/rooftop-fogatero.jpg" alt="Rooftop con fogatero (render)" />
+      </div>
+    </div>
+
+    <div class="typ-table">
+      <div class="typ-row head"><div>Tipo</div><div>Modelos</div><div>m²</div><div>Precio etapa 0</div></div>
+      <div class="typ-row"><b>1 recámara</b><div>Parota · Wurzel · Diana · Porthole · Deco · Art</div><span class="m">45–63</span><span>Desde $3,935,000</span></div>
+      <div class="typ-row"><b>2 recámaras</b><div>Mondini · Schmidt · Cevallos · Freeman · Mosaico · Goldschmidt</div><span class="m">67–95</span><span>Hasta $7,950,000</span></div>
+      <div class="typ-row"><b class="gc">Penthouse</b><div>Del Oro · 3 recámaras · terraza privada con vista</div><span class="m">148</span><span class="m">Por confirmar</span></div>
+    </div>
+    <p class="typ-note">Precios de etapa 0 en pesos, tal como los compartió el equipo comercial el 28 de octubre. Con la lista completa por modelo afinamos los anuncios y la calificación de prospectos.</p>
+  </div>
+</section>
+
+<!-- ── DIAGNÓSTICO ──────────────────────────── -->
+<section id="diagnostico">
+  <div class="c">
+    <span class="s-label">Diagnóstico · información pública revisada el 27-oct-2026</span>
+    <h2 class="s-title">El producto está listo. <em>El camino digital todavía no.</em></h2>
+    <p class="s-sub">Revisamos el sitio de R+G, sus cuatro cuentas de Instagram, Facebook, Google Maps y la Biblioteca de Anuncios de Meta. Estas son las oportunidades que encontramos.</p>
+
+    <div class="pain-grid">
+      <div class="p-card">
+        <div class="ico">🧭</div>
+        <h3>Áurea no tiene un sitio a dónde llegar</h3>
+        <p>Un interesado ve un render en Instagram y no tiene una página con plantas, ubicación, precios o un siguiente paso. Áurea tampoco aparece en rgconstructora.mx.</p>
+        <span class="ev">0 páginas de Áurea en la web</span>
+      </div>
+      <div class="p-card">
+        <div class="ico">📡</div>
+        <h3>No hay medición instalada</h3>
+        <p>Sin pixel de Meta, ninguna campaña puede aprender quién deja sus datos, volver a impactar a quien ya vio Áurea ni medir cuánto cuesta cada prospecto.</p>
+        <span class="ev">Meta Pixel: no detectado</span>
+      </div>
+      <div class="p-card">
+        <div class="ico">📣</div>
+        <h3>Sin pauta activa</h3>
+        <p>Hoy la atracción depende del orgánico. Para un producto de este valor, el comprador correcto hay que salir a buscarlo, en México y fuera.</p>
+        <span class="ev">0 anuncios activos en Meta</span>
+      </div>
+      <div class="p-card">
+        <div class="ico">👥</div>
+        <h3>Audiencia pequeña y dividida</h3>
+        <p>Publican con constancia, y eso es una ventaja. Pero la audiencia está repartida en cuatro cuentas que se repiten entre sí.</p>
+        <span class="ev">@aureacentrohistorico · 130 seguidores</span>
+      </div>
+      <div class="p-card">
+        <div class="ico">📘</div>
+        <h3>El dossier enamora, pero no cierra</h3>
+        <p>Es una pieza visual excelente. Le faltan precios, plan de pagos, fecha de entrega y una forma digital de dar el siguiente paso.</p>
+        <span class="ev">Único contacto: un teléfono</span>
+      </div>
+      <div class="p-card">
+        <div class="ico">🧾</div>
+        <h3>El primer contacto no califica</h3>
+        <p>El formulario pide nombre, correo y mensaje. Nada de presupuesto, plazo o forma de pago, así que el asesor atiende igual al curioso que al comprador.</p>
+        <span class="ev">Sin precalificación</span>
+      </div>
+      <div class="p-card">
+        <div class="ico">📍</div>
+        <h3>Datos de contacto distintos por canal</h3>
+        <p>La web, Facebook y Google Maps muestran direcciones y teléfonos diferentes. Los prospectos llegan por caminos distintos y nadie ve el total.</p>
+        <span class="ev">3 direcciones · 2 teléfonos</span>
+      </div>
+      <div class="p-card">
+        <div class="ico">⭐</div>
+        <h3>Poca prueba social en Google</h3>
+        <p>Quien busca a R+G antes de invertir millones encuentra muy pocas opiniones, aunque el grupo construye desde 2010.</p>
+        <span class="ev">2 reseñas en Google Maps</span>
+      </div>
+    </div>
+
+    <div class="diag-note">
+      <b>La buena noticia:</b> lo difícil ya existe. Tienen el producto, un material visual de primer nivel y un equipo comercial propio (R+G Real Estate). Lo que falta es la infraestructura que conecte la pauta con sus asesores. Proyectos comparables en el Centro Histórico ya captan con sitio propio, formularios conectados a CRM y presencia en portales.
+    </div>
+  </div>
+</section>
+
+<!-- ── PRUEBA COMPRADOR INCÓGNITO ───────────── -->
+<section id="prueba">
+  <div class="c">
+    <span class="s-label">Prueba de comprador incógnito · 27 y 28 de octubre</span>
+    <h2 class="s-title">Escribimos a Áurea como un comprador más. <em>Esto es lo que vivió.</em></h2>
+    <p class="s-sub">Pedimos información y precios por los cuatro caminos que encuentra un interesado: el formulario web, Instagram de Áurea y los WhatsApp de R+G Desarrollos y R+G Real Estate. Medimos cada tiempo desde las capturas de la conversación.</p>
+
+    <div class="ms-kpis">
+      <div class="ms-kpi ok"><div class="n">9<small>min</small></div><p>Primera respuesta, por el WhatsApp de R+G Desarrollos.</p></div>
+      <div class="ms-kpi bad"><div class="n">2<small>de 4</small></div><p>Canales sin respuesta visible: Instagram de Áurea y WhatsApp de R+G Real Estate.</p></div>
+      <div class="ms-kpi bad"><div class="n">≈22<small>h</small></div><p>Desde el formulario y el WhatsApp de las 12:13 p. m. hasta que una asesora tomó el caso.</p></div>
+      <div class="ms-kpi bad"><div class="n">≈27<small>h</small></div><p>Desde ese mismo mensaje hasta conocer un rango de precios.</p></div>
+    </div>
+
+    <div class="ms-wrap">
+      <div>
+        <div class="ms-h">El recorrido del comprador</div>
+        <ol class="ms-tl">
+          <li class="bad"><span class="t">27 oct · 9:16 a. m.</span><h4>WhatsApp R+G Real Estate</h4><p>Pide información y precios.</p><span class="tag">Sin respuesta visible</span></li>
+          <li><span class="t">27 oct · 12:13 p. m.</span><h4>Formulario web y WhatsApp R+G Desarrollos</h4><p>Deja sus datos en el sitio y escribe por WhatsApp.</p></li>
+          <li class="bad"><span class="t">27 oct · 12:14 p. m.</span><h4>Mensaje directo a Instagram de Áurea</h4><p>Pide información y precios.</p><span class="tag">Sin respuesta visible</span></li>
+          <li class="ok"><span class="t">27 oct · 12:22 p. m.</span><h4>R+G Desarrollos responde</h4><p>Confirma que recibió el correo del formulario y pasa el contacto a ventas.</p><span class="tag">9 min</span></li>
+          <li class="bad"><span class="t">28 oct · 10:10 a. m.</span><h4>Una asesora toma el caso</h4><p>Se presenta y a los 9 minutos envía el dossier, en inglés.</p><span class="tag">≈22 h después del formulario</span></li>
+          <li><span class="t">28 oct · 11:08 a. m. – 2:07 p. m.</span><h4>El comprador pide precios</h4><p>La asesora propone una llamada antes de darlos. El comprador prefiere WhatsApp y ella lo califica con audios.</p></li>
+          <li class="ok"><span class="t">28 oct · 2:59 p. m.</span><h4>Recibe el rango de precios de etapa 0</h4><p>Por mensaje de WhatsApp, junto con la pregunta de qué tipo de departamento le interesa.</p><span class="tag">≈4 h después de pedirlos</span></li>
+        </ol>
+      </div>
+
+      <div>
+        <div class="ms-good">
+          <b>Lo que ya funciona</b>
+          <ul>
+            <li>Una primera respuesta en 9 minutos por WhatsApp.</li>
+            <li>El contacto pasa entre equipos sin perderse: el formulario sí llegó y se canalizó a ventas.</li>
+            <li>La asesora califica bien: pregunta uso, perfil y presenta el desarrollo antes de hablar de precio.</li>
+          </ul>
+        </div>
+
+        <div class="ms-h" style="margin-top:28px">Lo que vamos a ajustar</div>
+        <div class="ms-fix">
+          <div class="ms-row">
+            <div class="hoy"><div class="k">Hoy</div><p>Dos de cuatro canales no contestaron.</p></div>
+            <div class="con"><div class="k">Con el sistema</div><p>Respuesta automática en menos de 1 minuto en WhatsApp, Instagram y formulario, las 24 horas.</p><span class="ag">Lima · agente de WhatsApp e IA</span></div>
+          </div>
+          <div class="ms-row">
+            <div class="hoy"><div class="k">Hoy</div><p>≈22 horas hasta que un asesor toma el caso.</p></div>
+            <div class="con"><div class="k">Con el sistema</div><p>El prospecto se asigna solo al asesor en turno, con aviso inmediato y alerta si no lo atiende a tiempo.</p><span class="ag">Lima · CRM</span></div>
+          </div>
+          <div class="ms-row">
+            <div class="hoy"><div class="k">Hoy</div><p>El dossier llega en inglés a un comprador que escribe en español.</p></div>
+            <div class="con"><div class="k">Con el sistema</div><p>El material sale en el idioma del prospecto, en cuanto lo pide: ficha, plantas y recorrido en video.</p><span class="ag">Lima · AKBOT</span></div>
+          </div>
+          <div class="ms-row">
+            <div class="hoy"><div class="k">Hoy</div><p>Para conocer precios hubo que esperar ≈4 horas y negociar una llamada.</p></div>
+            <div class="con"><div class="k">Con el sistema</div><p>Respetamos su estrategia consultiva: el asistente califica por WhatsApp, comparte el rango "desde" y agenda la llamada con un comprador ya calificado.</p><span class="ag">Lima</span></div>
+          </div>
+          <div class="ms-row">
+            <div class="hoy"><div class="k">Hoy</div><p>No hay forma de saber de qué canal llegó cada prospecto ni cuánto tardó cada paso.</p></div>
+            <div class="con"><div class="k">Con el sistema</div><p>Cada prospecto entra al CRM con su origen, y medimos recepción, asignación, primer contacto y envío de material.</p><span class="ag">Lima · Tango</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p class="ms-limit">Es un solo ejercicio, no un promedio. Las horas salen de capturas de pantalla y pueden faltar mensajes posteriores, sobre todo en Instagram y R+G Real Estate. El reporte completo con la evidencia está disponible si quieren revisarlo.</p>
+  </div>
+</section>
+
+<!-- ── META / EMBUDO ────────────────────────── -->
+<section id="meta">
+  <div class="c">
+    <span class="s-label">De la meta al plan</span>
+    <h2 class="s-title">Partimos de su meta de absorción, <em>no de un paquete.</em></h2>
+    <p class="s-sub">Calculamos hacia atrás cuántos prospectos, citas y visitas se necesitan para cumplir la meta. Así la pauta se dimensiona contra un objetivo de ventas, no contra un presupuesto arbitrario.</p>
+
+    <div class="goal-wrap">
+      <div class="goal-card">
+        <div class="k">Meta mensual</div>
+        <div class="big">≈ 1 <span>residencia al mes</span></div>
+        <div class="goal-math">
+          <b>31 residencias × 2.5–3 %</b> = 0.8–0.9 unidades al mes.<br />
+          A ese ritmo, el inventario se absorbe en unos <b>3 años</b>. Cada punto que subamos la conversión acorta ese plazo.
+        </div>
+        <p>Con el inventario disponible real ajustamos la meta y el plan de medios.</p>
+      </div>
+
+      <div>
+        <div class="funnel">
+          <div class="fn-step"><div><h4>Prospectos nuevos</h4><p>Meta Ads · Google Ads · remarketing</p></div><span class="fn-n">55–280</span></div>
+          <div class="fn-step"><div><h4>Prospectos calificados</h4><p>Presupuesto, plazo y forma de pago confirmados</p></div><span class="fn-n">15–40</span></div>
+          <div class="fn-step"><div><h4>Citas realizadas</h4><p>Videollamada, recorrido virtual o visita presencial</p></div><span class="fn-n">7–12</span></div>
+          <div class="fn-step"><div><h4>Apartado</h4><p>Con enganche</p></div><span class="fn-n">1</span></div>
+          <div class="fn-step"><div><h4>Venta</h4><p>La meta del mes</p></div><span class="fn-n tc">1</span></div>
+        </div>
+        <p class="fn-note">Son rangos de arranque de nuestro especialista en pauta, no promedios de mercado. Con el histórico de R+G y los datos del mes 1 los sustituimos por las tasas reales de Áurea.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SOLUCIÓN ─────────────────────────────── -->
+<section id="solucion">
+  <div class="c">
+    <span class="s-label">La solución</span>
+    <h2 class="s-title">Un ecosistema comercial, <em>no solo anuncios.</em></h2>
+
+    <div class="sol-wrap">
+      <div class="sol-copy">
+        <h2>De un clic en un anuncio a una cita en la agenda de su asesor.</h2>
+        <p>La pauta sola llena el WhatsApp de curiosos. La IA sola no tiene a quién atender. Juntas, con un CRM al centro, cada peso invertido se puede seguir hasta el apartado.</p>
+        <p>Nosotros construimos y operamos el sistema. Su equipo de R+G Real Estate hace lo que mejor sabe: <b style="color:#fff">cerrar</b>.</p>
+      </div>
+      <div class="sol-diagram">
+        <div class="fl-label">1 · Atraer</div>
+        <div class="fl-row"><span class="chip chip-s">Meta Ads</span><span class="chip chip-s">Google Ads</span><span class="chip chip-s">Remarketing</span><span class="chip chip-g">ES · EN</span></div>
+        <div class="arr">↓</div>
+        <div class="fl-label">2 · Convertir</div>
+        <div class="fl-row"><span class="chip chip-p">Landing Áurea bilingüe</span><span class="chip chip-p">Agente IA 24/7</span></div>
+        <div class="arr">↓</div>
+        <div class="fl-label">3 · Calificar</div>
+        <div class="fl-row"><span class="chip chip-s">Presupuesto</span><span class="chip chip-s">Plazo</span><span class="chip chip-s">Forma de pago</span><span class="chip chip-s">Vivir o invertir</span></div>
+        <div class="arr">↓</div>
+        <div class="fl-label">4 · Entregar y nutrir</div>
+        <div class="fl-row"><span class="chip chip-p">CRM</span><span class="chip chip-p">Asignación a asesor</span><span class="chip chip-p">Seguimiento automático</span></div>
+        <div class="arr">↓</div>
+        <div class="fl-label">5 · Medir</div>
+        <div class="fl-row"><span class="chip chip-o">Tablero: prospecto → cita → visita → apartado</span></div>
+      </div>
+    </div>
+
+    <div class="feat-grid">
+      <div class="f-card">
+        <div class="f-num">01 · ATRACCIÓN</div>
+        <div class="f-ico">🎯</div>
+        <h3>Pauta especializada en Meta y Google</h3>
+        <p>Campañas por audiencia: inversionista nacional, comprador de EE. UU. y Canadá, y segunda vivienda. Las dirige un especialista en tráfico pagado, socio de Delta Kilo.</p>
+        <ul><li>Cuenta publicitaria a nombre de R+G: los datos son suyos</li><li>Pixel + API de conversiones</li><li>Remarketing a quien vio la landing o el video</li></ul>
+        <span class="f-tag">Tango + especialista en pauta</span>
+      </div>
+      <div class="f-card">
+        <div class="f-num">02 · CONVERSIÓN</div>
+        <div class="f-ico">🖥️</div>
+        <h3>Landing de Áurea en español e inglés</h3>
+        <p>Una página hecha para convertir: historia, galería, las 13 plantas, ubicación, amenidades y un formulario que precalifica.</p>
+        <ul><li>Botón directo a WhatsApp</li><li>Descarga del dossier a cambio de datos</li><li>Medición de cada paso</li></ul>
+        <span class="f-tag">Papa</span>
+      </div>
+      <div class="f-card">
+        <div class="f-num">03 · CALIFICACIÓN</div>
+        <div class="f-ico">🤖</div>
+        <h3>Agente de IA en WhatsApp, Instagram y Messenger</h3>
+        <p>Responde en segundos, de día y de noche, en español o inglés. Resuelve dudas con la información oficial del proyecto y agenda la cita con el asesor.</p>
+        <ul><li>Precalifica: presupuesto, plazo, crédito o contado, uso</li><li>No inventa precios: usa la lista vigente</li><li>Pasa la conversación a un humano cuando hace falta</li></ul>
+        <span class="f-tag">Lima</span>
+      </div>
+      <div class="f-card">
+        <div class="f-num">04 · SEGUIMIENTO</div>
+        <div class="f-ico">🗂️</div>
+        <h3>CRM con asignación a sus asesores</h3>
+        <p>Todos los prospectos en un solo lugar, sin importar por dónde llegaron. Cada uno se asigna a un asesor de R+G Real Estate con alerta inmediata.</p>
+        <ul><li>Embudo: nuevo → calificado → cita → visita → apartado</li><li>Secuencias de seguimiento automático</li><li>Recordatorios de cita</li></ul>
+        <span class="f-tag">Lima</span>
+      </div>
+      <div class="f-card">
+        <div class="f-num">05 · CONTENIDO</div>
+        <div class="f-ico">🎬</div>
+        <h3>Creativos hechos con su material</h3>
+        <p>Los renders de Áurea son material para meses. Los convertimos en videos, carruseles e historias pensados para anunciarse, no solo para publicarse.</p>
+        <ul><li>Video de la historia Art Deco</li><li>Una pieza por planta</li><li>Versiones en español e inglés</li></ul>
+        <span class="f-tag">AKBOT + Vox</span>
+      </div>
+      <div class="f-card">
+        <div class="f-num">06 · CONFIANZA Y MEDICIÓN</div>
+        <div class="f-ico">📊</div>
+        <h3>Google, reseñas y tablero de resultados</h3>
+        <p>Unificamos datos de contacto, fortalecemos la ficha de Google y activamos reseñas de clientes. La dirección ve cada semana qué funciona y cuánto cuesta.</p>
+        <ul><li>Costo por prospecto, por cita y por visita</li><li>Resultados por canal y por audiencia</li><li>Reporte mensual con recomendaciones</li></ul>
+        <span class="f-tag">Sierra</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── GALERÍA ──────────────────────────────── -->
+<section id="material">
+  <div class="c">
+    <span class="s-label">Contenido de muestra</span>
+    <h2 class="s-title">Así se vería Áurea en redes. <em>Hecho para anunciarse.</em></h2>
+    <p class="s-sub">Hicimos estas piezas con su propio dossier: una por planta, historias verticales y un mapa de ubicación. Cada una está pensada para usarse como anuncio, no solo para publicarse.</p>
+    <div class="mock-wrap">
+      <div>
+        <div class="mock-k">Historias · 9:16</div>
+        <div class="stories">
+          <div class="story"><img src="assets/redes/aurea-story-fachada-where-history-finds-new-life.jpg" alt="Historia: Where History Finds New Life, fachada de Áurea" loading="lazy" /></div>
+          <div class="story"><img src="assets/redes/aurea-story-cocina-a-different-way-to-live.jpg" alt="Historia: A Different Way to Live in Mazatlán, cocina" loading="lazy" /></div>
+        </div>
+      </div>
+      <div>
+        <div class="mock-k">Posts · 4:5</div>
+        <div class="posts">
+          <div class="post"><img src="assets/redes/aurea-post-penthouse-del-oro-comedor-y-plano.jpg" alt="Post: penthouse Del Oro, comedor y plano" loading="lazy" /></div>
+          <div class="post"><img src="assets/redes/aurea-post-planta-parota-45m2.jpg" alt="Post: planta Parota, 45 m²" loading="lazy" /></div>
+          <div class="post"><img src="assets/redes/aurea-post-planta-wurzel-53m2.jpg" alt="Post: planta Wurzel, 53 m²" loading="lazy" /></div>
+          <div class="post"><img src="assets/redes/aurea-post-planta-deco-60m2.jpg" alt="Post: planta Deco, 60 m²" loading="lazy" /></div>
+          <div class="post"><img src="assets/redes/aurea-post-planta-penthouse-del-oro-148m2.jpg" alt="Post: planta del penthouse Del Oro, 148 m²" loading="lazy" /></div>
+          <div class="post"><img src="assets/redes/aurea-post-mapa-ubicacion-centro-historico.jpg" alt="Post: mapa de ubicación en el Centro Histórico" loading="lazy" /></div>
+        </div>
+      </div>
+    </div>
+    <p class="mock-note">Son piezas de muestra hechas con los renders del dossier. Están en inglés para el comprador extranjero; la versión para el comprador nacional va en español. Los textos y datos finales se validan con R+G antes de publicar.</p>
+  </div>
+</section>
+
+<!-- ── VIDEOS ───────────────────────────────── -->
+<section id="videos">
+  <div class="c">
+    <div class="vid-head">
+      <div>
+        <span class="s-label">Contenido en video</span>
+        <h2 class="s-title">Videos listos para pauta. <em>En inglés y en español.</em></h2>
+        <p class="s-sub">Primeros cortes hechos con el material de Áurea. Cada uno está pensado como anuncio vertical para Reels, Stories y TikTok.</p>
+      </div>
+      <div class="lang" role="group" aria-label="Idioma de los videos">
+        <button type="button" data-lang="es" aria-pressed="true">Español</button>
+        <button type="button" data-lang="en" aria-pressed="false">English</button>
+      </div>
+    </div>
+
+    <div class="vid-grid">
+      <figure>
+        <div class="vid-frame"><video controls playsinline preload="none" poster="assets/videos/tour-amenidades_en.jpg" src="assets/videos/tour-amenidades_en.mp4" data-only="en"></video></div>
+        <figcaption class="vid-cap"><h3>Recorrido con Elena <span>31 s · solo inglés</span></h3><p>Una anfitriona recorre lobby, rooftop, restaurante y fogatero. Pensado para el comprador extranjero.</p></figcaption>
+      </figure>
+      <figure>
+        <div class="vid-frame"><video controls playsinline preload="none" poster="assets/videos/tour-mazatlan_en.jpg" src="assets/videos/tour-mazatlan_en.mp4" data-only="en"></video></div>
+        <figcaption class="vid-cap"><h3>Vivir en Mazatlán <span>62 s · solo inglés</span></h3><p>Elena recorre el Centro Histórico, el malecón, el Faro y los atardeceres. Vende la ciudad antes que el departamento.</p></figcaption>
+      </figure>
+      <figure>
+        <div class="vid-frame"><video controls playsinline preload="none" data-base="un-dia"></video></div>
+        <figcaption class="vid-cap"><h3>Un día en Áurea <span>15 s</span></h3><p>Del yoga al amanecer al cine bajo las estrellas.</p></figcaption>
+      </figure>
+      <figure>
+        <div class="vid-frame"><video controls playsinline preload="none" data-base="planta-parota"></video></div>
+        <figcaption class="vid-cap"><h3>Planta Parota <span>15 s</span></h3><p>Plantilla de serie: una pieza por cada una de las 13 plantas.</p></figcaption>
+      </figure>
+      <figure>
+        <div class="vid-frame"><video controls playsinline preload="none" data-base="planta-deco"></video></div>
+        <figcaption class="vid-cap"><h3>Planta Deco <span>15 s</span></h3><p>Plano, espacios y cierre con llamado a agendar visita.</p></figcaption>
+      </figure>
+      <figure>
+        <div class="vid-frame"><video controls playsinline preload="none" data-base="del-oro"></video></div>
+        <figcaption class="vid-cap"><h3>Penthouse Del Oro <span>15 s</span></h3><p>La pieza de mayor valor, con su terraza privada.</p></figcaption>
+      </figure>
+    </div>
+    <p class="mock-note">Son cortes de muestra hechos con renders del dossier. Las fotos de Mazatlán son de Wikimedia Commons con licencia libre y llevan su crédito. Elena es un personaje creado con IA; si lo prefieren, la sustituimos por un asesor real de R+G. La música, los textos y los datos finales se validan con R+G antes de pautar.</p>
+  </div>
+</section>
+
+<script>
+  (function () {
+    var buttons = document.querySelectorAll('.lang button');
+    var videos = document.querySelectorAll('video[data-base]');
+    function setLang(lang) {
+      videos.forEach(function (v) {
+        var base = 'assets/videos/' + v.dataset.base + '_' + lang;
+        if (!v.paused) v.pause();
+        v.poster = base + '.jpg';
+        v.src = base + '.mp4';
+      });
+      buttons.forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.lang === lang)); });
+    }
+    buttons.forEach(function (b) { b.addEventListener('click', function () { setLang(b.dataset.lang); }); });
+    // Solo un video suena a la vez
+    document.querySelectorAll('.vid-frame video').forEach(function (v) {
+      v.addEventListener('play', function () {
+        document.querySelectorAll('.vid-frame video').forEach(function (o) { if (o !== v) o.pause(); });
+      });
+    });
+    setLang('es');
+  })();
+</script>
+
+<!-- ── ROADMAP ──────────────────────────────── -->
+<section id="plan">
+  <div class="c">
+    <span class="s-label">Primeros 90 días</span>
+    <h2 class="s-title">Cimientos primero, <em>después escala.</em></h2>
+    <p class="s-sub">No encendemos pauta hasta que el sistema que la recibe está listo. Así el presupuesto no se va a mensajes que nadie atiende.</p>
+    <div class="road">
+      <div class="r-card">
+        <div class="r-when">Semanas 1–2</div>
+        <h3>Cimientos</h3>
+        <ul>
+          <li>Business Manager y cuenta publicitaria a nombre de R+G</li>
+          <li>Pixel, API de conversiones y analítica</li>
+          <li>Landing de Áurea en español e inglés</li>
+          <li>CRM, embudo y asignación a asesores</li>
+          <li>Agente IA entrenado con dossier y lista de precios</li>
+        </ul>
+      </div>
+      <div class="r-card">
+        <div class="r-when">Semanas 3–4</div>
+        <h3>Lanzamiento</h3>
+        <ul>
+          <li>Campañas de prueba por audiencia y por mensaje</li>
+          <li>Primeros videos y carruseles</li>
+          <li>Primeras citas agendadas</li>
+          <li>Unificación de datos de contacto en todos los canales</li>
+        </ul>
+      </div>
+      <div class="r-card">
+        <div class="r-when">Mes 2</div>
+        <h3>Optimización</h3>
+        <ul>
+          <li>Se apaga lo que no trae citas, se refuerza lo que sí</li>
+          <li>Remarketing y secuencias de seguimiento</li>
+          <li>Campaña de reseñas en Google</li>
+          <li>Primer reporte de costo por cita y por visita</li>
+        </ul>
+      </div>
+      <div class="r-card">
+        <div class="r-when">Mes 3</div>
+        <h3>Escala</h3>
+        <ul>
+          <li>Más inversión en lo que convierte</li>
+          <li>Ajuste de la meta con datos reales</li>
+          <li>Revisión de resultados con dirección</li>
+          <li>Plan para integrar San Sebastián</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── ESQUEMAS ─────────────────────────────── -->
+<section id="esquemas">
+  <div class="c">
+    <span class="s-label">Esquemas de colaboración</span>
+    <h2 class="s-title">Tres formas de trabajar juntos. <em>Ustedes eligen el riesgo.</em></h2>
+    <p class="s-sub">Los tres esquemas incluyen el ecosistema completo. Cambia cómo se reparte el riesgo entre R+G y Delta Kilo.</p>
+
+    <div class="plans">
+      <div class="plan">
+        <div class="plan-k">Esquema A</div>
+        <h3>Retainer fijo</h3>
+        <p class="who">Para quien prefiere un costo mensual predecible.</p>
+        <div class="plan-price">$38,000 MXN / mes<small>Implementación inicial: $35,000 · mínimo 3 meses</small></div>
+        <ul>
+          <li>Ecosistema completo (atracción, landing, IA, CRM, contenido, tablero)</li>
+          <li>Gestión de pauta por especialista</li>
+          <li>Reporte mensual</li>
+          <li class="no">Sin componente variable</li>
+        </ul>
+      </div>
+      <div class="plan rec">
+        <span class="plan-badge">Recomendado</span>
+        <div class="plan-k">Esquema B</div>
+        <h3>Híbrido</h3>
+        <p class="who">Base reducida más un pago ligado a resultados que sí controlamos.</p>
+        <div class="plan-price">$24,000 MXN / mes<small>+ $1,500 por cita calificada que se realiza<br />Implementación inicial: $35,000 · mínimo 3 meses</small></div>
+        <ul>
+          <li>Todo lo del Esquema A</li>
+          <li>Mensualidad base más baja</li>
+          <li>Pago variable alineado a su meta</li>
+          <li>Revisión trimestral del esquema</li>
+        </ul>
+      </div>
+      <div class="plan">
+        <div class="plan-k">Esquema C</div>
+        <h3>Por desempeño</h3>
+        <p class="who">Para quien quiere pagar casi todo contra resultados.</p>
+        <div class="plan-price">$3,500 por cita calificada<small>+ $12,000 MXN / mes de piso<br />Implementación inicial: $45,000 · mínimo 4 meses</small></div>
+        <ul>
+          <li>Ecosistema completo</li>
+          <li>Pago por cita calificada realizada</li>
+          <li>Definición conjunta de "cita calificada"</li>
+          <li class="no">Requiere compromiso mínimo de pauta</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="plans-fine">
+      <b>Inversión publicitaria:</b> se paga directo a Meta y Google desde la cuenta de R+G, aparte de los esquemas. Inversión sugerida para iniciar: $60,000 MXN/mes (≈80 % Meta, 20 % Google), a afinar con la meta de absorción.<br />
+      <b>¿Por qué cobrar por cita y no por venta?</b> Porque la cita calificada es lo que nuestro sistema entrega y podemos medir sin ambigüedad. El cierre depende de su equipo comercial, y así cada parte responde por lo que controla.<br />
+      <b>Consumo de plataformas</b> (WhatsApp, IA, mensajería) según uso. Precios más IVA.
+    </div>
+  </div>
+</section>
+
+<!-- ── NECESITAMOS ──────────────────────────── -->
+<section id="siguientes">
+  <div class="c">
+    <span class="s-label">Para arrancar</span>
+    <h2 class="s-title">Lo que necesitamos de R+G</h2>
+    <div class="need-grid">
+      <div class="need"><div class="need-n">1</div><p>Lista de precios por modelo<span>Y disponibilidad actual de las 31 residencias</span></p></div>
+      <div class="need"><div class="need-n">2</div><p>Esquemas de pago<span>Enganche, mensualidades, crédito, descuentos de contado</span></p></div>
+      <div class="need"><div class="need-n">3</div><p>Fecha de entrega<span>Y programa de renta administrada, si existe</span></p></div>
+      <div class="need"><div class="need-n">4</div><p>Perfil de compradores actuales<span>Origen, uso y forma de pago de quienes ya apartaron</span></p></div>
+      <div class="need"><div class="need-n">5</div><p>Equipo comercial<span>Asesores, horarios y quién recibe cada prospecto</span></p></div>
+      <div class="need"><div class="need-n">6</div><p>Accesos<span>Business Manager o creación de uno a nombre de R+G</span></p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA ──────────────────────────────────── -->
+<section class="cta">
+  <div class="c">
+    <h2>¿Arrancamos con Áurea?</h2>
+    <span class="cta-serif">En menos de un mes, el sistema puede estar recibiendo prospectos.</span>
+    <p>Elijan el esquema que mejor les acomode y en una llamada afinamos números y fechas.</p>
+    <div class="hero-btns">
+      <a href="https://wa.me/5215663864984?text=Hola%2C%20vengo%20de%20la%20propuesta%20de%20%C3%81urea%20Centro%20Hist%C3%B3rico%20%E2%9C%A8%20quiero%20platicar%20los%20siguientes%20pasos" class="btn-p">Platicarlo por WhatsApp →</a>
+    </div>
+    <p class="cta-note">Propuesta válida 30 días a partir de su envío.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="c">
+    <p>Preparado por <span class="tc">Delta Kilo Soluciones</span> para R+G Desarrollos · Octubre 2026<br />Documento confidencial. Renders propiedad de R+G, usados solo para ilustrar esta propuesta.</p>
+  </div>
+</footer>
+
+</body>
+</html>
