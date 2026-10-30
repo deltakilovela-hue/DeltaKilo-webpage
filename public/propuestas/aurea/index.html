@@ -424,6 +424,29 @@
     .plan li::before { content: '✓'; color: var(--gold); font-weight: 700; flex-shrink: 0; }
     .plan li.no { color: var(--muted); }
     .plan li.no::before { content: '—'; color: var(--muted); }
+    /* ── QUÉ RECIBE CADA MES ───────────────── */
+    .inc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 44px; }
+    @media(max-width:760px){ .inc-grid { grid-template-columns: repeat(2, 1fr); } }
+    .inc-tile { background: var(--card); border: 1px solid var(--border); border-radius: 13px; padding: 20px; }
+    .inc-tile .n { font-size: 38px; font-weight: 900; line-height: 1; color: var(--teal); }
+    .inc-tile h3 { font-size: 14.5px; font-weight: 700; margin: 10px 0 4px; line-height: 1.35; }
+    .inc-tile p { font-size: 12.5px; color: var(--muted); line-height: 1.5; }
+    .inc-ops { margin-top: 14px; padding: 18px 22px; background: var(--tdim); border: 1px solid rgba(0,200,200,0.18); border-radius: 12px; font-size: 13.5px; line-height: 1.65; }
+    .inc-ops b { color: var(--teal); }
+    .inc-wrap { display: grid; grid-template-columns: 1fr 1.15fr; gap: 40px; margin-top: 40px; align-items: start; }
+    @media(max-width:860px){ .inc-wrap { grid-template-columns: 1fr; } }
+    .inc-h { font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-bottom: 16px; }
+    .inc-bar { margin-bottom: 16px; }
+    .inc-bar .top { display: flex; justify-content: space-between; gap: 12px; font-size: 13.5px; font-weight: 700; }
+    .inc-bar .track { height: 8px; border-radius: 100px; background: var(--border); margin: 6px 0; overflow: hidden; }
+    .inc-bar .fill { height: 100%; border-radius: 100px; background: var(--teal); }
+    .inc-bar p { font-size: 12.5px; color: var(--muted); line-height: 1.5; }
+    .inc-list { padding-left: 18px; font-size: 13px; color: var(--muted); line-height: 1.55; }
+    .inc-list li { margin-bottom: 8px; }
+    .inc-list b { color: var(--text); }
+    .inc-extra { margin-top: 18px; padding: 16px 20px; border: 1px solid var(--gborder); background: var(--gdim); border-radius: 12px; font-size: 13px; line-height: 1.6; color: var(--muted); }
+    .inc-extra b { color: var(--gold); }
+
     .plans-fine {
       margin-top: 26px; padding: 20px 24px; border: 1px solid var(--border); border-radius: 12px;
       font-size: 12.5px; color: var(--muted); line-height: 1.75;
@@ -709,7 +732,7 @@
           <div class="fn-step"><div><h4>Apartado</h4><p>Con enganche</p></div><span class="fn-n">1</span></div>
           <div class="fn-step"><div><h4>Venta</h4><p>La meta del mes</p></div><span class="fn-n tc">1</span></div>
         </div>
-        <p class="fn-note">Son rangos de arranque de nuestro especialista en pauta, no promedios de mercado. Con el histórico de R+G y los datos del mes 1 los sustituimos por las tasas reales de Áurea.</p>
+        <p class="fn-note">Son rangos de arranque de nuestro equipo de pauta, no promedios de mercado. Con el histórico de R+G y los datos del mes 1 los sustituimos por las tasas reales de Áurea.</p>
       </div>
     </div>
   </div>
@@ -750,9 +773,9 @@
         <div class="f-num">01 · ATRACCIÓN</div>
         <div class="f-ico">🎯</div>
         <h3>Pauta especializada en Meta y Google</h3>
-        <p>Campañas por audiencia: inversionista nacional, comprador de EE. UU. y Canadá, y segunda vivienda. Las dirige un especialista en tráfico pagado, socio de Delta Kilo.</p>
+        <p>Campañas por audiencia: inversionista nacional, comprador de EE. UU. y Canadá, y segunda vivienda. Las opera directamente el equipo de Delta Kilo.</p>
         <ul><li>Cuenta publicitaria a nombre de R+G: los datos son suyos</li><li>Pixel + API de conversiones</li><li>Remarketing a quien vio la landing o el video</li></ul>
-        <span class="f-tag">Tango + especialista en pauta</span>
+        <span class="f-tag">Tango · equipo Delta Kilo</span>
       </div>
       <div class="f-card">
         <div class="f-num">02 · CONVERSIÓN</div>
@@ -957,6 +980,49 @@
   </div>
 </section>
 
+<!-- ── QUÉ RECIBE CADA MES ──────────────────── -->
+<section id="incluye">
+  <div class="c">
+    <span class="s-label">Qué recibe cada mes</span>
+    <h2 class="s-title">Un solo equipo. <em>Todo incluido.</em></h2>
+    <p class="s-sub">Delta Kilo diseña, edita, programa y pauta. R+G no tiene que coordinar a varios proveedores: revisa, aprueba y atiende a los prospectos calificados.</p>
+
+    <div class="inc-grid">
+      <div class="inc-tile"><div class="n">30</div><h3>Historias</h3><p>Una al día en Instagram y Facebook de Áurea.</p></div>
+      <div class="inc-tile"><div class="n">4</div><h3>Videos cortos</h3><p>De 15 a 30 s, para anuncios, en español e inglés.</p></div>
+      <div class="inc-tile"><div class="n">4</div><h3>Carruseles</h3><p>Plantas, ubicación y plan de pagos, en español e inglés.</p></div>
+      <div class="inc-tile"><div class="n">4</div><h3>Diseños para anuncio</h3><p>Variantes para probar mensajes, en español e inglés.</p></div>
+      <div class="inc-tile"><div class="n">12</div><h3>Publicaciones programadas</h3><p>Tres por semana, armadas con los videos, carruseles y diseños del mes.</p></div>
+      <div class="inc-tile"><div class="n">1</div><h3>Video principal por trimestre</h3><p>Un recorrido de 30 a 60 s, en español e inglés.</p></div>
+    </div>
+    <div class="inc-ops"><b>Y además, cada mes:</b> pauta en Meta y Google para México, EE. UU. y Canadá · agente de IA 24/7 actualizado · CRM con asignación y seguimiento · tablero y reporte mensual · ficha de Google y reseñas.</div>
+
+    <div class="inc-wrap">
+      <div>
+        <div class="inc-h">A dónde va su mensualidad</div>
+        <div class="inc-bar"><div class="top"><span>Contenido</span><span>40 %</span></div><div class="track"><div class="fill" style="width:40%"></div></div><p>Diseño, edición, versiones en dos idiomas y programación.</p></div>
+        <div class="inc-bar"><div class="top"><span>Pauta</span><span>29 %</span></div><div class="track"><div class="fill" style="width:29%"></div></div><p>Estrategia, montaje y optimización semanal de las campañas.</p></div>
+        <div class="inc-bar"><div class="top"><span>IA y CRM</span><span>18 %</span></div><div class="track"><div class="fill" style="width:18%"></div></div><p>Agente bilingüe, precios e inventario al día, seguimiento y asignación.</p></div>
+        <div class="inc-bar"><div class="top"><span>Medición y confianza</span><span>13 %</span></div><div class="track"><div class="fill" style="width:13%"></div></div><p>Tablero, reporte mensual, ficha de Google y reseñas.</p></div>
+      </div>
+      <div>
+        <div class="inc-h">Para que todo salga a tiempo</div>
+        <ul class="inc-list">
+          <li><b>Material:</b> trabajamos con sus renders y planos. Sesiones en sitio, dron y actores los provee R+G o se cotizan aparte.</li>
+          <li><b>Cambios:</b> hasta 2 rondas de ajustes por pieza.</li>
+          <li><b>Aprobación:</b> en un máximo de 48 horas hábiles. Las historias se aprueban por lote semanal.</li>
+          <li><b>Historias:</b> se producen por lote y se programan; no incluyen cobertura en vivo de eventos.</li>
+          <li><b>Cuentas:</b> solo Áurea, no las otras cuentas ni el sitio de R+G.</li>
+          <li><b>Atención:</b> el agente de IA responde y califica; la atención personal y el cierre son de sus asesores.</li>
+          <li><b>Piezas del mes:</b> las que no se usan no se acumulan al siguiente.</li>
+          <li><b>San Sebastián:</b> se cotiza aparte cuando tengamos su dossier.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="inc-extra"><b>¿Necesitan más?</b> Historia $150 · carrusel o diseño $600 · video corto $1,500 · video principal $5,000. Con versiones en español e inglés, salvo las historias. Precios más IVA.</div>
+  </div>
+</section>
+
 <!-- ── ESQUEMAS ─────────────────────────────── -->
 <section id="esquemas">
   <div class="c">
@@ -972,7 +1038,7 @@
         <div class="plan-price">$38,000 MXN / mes<small>Implementación inicial: $35,000 · mínimo 3 meses</small></div>
         <ul>
           <li>Ecosistema completo (atracción, landing, IA, CRM, contenido, tablero)</li>
-          <li>Gestión de pauta por especialista</li>
+          <li>Gestión de pauta por nuestro equipo</li>
           <li>Reporte mensual</li>
           <li class="no">Sin componente variable</li>
         </ul>
