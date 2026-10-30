@@ -12,6 +12,14 @@ import { NextRequest, NextResponse } from 'next/server';
 // Canonical URLs always end in "/" so the page's relative asset paths
 // (assets/...) resolve correctly. next.config.ts sets
 // skipTrailingSlashRedirect so Next's own default doesn't fight this.
+// A plain URL, not request.nextUrl.clone(): NextURL drops the trailing slash
+// when it serializes (trailingSlash is false), so the redirect would point back
+// at the same slash-less path and loop.
+function redirectWithSlash(request: NextRequest) {
+  const { pathname, search } = request.nextUrl;
+  return NextResponse.redirect(new URL(`${pathname}/${search}`, request.url));
+}
+
 export function proxy(request: NextRequest) {
   const host = request.headers.get('host') || '';
   const { pathname } = request.nextUrl;
@@ -29,9 +37,7 @@ export function proxy(request: NextRequest) {
 
   if (isPropuestasHost) {
     if (!pathname.endsWith('/')) {
-      const url = request.nextUrl.clone();
-      url.pathname = `${pathname}/`;
-      return NextResponse.redirect(url);
+      return redirectWithSlash(request);
     }
     const url = request.nextUrl.clone();
     url.pathname = `/propuestas${pathname}index.html`;
@@ -40,9 +46,7 @@ export function proxy(request: NextRequest) {
 
   if (pathname === '/propuestas' || pathname.startsWith('/propuestas/')) {
     if (!pathname.endsWith('/')) {
-      const url = request.nextUrl.clone();
-      url.pathname = `${pathname}/`;
-      return NextResponse.redirect(url);
+      return redirectWithSlash(request);
     }
     const url = request.nextUrl.clone();
     url.pathname = `${pathname}index.html`;
