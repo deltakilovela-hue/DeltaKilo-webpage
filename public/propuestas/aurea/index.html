@@ -367,6 +367,7 @@
     }
     .lang button[aria-pressed="true"] { color: #05070C; background: var(--gold); }
     .vid-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 36px; }
+    @media(min-width:861px){ .vid-grid.four { grid-template-columns: repeat(4, 1fr); gap: 18px; } }
     @media(max-width:860px){ .vid-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; } }
     .vid-frame {
       aspect-ratio: 9 / 16; border-radius: 18px; overflow: hidden; background: #000;
@@ -845,11 +846,11 @@
     <div class="vid-grid">
       <figure>
         <div class="vid-frame"><video controls playsinline preload="none" poster="assets/videos/tour-amenidades_en.jpg" src="assets/videos/tour-amenidades_en.mp4" data-only="en"></video></div>
-        <figcaption class="vid-cap"><h3>Recorrido con Elena <span>31 s · solo inglés</span></h3><p>Una anfitriona recorre lobby, rooftop, restaurante y fogatero. Pensado para el comprador extranjero.</p></figcaption>
+        <figcaption class="vid-cap"><h3>Recorrido con Elena <span>31 s</span></h3><p>Una anfitriona recorre lobby, rooftop, restaurante y fogatero. Pensado para el comprador extranjero.</p></figcaption>
       </figure>
       <figure>
         <div class="vid-frame"><video controls playsinline preload="none" poster="assets/videos/tour-mazatlan_en.jpg" src="assets/videos/tour-mazatlan_en.mp4" data-only="en"></video></div>
-        <figcaption class="vid-cap"><h3>Vivir en Mazatlán <span>62 s · solo inglés</span></h3><p>Elena recorre el Centro Histórico, el malecón, el Faro y los atardeceres. Vende la ciudad antes que el departamento.</p></figcaption>
+        <figcaption class="vid-cap"><h3>Vivir en Mazatlán <span>62 s</span></h3><p>Elena recorre el Centro Histórico, el malecón, el Faro y los atardeceres. Vende la ciudad antes que el departamento.</p></figcaption>
       </figure>
       <figure>
         <div class="vid-frame"><video controls playsinline preload="none" data-base="un-dia"></video></div>
@@ -876,7 +877,15 @@
   (function () {
     var buttons = document.querySelectorAll('.lang button');
     var videos = document.querySelectorAll('video[data-base]');
+    var onlyOne = document.querySelectorAll('video[data-only]');
     function setLang(lang) {
+      // Los videos que solo existen en un idioma se ocultan en el otro
+      onlyOne.forEach(function (v) {
+        if (!v.paused) v.pause();
+        v.closest('figure').hidden = v.dataset.only !== lang;
+      });
+      var grid = document.querySelector('.vid-grid');
+      grid.classList.toggle('four', grid.querySelectorAll('figure:not([hidden])').length === 4);
       videos.forEach(function (v) {
         var base = 'assets/videos/' + v.dataset.base + '_' + lang;
         if (!v.paused) v.pause();
