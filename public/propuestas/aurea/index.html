@@ -424,6 +424,19 @@
     .plan li::before { content: '✓'; color: var(--gold); font-weight: 700; flex-shrink: 0; }
     .plan li.no { color: var(--muted); }
     .plan li.no::before { content: '—'; color: var(--muted); }
+    /* ── VOLVER AL INICIO ──────────────────── */
+    a.nav-logos { color: inherit; text-decoration: none; }
+    .to-top {
+      position: fixed; right: 18px; bottom: 18px; z-index: 90;
+      display: inline-flex; align-items: center; gap: 6px; min-height: 44px; padding: 0 16px;
+      background: var(--teal); color: #05070C; border-radius: 100px;
+      font-size: 13px; font-weight: 700; text-decoration: none;
+      box-shadow: 0 6px 22px rgba(0,0,0,0.45);
+      opacity: 0; visibility: hidden; transform: translateY(8px);
+      transition: opacity .2s, transform .2s, visibility .2s;
+    }
+    .to-top.show { opacity: 1; visibility: visible; transform: none; }
+
     /* ── QUÉ RECIBE CADA MES ───────────────── */
     .inc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 44px; }
     @media(max-width:760px){ .inc-grid { grid-template-columns: repeat(2, 1fr); } }
@@ -495,11 +508,11 @@
 
 <nav>
   <div class="nav-inner">
-    <div class="nav-logos">
+    <a class="nav-logos" href="#" aria-label="Ir al inicio de la propuesta">
       <img class="nav-dk" src="assets/delta-kilo-logo.png" alt="Delta Kilo" />
       <div class="nav-sep"></div>
       <div class="nav-aurea"><b>ÁUREA</b><span>CENTRO HISTÓRICO</span></div>
-    </div>
+    </a>
     <span class="nav-badge">Propuesta confidencial · R+G Desarrollos</span>
   </div>
 </nav>
@@ -1027,8 +1040,8 @@
 <section id="esquemas">
   <div class="c">
     <span class="s-label">Esquemas de colaboración</span>
-    <h2 class="s-title">Tres formas de trabajar juntos. <em>Ustedes eligen el riesgo.</em></h2>
-    <p class="s-sub">Los tres esquemas incluyen el ecosistema completo. Cambia cómo se reparte el riesgo entre R+G y Delta Kilo.</p>
+    <h2 class="s-title">Tres formas de trabajar juntos. <em>Ustedes eligen la que mejor les funcione.</em></h2>
+    <p class="s-sub">Los tres esquemas incluyen el ecosistema completo. Lo único que cambia es la forma de pago: una mensualidad fija, una base más un pago por cita, o un piso mínimo con pago principalmente por cita.</p>
 
     <div class="plans">
       <div class="plan">
@@ -1113,5 +1126,14 @@
   </div>
 </footer>
 
+<a class="to-top" href="#" aria-label="Volver al inicio de la propuesta">↑ Volver al inicio</a>
+<script>
+  (function () {
+    var btn = document.querySelector('.to-top');
+    function toggle() { btn.classList.toggle('show', window.scrollY > 600); }
+    window.addEventListener('scroll', toggle, { passive: true });
+    toggle();
+  })();
+</script>
 </body>
 </html>
