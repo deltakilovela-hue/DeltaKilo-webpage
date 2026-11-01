@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Puerto Nuevo y a veces Armando · Mariscos en Tepic</title>
+<meta name="description" content="La mejor cocina en mariscos de Tepic. Reserva tu mesa, pide para llevar o llega con el mapa. Revolución Social 212, Col. Menchaca.">
+<meta name="robots" content="noindex, nofollow">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Delta Kilo Soluciones">
+<meta property="og:title" content="Propuesta de página web · Puerto Nuevo × Delta Kilo">
+<meta property="og:description" content="Primera versión de la página de Puerto Nuevo y a veces Armando, preparada por Delta Kilo.">
+<meta property="og:image" content="https://www.deltakilo.com.mx/propuestas/assets/og-image.jpg">
+<meta property="og:url" content="https://propuestas.deltakilo.com.mx/puerto-nuevo/">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+  :root{
+    --azul:#306090; --azul-osc:#1d3f63; --aqua:#00b4e6; --naranja:#f09030; --naranja-osc:#d97a14;
+    --arena:#fff7ee; --gris:#5a6672; --blanco:#fff;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:"Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif;color:#1f2933;background:var(--blanco);line-height:1.55}
+  img{max-width:100%;display:block}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+  .demo{background:var(--azul-osc);color:#cfe6f7;font-size:12.5px;text-align:center;padding:6px 12px}
+  header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.96);backdrop-filter:blur(6px);border-bottom:1px solid #eadfd2}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:68px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:800;color:var(--azul);letter-spacing:.2px}
+  .brand img{width:46px;height:46px;border-radius:50%;object-fit:cover}
+  .brand small{display:block;font-weight:600;color:var(--naranja-osc);font-size:11px;letter-spacing:1px;text-transform:uppercase}
+  nav ul{display:flex;gap:22px;list-style:none;font-weight:600;font-size:15px;color:var(--azul)}
+  nav a:hover{color:var(--naranja-osc)}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:999px;padding:13px 24px;font-weight:700;font-size:16px;border:2px solid transparent;cursor:pointer;transition:.15s}
+  .btn-or{background:var(--naranja);color:#fff}.btn-or:hover{background:var(--naranja-osc)}
+  .btn-bl{background:#fff;color:var(--azul);border-color:#fff}.btn-bl:hover{background:var(--arena)}
+  .btn-out{background:transparent;color:#fff;border-color:rgba(255,255,255,.7)}.btn-out:hover{background:rgba(255,255,255,.12)}
+  .hero{background:linear-gradient(135deg,var(--azul-osc) 0%,var(--azul) 55%,#2a86b8 100%);color:#fff;position:relative;overflow:hidden}
+  .hero:after{content:"";position:absolute;inset:auto 0 0 0;height:56px;background:var(--blanco);clip-path:ellipse(75% 100% at 50% 100%)}
+  .hero-in{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;padding:64px 20px 110px}
+  .kicker{display:inline-block;background:rgba(240,144,48,.18);color:#ffc98f;border:1px solid rgba(240,144,48,.5);padding:5px 14px;border-radius:999px;font-weight:700;font-size:13px;letter-spacing:.6px;text-transform:uppercase}
+  h1{font-size:clamp(34px,5vw,56px);line-height:1.08;margin:18px 0 16px;font-weight:900}
+  h1 em{font-style:normal;color:var(--naranja)}
+  .lead{font-size:19px;color:#dbe9f5;max-width:520px}
+  .cta{display:flex;gap:12px;flex-wrap:wrap;margin:28px 0 22px}
+  .rating{display:flex;align-items:center;gap:12px;color:#dbe9f5;font-size:15px}
+  .stars{color:#ffbf3c;letter-spacing:2px;font-size:20px}
+  .hero-photos{position:relative;height:420px}
+  .hero-photos img{position:absolute;border-radius:18px;object-fit:cover;box-shadow:0 18px 40px rgba(0,0,0,.35);border:4px solid #fff}
+  .hero-photos .a{width:62%;height:300px;right:0;top:0}
+  .hero-photos .b{width:48%;height:220px;left:0;bottom:0}
+  .hero-photos .badge{position:absolute;left:8px;top:18px;background:var(--naranja);color:#fff;border-radius:16px;padding:12px 16px;font-weight:800;line-height:1.2;box-shadow:0 10px 24px rgba(0,0,0,.3);transform:rotate(-4deg)}
+  .badge b{font-size:30px;display:block}
+  .stats{margin-top:-30px;position:relative;z-index:2}
+  .stats-in{background:#fff;border-radius:20px;box-shadow:0 14px 40px rgba(29,63,99,.15);display:grid;grid-template-columns:repeat(4,1fr);padding:22px 10px;text-align:center}
+  .stat b{display:block;font-size:30px;color:var(--azul);font-weight:900}
+  .stat span{font-size:14px;color:var(--gris)}
+  section{padding:76px 0}
+  .tag{color:var(--naranja-osc);font-weight:800;letter-spacing:1.4px;font-size:13px;text-transform:uppercase}
+  h2{font-size:clamp(28px,3.6vw,40px);color:var(--azul);margin:8px 0 14px;line-height:1.15;font-weight:900}
+  .sub{color:var(--gris);max-width:620px;font-size:18px}
+  .dishes{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:36px}
+  .dish{background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 8px 28px rgba(29,63,99,.12);border:1px solid #f0e6d9}
+  .dish img{width:100%;height:210px;object-fit:cover}
+  .dish div{padding:18px 20px 22px}
+  .dish h3{color:var(--azul);font-size:20px;margin-bottom:6px}
+  .dish p{color:var(--gris);font-size:15px}
+  .note{margin-top:22px;font-size:14px;color:var(--gris)}
+  .band{background:var(--arena)}
+  .how{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:34px}
+  .card{background:#fff;border-radius:18px;padding:28px 24px;box-shadow:0 8px 26px rgba(29,63,99,.1);border-top:5px solid var(--naranja)}
+  .card .ic{font-size:34px}
+  .card h3{color:var(--azul);margin:10px 0 6px;font-size:20px}
+  .card p{color:var(--gris);font-size:15.5px}
+  .res{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:start}
+  form{background:#fff;border-radius:20px;padding:28px;box-shadow:0 14px 40px rgba(29,63,99,.16);border:1px solid #f0e6d9}
+  form h3{color:var(--azul);font-size:22px;margin-bottom:16px}
+  label{display:block;font-weight:700;font-size:14px;color:var(--azul);margin:12px 0 5px}
+  input,select{width:100%;padding:12px 14px;border:1.5px solid #d6dde4;border-radius:12px;font:inherit;background:#fff}
+  input:focus,select:focus{outline:none;border-color:var(--aqua);box-shadow:0 0 0 3px rgba(0,180,230,.2)}
+  .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .res>*,.row>*,input,select{min-width:0}
+  form .btn{width:100%;margin-top:20px}
+  .fine{font-size:12.5px;color:var(--gris);margin-top:10px;text-align:center}
+  .gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:32px}
+  .gallery img{width:100%;height:210px;object-fit:cover;border-radius:14px}
+  .gallery .w2{grid-column:span 2}
+  .loc{display:grid;grid-template-columns:1fr 1fr;gap:34px;align-items:stretch}
+  .box{background:var(--azul);color:#fff;border-radius:22px;padding:34px}
+  .box h2{color:#fff}
+  .box ul{list-style:none;margin:18px 0 24px}
+  .box li{padding:9px 0;border-bottom:1px solid rgba(255,255,255,.16);font-size:17px}
+  .box li b{color:#ffc98f}
+  .mapbox{border-radius:22px;background:linear-gradient(160deg,#dff3fb,#fff7ee);border:1px solid #cfe6f1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:30px;gap:14px;min-height:300px}
+  .mapbox img{width:130px;height:130px;border-radius:50%;object-fit:cover;box-shadow:0 10px 24px rgba(48,96,144,.25)}
+  .mapbox p{color:var(--azul);font-weight:700;font-size:18px}
+  footer{background:var(--azul-osc);color:#b9d1e6;padding:34px 0;font-size:14px;text-align:center}
+  footer b{color:#fff}
+  /* asistente 24/7 */
+  .fab{position:fixed;right:18px;bottom:18px;z-index:40;background:var(--naranja);color:#fff;border:none;border-radius:999px;padding:14px 20px;font-weight:800;font-size:15px;box-shadow:0 12px 30px rgba(0,0,0,.3);cursor:pointer;display:flex;gap:8px;align-items:center}
+  .chat{position:fixed;right:18px;bottom:80px;width:340px;max-width:calc(100vw - 36px);background:#fff;border-radius:18px;box-shadow:0 18px 50px rgba(0,0,0,.35);z-index:40;overflow:hidden;display:none;flex-direction:column}
+  .chat.open{display:flex}
+  .chat-h{background:var(--azul);color:#fff;padding:14px 16px;font-weight:800;display:flex;justify-content:space-between;align-items:center}
+  .chat-h small{display:block;font-weight:500;color:#bcd9ee;font-size:12px}
+  .chat-h button{background:none;border:none;color:#fff;font-size:20px;cursor:pointer}
+  .msgs{padding:14px;height:250px;overflow:auto;background:var(--arena);display:flex;flex-direction:column;gap:8px}
+  .m{max-width:86%;padding:9px 12px;border-radius:14px;font-size:14.5px}
+  .m.bot{background:#fff;border:1px solid #eadfd2;align-self:flex-start}
+  .m.me{background:var(--azul);color:#fff;align-self:flex-end}
+  .quick{display:flex;flex-wrap:wrap;gap:6px;padding:10px 12px;border-top:1px solid #eee}
+  .quick button{background:#fff;border:1.5px solid var(--naranja);color:var(--naranja-osc);border-radius:999px;padding:6px 12px;font-weight:700;font-size:13px;cursor:pointer}
+  .quick button:hover{background:var(--naranja);color:#fff}
+  @media(max-width:860px){
+    nav ul{display:none}
+    .hero-in,.res,.loc{grid-template-columns:1fr}
+    .hero-in{padding:44px 20px 90px}
+    .hero-photos{height:340px}
+    .stats-in{grid-template-columns:repeat(2,1fr);gap:14px}
+    .dishes,.how{grid-template-columns:1fr}
+    .gallery{grid-template-columns:repeat(2,1fr)}
+    .gallery .w2{grid-column:span 2}
+    section{padding:56px 0}
+  }
+</style>
+</head>
+<body>
+
+<div class="demo">Propuesta de diseño preparada por Delta Kilo para Puerto Nuevo · Fotos provisionales, se reemplazan por las del restaurante</div>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#inicio"><img src="assets/logo.jpg" alt="Logo Puerto Nuevo"><span>Puerto Nuevo<small>y a veces Armando</small></span></a>
+    <nav><ul>
+      <li><a href="#menu">Menú</a></li>
+      <li><a href="#pedir">Pedir</a></li>
+      <li><a href="#reservar">Reservar</a></li>
+      <li><a href="#ubicacion">Cómo llegar</a></li>
+    </ul></nav>
+    <a class="btn btn-or" href="#reservar" style="padding:10px 20px;font-size:15px">Reservar mesa</a>
+  </div>
+</header>
+
+<main id="inicio">
+<div class="hero">
+  <div class="wrap hero-in">
+    <div>
+      <span class="kicker">Mariscos · Tepic, Nayarit</span>
+      <h1>La mejor cocina en mariscos, <em>de una forma diferente</em></h1>
+      <p class="lead">Una forma diferente de degustar los productos del mar. Reserva tu mesa, pide para llevar o llega directo con el mapa.</p>
+      <div class="cta">
+        <a class="btn btn-or" href="#reservar">Reservar mesa</a>
+        <a class="btn btn-out" href="#pedir">Pedir para llevar</a>
+      </div>
+      <div class="rating"><span class="stars">★★★★★</span><span><b>4.8</b> en Google · 639 reseñas</span></div>
+    </div>
+    <div class="hero-photos">
+      <img class="a" src="assets/plato.jpg" alt="Plato de camarones y ceviche">
+      <img class="b" src="assets/ajillo.jpg" alt="Camarones al ajillo">
+      <div class="badge"><b>4.8</b>639 reseñas<br>en Google</div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap stats">
+  <div class="stats-in">
+    <div class="stat"><b>4.8 ★</b><span>Calificación en Google</span></div>
+    <div class="stat"><b>639</b><span>Reseñas de clientes</span></div>
+    <div class="stat"><b>98%</b><span>Nos recomienda en Facebook</span></div>
+    <div class="stat"><b>7.3 mil</b><span>Seguidores</span></div>
+  </div>
+</div>
+
+<section id="menu">
+  <div class="wrap">
+    <span class="tag">Nuestro menú</span>
+    <h2>Los favoritos de la casa</h2>
+    <p class="sub">Frescura del mar preparada a la manera de Puerto Nuevo.</p>
+    <div class="dishes">
+      <article class="dish"><img src="assets/aguachile.jpg" alt="Aguachile"><div><h3>Aguachile</h3><p>Fresco, picosito y con el toque de la casa.</p></div></article>
+      <article class="dish"><img src="assets/ceviche.jpg" alt="Ceviche de camarón"><div><h3>Ceviche de camarón</h3><p>Camarón fresco, limón y verduras crujientes.</p></div></article>
+      <article class="dish"><img src="assets/zarandeado.jpg" alt="Camarones a la parrilla"><div><h3>Camarones a la parrilla</h3><p>Dorados al momento, con guarnición y limón.</p></div></article>
+    </div>
+    <p class="note">Menú completo con fotos y precios: aquí se mostrará la carta actualizada del restaurante.</p>
+  </div>
+</section>
+
+<section id="pedir" class="band">
+  <div class="wrap">
+    <span class="tag">Fácil y rápido</span>
+    <h2>Disfrútalo como quieras</h2>
+    <div class="how">
+      <div class="card"><div class="ic">🍽️</div><h3>En el restaurante</h3><p>Ven con tu familia o amigos. Reserva tu mesa en línea y llega a sentarte.</p></div>
+      <div class="card"><div class="ic">🥡</div><h3>Para llevar</h3><p>Pide por WhatsApp o por teléfono y recoge en el negocio.</p></div>
+      <div class="card"><div class="ic">🚗</div><h3>Retiro desde el coche</h3><p>Llega, avísanos y te llevamos tu pedido sin que bajes del auto.</p></div>
+    </div>
+    <div class="cta" style="margin-top:30px">
+      <a class="btn btn-or" id="wa-pedido" href="https://wa.me/523111332050?text=Hola%2C%20quiero%20hacer%20un%20pedido%20para%20llevar" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+      <a class="btn btn-bl" style="background:var(--azul);color:#fff" href="tel:+523111332050">Llamar 311 133 2050</a>
+    </div>
+  </div>
+</section>
+
+<section id="reservar">
+  <div class="wrap res">
+    <div>
+      <span class="tag">Reservaciones</span>
+      <h2>Aparta tu mesa en 30 segundos</h2>
+      <p class="sub">Llena tus datos y te confirmamos por WhatsApp. Sin llamadas, sin esperas.</p>
+      <ul style="margin-top:22px;list-style:none;color:var(--azul);font-weight:700;display:grid;gap:10px">
+        <li>✅ Confirmación por WhatsApp</li>
+        <li>✅ Recordatorio antes de tu visita</li>
+        <li>✅ Atención también fuera de horario</li>
+      </ul>
+    </div>
+    <form id="rf">
+      <h3>Reservar mesa</h3>
+      <label for="n">Nombre</label><input id="n" required placeholder="Tu nombre">
+      <div class="row">
+        <div><label for="f">Fecha</label><input id="f" type="date" required></div>
+        <div><label for="h">Hora</label><input id="h" type="time" required></div>
+      </div>
+      <label for="p">Personas</label>
+      <select id="p"><option>1</option><option>2</option><option>3</option><option selected>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9 o más</option></select>
+      <button class="btn btn-or" type="submit">Enviar reservación por WhatsApp</button>
+      <p class="fine">Se abrirá WhatsApp con tu solicitud lista para enviar.</p>
+    </form>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <span class="tag">Ambiente y sabor</span>
+    <h2>Ven a conocernos</h2>
+    <div class="gallery">
+      <img class="w2" src="assets/interior.jpg" alt="Interior del restaurante">
+      <img src="assets/plato2.jpg" alt="Plato de la casa">
+      <img src="assets/aguachile.jpg" alt="Aguachile">
+    </div>
+  </div>
+</section>
+
+<section id="ubicacion">
+  <div class="wrap loc">
+    <div class="box">
+      <span class="tag" style="color:#ffc98f">Cómo llegar</span>
+      <h2>Estamos en Tepic</h2>
+      <ul>
+        <li><b>Dirección:</b> Revolución Social 212, Col. Menchaca, Tepic, Nayarit</li>
+        <li><b>Teléfono:</b> 311 133 2050</li>
+        <li><b>Servicio:</b> en el lugar, para llevar y retiro desde el coche</li>
+      </ul>
+      <a class="btn btn-or" href="https://www.google.com/maps/search/?api=1&query=Puerto+Nuevo+y+a+veces+Armando+Tepic" target="_blank" rel="noopener">Abrir en Google Maps</a>
+    </div>
+    <div class="mapbox">
+      <img src="assets/logo.jpg" alt="Puerto Nuevo">
+      <p>Puerto Nuevo y a veces Armando</p>
+      <span style="color:var(--gris)">Revolución Social 212, Col. Menchaca</span>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><b>Puerto Nuevo y a veces Armando</b> · Mariscos en Tepic, Nayarit</p>
+    <p style="margin-top:6px">Página creada por Delta Kilo</p>
+  </div>
+</footer>
+
+<button class="fab" id="fab" aria-label="Abrir asistente">💬 Pregúntanos</button>
+<div class="chat" id="chat" role="dialog" aria-label="Asistente de Puerto Nuevo">
+  <div class="chat-h"><div>Asistente Puerto Nuevo<small>Disponible 24/7 · demostración</small></div><button id="x" aria-label="Cerrar">×</button></div>
+  <div class="msgs" id="msgs"><div class="m bot">¡Hola! 👋 Soy el asistente de Puerto Nuevo. ¿En qué te puedo ayudar?</div></div>
+  <div class="quick" id="quick">
+    <button data-k="mesa">Reservar mesa</button>
+    <button data-k="llevar">Pedir para llevar</button>
+    <button data-k="donde">¿Dónde están?</button>
+  </div>
+</div>
+
+<script>
+  const d=new Date();d.setDate(d.getDate()+1);
+  document.getElementById('f').min=new Date().toISOString().slice(0,10);
+  document.getElementById('rf').addEventListener('submit',e=>{
+    e.preventDefault();
+    const t='Hola, quiero reservar una mesa.\nNombre: '+n.value+'\nFecha: '+f.value+'\nHora: '+h.value+'\nPersonas: '+p.value;
+    window.open('https://wa.me/523111332050?text='+encodeURIComponent(t),'_blank');
+  });
+  const chat=document.getElementById('chat'),msgs=document.getElementById('msgs');
+  document.getElementById('fab').onclick=()=>chat.classList.toggle('open');
+  document.getElementById('x').onclick=()=>chat.classList.remove('open');
+  const R={
+    mesa:['Reservar mesa','¡Con gusto! Dime para qué día, a qué hora y cuántas personas. El equipo del restaurante recibe tu solicitud al instante y te confirma por WhatsApp.'],
+    llevar:['Pedir para llevar','Perfecto. Cuéntame qué se te antoja y a qué hora pasas. También puedes elegir retiro desde el coche. Avisamos al equipo en cuanto lo pidas.'],
+    donde:['¿Dónde están?','Estamos en Revolución Social 212, Col. Menchaca, Tepic. Puedes abrir el mapa desde la sección Cómo llegar.']
+  };
+  document.getElementById('quick').addEventListener('click',e=>{
+    const k=e.target.dataset.k;if(!k)return;
+    const a=document.createElement('div');a.className='m me';a.textContent=R[k][0];msgs.appendChild(a);
+    setTimeout(()=>{const b=document.createElement('div');b.className='m bot';b.textContent=R[k][1];msgs.appendChild(b);msgs.scrollTop=msgs.scrollHeight},450);
+    msgs.scrollTop=msgs.scrollHeight;
+  });
+</script>
+</body>
+</html>
