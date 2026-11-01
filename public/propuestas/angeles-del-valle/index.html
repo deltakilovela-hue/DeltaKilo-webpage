@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Ángeles del Valle · Clínica de Rehabilitación en Tepic</title>
-<meta name="description" content="Aliviamos el dolor y rehabilitamos física y neurológicamente. Agenda tu cita en la Clínica de Rehabilitación Ángeles del Valle, Tepic, Nayarit.">
+<meta name="description" content="Aliviamos el dolor y rehabilitamos física y neurológicamente. Agenda tu valoración en la Clínica de Rehabilitación Ángeles del Valle, Tepic, Nayarit.">
 <meta name="robots" content="noindex, nofollow">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Delta Kilo Soluciones">
@@ -13,134 +13,326 @@
 <meta property="og:image" content="https://www.deltakilo.com.mx/propuestas/assets/og-image.jpg">
 <meta property="og:url" content="https://propuestas.deltakilo.com.mx/angeles-del-valle/">
 <meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  :root{--navy:#262d61;--navy2:#181d45;--aqua:#60c5e3;--aqua2:#3aa9cc;--bg:#f3fafd;--gris:#5b6475;--blanco:#fff}
+  :root{
+    --navy:#262d61; --deep:#0f1330; --night:#171c45; --aqua:#60c5e3; --aqua2:#35a8cf; --mist:#eef8fc; --ice:#f6fbfd;
+    --gold:#d9bf8c; --ink:#1a2040; --muted:#5c6580; --line:#e1ecf2;
+    --serif:"Fraunces",Georgia,"Times New Roman",serif; --sans:"Inter","Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif;
+    --r:22px;
+  }
   *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth}
-  body{font-family:"Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif;color:#1d2340;background:#fff;line-height:1.6}
+  html{scroll-behavior:smooth;scroll-padding-top:84px}
+  body{font-family:var(--sans);color:var(--ink);background:#fff;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
   img{max-width:100%;display:block}
   a{color:inherit;text-decoration:none}
-  .wrap{max-width:1080px;margin:0 auto;padding:0 20px}
-  .demo{background:var(--navy2);color:#b9dff0;font-size:12.5px;text-align:center;padding:6px 12px}
+  svg.i{width:1em;height:1em;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;flex:none}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 28px}
+  .rv{opacity:0;transform:translateY(26px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
+  .rv.in{opacity:1;transform:none}
+  .d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}
+
+  /* barra demo */
+  .demo{background:#090c22;color:#8fa6d6;font-size:12px;text-align:center;padding:7px 14px;letter-spacing:.2px}
   .demo-btns{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:8px}
-  .demo-btns a{display:inline-flex;align-items:center;min-height:36px;padding:0 14px;border-radius:999px;font-size:13px;font-weight:700;background:var(--aqua);color:var(--navy2)}
-  .demo-btns a+a{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.55)}
-  .prop-fab{position:fixed;left:18px;bottom:18px;z-index:40;background:var(--navy);color:#fff;border-radius:999px;padding:14px 18px;font-weight:800;font-size:15px;box-shadow:0 12px 30px rgba(0,0,0,.3)}
-  .res>*{min-width:0}
-  .nav .btn{white-space:nowrap}
-  @media(max-width:480px){.brand{font-size:16px;gap:8px}.brand img{height:40px}.brand small{font-size:11px}.nav .btn{padding:9px 14px!important;font-size:14px!important}}
-  header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.96);backdrop-filter:blur(6px);border-bottom:1px solid #dcecf3}
-  .nav{display:flex;align-items:center;justify-content:space-between;height:74px}
-  .brand{display:flex;align-items:center;gap:12px;color:var(--navy);font-weight:800;font-size:20px;line-height:1.1}.brand img{height:50px;width:auto}.brand small{display:block;color:var(--aqua2);font-weight:600;font-size:12px;letter-spacing:.4px;margin-top:2px}
-  nav ul{display:flex;gap:24px;list-style:none;font-weight:600;font-size:15px;color:var(--navy)}
-  nav a:hover{color:var(--aqua2)}
-  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:999px;padding:13px 26px;font-weight:700;font-size:16px;border:2px solid transparent;cursor:pointer;transition:.15s}
-  .btn-aq{background:var(--aqua);color:var(--navy2)}.btn-aq:hover{background:#7fd2ea}
-  .btn-nv{background:var(--navy);color:#fff}.btn-nv:hover{background:var(--navy2)}
-  .btn-out{background:transparent;color:#fff;border-color:rgba(255,255,255,.65)}.btn-out:hover{background:rgba(255,255,255,.12)}
-  .hero{background:radial-gradient(1200px 500px at 85% 0%,rgba(96,197,227,.28),transparent 60%),linear-gradient(135deg,var(--navy2),var(--navy) 70%);color:#fff;position:relative;overflow:hidden}
-  .hero:after{content:"";position:absolute;inset:auto 0 0 0;height:56px;background:#fff;clip-path:ellipse(75% 100% at 50% 100%)}
-  .hero-in{display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center;padding:66px 20px 112px}
-  .kicker{display:inline-block;background:rgba(96,197,227,.16);color:#a8e3f5;border:1px solid rgba(96,197,227,.5);padding:5px 14px;border-radius:999px;font-weight:700;font-size:13px;letter-spacing:.6px;text-transform:uppercase}
-  h1{font-size:clamp(34px,5vw,54px);line-height:1.1;margin:18px 0 16px;font-weight:900}
-  h1 em{font-style:normal;color:var(--aqua)}
-  .lead{font-size:19px;color:#d3e3f2;max-width:540px}
-  .cta{display:flex;gap:12px;flex-wrap:wrap;margin:28px 0 22px}
-  .rating{display:flex;align-items:center;gap:12px;color:#d3e3f2;font-size:15px}
-  .stars{color:#ffd166;letter-spacing:2px;font-size:20px}
-  .heroart{position:relative;display:flex;justify-content:center;padding:14px}
-  .logocard{background:#fff;border-radius:28px;padding:26px 30px;box-shadow:0 24px 60px rgba(0,0,0,.4);width:min(340px,100%)}
-  .logocard img{width:100%}
-  .chip{position:absolute;background:#fff;color:var(--navy);font-weight:800;font-size:14px;border-radius:14px;padding:10px 14px;box-shadow:0 12px 28px rgba(0,0,0,.28);display:flex;gap:8px;align-items:center}
-  .chip.c1{left:-14px;top:-14px}.chip.c2{right:-14px;bottom:-16px}
-  .stats{margin-top:-30px;position:relative;z-index:2}
-  .stats-in{background:#fff;border-radius:20px;box-shadow:0 14px 40px rgba(38,45,97,.16);display:grid;grid-template-columns:repeat(4,1fr);padding:22px 10px;text-align:center}
-  .stat b{display:block;font-size:28px;color:var(--navy);font-weight:900}
-  .stat span{font-size:14px;color:var(--gris)}
-  section{padding:76px 0}
-  .tag{color:var(--aqua2);font-weight:800;letter-spacing:1.4px;font-size:13px;text-transform:uppercase}
-  h2{font-size:clamp(28px,3.6vw,40px);color:var(--navy);margin:8px 0 14px;line-height:1.15;font-weight:900}
-  .sub{color:var(--gris);max-width:640px;font-size:18px}
-  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:34px}
-  .card{background:#fff;border-radius:18px;padding:26px 24px;box-shadow:0 8px 28px rgba(38,45,97,.1);border:1px solid #e1eef4;border-top:5px solid var(--aqua)}
-  .card .ic{width:50px;height:50px;border-radius:14px;background:var(--bg);display:flex;align-items:center;justify-content:center;font-size:26px}
-  .card h3{color:var(--navy);margin:14px 0 6px;font-size:20px}
-  .card p{color:var(--gris);font-size:15.5px}
-  .band{background:var(--bg)}
-  .team{display:grid;grid-template-columns:.9fr 1.1fr;gap:40px;align-items:center}
-  .doc{background:linear-gradient(160deg,var(--navy),var(--navy2));color:#fff;border-radius:24px;padding:34px}
-  .doc .av{width:92px;height:92px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;margin-bottom:16px;overflow:hidden}
-  .doc .av img{height:74px;width:auto}
-  .doc h3{font-size:24px}
-  .doc small{display:block;color:#a8e3f5;font-weight:700;margin:4px 0 14px}
-  .doc ul{list-style:none;display:grid;gap:8px;font-size:15.5px;color:#d9e6f3}
-  .doc li:before{content:"✓ ";color:var(--aqua);font-weight:800}
-  .quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:32px}
-  .quote{background:#fff;border-radius:18px;padding:24px;border:1px solid #dcecf3;box-shadow:0 8px 24px rgba(38,45,97,.08)}
-  .quote p{font-size:17px;color:var(--navy);font-weight:600}
-  .quote span{display:block;margin-top:12px;color:var(--gris);font-size:13.5px}
-  .quote .stars{font-size:16px}
-  .res{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:start}
-  form{background:#fff;border-radius:22px;padding:28px;box-shadow:0 14px 40px rgba(38,45,97,.18);border:1px solid #dcecf3}
-  form h3{color:var(--navy);font-size:22px;margin-bottom:14px}
-  label{display:block;font-weight:700;font-size:14px;color:var(--navy);margin:12px 0 5px}
-  input,select{width:100%;padding:12px 14px;border:1.5px solid #cfdbe4;border-radius:12px;font:inherit;background:#fff}
-  input:focus,select:focus{outline:none;border-color:var(--aqua2);box-shadow:0 0 0 3px rgba(96,197,227,.3)}
-  form .btn{width:100%;margin-top:20px}
-  .fine{font-size:12.5px;color:var(--gris);margin-top:10px;text-align:center}
-  .ticks{margin-top:22px;list-style:none;color:var(--navy);font-weight:700;display:grid;gap:10px}
-  .loc{display:grid;grid-template-columns:1fr 1fr;gap:34px;align-items:stretch}
-  .box{background:var(--navy);color:#fff;border-radius:24px;padding:34px}
-  .box h2{color:#fff}
-  .box ul{list-style:none;margin:18px 0 24px}
-  .box li{padding:9px 0;border-bottom:1px solid rgba(255,255,255,.16);font-size:17px}
-  .box li b{color:var(--aqua)}
-  .mapbox{border-radius:24px;background:linear-gradient(160deg,#e3f5fb,#fff);border:1px solid #cfe6f1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:30px;gap:14px;min-height:300px}
-  .mapbox img{width:230px}
-  .mapbox p{color:var(--navy);font-weight:700;font-size:17px}
-  footer{background:var(--navy2);color:#aebde0;padding:34px 0;font-size:13.5px;text-align:center}
-  footer b{color:#fff}
-  .fab{position:fixed;right:18px;bottom:18px;z-index:40;background:var(--aqua);color:var(--navy2);border:none;border-radius:999px;padding:14px 20px;font-weight:800;font-size:15px;box-shadow:0 12px 30px rgba(0,0,0,.3);cursor:pointer}
-  .chat{position:fixed;right:18px;bottom:80px;width:340px;max-width:calc(100vw - 36px);background:#fff;border-radius:18px;box-shadow:0 18px 50px rgba(0,0,0,.35);z-index:40;overflow:hidden;display:none;flex-direction:column}
+  .demo-btns a{display:inline-flex;align-items:center;min-height:34px;padding:0 14px;border-radius:999px;font-size:13px;font-weight:600;background:var(--aqua);color:var(--deep)}
+  .demo-btns a+a{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.5)}
+  .prop-fab{position:fixed;left:22px;bottom:22px;z-index:60;display:flex;align-items:center;background:var(--navy);color:#fff;border-radius:999px;padding:15px 20px;font-weight:700;font-size:15px;box-shadow:0 18px 44px rgba(0,0,0,.35);opacity:0;visibility:hidden;transition:.25s}
+  .prop-fab.show{opacity:1;visibility:visible}
+  @media(min-width:981px){.demo{display:flex;align-items:center;justify-content:center;gap:14px}.demo-btns{margin-top:0;flex-wrap:nowrap}}
+
+  /* header */
+  header{position:fixed;top:var(--demo-h,30px);left:0;right:0;z-index:50;transition:.35s}
+  header.solid{top:0;background:rgba(255,255,255,.92);backdrop-filter:blur(14px);box-shadow:0 1px 0 var(--line),0 10px 30px rgba(15,19,48,.06)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:82px}
+  .brand{display:flex;align-items:center;gap:12px;color:#fff;transition:.3s}
+  .brand img{height:42px;width:auto}
+  .brand .b2{display:none}
+  .brand span{font-family:var(--serif);font-size:21px;font-weight:600;line-height:1.05;letter-spacing:.2px}
+  .brand small{display:block;font-family:var(--sans);font-size:10.5px;letter-spacing:2.2px;text-transform:uppercase;color:var(--aqua);font-weight:600;margin-top:4px}
+  header.solid .brand{color:var(--navy)}
+  header.solid .brand .b1{display:none}header.solid .brand .b2{display:block}
+  header.solid .brand small{color:var(--aqua2)}
+  nav ul{display:flex;gap:34px;list-style:none;font-size:14.5px;font-weight:500;color:#dbe6f7}
+  header.solid nav ul{color:var(--navy)}
+  nav a{position:relative;padding:6px 0}
+  nav a:after{content:"";position:absolute;left:0;bottom:0;height:2px;width:0;background:var(--aqua);transition:.3s}
+  nav a:hover:after{width:100%}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;border-radius:999px;padding:15px 30px;font-weight:600;font-size:15.5px;border:1.5px solid transparent;cursor:pointer;transition:.25s;font-family:var(--sans);white-space:nowrap}
+  .btn svg{font-size:18px}
+  .btn-aq{background:linear-gradient(135deg,#7fd6ee,var(--aqua) 55%,var(--aqua2));color:var(--deep);box-shadow:0 10px 30px rgba(96,197,227,.35)}
+  .btn-aq:hover{transform:translateY(-2px);box-shadow:0 16px 40px rgba(96,197,227,.5)}
+  .btn-ghost{background:rgba(255,255,255,.06);color:#fff;border-color:rgba(255,255,255,.35);backdrop-filter:blur(6px)}
+  .btn-ghost:hover{background:rgba(255,255,255,.14)}
+  .btn-nv{background:var(--navy);color:#fff;box-shadow:0 10px 28px rgba(38,45,97,.28)}
+  .btn-nv:hover{background:var(--deep);transform:translateY(-2px)}
+  header .btn{padding:11px 22px;font-size:14px}
+
+  /* hero */
+  .hero{position:relative;background:var(--deep);color:#fff;overflow:hidden;padding:190px 0 150px;isolation:isolate}
+  .hero:before{content:"";position:absolute;inset:0;z-index:-2;background:
+     radial-gradient(900px 600px at 82% 18%,rgba(96,197,227,.30),transparent 62%),
+     radial-gradient(700px 520px at 8% 90%,rgba(58,70,160,.55),transparent 65%),
+     linear-gradient(160deg,#0f1330 0%,#1a2152 55%,#262d61 100%)}
+  .hero:after{content:"";position:absolute;inset:0;z-index:-1;opacity:.5;background-image:radial-gradient(rgba(255,255,255,.14) 1px,transparent 1.2px);background-size:30px 30px;-webkit-mask-image:radial-gradient(70% 70% at 70% 40%,#000,transparent);mask-image:radial-gradient(70% 70% at 70% 40%,#000,transparent)}
+  .waves{position:absolute;left:0;right:0;bottom:-2px;width:100%;height:120px;z-index:0}
+  .hero-in{display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:center;position:relative;z-index:2}
+  .eyebrow{display:inline-flex;align-items:center;gap:10px;padding:8px 16px 8px 12px;border-radius:999px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);backdrop-filter:blur(8px);font-size:12.5px;letter-spacing:1.4px;text-transform:uppercase;font-weight:600;color:#cfe9f5}
+  .eyebrow i{width:8px;height:8px;border-radius:50%;background:var(--aqua);box-shadow:0 0 0 4px rgba(96,197,227,.25)}
+  h1{font-family:var(--serif);font-weight:600;font-size:clamp(40px,5.6vw,72px);line-height:1.04;letter-spacing:-1.2px;margin:26px 0 24px}
+  h1 em{font-style:italic;font-weight:500;padding-right:.14em;background:linear-gradient(100deg,#9be0f3,var(--aqua) 50%,#e9d8b4);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .lead{font-size:19px;line-height:1.7;color:#c4d3ec;max-width:540px}
+  .cta{display:flex;gap:14px;flex-wrap:wrap;margin:36px 0 34px}
+  .proof{display:flex;align-items:center;gap:16px;color:#c4d3ec;font-size:14.5px}
+  .avatars{display:flex}
+  .avatars b{width:38px;height:38px;border-radius:50%;border:2px solid #1a2152;background:linear-gradient(135deg,#7fd6ee,#35a8cf);display:flex;align-items:center;justify-content:center;font-size:13px;color:var(--deep);margin-left:-10px}
+  .avatars b:first-child{margin-left:0}.avatars b:nth-child(2){background:linear-gradient(135deg,#e9d8b4,#d9bf8c)}.avatars b:nth-child(3){background:linear-gradient(135deg,#a6b2ff,#6b78d6)}
+  .stars{color:#ffd166;letter-spacing:2px;font-size:15px}
+  .proof strong{color:#fff}
+
+  .stage{position:relative;height:520px;display:flex;align-items:center;justify-content:center}
+  .orb{position:relative;width:420px;height:420px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+     background:radial-gradient(circle at 35% 30%,rgba(255,255,255,.22),rgba(255,255,255,.04) 60%),rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.18);box-shadow:inset 0 0 80px rgba(96,197,227,.12),0 40px 90px rgba(0,0,0,.35)}
+  .orb img{width:74%;filter:drop-shadow(0 18px 40px rgba(96,197,227,.35));animation:float 6s ease-in-out infinite}
+  .ring{position:absolute;inset:-34px;border-radius:50%;border:1px dashed rgba(96,197,227,.45);animation:spin 40s linear infinite}
+  .ring2{inset:-74px;border-color:rgba(255,255,255,.14);animation-duration:70s;animation-direction:reverse}
+  .ring:before{content:"";position:absolute;top:-6px;left:50%;width:12px;height:12px;border-radius:50%;background:var(--aqua);box-shadow:0 0 18px var(--aqua)}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  @keyframes float{50%{transform:translateY(-12px)}}
+  .glass{position:absolute;display:flex;align-items:center;gap:12px;padding:14px 18px;border-radius:18px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.22);backdrop-filter:blur(14px);box-shadow:0 20px 50px rgba(0,0,0,.3);font-size:13px;color:#d6e4f7;animation:float 7s ease-in-out infinite}
+  .glass b{display:block;color:#fff;font-size:15px;font-weight:600}
+  .glass .ico{width:40px;height:40px;border-radius:12px;background:rgba(96,197,227,.2);display:flex;align-items:center;justify-content:center;color:var(--aqua);font-size:20px}
+  .g1{left:-24px;top:50px}.g2{right:-18px;top:170px;animation-delay:-2s}.g3{left:10px;bottom:36px;animation-delay:-4s}
+
+  /* marquee */
+  .strip{background:var(--navy);color:#cfe3f5;overflow:hidden;position:relative;z-index:3}
+  .strip-in{display:flex;gap:56px;padding:20px 0;white-space:nowrap;width:max-content;animation:marq 38s linear infinite;font-family:var(--serif);font-size:19px;font-style:italic}
+  .strip-in span{display:inline-flex;align-items:center;gap:56px}
+  .strip-in span:after{content:"✦";color:var(--aqua);font-style:normal;font-size:13px}
+  @keyframes marq{to{transform:translateX(-50%)}}
+
+  /* stats */
+  .stats{position:relative;margin-top:-1px;background:#fff}
+  .stats-in{display:grid;grid-template-columns:repeat(4,1fr);padding:70px 0 20px}
+  .stat{text-align:center;padding:0 12px;position:relative}
+  .stat+.stat:before{content:"";position:absolute;left:0;top:14%;height:72%;width:1px;background:var(--line)}
+  .stat b{display:block;font-family:var(--serif);font-weight:600;font-size:clamp(40px,4.4vw,58px);color:var(--navy);line-height:1.1;letter-spacing:-1px}
+  .stat b sup{font-size:.45em;color:var(--aqua2);margin-left:2px;vertical-align:super}
+  .stat span{display:block;margin-top:8px;font-size:14px;color:var(--muted)}
+  .stat b span{display:inline;margin:0;font-size:inherit;color:inherit}
+
+  section{padding:110px 0}
+  .tag{display:inline-flex;align-items:center;gap:10px;color:var(--aqua2);font-weight:600;letter-spacing:2.2px;font-size:12px;text-transform:uppercase}
+  .tag:before{content:"";width:28px;height:1.5px;background:var(--aqua2)}
+  h2{font-family:var(--serif);font-weight:600;font-size:clamp(32px,4vw,52px);color:var(--navy);line-height:1.1;letter-spacing:-.8px;margin:16px 0 18px}
+  h2 em{font-style:italic;font-weight:500;color:var(--aqua2)}
+  .sub{color:var(--muted);max-width:620px;font-size:18px}
+  .head{max-width:760px}
+  .head.c{margin:0 auto;text-align:center}.head.c .sub{margin:0 auto}.head.c .tag:after{content:"";width:28px;height:1.5px;background:var(--aqua2)}
+
+  /* bento */
+  .bento{display:grid;grid-template-columns:repeat(6,1fr);gap:20px;margin-top:56px}
+  .bx{position:relative;border-radius:var(--r);padding:34px;background:var(--ice);border:1px solid var(--line);overflow:hidden;transition:.4s cubic-bezier(.2,.7,.2,1)}
+  .bx:hover{transform:translateY(-6px);box-shadow:0 30px 60px rgba(38,45,97,.14);border-color:#cfe6f0}
+  .bx .n{position:absolute;right:26px;top:20px;font-family:var(--serif);font-size:54px;font-weight:500;color:rgba(38,45,97,.07);line-height:1}
+  .bx .ic{width:54px;height:54px;border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:26px;color:#fff;background:linear-gradient(135deg,var(--navy),#3a47a0);box-shadow:0 12px 26px rgba(38,45,97,.28)}
+  .bx h3{font-family:var(--serif);font-weight:600;font-size:24px;color:var(--navy);margin:22px 0 10px;letter-spacing:-.3px}
+  .bx p{color:var(--muted);font-size:15.5px}
+  .bx.a{grid-column:span 3;grid-row:span 2;background:linear-gradient(160deg,var(--navy),var(--deep));color:#fff;border:none;display:flex;flex-direction:column;justify-content:flex-end;min-height:420px}
+  .bx.a h3{color:#fff;font-size:34px}.bx.a p{color:#c4d3ec;font-size:17px;max-width:420px}
+  .bx.a .ic{background:rgba(96,197,227,.18);color:var(--aqua);box-shadow:none;border:1px solid rgba(96,197,227,.4)}
+  .bx.a .n{color:rgba(255,255,255,.08);font-size:90px}
+  .bx.a:after{content:"";position:absolute;right:-60px;top:-60px;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(96,197,227,.35),transparent 65%)}
+  .bx.a img{position:absolute;right:30px;top:36px;width:150px;opacity:.9;z-index:1}
+  .bx.b,.bx.c{grid-column:span 3}
+  .bx.d,.bx.e,.bx.f{grid-column:span 2}
+  .bx.e{background:linear-gradient(160deg,#e9f7fc,#fff)}
+  .tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+  .tags span{font-size:12.5px;font-weight:500;padding:6px 12px;border-radius:999px;background:#fff;border:1px solid var(--line);color:var(--navy)}
+  .bx.a .tags span{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.18);color:#dbe8fa}
+
+  /* camino */
+  .path{background:linear-gradient(180deg,var(--mist),#fff);position:relative}
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:26px;margin-top:70px;position:relative}
+  .steps:before{content:"";position:absolute;left:12%;right:12%;top:34px;height:2px;background:repeating-linear-gradient(90deg,var(--aqua) 0 8px,transparent 8px 16px)}
+  .step{position:relative;text-align:center;padding:0 10px}
+  .step .dot{width:68px;height:68px;border-radius:50%;margin:0 auto 22px;background:#fff;border:2px solid var(--aqua);display:flex;align-items:center;justify-content:center;font-size:26px;color:var(--navy);box-shadow:0 0 0 8px var(--mist),0 14px 30px rgba(38,45,97,.14);position:relative;z-index:1}
+  .step h3{font-family:var(--serif);font-weight:600;color:var(--navy);font-size:21px;margin-bottom:8px}
+  .step p{color:var(--muted);font-size:15px}
+  .step small{display:block;color:var(--aqua2);font-weight:700;letter-spacing:2px;font-size:11px;margin-bottom:6px}
+
+  /* doctor */
+  .doc{background:var(--deep);color:#fff;position:relative;overflow:hidden;isolation:isolate}
+  .doc:before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(700px 500px at 90% 10%,rgba(96,197,227,.22),transparent 60%),radial-gradient(600px 500px at 0% 100%,rgba(58,70,160,.5),transparent 60%)}
+  .doc-in{display:grid;grid-template-columns:.85fr 1.15fr;gap:70px;align-items:center}
+  .id{position:relative;border-radius:30px;padding:44px 38px;background:linear-gradient(160deg,rgba(255,255,255,.12),rgba(255,255,255,.04));border:1px solid rgba(255,255,255,.18);backdrop-filter:blur(10px);box-shadow:0 40px 80px rgba(0,0,0,.35)}
+  .id .seal{width:120px;height:120px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff,#dff3fa);display:flex;align-items:center;justify-content:center;margin-bottom:26px;box-shadow:0 0 0 6px rgba(96,197,227,.25)}
+  .id .seal img{width:70%}
+  .id h3{font-family:var(--serif);font-size:30px;font-weight:600;line-height:1.15;letter-spacing:-.4px}
+  .id small{display:block;color:var(--aqua);font-weight:600;letter-spacing:1.6px;text-transform:uppercase;font-size:12px;margin:10px 0 0}
+  .doc h2{color:#fff}.doc h2 em{color:var(--aqua)}.doc .sub{color:#b9c8e6}.doc .tag{color:var(--aqua)}.doc .tag:before{background:var(--aqua)}
+  .creds{display:grid;gap:14px;margin-top:32px}
+  .cred{display:flex;gap:16px;align-items:flex-start;padding:18px 20px;border-radius:16px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1)}
+  .cred .ck{width:34px;height:34px;border-radius:10px;background:rgba(96,197,227,.18);color:var(--aqua);display:flex;align-items:center;justify-content:center;font-size:18px}
+  .cred b{display:block;font-weight:600;color:#fff;font-size:16px}
+  .cred span{color:#b9c8e6;font-size:14.5px}
+
+  /* testimonios */
+  .rev{background:var(--ice)}
+  .rev-top{display:flex;align-items:flex-end;justify-content:space-between;gap:30px;flex-wrap:wrap}
+  .score{display:flex;align-items:center;gap:18px;background:#fff;border:1px solid var(--line);border-radius:20px;padding:18px 26px;box-shadow:0 14px 34px rgba(38,45,97,.08)}
+  .score b{font-family:var(--serif);font-size:54px;color:var(--navy);line-height:1;font-weight:600}
+  .score .stars{font-size:18px;display:block}.score span{font-size:13px;color:var(--muted)}
+  .quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:46px}
+  .q{position:relative;background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:36px 30px 30px;box-shadow:0 14px 34px rgba(38,45,97,.07);transition:.4s}
+  .q:hover{transform:translateY(-6px);box-shadow:0 30px 60px rgba(38,45,97,.13)}
+  .q:before{content:"“";position:absolute;right:24px;top:6px;font-family:var(--serif);font-size:110px;line-height:1;color:rgba(96,197,227,.35)}
+  .q p{font-family:var(--serif);font-size:21px;line-height:1.4;color:var(--navy);font-weight:500;margin:12px 0 22px;position:relative}
+  .q footer{display:flex;align-items:center;gap:12px;font-size:13.5px;color:var(--muted)}
+  .q footer i{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,#7fd6ee,#35a8cf);display:flex;align-items:center;justify-content:center;color:var(--deep);font-style:normal;font-weight:700}
+
+  /* faq */
+  .faq-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:70px;align-items:start}
+  details{border-bottom:1px solid var(--line);padding:6px 0}
+  summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:22px 0;font-family:var(--serif);font-size:21px;font-weight:600;color:var(--navy)}
+  summary::-webkit-details-marker{display:none}
+  summary:after{content:"+";width:34px;height:34px;border-radius:50%;border:1.5px solid var(--aqua);display:flex;align-items:center;justify-content:center;font-family:var(--sans);font-size:20px;color:var(--aqua2);transition:.3s;flex:none}
+  details[open] summary:after{content:"–";background:var(--aqua);color:var(--deep)}
+  details p{color:var(--muted);padding:0 54px 24px 0;font-size:16px}
+
+  /* cta final */
+  .book{position:relative;background:var(--deep);color:#fff;overflow:hidden;isolation:isolate}
+  .book:before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(800px 500px at 15% 20%,rgba(96,197,227,.26),transparent 60%),radial-gradient(700px 500px at 100% 100%,rgba(58,70,160,.55),transparent 60%),linear-gradient(160deg,#0f1330,#1a2152)}
+  .book-in{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+  .book h2{color:#fff}.book h2 em{color:var(--aqua)}.book .sub{color:#b9c8e6}.book .tag{color:var(--aqua)}.book .tag:before{background:var(--aqua)}
+  .perks{list-style:none;margin-top:30px;display:grid;gap:14px}
+  .perks li{display:flex;align-items:center;gap:14px;color:#dbe6f7;font-size:16.5px}
+  .perks .ck{width:30px;height:30px;border-radius:50%;background:rgba(96,197,227,.18);color:var(--aqua);display:flex;align-items:center;justify-content:center;font-size:16px}
+  form{background:rgba(255,255,255,.96);color:var(--ink);border-radius:28px;padding:40px;box-shadow:0 50px 100px rgba(0,0,0,.45)}
+  form h3{font-family:var(--serif);font-size:28px;color:var(--navy);font-weight:600;margin-bottom:6px;letter-spacing:-.4px}
+  form .hint{color:var(--muted);font-size:14.5px;margin-bottom:10px}
+  label{display:block;font-weight:600;font-size:13px;letter-spacing:.3px;color:var(--navy);margin:16px 0 7px}
+  input,select{width:100%;padding:14px 16px;border:1.5px solid #d3e0e9;border-radius:14px;font:inherit;font-size:15.5px;background:#fff;color:var(--ink);transition:.2s}
+  input:focus,select:focus{outline:none;border-color:var(--aqua2);box-shadow:0 0 0 4px rgba(96,197,227,.25)}
+  form .btn{width:100%;margin-top:24px;padding:17px;white-space:normal}
+  .book-in>*{min-width:0}
+  .fine{font-size:12.5px;color:var(--muted);margin-top:14px;text-align:center}
+
+  /* ubicacion */
+  .loc-in{display:grid;grid-template-columns:.9fr 1.1fr;gap:26px}
+  .info{border-radius:28px;background:var(--navy);color:#fff;padding:48px;position:relative;overflow:hidden}
+  .info:after{content:"";position:absolute;right:-80px;bottom:-80px;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(96,197,227,.3),transparent 65%)}
+  .info h2{color:#fff;font-size:38px}.info .tag{color:var(--aqua)}.info .tag:before{background:var(--aqua)}
+  .rows{margin:26px 0 30px;display:grid;gap:4px;position:relative;z-index:1}
+  .row{display:flex;gap:16px;padding:16px 0;border-bottom:1px solid rgba(255,255,255,.12)}
+  .row .ic{width:42px;height:42px;border-radius:12px;background:rgba(96,197,227,.16);color:var(--aqua);display:flex;align-items:center;justify-content:center;font-size:20px;flex:none}
+  .row b{display:block;font-size:12px;letter-spacing:1.6px;text-transform:uppercase;color:var(--aqua);font-weight:600}
+  .row span{font-size:16.5px;color:#e6eefb}
+  .map{border-radius:28px;min-height:420px;position:relative;overflow:hidden;background:linear-gradient(160deg,#e3f5fb,#fff);border:1px solid var(--line);display:flex;align-items:center;justify-content:center}
+  .map svg.grid{position:absolute;inset:0;width:100%;height:100%}
+  .pin{position:relative;text-align:center;z-index:2}
+  .pin .pulse{position:absolute;left:50%;top:44px;width:20px;height:20px;border-radius:50%;background:rgba(53,168,207,.5);transform:translate(-50%,-50%);animation:pulse 2.2s infinite}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(53,168,207,.5)}100%{box-shadow:0 0 0 60px rgba(53,168,207,0)}}
+  .pin .head2{width:68px;height:68px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);background:linear-gradient(135deg,var(--navy),#3a47a0);margin:0 auto 16px;display:flex;align-items:center;justify-content:center;box-shadow:0 18px 36px rgba(38,45,97,.35)}
+  .pin .head2 img{transform:rotate(45deg);width:34px}
+  .pin .lab{display:inline-block;background:#fff;border-radius:16px;padding:14px 22px;box-shadow:0 20px 44px rgba(38,45,97,.18);font-weight:600;color:var(--navy)}
+  .pin .lab small{display:block;font-weight:400;color:var(--muted);font-size:13px}
+
+  /* footer */
+  footer.main{background:#090c22;color:#8fa0c8;padding:80px 0 34px;font-size:14.5px}
+  .fgrid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:50px;padding-bottom:50px;border-bottom:1px solid rgba(255,255,255,.1)}
+  .fgrid img{height:62px;margin-bottom:18px}
+  .fgrid h4{color:#fff;font-size:12px;letter-spacing:2px;text-transform:uppercase;margin-bottom:18px;font-weight:600}
+  .fgrid li{list-style:none;margin-bottom:10px}
+  .fgrid a:hover{color:var(--aqua)}
+  .legal{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;padding-top:28px;font-size:12.5px}
+
+  /* chat + sticky */
+  .fab{position:fixed;right:22px;bottom:22px;z-index:60;background:linear-gradient(135deg,#7fd6ee,var(--aqua2));color:var(--deep);border:none;border-radius:999px;padding:15px 22px;font-weight:700;font-size:15px;box-shadow:0 18px 44px rgba(0,0,0,.35);cursor:pointer;display:flex;gap:10px;align-items:center;font-family:var(--sans)}
+  .fab svg{font-size:20px}
+  .chat{position:fixed;right:22px;bottom:86px;width:360px;max-width:calc(100vw - 44px);background:#fff;border-radius:22px;box-shadow:0 30px 80px rgba(0,0,0,.4);z-index:60;overflow:hidden;display:none;flex-direction:column}
   .chat.open{display:flex}
-  .chat-h{background:var(--navy);color:#fff;padding:14px 16px;font-weight:800;display:flex;justify-content:space-between;align-items:center}
-  .chat-h small{display:block;font-weight:500;color:#b5d9ec;font-size:12px}
-  .chat-h button{background:none;border:none;color:#fff;font-size:20px;cursor:pointer}
-  .msgs{padding:14px;height:250px;overflow:auto;background:var(--bg);display:flex;flex-direction:column;gap:8px}
-  .m{max-width:88%;padding:9px 12px;border-radius:14px;font-size:14.5px}
-  .m.bot{background:#fff;border:1px solid #dcecf3;align-self:flex-start}
-  .m.me{background:var(--navy);color:#fff;align-self:flex-end}
-  .quick{display:flex;flex-wrap:wrap;gap:6px;padding:10px 12px;border-top:1px solid #eee}
-  .quick button{background:#fff;border:1.5px solid var(--aqua2);color:var(--navy);border-radius:999px;padding:6px 12px;font-weight:700;font-size:13px;cursor:pointer}
-  .quick button:hover{background:var(--aqua);}
-  @media(max-width:860px){
+  .chat-h{background:linear-gradient(135deg,var(--deep),var(--navy));color:#fff;padding:18px 20px;display:flex;justify-content:space-between;align-items:center;gap:12px}
+  .chat-h .who{display:flex;gap:12px;align-items:center}
+  .chat-h .av{width:40px;height:40px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center}
+  .chat-h .av img{width:26px}
+  .chat-h b{font-family:var(--serif);font-size:16px;font-weight:600;display:block;line-height:1.2}
+  .chat-h small{color:#9fe0a8;font-size:12px;display:flex;align-items:center;gap:6px}
+  .chat-h small:before{content:"";width:7px;height:7px;border-radius:50%;background:#58d68d}
+  .chat-h button{background:none;border:none;color:#fff;font-size:24px;cursor:pointer}
+  .msgs{padding:16px;height:260px;overflow:auto;background:var(--ice);display:flex;flex-direction:column;gap:9px}
+  .m{max-width:86%;padding:10px 14px;border-radius:16px;font-size:14.5px;line-height:1.5}
+  .m.bot{background:#fff;border:1px solid var(--line);align-self:flex-start;border-bottom-left-radius:4px}
+  .m.me{background:var(--navy);color:#fff;align-self:flex-end;border-bottom-right-radius:4px}
+  .quick{display:flex;flex-wrap:wrap;gap:7px;padding:12px 14px;border-top:1px solid #eef2f6}
+  .quick button{background:#fff;border:1.5px solid var(--aqua);color:var(--navy);border-radius:999px;padding:7px 14px;font-weight:600;font-size:13px;cursor:pointer;font-family:var(--sans);transition:.2s}
+  .quick button:hover{background:var(--aqua)}
+  .mbar{display:none}
+
+  @media(max-width:980px){
+    section{padding:76px 0}
     nav ul{display:none}
-    .hero-in,.res,.loc,.team{grid-template-columns:1fr}
-    .hero-in{padding:44px 20px 92px}
-    .heroart{margin-top:10px}
-    .chip.c1{left:0}.chip.c2{right:0}
-    .stats-in{grid-template-columns:repeat(2,1fr);gap:14px}
-    .grid3,.quotes{grid-template-columns:1fr}
-    section{padding:56px 0}
+    .hero{padding:150px 0 110px}
+    .hero-in,.doc-in,.book-in,.faq-grid,.loc-in{grid-template-columns:1fr;gap:44px}
+    .stage{height:440px;order:-1;margin-top:-20px}
+    .orb{width:300px;height:300px}.ring{inset:-24px}.ring2{inset:-52px}
+    .g1{left:0;top:10px}.g2{right:0;top:150px}.g3{left:0;bottom:6px}
+    .stats-in{grid-template-columns:repeat(2,1fr);row-gap:40px}
+    .stat:nth-child(3):before{display:none}
+    .bento{grid-template-columns:1fr}
+    .bx.a,.bx.b,.bx.c,.bx.d,.bx.e,.bx.f{grid-column:auto;grid-row:auto}
+    .bx.a{min-height:340px}
+    .steps{grid-template-columns:1fr 1fr;row-gap:40px}.steps:before{display:none}
+    .quotes{grid-template-columns:1fr}
+    .fgrid{grid-template-columns:1fr}
+    .mbar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:55;gap:10px;padding:10px 14px;background:rgba(255,255,255,.96);backdrop-filter:blur(12px);box-shadow:0 -10px 30px rgba(15,19,48,.12)}
+    .mbar .btn{flex:1;padding:13px 10px;font-size:14.5px}
+    .fab,.prop-fab{bottom:80px}.chat{bottom:144px}
+    header .btn{display:none}
+    footer.main{padding-bottom:90px}
+    .info{padding:34px}
+    form{padding:30px 24px}
   }
+  @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
 </style>
 </head>
 <body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-cal" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8z"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+  <symbol id="i-activity" viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></symbol>
+  <symbol id="i-net" viewBox="0 0 24 24"><circle cx="12" cy="5" r="2.2"/><circle cx="5" cy="19" r="2.2"/><circle cx="19" cy="19" r="2.2"/><path d="M12 7.2v4M12 11.2l-5.4 6M12 11.2l5.4 6"/></symbol>
+  <symbol id="i-heart" viewBox="0 0 24 24"><path d="M19 14c1.5-1.5 3-3.2 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.8 0-3 .5-4.5 2-1.5-1.5-2.7-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4 3 5.5l7 7z"/></symbol>
+  <symbol id="i-zap" viewBox="0 0 24 24"><path d="M13 2 3 14h9l-1 8 10-12h-9z"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+  <symbol id="i-steth" viewBox="0 0 24 24"><path d="M5 3H4a2 2 0 0 0-2 2v4a6 6 0 0 0 12 0V5a2 2 0 0 0-2-2h-1"/><path d="M8 15v1a6 6 0 0 0 12 0v-3"/><circle cx="20" cy="11" r="2"/></symbol>
+  <symbol id="i-award" viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M15.5 13.9 17 22l-5-3-5 3 1.5-8.1"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></symbol>
+  <symbol id="i-send" viewBox="0 0 24 24"><path d="m22 2-7 20-4-9-9-4z"/><path d="M22 2 11 13"/></symbol>
+</svg>
 
 <div class="demo">Propuesta de diseño preparada por Delta Kilo para Ángeles del Valle · Contenido tomado de información pública, se valida con la clínica antes de publicar
   <div class="demo-btns"><a href="propuesta/">Ver la propuesta</a><a href="propuesta/propuesta-angeles-del-valle.pdf" download="Propuesta Ángeles del Valle - Delta Kilo.pdf">Descargar PDF</a></div>
 </div>
 
-<header>
+<header id="hd">
   <div class="wrap nav">
-    <a class="brand" href="#inicio"><img src="assets/icon.png" alt=""><span>Ángeles del Valle<small>Clínica de Rehabilitación</small></span></a>
+    <a class="brand" href="#inicio"><img class="b1" src="assets/icon-white.png" alt=""><img class="b2" src="assets/icon.png" alt=""><span>Ángeles del Valle<small>Clínica de Rehabilitación</small></span></a>
     <nav><ul>
       <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#camino">Tu recuperación</a></li>
       <li><a href="#equipo">Equipo</a></li>
-      <li><a href="#cita">Agendar cita</a></li>
+      <li><a href="#opiniones">Opiniones</a></li>
       <li><a href="#ubicacion">Ubicación</a></li>
     </ul></nav>
-    <a class="btn btn-aq" href="#cita" style="padding:10px 20px;font-size:15px">Agendar cita</a>
+    <a class="btn btn-aq" href="#cita"><svg class="i"><use href="#i-cal"/></svg>Agendar cita</a>
   </div>
 </header>
 
@@ -148,143 +340,178 @@
 <div class="hero">
   <div class="wrap hero-in">
     <div>
-      <span class="kicker">Clínica de rehabilitación · Tepic, Nayarit</span>
-      <h1>Alivia el dolor. <em>Recupera tu calidad de vida.</em></h1>
-      <p class="lead">Rehabilitamos física y neurológicamente a nuestros pacientes, con especialistas y fisioterapeutas que te acompañan en cada sesión.</p>
-      <div class="cta">
-        <a class="btn btn-aq" href="#cita">Agendar mi cita</a>
-        <a class="btn btn-out" href="tel:+523112107777">Llamar 311 210 7777</a>
+      <span class="eyebrow rv"><i></i>Rehabilitación · Tepic, Nayarit</span>
+      <h1 class="rv d1">Alivia el dolor.<br><em>Recupera tu calidad de vida.</em></h1>
+      <p class="lead rv d2">Rehabilitamos física y neurológicamente a nuestros pacientes, con un médico especialista y un equipo de fisioterapeutas que te acompañan en cada sesión.</p>
+      <div class="cta rv d3">
+        <a class="btn btn-aq" href="#cita"><svg class="i"><use href="#i-cal"/></svg>Agendar mi valoración</a>
+        <a class="btn btn-ghost" href="tel:+523112107777"><svg class="i"><use href="#i-phone"/></svg>311 210 7777</a>
       </div>
-      <div class="rating"><span class="stars">★★★★★</span><span><b>4.7</b> en Google · 197 reseñas de pacientes</span></div>
+      <div class="proof rv d4">
+        <div class="avatars"><b>★</b><b>★</b><b>★</b></div>
+        <div><span class="stars">★★★★★</span><br><strong>4.7 en Google</strong> · 197 reseñas de pacientes</div>
+      </div>
     </div>
-    <div class="heroart">
-      <div class="logocard"><img src="assets/logo-crop.png" alt="Logo Ángeles del Valle"></div>
-      <div class="chip c1">🗓️ Cita por WhatsApp</div>
-      <div class="chip c2">🕖 Lun a sáb · 7:00 a 22:30</div>
+    <div class="stage rv d2">
+      <div class="orb"><div class="ring"></div><div class="ring ring2"></div><img src="assets/icon-white.png" alt="Ángeles del Valle"></div>
+      <div class="glass g1"><div class="ico"><svg class="i"><use href="#i-chat"/></svg></div><div><b>Cita por WhatsApp</b>Respuesta al momento</div></div>
+      <div class="glass g2"><div class="ico"><svg class="i"><use href="#i-clock"/></svg></div><div><b>Lun a sáb</b>7:00 a 22:30 h</div></div>
+      <div class="glass g3"><div class="ico"><svg class="i"><use href="#i-award"/></svg></div><div><b>Médico especialista</b>en rehabilitación</div></div>
     </div>
   </div>
+  <svg class="waves" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true"><path d="M0 70c180-50 360-50 540-10s360 60 540 20 270-40 360-20v80H0z" fill="rgba(96,197,227,.14)"/><path d="M0 95c200-40 380-30 560 0s340 30 520-5 260-25 360-10v40H0z" fill="#fff"/></svg>
 </div>
 
-<div class="wrap stats">
-  <div class="stats-in">
-    <div class="stat"><b>4.7 ★</b><span>Calificación en Google</span></div>
-    <div class="stat"><b>197</b><span>Reseñas de pacientes</span></div>
-    <div class="stat"><b>5.5 mil</b><span>Seguidores en Facebook</span></div>
-    <div class="stat"><b>7 a 22:30</b><span>Lunes a sábado</span></div>
-  </div>
-</div>
+<div class="strip" aria-hidden="true"><div class="strip-in">
+  <span>Rehabilitación física</span><span>Rehabilitación neurológica</span><span>Manejo del dolor</span><span>Electrodiagnóstico</span><span>Terapia con fisioterapeutas</span><span>Valoración médica</span>
+  <span>Rehabilitación física</span><span>Rehabilitación neurológica</span><span>Manejo del dolor</span><span>Electrodiagnóstico</span><span>Terapia con fisioterapeutas</span><span>Valoración médica</span>
+</div></div>
+
+<div class="stats"><div class="wrap stats-in">
+  <div class="stat rv"><b><span data-n="4.7" data-d="1">4.7</span><sup>★</sup></b><span>Calificación en Google</span></div>
+  <div class="stat rv d1"><b><span data-n="197">197</span></b><span>Reseñas de pacientes</span></div>
+  <div class="stat rv d2"><b><span data-n="5.5" data-d="1">5.5</span><sup>mil</sup></b><span>Seguidores en Facebook</span></div>
+  <div class="stat rv d3"><b>6<sup>días</sup></b><span>De atención a la semana</span></div>
+</div></div>
 
 <section id="servicios">
   <div class="wrap">
-    <span class="tag">Qué hacemos</span>
-    <h2>Rehabilitación para volver a moverte sin dolor</h2>
-    <p class="sub">Un plan a tu medida, desde la valoración médica hasta tu terapia.</p>
-    <div class="grid3">
-      <div class="card"><div class="ic">🦴</div><h3>Rehabilitación física</h3><p>Terapia para recuperar movilidad, fuerza y función después de una lesión o cirugía.</p></div>
-      <div class="card"><div class="ic">🧠</div><h3>Rehabilitación neurológica</h3><p>Acompañamiento para pacientes con secuelas neurológicas, incluida la recuperación tras un evento vascular cerebral.</p></div>
-      <div class="card"><div class="ic">💙</div><h3>Manejo del dolor</h3><p>Atención del dolor agudo y crónico, como hombro, rodilla y espalda, con enfoque en tu calidad de vida.</p></div>
-      <div class="card"><div class="ic">⚡</div><h3>Electrodiagnóstico</h3><p>Estudios para valorar nervios y músculos y orientar el tratamiento correcto.</p></div>
-      <div class="card"><div class="ic">🏃</div><h3>Terapia con fisioterapeutas</h3><p>Sesiones con un equipo de fisioterapeutas que dan seguimiento a tu avance.</p></div>
-      <div class="card"><div class="ic">🩺</div><h3>Valoración médica</h3><p>Consulta con médico especialista en medicina de rehabilitación para definir tu programa.</p></div>
+    <div class="head rv"><span class="tag">Qué hacemos</span><h2>Rehabilitación para <em>volver a moverte</em> sin dolor</h2><p class="sub">Un plan a tu medida, desde la valoración médica hasta tu última sesión de terapia.</p></div>
+    <div class="bento">
+      <article class="bx a rv"><img src="assets/icon-white.png" alt="" aria-hidden="true"><div class="ic"><svg class="i"><use href="#i-heart"/></svg></div><h3>Manejo del dolor</h3><p>Atención del dolor agudo y crónico con enfoque en tu calidad de vida: lo evaluamos, lo tratamos y te enseñamos a cuidarte para que no vuelva.</p><div class="tags"><span>Hombro</span><span>Rodilla</span><span>Espalda y cuello</span><span>Dolor crónico</span></div></article>
+      <article class="bx b rv d1"><span class="n">02</span><div class="ic"><svg class="i"><use href="#i-activity"/></svg></div><h3>Rehabilitación física</h3><p>Recupera movilidad, fuerza y función después de una lesión o cirugía.</p></article>
+      <article class="bx c rv d2"><span class="n">03</span><div class="ic"><svg class="i"><use href="#i-net"/></svg></div><h3>Rehabilitación neurológica</h3><p>Acompañamiento para secuelas neurológicas, incluida la recuperación tras un evento vascular cerebral.</p></article>
+      <article class="bx d rv"><span class="n">04</span><div class="ic"><svg class="i"><use href="#i-zap"/></svg></div><h3>Electrodiagnóstico</h3><p>Estudios para valorar nervios y músculos y orientar el tratamiento correcto.</p></article>
+      <article class="bx e rv d1"><span class="n">05</span><div class="ic"><svg class="i"><use href="#i-users"/></svg></div><h3>Fisioterapeutas</h3><p>Sesiones con un equipo que da seguimiento puntual a tu avance.</p></article>
+      <article class="bx f rv d2"><span class="n">06</span><div class="ic"><svg class="i"><use href="#i-steth"/></svg></div><h3>Valoración médica</h3><p>Consulta con especialista en medicina de rehabilitación para definir tu programa.</p></article>
     </div>
   </div>
 </section>
 
-<section id="equipo" class="band">
-  <div class="wrap team">
-    <div class="doc">
-      <div class="av"><img src="assets/icon.png" alt=""></div>
-      <h3>Dr. Cristhian Emilio Aguilar Barbosa</h3>
-      <small>Director médico · Medicina de rehabilitación</small>
-      <ul>
-        <li>Especialista en medicina de rehabilitación</li>
-        <li>Alta especialidad en electrodiagnóstico</li>
-        <li>Certified Interventional Pain Sonologist (CIPS), World Institute of Pain</li>
-        <li>Instituto Nacional de Rehabilitación (UNAM)</li>
-      </ul>
-    </div>
-    <div>
-      <span class="tag">Nuestro equipo</span>
-      <h2>Médico especialista y fisioterapeutas a tu lado</h2>
-      <p class="sub">Nuestra misión es aliviar el dolor y rehabilitar física y neurológicamente a nuestros pacientes, con calidez y responsabilidad.</p>
-      <ul class="ticks">
-        <li>✅ Atención personalizada en cada sesión</li>
-        <li>✅ Instalaciones y terapeutas bien valorados por pacientes</li>
-        <li>✅ Excelente ubicación en Ciudad del Valle</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<section>
+<section id="camino" class="path">
   <div class="wrap">
-    <span class="tag">Opiniones de pacientes</span>
-    <h2>La confianza de quienes ya se atendieron</h2>
-    <div class="quotes">
-      <div class="quote"><div class="stars">★★★★★</div><p>“Excelente servicio y gran calidez humana del Dr.”</p><span>Reseña de Google</span></div>
-      <div class="quote"><div class="stars">★★★★★</div><p>“Buenas instalaciones y terapeutas, excelente ubicación”</p><span>Reseña de Google</span></div>
-      <div class="quote"><div class="stars">★★★★★</div><p>“Muy buena atención y revisión por parte del Dr.”</p><span>Reseña de Google</span></div>
+    <div class="head c rv"><span class="tag">Tu recuperación</span><h2>Un camino <em>claro</em>, paso a paso</h2><p class="sub">Desde tu primer mensaje sabes qué sigue y quién te acompaña.</p></div>
+    <div class="steps">
+      <div class="step rv"><div class="dot"><svg class="i"><use href="#i-chat"/></svg></div><small>PASO 1</small><h3>Escríbenos</h3><p>Agenda por WhatsApp, teléfono o desde esta página, a la hora que te acomode.</p></div>
+      <div class="step rv d1"><div class="dot"><svg class="i"><use href="#i-steth"/></svg></div><small>PASO 2</small><h3>Valoración médica</h3><p>El especialista evalúa tu caso y define el diagnóstico y el rumbo del tratamiento.</p></div>
+      <div class="step rv d2"><div class="dot"><svg class="i"><use href="#i-activity"/></svg></div><small>PASO 3</small><h3>Tu plan de terapia</h3><p>Sesiones con fisioterapeutas diseñadas para tu objetivo.</p></div>
+      <div class="step rv d3"><div class="dot"><svg class="i"><use href="#i-shield"/></svg></div><small>PASO 4</small><h3>Seguimiento</h3><p>Revisamos tu avance y te damos las pautas para cuidarte y no recaer.</p></div>
     </div>
   </div>
 </section>
 
-<section id="cita" class="band">
-  <div class="wrap res">
+<section id="equipo" class="doc">
+  <div class="wrap doc-in">
+    <div class="id rv">
+      <div class="seal"><img src="assets/icon.png" alt=""></div>
+      <h3>Dr. Cristhian Emilio Aguilar Barbosa</h3>
+      <small>Director médico</small>
+    </div>
     <div>
+      <div class="rv"><span class="tag">Nuestro equipo</span><h2>Un especialista <em>y un equipo</em> que te acompañan</h2><p class="sub">Nuestra misión es aliviar el dolor y rehabilitar física y neurológicamente a nuestros pacientes, con calidez y responsabilidad.</p></div>
+      <div class="creds">
+        <div class="cred rv d1"><div class="ck"><svg class="i"><use href="#i-award"/></svg></div><div><b>Especialista en medicina de rehabilitación</b><span>Recertificado por el Consejo Mexicano de Rehabilitación</span></div></div>
+        <div class="cred rv d2"><div class="ck"><svg class="i"><use href="#i-zap"/></svg></div><div><b>Alta especialidad en electrodiagnóstico</b><span>Instituto Nacional de Rehabilitación (UNAM)</span></div></div>
+        <div class="cred rv d3"><div class="ck"><svg class="i"><use href="#i-award"/></svg></div><div><b>Certified Interventional Pain Sonologist (CIPS)</b><span>World Institute of Pain</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="opiniones" class="rev">
+  <div class="wrap">
+    <div class="rev-top">
+      <div class="head rv"><span class="tag">Opiniones de pacientes</span><h2>La confianza de quienes <em>ya se atendieron</em></h2></div>
+      <div class="score rv d1"><b>4.7</b><div><span class="stars">★★★★★</span><span>197 reseñas en Google</span></div></div>
+    </div>
+    <div class="quotes">
+      <div class="q rv"><p>Excelente servicio y gran calidez humana del Dr.</p><footer><i>G</i>Reseña de Google</footer></div>
+      <div class="q rv d1"><p>Buenas instalaciones y terapeutas, excelente ubicación.</p><footer><i>G</i>Reseña de Google</footer></div>
+      <div class="q rv d2"><p>Muy buena atención y revisión por parte del Dr.</p><footer><i>G</i>Reseña de Google</footer></div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap faq-grid">
+    <div class="head rv"><span class="tag">Preguntas frecuentes</span><h2>Lo que <em>necesitas saber</em> antes de venir</h2><p class="sub">¿Otra duda? Escríbenos por WhatsApp y te respondemos.</p></div>
+    <div class="rv d1">
+      <details open><summary>¿Cómo agendo mi cita?</summary><p>Puedes llenar el formulario de esta página, escribirnos por WhatsApp o llamar al 311 210 7777. Te confirmamos fecha y hora.</p></details>
+      <details><summary>¿Qué pasa en la primera valoración?</summary><p>Un médico especialista en medicina de rehabilitación revisa tu caso y define el programa de tratamiento y de terapia que más te conviene.</p></details>
+      <details><summary>¿Cuál es el horario de atención?</summary><p>De lunes a sábado, de 7:00 a 22:30 h. Fuera de ese horario puedes dejarnos tu mensaje y te respondemos en cuanto abrimos.</p></details>
+      <details><summary>¿Dónde están ubicados?</summary><p>En Paseo de Viena 111, esquina São Paulo, Fraccionamiento Ciudad del Valle, en Tepic, Nayarit.</p></details>
+      <details><summary>¿Atienden dolor de hombro, rodilla o espalda?</summary><p>Sí. Atendemos dolor agudo y crónico, además de rehabilitación después de una lesión, una cirugía o un evento vascular cerebral.</p></details>
+    </div>
+  </div>
+</section>
+
+<section id="cita" class="book">
+  <div class="wrap book-in">
+    <div class="rv">
       <span class="tag">Agenda tu cita</span>
-      <h2>Reserva tu valoración en menos de un minuto</h2>
-      <p class="sub">Cuéntanos qué te duele y cuándo te acomoda. Nuestro equipo te confirma por WhatsApp.</p>
-      <ul class="ticks">
-        <li>✅ Confirmación por WhatsApp</li>
-        <li>✅ Recordatorio antes de tu cita</li>
-        <li>✅ Atención de mensajes también fuera de horario</li>
+      <h2>Da el primer paso <em>hacia tu recuperación</em></h2>
+      <p class="sub">Cuéntanos qué te gustaría atender y cuándo te acomoda. Nuestro equipo te confirma por WhatsApp.</p>
+      <ul class="perks">
+        <li><span class="ck"><svg class="i"><use href="#i-check"/></svg></span>Confirmación por WhatsApp</li>
+        <li><span class="ck"><svg class="i"><use href="#i-check"/></svg></span>Recordatorio antes de tu cita</li>
+        <li><span class="ck"><svg class="i"><use href="#i-check"/></svg></span>Tus mensajes se atienden también fuera de horario</li>
       </ul>
     </div>
-    <form id="rf">
+    <form id="rf" class="rv d1">
       <h3>Solicitar cita</h3>
-      <label for="n">Nombre</label><input id="n" required placeholder="Tu nombre">
+      <p class="hint">Te respondemos lo antes posible.</p>
+      <label for="n">Nombre</label><input id="n" required placeholder="Tu nombre completo">
       <label for="t">Teléfono</label><input id="t" type="tel" required placeholder="311 000 0000">
       <label for="m">¿Qué te gustaría atender?</label>
       <select id="m"><option>Dolor de rodilla</option><option>Dolor de hombro</option><option>Dolor de espalda o cuello</option><option>Rehabilitación después de una lesión o cirugía</option><option>Rehabilitación neurológica</option><option>Otro motivo</option></select>
       <label for="h">Horario preferido</label>
       <select id="h"><option>Mañana</option><option>Tarde</option><option>Noche</option></select>
-      <button class="btn btn-nv" type="submit">Enviar solicitud por WhatsApp</button>
-      <p class="fine">Se abrirá WhatsApp con tu solicitud lista. No sustituye una consulta médica.</p>
+      <button class="btn btn-aq" type="submit"><svg class="i"><use href="#i-send"/></svg>Enviar solicitud por WhatsApp</button>
+      <p class="fine">Se abrirá WhatsApp con tu solicitud lista. Esta página no sustituye una consulta médica.</p>
     </form>
   </div>
 </section>
 
 <section id="ubicacion">
-  <div class="wrap loc">
-    <div class="box">
-      <span class="tag" style="color:var(--aqua)">Cómo llegar</span>
+  <div class="wrap loc-in">
+    <div class="info rv">
+      <span class="tag">Cómo llegar</span>
       <h2>Estamos en Ciudad del Valle</h2>
-      <ul>
-        <li><b>Dirección:</b> Paseo de Viena 111, esq. São Paulo, Fracc. Ciudad del Valle, Tepic, Nayarit, C.P. 63157</li>
-        <li><b>Teléfono:</b> 311 210 7777</li>
-        <li><b>Horario:</b> lunes a sábado, de 7:00 a 22:30</li>
-      </ul>
-      <a class="btn btn-aq" href="https://www.google.com/maps/search/?api=1&query=Angeles+del+Valle+Clinica+de+Rehabilitacion+Tepic" target="_blank" rel="noopener">Abrir en Google Maps</a>
+      <div class="rows">
+        <div class="row"><div class="ic"><svg class="i"><use href="#i-pin"/></svg></div><div><b>Dirección</b><span>Paseo de Viena 111, esq. São Paulo, Fracc. Ciudad del Valle, Tepic, Nay. 63157</span></div></div>
+        <div class="row"><div class="ic"><svg class="i"><use href="#i-phone"/></svg></div><div><b>Teléfono</b><span>311 210 7777</span></div></div>
+        <div class="row"><div class="ic"><svg class="i"><use href="#i-clock"/></svg></div><div><b>Horario</b><span>Lunes a sábado · 7:00 a 22:30 h</span></div></div>
+      </div>
+      <a class="btn btn-aq" style="position:relative;z-index:1" href="https://www.google.com/maps/search/?api=1&query=Angeles+del+Valle+Clinica+de+Rehabilitacion+Tepic" target="_blank" rel="noopener"><svg class="i"><use href="#i-pin"/></svg>Abrir en Google Maps</a>
     </div>
-    <div class="mapbox">
-      <img src="assets/logo-crop.png" alt="Ángeles del Valle">
-      <p>Paseo de Viena 111, Ciudad del Valle</p>
+    <div class="map rv d1">
+      <svg class="grid" viewBox="0 0 600 420" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <g stroke="#cfe3ec" stroke-width="10" fill="none" stroke-linecap="round"><path d="M-20 300 C 150 250, 250 330, 420 240 S 560 120, 640 150"/><path d="M120 -20 C 160 120, 120 220, 200 440"/><path d="M-20 120 C 120 140, 300 60, 640 300"/><path d="M380 -20 C 360 140, 460 250, 430 440"/></g>
+        <g stroke="#e3eef4" stroke-width="5" fill="none"><path d="M0 200H600M0 350H600M60 0V420M300 0V420M520 0V420"/></g>
+      </svg>
+      <div class="pin"><span class="pulse"></span><div class="head2"><img src="assets/icon-white.png" alt=""></div><div class="lab">Ángeles del Valle<small>Paseo de Viena 111</small></div></div>
     </div>
   </div>
 </section>
 </main>
 
-<footer>
+<footer class="main">
   <div class="wrap">
-    <p><b>Ángeles del Valle Clínica de Rehabilitación</b> · Tepic, Nayarit</p>
-    <p style="margin-top:6px">Aviso de publicidad COFEPRIS 2318012002A00012 · Página creada por Delta Kilo</p>
+    <div class="fgrid">
+      <div><img src="assets/logo-white.png" alt="Ángeles del Valle Clínica de Rehabilitación"><p>Aliviar el dolor, rehabilitando física y neurológicamente a nuestros pacientes.</p></div>
+      <div><h4>Navegación</h4><ul><li><a href="#servicios">Servicios</a></li><li><a href="#camino">Tu recuperación</a></li><li><a href="#equipo">Equipo</a></li><li><a href="#faq">Preguntas frecuentes</a></li></ul></div>
+      <div><h4>Contacto</h4><ul><li><a href="tel:+523112107777">311 210 7777</a></li><li>Paseo de Viena 111, Ciudad del Valle</li><li>Tepic, Nayarit</li><li>Lunes a sábado · 7:00 a 22:30</li></ul></div>
+    </div>
+    <div class="legal"><span>Aviso de publicidad COFEPRIS 2318012002A00012</span><span>Página creada por Delta Kilo</span></div>
   </div>
 </footer>
 
+<div class="mbar"><a class="btn btn-nv" href="tel:+523112107777"><svg class="i"><use href="#i-phone"/></svg>Llamar</a><a class="btn btn-aq" href="#cita"><svg class="i"><use href="#i-cal"/></svg>Agendar cita</a></div>
+
 <a class="prop-fab" href="propuesta/">📄 Propuesta</a>
-<button class="fab" id="fab" aria-label="Abrir asistente">💬 Pregúntanos</button>
+<button class="fab" id="fab" aria-label="Abrir asistente"><svg class="i"><use href="#i-chat"/></svg>Pregúntanos</button>
 <div class="chat" id="chat" role="dialog" aria-label="Asistente de Ángeles del Valle">
-  <div class="chat-h"><div>Asistente Ángeles del Valle<small>Disponible 24/7 · demostración</small></div><button id="x" aria-label="Cerrar">×</button></div>
+  <div class="chat-h"><div class="who"><div class="av"><img src="assets/icon.png" alt=""></div><div><b>Asistente Ángeles del Valle</b><small>En línea 24/7 · demostración</small></div></div><button id="x" aria-label="Cerrar">×</button></div>
   <div class="msgs" id="msgs"><div class="m bot">¡Hola! 👋 Soy el asistente de Ángeles del Valle. ¿En qué te puedo ayudar?</div></div>
   <div class="quick" id="quick">
     <button data-k="cita">Agendar cita</button>
@@ -294,11 +521,28 @@
 </div>
 
 <script>
+  // el header arranca debajo de la barra de propuesta
+  const dm=document.querySelector('.demo');
+  const onR=()=>document.documentElement.style.setProperty('--demo-h',dm.offsetHeight+'px');onR();addEventListener('resize',onR);
+  // header
+  const hd=document.getElementById('hd');
+  const pf=document.querySelector('.prop-fab');
+  const onS=()=>{hd.classList.toggle('solid',window.scrollY>40);pf.classList.toggle('show',window.scrollY>600)};onS();addEventListener('scroll',onS,{passive:true});
+  // aparición al hacer scroll
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+  document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+  // contadores
+  const co=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;co.unobserve(e.target);
+    const el=e.target,end=+el.dataset.n,dec=+(el.dataset.d||0),t0=performance.now();
+    const f=t=>{const p=Math.min((t-t0)/1400,1),v=end*(1-Math.pow(1-p,3));el.textContent=v.toFixed(dec);if(p<1)requestAnimationFrame(f)};requestAnimationFrame(f)}),{threshold:.6});
+  document.querySelectorAll('[data-n]').forEach(el=>co.observe(el));
+  // formulario
   document.getElementById('rf').addEventListener('submit',e=>{
     e.preventDefault();
     const tx='Hola, quiero solicitar una cita.\nNombre: '+n.value+'\nTeléfono: '+t.value+'\nMotivo: '+m.value+'\nHorario preferido: '+h.value;
     window.open('https://wa.me/523112107777?text='+encodeURIComponent(tx),'_blank');
   });
+  // asistente
   const chat=document.getElementById('chat'),msgs=document.getElementById('msgs');
   document.getElementById('fab').onclick=()=>chat.classList.toggle('open');
   document.getElementById('x').onclick=()=>chat.classList.remove('open');
