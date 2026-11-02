@@ -39,7 +39,7 @@
   .demo-btns a{display:inline-flex;align-items:center;min-height:30px;padding:0 12px;border-radius:999px;font-size:12.5px;font-weight:600;background:var(--bronze);color:#1c1204;white-space:nowrap}
   .demo-btns a+a{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.5)}
   .prop-fab{position:fixed;left:22px;bottom:22px;z-index:60;display:flex;align-items:center;background:#fff;color:var(--ink);border:1.5px solid var(--carbon);border-radius:999px;padding:13px 20px;font-weight:700;font-size:15px;box-shadow:0 14px 34px rgba(0,0,0,.25);opacity:0;visibility:hidden;transition:.25s}
-  .prop-fab.show{opacity:1;visibility:visible}
+  .prop-fab.vis{opacity:1;visibility:visible}
 
   header{position:fixed;top:var(--demo-h,30px);left:0;right:0;z-index:50;transition:.25s;background:#fff;box-shadow:0 1px 0 #e8e2d4,0 10px 30px rgba(10,13,18,.12)}
   header.solid{top:0}
@@ -208,9 +208,7 @@
   .row2 b{display:block;font-size:11.5px;letter-spacing:1.8px;text-transform:uppercase;color:var(--bronze);font-weight:600}
   .row2 span{font-size:16.5px;color:#e6ebf4}
   .map{border-radius:28px;min-height:420px;overflow:hidden;background:var(--sand);border:1px solid #e1dac9}
-  .map{position:relative;margin:0}
-  .map img{display:block;width:100%;height:100%;min-height:420px;object-fit:cover}
-  .map figcaption{position:absolute;left:16px;right:16px;bottom:16px;padding:12px 16px;border-radius:12px;background:rgba(10,13,18,.82);color:#fff;font-size:14px;font-weight:500}
+  .map iframe{display:block;width:100%;height:100%;min-height:420px;border:0}
 
   footer.main{background:#000;color:#8a94a6;padding:80px 0 34px;font-size:14.5px}
   .fgrid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:50px;padding-bottom:50px;border-bottom:1px solid #1c222c}
@@ -223,7 +221,7 @@
 
   .fab{opacity:0;visibility:hidden;position:fixed;right:22px;bottom:22px;z-index:60;background:var(--bronze);color:#1c1204;border:none;border-radius:999px;padding:15px 22px;font-weight:700;font-size:15px;box-shadow:0 18px 44px rgba(0,0,0,.4);cursor:pointer;display:flex;gap:10px;align-items:center;font-family:var(--sans)}
   .fab svg{font-size:20px}
-  .fab.show{opacity:1;visibility:visible}
+  .fab.vis{opacity:1;visibility:visible}
   .chat{position:fixed;right:22px;bottom:86px;width:360px;max-width:calc(100vw - 44px);background:#fff;border-radius:22px;box-shadow:0 30px 80px rgba(0,0,0,.45);z-index:60;overflow:hidden;display:none;flex-direction:column}
   .chat.open{display:flex}
   .chat-h{background:var(--carbon);color:#fff;padding:18px 20px;display:flex;justify-content:space-between;align-items:center;gap:12px}
@@ -464,9 +462,9 @@
         <div class="row2"><div class="ic"><svg class="i"><use href="#i-phone"/></svg></div><div><b>Teléfono</b><span>311 204 9237</span></div></div>
         <div class="row2"><div class="ic"><svg class="i"><use href="#i-cal2"/></svg></div><div><b>Visitas</b><span>Con cita, por WhatsApp o teléfono</span></div></div>
       </div>
-      <a class="btn btn-br" style="position:relative;z-index:1" href="https://www.google.com/maps/search/?api=1&query=Seminuevos+Plataforma+automotriz+Tepic" target="_blank" rel="noopener"><svg class="i"><use href="#i-pin"/></svg>Abrir en Google Maps</a>
+      <a class="btn btn-br" style="position:relative;z-index:1" href="https://www.google.com/maps?cid=8849631183975228593" target="_blank" rel="noopener"><svg class="i"><use href="#i-pin"/></svg>Abrir en Google Maps</a>
     </div>
-    <figure class="map rv d1"><img src="assets/agencia.webp" loading="lazy" alt="Patio de Seminuevos Plataforma Automotriz con varios autos y su letrero en la barda"><figcaption>Busca el letrero de Seminuevos Plataforma en la barda.</figcaption></figure>
+    <div class="map rv d1"><iframe title="Mapa de Seminuevos Plataforma Automotriz en Tepic" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4442.619651948422!2d-104.89096432411894!3d21.48196637205728!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x842737ec63d1f643%3A0x7ad034acaa1024b1!2sSeminuevos%20Plataforma%20automotriz!5e1!3m2!1ses!2smx!4v1793585237301!5m2!1ses!2smx" allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
   </div>
 </section>
 </main>
@@ -502,7 +500,7 @@
   const onR=()=>document.documentElement.style.setProperty('--demo-h',dm.offsetHeight+'px');onR();addEventListener('resize',onR);
   const hd=document.getElementById('hd');
   const fb=document.getElementById('fab'),pf=document.querySelector('.prop-fab');
-  const onS=()=>{hd.classList.toggle('solid',window.scrollY>40);fb.classList.toggle('show',window.scrollY>500);pf.classList.toggle('show',window.scrollY>500)};onS();addEventListener('scroll',onS,{passive:true});
+  const onS=()=>{hd.classList.toggle('solid',window.scrollY>40);fb.classList.toggle('vis',window.scrollY>500);pf.classList.toggle('vis',window.scrollY>500)};onS();addEventListener('scroll',onS,{passive:true});
   const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
   document.querySelectorAll('.rv').forEach(el=>io.observe(el));
   // autos de muestra: alimentan el hero y el catálogo
