@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Seminuevos Plataforma Automotriz · Autos seminuevos en Tepic</title>
+<meta name="description" content="Autos seminuevos en Tepic, Nayarit, con un equipo de más de 35 años de experiencia. Explora el catálogo, agenda tu visita y cotiza por WhatsApp.">
+<meta name="robots" content="noindex, nofollow">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Delta Kilo Soluciones">
+<meta property="og:title" content="Propuesta de página web · Plataforma Automotriz × Delta Kilo">
+<meta property="og:description" content="Primera versión de la página de Seminuevos Plataforma Automotriz, preparada por Delta Kilo.">
+<meta property="og:image" content="https://www.deltakilo.com.mx/propuestas/assets/og-image.jpg">
+<meta property="og:url" content="https://propuestas.deltakilo.com.mx/seminuevos-plataforma/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="assets/logo-auto.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --carbon:#0a0d12; --graph:#131820; --steel:#1f2733; --line:#2a3340; --bronze:#f59e1b; --bronze2:#ffc35e; --sand:#f5f2ec; --paper:#fbfaf7;
+    --ink:#11151c; --muted:#5d6675; --lmuted:#98a3b6;
+    --head:"Sora","Inter",system-ui,sans-serif; --sans:"Inter","Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif;
+    --r:22px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;scroll-padding-top:84px}
+  body{font-family:var(--sans);color:var(--ink);background:var(--paper);line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  img{max-width:100%;display:block}
+  a{color:inherit;text-decoration:none}
+  svg.i{width:1em;height:1em;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;flex:none}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 28px}
+  .rv{opacity:0;transform:translateY(12px);transition:opacity .5s ease,transform .5s ease}
+  .rv.in{opacity:1;transform:none}
+  .d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}
+  .demo{display:flex;align-items:center;justify-content:center;gap:14px;background:#000;color:#8e97a8;font-size:12px;padding:6px 14px;letter-spacing:.2px;line-height:1.25}
+  .demo-btns{display:flex;gap:8px;flex:none}
+  .demo-btns a{display:inline-flex;align-items:center;min-height:30px;padding:0 12px;border-radius:999px;font-size:12.5px;font-weight:600;background:var(--bronze);color:#1c1204;white-space:nowrap}
+  .demo-btns a+a{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.5)}
+  .prop-fab{position:fixed;left:22px;bottom:22px;z-index:60;display:flex;align-items:center;background:#fff;color:var(--ink);border:1.5px solid var(--carbon);border-radius:999px;padding:13px 20px;font-weight:700;font-size:15px;box-shadow:0 14px 34px rgba(0,0,0,.25);opacity:0;visibility:hidden;transition:.25s}
+  .prop-fab.show{opacity:1;visibility:visible}
+
+  header{position:fixed;top:var(--demo-h,30px);left:0;right:0;z-index:50;transition:.25s;background:#fff;box-shadow:0 1px 0 #e8e2d4,0 10px 30px rgba(10,13,18,.12)}
+  header.solid{top:0}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:78px}
+  .brand{display:flex;align-items:center}
+  .brand img{height:62px;width:auto}
+  .plate{display:inline-flex;background:#fff;border-radius:14px;padding:8px 12px}
+  nav ul{display:flex;gap:34px;list-style:none;font-size:14.5px;font-weight:500;color:var(--ink)}
+  nav a{position:relative;padding:6px 0}
+  nav a:after{content:"";position:absolute;left:0;bottom:0;height:2px;width:0;background:var(--bronze);transition:.3s}
+  nav a:hover:after{width:100%}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;border-radius:999px;padding:15px 30px;font-weight:600;font-size:15.5px;border:1.5px solid transparent;cursor:pointer;transition:.25s;font-family:var(--sans);white-space:nowrap}
+  .btn svg{font-size:18px}
+  .btn-br{background:var(--bronze);color:#1c1204}
+  .btn-br:hover{background:var(--bronze2)}
+  .btn-gh{background:rgba(255,255,255,.05);color:#fff;border-color:rgba(255,255,255,.28);backdrop-filter:blur(6px)}
+  .btn-gh:hover{background:rgba(255,255,255,.12)}
+  .btn-dk{background:var(--carbon);color:#fff}.btn-dk:hover{background:#000}
+  header .btn{padding:11px 22px;font-size:14px}
+
+  /* hero */
+  .hero{position:relative;background:var(--carbon);color:#fff;overflow:hidden;padding:132px 0 64px;isolation:isolate}
+  .hero:before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(900px 560px at 80% 40%,rgba(245,158,27,.14),transparent 62%),linear-gradient(170deg,#0a0d12 0%,#10151d 60%,#161d28 100%)}
+  .hero-in{display:grid;grid-template-columns:1fr 1.02fr;grid-template-areas:"a s" "b s" "c s";grid-template-rows:auto auto 1fr;column-gap:64px;row-gap:30px}
+  .h-a{grid-area:a}.h-b{grid-area:b}.h-c{grid-area:c}.show{grid-area:s}
+  .eyebrow{font-size:12px;letter-spacing:1.8px;text-transform:uppercase;font-weight:600;color:var(--bronze2)}
+  h1{font-family:var(--head);font-weight:700;font-size:clamp(34px,4.6vw,60px);line-height:1.06;letter-spacing:-1.6px;margin:16px 0 18px}
+  h1 em{font-style:normal;color:var(--bronze)}
+  .lead{font-size:18px;color:#b7c0cf;max-width:520px}
+  .h-b p{font-weight:600;font-size:15px;margin-bottom:12px}
+  .fchips{display:flex;gap:10px;flex-wrap:wrap}
+  .fchips button{min-height:46px;padding:0 22px;border-radius:999px;border:1.5px solid rgba(255,255,255,.28);background:transparent;color:#fff;font:600 15px var(--sans);cursor:pointer;transition:.2s}
+  .fchips button small{font-weight:500;font-size:13px;color:var(--lmuted);margin-left:4px}
+  .fchips button:hover{border-color:var(--bronze)}
+  .fchips button[aria-pressed=true]{background:var(--bronze);border-color:var(--bronze);color:#1c1204}
+  .fchips button[aria-pressed=true] small{color:#5c3b00}
+  .proof{display:flex;gap:34px;flex-wrap:wrap}
+  .proof div{font-size:13px;color:var(--lmuted);line-height:1.35}
+  .proof b{display:block;font-family:var(--head);font-size:24px;color:#fff;font-weight:700;letter-spacing:-.5px}
+  .show{min-width:0;background:var(--graph);border:1px solid var(--line);border-radius:26px;padding:12px;box-shadow:0 40px 90px rgba(0,0,0,.45)}
+  .ph{position:relative;aspect-ratio:1/.72;border-radius:18px;overflow:hidden;background:#0d1118;touch-action:pan-y;user-select:none}
+  .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .35s ease}
+  .ph img.on{opacity:1}
+  .pbtn{position:absolute;top:50%;transform:translateY(-50%);z-index:2;width:46px;height:46px;border:none;border-radius:50%;background:rgba(10,13,18,.72);color:#fff;font-size:20px;display:flex;align-items:center;justify-content:center;cursor:pointer}
+  .pbtn:hover{background:var(--bronze);color:#1c1204}
+  .pbtn.prev{left:12px}.pbtn.prev svg{transform:rotate(180deg)}.pbtn.next{right:12px}
+  .pcount{position:absolute;left:12px;top:12px;z-index:2;padding:6px 12px;border-radius:999px;background:rgba(10,13,18,.72);font-size:13px;font-weight:600}
+  .pang{position:absolute;right:12px;top:12px;z-index:2;min-height:36px;padding:0 14px;border:none;border-radius:999px;background:#fff;color:var(--ink);font:600 13px var(--sans);cursor:pointer}
+  .pang:hover{background:var(--bronze2)}
+  .sinfo{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;padding:16px 8px 14px}
+  .sinfo h2{font-size:23px;line-height:1.15;letter-spacing:-.5px;color:#fff;margin:0}
+  .sinfo span{display:block;margin-top:4px;font-size:13.5px;color:var(--lmuted)}
+  .sprice{text-align:right;flex:none;font-family:var(--head);font-weight:700;font-size:20px;color:var(--bronze2);line-height:1.2}
+  .sprice span{font-family:var(--sans);font-weight:500;font-size:12px;margin-top:3px}
+  .sprice.q{font-family:var(--sans);font-weight:600;font-size:14px}
+  .scta{display:grid;grid-template-columns:1.35fr 1fr;gap:10px;padding:0 8px}
+  .scta .btn{padding:14px 12px;font-size:15px}
+  .thumbs{display:flex;gap:8px;padding:14px 8px 6px;overflow-x:auto;scrollbar-width:none}
+  .thumbs::-webkit-scrollbar{display:none}
+  .thumbs button{flex:1 0 62px;max-width:96px;padding:0;border:2px solid transparent;border-radius:12px;overflow:hidden;background:none;cursor:pointer;opacity:.6;transition:.2s}
+  .thumbs button:hover{opacity:1}
+  .thumbs button[aria-current=true]{border-color:var(--bronze);opacity:1}
+  .thumbs img{width:100%;aspect-ratio:1;object-fit:cover}
+  :focus-visible{outline:3px solid var(--bronze2);outline-offset:2px}
+
+  section{padding:110px 0}
+  .tag{display:inline-flex;align-items:center;gap:10px;color:#b96b00;font-weight:700;letter-spacing:2.6px;font-size:12px;text-transform:uppercase}
+  .tag:before{content:"";width:28px;height:2px;background:var(--bronze)}
+  h2{font-family:var(--head);font-weight:700;font-size:clamp(30px,3.8vw,48px);line-height:1.1;letter-spacing:-1.2px;margin:16px 0 16px;color:var(--ink)}
+  h2 em{font-style:normal;color:#b96b00}
+  .sub{color:var(--muted);max-width:620px;font-size:18px}
+  .head.c{text-align:center;margin:0 auto;max-width:760px}.head.c .sub{margin:0 auto}
+  .dark{background:var(--carbon);color:#fff}
+  .dark h2{color:#fff}.dark h2 em{color:var(--bronze)}.dark .sub{color:#aab4c5}.dark .tag{color:var(--bronze)}
+
+  /* catalogo */
+  .cat-top{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap}
+  .chips{display:flex;gap:10px;flex-wrap:wrap}
+  .chips button{font-family:var(--sans);font-weight:600;font-size:14px;padding:10px 20px;border-radius:999px;border:1.5px solid #d9d2c3;background:#fff;color:var(--ink);cursor:pointer;transition:.2s}
+  .chips button:hover{border-color:var(--bronze)}
+  .chips button.on{background:var(--carbon);border-color:var(--carbon);color:#fff}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:46px}
+  .veh{background:#fff;border-radius:var(--r);overflow:hidden;border:1px solid #e8e2d4;box-shadow:0 10px 30px rgba(17,21,28,.06);transition:.4s cubic-bezier(.2,.7,.2,1)}
+  .veh:hover{box-shadow:0 24px 50px rgba(17,21,28,.14)}
+  .veh.more{display:flex;flex-direction:column;justify-content:center;padding:34px;background:var(--carbon);color:#fff;border-color:var(--carbon)}
+  .veh.more h3{font-size:24px;margin-bottom:10px}.veh.more p{color:#aab4c5;margin-bottom:22px}
+  .veh .pic{height:250px;overflow:hidden;background:#0d1118}
+  .veh .pic img{width:100%;height:100%;object-fit:cover;transition:.5s}
+  .veh:hover .pic img{transform:scale(1.03)}
+  .veh .bd{padding:24px 24px 26px}
+  .veh h3{font-family:var(--head);font-size:21px;letter-spacing:-.3px}
+  .veh .specs{display:flex;gap:16px;flex-wrap:wrap;margin:12px 0 18px;color:var(--muted);font-size:13.5px}
+  .veh .specs span{display:inline-flex;align-items:center;gap:6px}
+  .veh .row{display:flex;justify-content:space-between;align-items:center;padding-top:18px;border-top:1px solid #eee8da}
+  .veh .price{font-family:var(--head);font-weight:700;font-size:22px;color:var(--ink)}
+  .veh .price.q{font-family:var(--sans);font-size:15px;font-weight:600}
+  .veh .price small{display:block;font-family:var(--sans);font-weight:500;font-size:12px;color:var(--muted)}
+  .veh .go{width:44px;height:44px;border-radius:50%;background:var(--carbon);color:#fff;display:flex;align-items:center;justify-content:center;font-size:18px;transition:.3s}
+  .veh:hover .go{background:var(--bronze);color:#1c1204}
+  .note{margin-top:26px;text-align:center;color:var(--muted);font-size:14px}
+
+  /* pilares */
+  .pil{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:56px}
+  .pl{position:relative;padding:38px 32px;border-radius:var(--r);background:linear-gradient(170deg,var(--graph),#0e1218);border:1px solid var(--line);overflow:hidden;transition:.4s}
+  .pl:hover{border-color:rgba(245,158,27,.5)}
+  .pl .ic{width:56px;height:56px;border-radius:16px;background:rgba(245,158,27,.14);border:1px solid rgba(245,158,27,.4);color:var(--bronze);display:flex;align-items:center;justify-content:center;font-size:26px}
+  .pl h3{font-family:var(--head);font-size:22px;margin:24px 0 10px;letter-spacing:-.4px}
+  .pl p{color:#aab4c5;font-size:15.5px}
+
+  /* pasos */
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:26px;margin-top:70px;position:relative}
+  .steps:before{content:"";position:absolute;left:12%;right:12%;top:35px;height:2px;background:repeating-linear-gradient(90deg,var(--bronze) 0 8px,transparent 8px 16px)}
+  .step{text-align:center;padding:0 8px;position:relative}
+  .step .dot{width:70px;height:70px;border-radius:50%;margin:0 auto 22px;background:#fff;border:2px solid var(--bronze);display:flex;align-items:center;justify-content:center;font-size:26px;color:var(--ink);box-shadow:0 0 0 9px var(--paper),0 14px 30px rgba(17,21,28,.12);position:relative;z-index:1}
+  .step small{display:block;color:#b96b00;font-weight:700;letter-spacing:2.4px;font-size:11px;margin-bottom:6px}
+  .step h3{font-family:var(--head);font-size:20px;margin-bottom:8px;letter-spacing:-.3px}
+  .step p{color:var(--muted);font-size:15px}
+
+  /* comprar con información */
+  .sure{background:var(--sand)}
+  .chk{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:46px}
+  .ck2{display:flex;gap:14px;padding:24px;background:#fff;border:1px solid #e8e2d4;border-radius:18px}
+  .ck2 svg{font-size:22px;color:#b96b00;margin-top:2px}
+  .ck2 h3{font-family:var(--head);font-size:17px;line-height:1.3;letter-spacing:-.2px;margin-bottom:6px}
+  .ck2 p{color:var(--muted);font-size:14.5px;line-height:1.5}
+  .sell{display:flex;justify-content:space-between;align-items:center;gap:30px;margin-top:22px;padding:34px 38px;background:var(--carbon);color:#fff;border-radius:var(--r)}
+  .sell h3{font-family:var(--head);font-size:24px;letter-spacing:-.4px;margin-bottom:6px}
+  .sell p{color:#aab4c5;font-size:15.5px;max-width:620px}
+
+  /* faq */
+  .faq-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:70px;align-items:start}
+  details{border-bottom:1px solid #2a3340;padding:4px 0}
+  summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:22px 0;font-family:var(--head);font-size:19px;font-weight:600;color:#fff;letter-spacing:-.2px}
+  summary::-webkit-details-marker{display:none}
+  summary:after{content:"+";width:34px;height:34px;border-radius:50%;border:1.5px solid var(--bronze);display:flex;align-items:center;justify-content:center;font-family:var(--sans);font-size:20px;color:var(--bronze);transition:.3s;flex:none}
+  details[open] summary:after{content:"–";background:var(--bronze);color:#1c1204}
+  details p{color:#aab4c5;padding:0 54px 24px 0;font-size:16px}
+
+  /* cotiza */
+  .book{background:linear-gradient(170deg,#f5f2ec,#ece6d8)}
+  .book-in{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+  .perks{list-style:none;margin-top:30px;display:grid;gap:14px}
+  .perks li{display:flex;align-items:center;gap:14px;font-size:16.5px}
+  .perks .ck{width:30px;height:30px;border-radius:50%;background:var(--carbon);color:var(--bronze);display:flex;align-items:center;justify-content:center;font-size:16px}
+  form{background:var(--carbon);color:#fff;border-radius:28px;padding:42px;box-shadow:0 50px 100px rgba(10,13,18,.35);border:1px solid #232c39}
+  form h3{font-family:var(--head);font-size:26px;letter-spacing:-.6px;margin-bottom:6px}
+  form .hint{color:var(--lmuted);font-size:14.5px;margin-bottom:8px}
+  label{display:block;font-weight:600;font-size:12.5px;letter-spacing:.8px;text-transform:uppercase;color:var(--bronze2);margin:16px 0 7px}
+  input,select{width:100%;padding:14px 16px;border:1.5px solid #2c3644;border-radius:14px;font:inherit;font-size:15.5px;background:#10151d;color:#fff;transition:.2s}
+  input::placeholder{color:#677387}
+  input:focus,select:focus{outline:none;border-color:var(--bronze);box-shadow:0 0 0 4px rgba(245,158,27,.2)}
+  form .btn{width:100%;margin-top:26px;padding:17px}
+  label.consent{display:flex;gap:10px;align-items:flex-start;font-weight:400;font-size:13px;line-height:1.45;letter-spacing:0;text-transform:none;color:var(--lmuted);margin:18px 0 0;cursor:pointer}
+  .consent input{width:18px;height:18px;flex:none;margin-top:1px;padding:0;accent-color:var(--bronze)}
+  .consent a{color:var(--bronze2);text-decoration:underline}
+  .fine{font-size:12.5px;color:var(--lmuted);margin-top:14px;text-align:center}
+
+  /* ubicacion */
+  .loc-in{display:grid;grid-template-columns:.9fr 1.1fr;gap:26px}
+  .info{border-radius:28px;background:var(--carbon);color:#fff;padding:48px;position:relative;overflow:hidden}
+  .info:after{content:"";position:absolute;right:-80px;bottom:-80px;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(245,158,27,.28),transparent 65%)}
+  .info h2{color:#fff;font-size:36px}.info .tag{color:var(--bronze)}
+  .rows{margin:26px 0 30px;position:relative;z-index:1}
+  .row2{display:flex;gap:16px;padding:16px 0;border-bottom:1px solid rgba(255,255,255,.1)}
+  .row2 .ic{width:42px;height:42px;border-radius:12px;background:rgba(245,158,27,.14);color:var(--bronze);display:flex;align-items:center;justify-content:center;font-size:20px;flex:none}
+  .row2 b{display:block;font-size:11.5px;letter-spacing:1.8px;text-transform:uppercase;color:var(--bronze);font-weight:600}
+  .row2 span{font-size:16.5px;color:#e6ebf4}
+  .map{border-radius:28px;min-height:420px;overflow:hidden;background:var(--sand);border:1px solid #e1dac9}
+  .map{position:relative;margin:0}
+  .map img{display:block;width:100%;height:100%;min-height:420px;object-fit:cover}
+  .map figcaption{position:absolute;left:16px;right:16px;bottom:16px;padding:12px 16px;border-radius:12px;background:rgba(10,13,18,.82);color:#fff;font-size:14px;font-weight:500}
+
+  footer.main{background:#000;color:#8a94a6;padding:80px 0 34px;font-size:14.5px}
+  .fgrid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:50px;padding-bottom:50px;border-bottom:1px solid #1c222c}
+  .fgrid .brand{margin-bottom:18px}
+  .fgrid h4{color:#fff;font-size:12px;letter-spacing:2px;text-transform:uppercase;margin-bottom:18px;font-weight:600}
+  .fgrid li{list-style:none;margin-bottom:10px}
+  .fgrid a:hover,.legal a:hover{color:var(--bronze)}
+  .legal a{text-decoration:underline}
+  .legal{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;padding-top:28px;font-size:12.5px}
+
+  .fab{opacity:0;visibility:hidden;position:fixed;right:22px;bottom:22px;z-index:60;background:var(--bronze);color:#1c1204;border:none;border-radius:999px;padding:15px 22px;font-weight:700;font-size:15px;box-shadow:0 18px 44px rgba(0,0,0,.4);cursor:pointer;display:flex;gap:10px;align-items:center;font-family:var(--sans)}
+  .fab svg{font-size:20px}
+  .fab.show{opacity:1;visibility:visible}
+  .chat{position:fixed;right:22px;bottom:86px;width:360px;max-width:calc(100vw - 44px);background:#fff;border-radius:22px;box-shadow:0 30px 80px rgba(0,0,0,.45);z-index:60;overflow:hidden;display:none;flex-direction:column}
+  .chat.open{display:flex}
+  .chat-h{background:var(--carbon);color:#fff;padding:18px 20px;display:flex;justify-content:space-between;align-items:center;gap:12px}
+  .chat-h .who{display:flex;gap:12px;align-items:center}
+  .chat-h .av{width:40px;height:40px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center}
+  .chat-h .av img{width:32px}
+  .chat-h b{font-family:var(--head);font-size:15px;font-weight:600;display:block;line-height:1.2}
+  .chat-h small{color:#8de0a5;font-size:12px;display:flex;align-items:center;gap:6px}
+  .chat-h small:before{content:"";width:7px;height:7px;border-radius:50%;background:#58d68d}
+  .chat-h button{background:none;border:none;color:#fff;font-size:24px;cursor:pointer}
+  .msgs{padding:16px;height:260px;overflow:auto;background:#f6f3ec;display:flex;flex-direction:column;gap:9px}
+  .m{max-width:86%;padding:10px 14px;border-radius:16px;font-size:14.5px;line-height:1.5}
+  .m.bot{background:#fff;border:1px solid #e8e2d4;align-self:flex-start;border-bottom-left-radius:4px}
+  .m.me{background:var(--carbon);color:#fff;align-self:flex-end;border-bottom-right-radius:4px}
+  .quick{display:flex;flex-wrap:wrap;gap:7px;padding:12px 14px;border-top:1px solid #eee}
+  .quick button{background:#fff;border:1.5px solid var(--bronze);color:var(--ink);border-radius:999px;padding:7px 14px;font-weight:600;font-size:13px;cursor:pointer;font-family:var(--sans);transition:.2s}
+  .quick button:hover{background:var(--bronze)}
+  .mbar{display:none}
+
+  @media(max-width:980px){
+    section{padding:76px 0}
+    nav ul{display:none}
+    .demo{justify-content:space-between;gap:8px;font-size:11px;padding:6px 12px}.dm-x{display:none}
+    .demo-btns{gap:6px}.demo-btns a{padding:0 10px;font-size:12px}
+    .fab,.prop-fab{bottom:80px}.prop-fab{padding:11px 16px;font-size:14px}
+    .hero{padding:86px 0 56px}
+    .hero-in{grid-template-columns:minmax(0,1fr);grid-template-areas:"a" "b" "s" "c";grid-template-rows:none;row-gap:18px}
+    .lead{display:none}
+    h1{margin:10px 0 0}
+    .h-b p{margin-bottom:8px;font-size:14px}
+    .fchips{gap:8px}.fchips button{min-height:42px;padding:0 16px;font-size:14px}
+    .show{padding:8px;border-radius:20px}.ph{border-radius:14px;aspect-ratio:1/.78}
+    .sinfo{padding:12px 6px 12px}.sinfo h2{font-size:20px}.scta{padding:0 6px}
+    .scta{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px}
+    .scta .btn{font-size:14px;padding:13px 6px;gap:0}.scta .btn svg{display:none}
+    .thumbs{padding:12px 6px 4px}
+    .proof{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.proof b{font-size:17px}
+    .brand img{height:54px}.nav{height:66px}
+    header .btn{display:none}
+    .fab{padding:15px;font-size:0;gap:0}.fab svg{font-size:22px}
+    .book-in,.faq-grid,.loc-in{grid-template-columns:1fr;gap:44px}
+    .grid3,.pil,.chk{grid-template-columns:1fr}
+    .sell{flex-direction:column;align-items:flex-start;padding:28px 24px}.sell .btn{white-space:normal}
+    .steps{grid-template-columns:1fr 1fr;row-gap:40px}.steps:before{display:none}
+    .fgrid{grid-template-columns:1fr}
+    .mbar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:55;gap:10px;padding:10px 14px;background:rgba(10,13,18,.96);backdrop-filter:blur(12px);box-shadow:0 -10px 30px rgba(0,0,0,.4)}
+    .mbar .btn{flex:1;padding:13px 10px;font-size:14.5px}
+    .fab{bottom:80px}.chat{bottom:144px}
+    footer.main{padding-bottom:90px}
+    .info{padding:34px}form{padding:30px 24px}
+  }
+  @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="gb" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ecd29a"/><stop offset="1" stop-color="#e08a0c"/></linearGradient>
+    <linearGradient id="body" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3a4558"/><stop offset=".5" stop-color="#232b38"/><stop offset="1" stop-color="#121720"/></linearGradient>
+    <linearGradient id="glassw" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7f93b3" stop-opacity=".85"/><stop offset="1" stop-color="#1c2535" stop-opacity=".95"/></linearGradient>
+    <symbol id="i-cal" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8z"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></symbol>
+    <symbol id="i-award" viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M15.5 13.9 17 22l-5-3-5 3 1.5-8.1"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></symbol>
+    <symbol id="i-key" viewBox="0 0 24 24"><circle cx="8" cy="15" r="5"/><path d="m11.5 11.5 9-9M16 7l3 3M14 9l2 2"/></symbol>
+    <symbol id="i-send" viewBox="0 0 24 24"><path d="m22 2-7 20-4-9-9-4z"/><path d="M22 2 11 13"/></symbol>
+    <symbol id="i-cal2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
+    <symbol id="i-gauge" viewBox="0 0 24 24"><path d="M12 14l4-4"/><path d="M3.3 17a10 10 0 1 1 17.4 0"/></symbol>
+    <symbol id="i-fuel" viewBox="0 0 24 24"><path d="M3 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18"/><path d="M15 12h2a2 2 0 0 1 2 2v3a2 2 0 0 0 4 0V8l-3-3"/><path d="M3 22h12M6 8h6"/></symbol>
+    <symbol id="i-cog" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09a1.65 1.65 0 0 0 1.51-1 1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33h0a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51h0a1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82v0a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></symbol>
+  </defs>
+</svg>
+
+<div class="demo"><span>Propuesta de diseño de Delta Kilo<span class="dm-x"> · Autos de muestra: precios y disponibilidad se confirman antes de publicar</span></span>
+  <div class="demo-btns"><a href="propuesta/">Ver propuesta</a><a href="propuesta/propuesta-plataforma-automotriz.pdf" download="Propuesta Plataforma Automotriz - Delta Kilo.pdf">Descargar PDF</a></div>
+</div>
+
+<header id="hd">
+  <div class="wrap nav">
+    <a class="brand" href="#inicio"><img src="assets/logo.png" width="640" height="341" alt="Plataforma Automotriz Seminuevos"></a>
+    <nav><ul>
+      <li><a href="#catalogo">Catálogo</a></li>
+      <li><a href="#nosotros">Nosotros</a></li>
+      <li><a href="#comprar">Cómo comprar</a></li>
+      <li><a href="#faq">Preguntas</a></li>
+      <li><a href="#ubicacion">Ubicación</a></li>
+    </ul></nav>
+    <a class="btn btn-br" href="#cotiza"><svg class="i"><use href="#i-cal"/></svg>Agendar visita</a>
+  </div>
+</header>
+
+<main id="inicio">
+<div class="hero">
+  <div class="wrap hero-in">
+    <div class="h-a">
+      <span class="eyebrow">Tepic, Nayarit · Autos seminuevos</span>
+      <h1>Tu próximo auto <em>ya está aquí.</em></h1>
+      <p class="lead">Elige uno, míralo de cerca y pregunta por él directo por WhatsApp. Te atiende un equipo con más de 35 años en autos nuevos y seminuevos.</p>
+    </div>
+    <div class="h-b">
+      <p>¿Qué estás buscando?</p>
+      <div class="fchips" id="fchips" role="group" aria-label="Filtrar por tipo de auto"></div>
+    </div>
+    <div class="h-c proof">
+      <div><b>+35 años</b>de experiencia</div>
+      <div><b>Tepic</b>visita con cita</div>
+      <div><b>Pruébalo</b>antes de decidir</div>
+    </div>
+    <div class="show" id="show" role="group" aria-label="Autos de muestra">
+      <div class="ph" id="ph">
+        <span class="pcount" id="pcount" aria-live="polite"></span>
+        <button class="pang" id="pang" type="button">Ver otro ángulo</button>
+        <button class="pbtn prev" id="pprev" type="button" aria-label="Auto anterior"><svg class="i"><use href="#i-arrow"/></svg></button>
+        <button class="pbtn next" id="pnext" type="button" aria-label="Siguiente auto"><svg class="i"><use href="#i-arrow"/></svg></button>
+      </div>
+      <div class="sinfo">
+        <div><h2 id="sname"></h2><span id="smeta"></span></div>
+        <div class="sprice" id="sprice"></div>
+      </div>
+      <div class="scta">
+        <a class="btn btn-br" id="swa" target="_blank" rel="noopener"><svg class="i"><use href="#i-chat"/></svg>Preguntar por él</a>
+        <a class="btn btn-gh" id="svisit" href="#cotiza"><svg class="i"><use href="#i-cal"/></svg>Agendar visita</a>
+      </div>
+      <div class="thumbs" id="thumbs"></div>
+    </div>
+  </div>
+</div>
+
+<section id="catalogo">
+  <div class="wrap">
+    <div class="cat-top">
+      <div class="head rv"><span class="tag">Catálogo</span><h2>Encuentra el auto que <em>va contigo</em></h2><p class="sub">Cada unidad con fotos, datos claros y un botón directo para preguntar por ella.</p></div>
+      <div class="chips rv d1" id="chips"></div>
+    </div>
+    <div class="grid3" id="grid"></div>
+    <p class="note rv">Autos de muestra tomados de fotos de la agencia. Antes de publicar se carga el inventario completo, con precios y kilometraje.</p>
+  </div>
+</section>
+
+<section id="nosotros" class="dark">
+  <div class="wrap">
+    <div class="head c rv"><span class="tag">Por qué elegirnos</span><h2>La experiencia de quien <em>conoce el mercado</em></h2><p class="sub">Detrás de cada unidad hay un equipo de profesionales con más de 35 años en autos nuevos y seminuevos.</p></div>
+    <div class="pil">
+      <div class="pl rv"><div class="ic"><svg class="i"><use href="#i-award"/></svg></div><h3>Más de 35 años de experiencia</h3><p>Conocemos el mercado de autos nuevos y seminuevos para ayudarte a decidir con información.</p></div>
+      <div class="pl rv d1"><div class="ic"><svg class="i"><use href="#i-shield"/></svg></div><h3>Información clara</h3><p>Fichas completas con fotos y datos de cada unidad, para que sepas qué estás comprando.</p></div>
+      <div class="pl rv d2"><div class="ic"><svg class="i"><use href="#i-users"/></svg></div><h3>Trato personal</h3><p>Un asesor te acompaña desde tu primer mensaje hasta que te llevas tus llaves.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="comprar">
+  <div class="wrap">
+    <div class="head c rv"><span class="tag">Cómo comprar</span><h2>Comprar tu auto, <em>sin vueltas</em></h2><p class="sub">Un proceso simple y transparente, de principio a fin.</p></div>
+    <div class="steps">
+      <div class="step rv"><div class="dot"><svg class="i"><use href="#i-search"/></svg></div><small>PASO 1</small><h3>Explora</h3><p>Revisa el catálogo y elige las unidades que te interesan.</p></div>
+      <div class="step rv d1"><div class="dot"><svg class="i"><use href="#i-chat"/></svg></div><small>PASO 2</small><h3>Escríbenos</h3><p>Pregunta por WhatsApp o por teléfono por el auto que te interesa.</p></div>
+      <div class="step rv d2"><div class="dot"><svg class="i"><use href="#i-cal2"/></svg></div><small>PASO 3</small><h3>Agenda tu visita</h3><p>Ven a conocer la unidad y probarla con calma.</p></div>
+      <div class="step rv d3"><div class="dot"><svg class="i"><use href="#i-key"/></svg></div><small>PASO 4</small><h3>Llévatelo</h3><p>Te asesoramos en el trámite para que salgas con tranquilidad.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sure">
+  <div class="wrap">
+    <div class="head rv"><span class="tag">Compra informado</span><h2>Antes de decidir, <em>pregúntanos todo</em></h2><p class="sub">Un auto usado se elige con información. Estos son los puntos que conviene revisar con tu asesor, auto por auto.</p></div>
+    <div class="chk">
+      <div class="ck2 rv"><svg class="i"><use href="#i-check"/></svg><div><h3>Factura y documentos</h3><p>Pregunta qué papeles tiene y cómo se hace el cambio de propietario.</p></div></div>
+      <div class="ck2 rv d1"><svg class="i"><use href="#i-check"/></svg><div><h3>Adeudos y tenencias</h3><p>Revisa que el auto esté al corriente antes de cerrar el trato.</p></div></div>
+      <div class="ck2 rv d2"><svg class="i"><use href="#i-check"/></svg><div><h3>Servicios y kilometraje</h3><p>Pide el historial de servicios y compáralo con el kilometraje.</p></div></div>
+      <div class="ck2 rv"><svg class="i"><use href="#i-check"/></svg><div><h3>Estado mecánico</h3><p>Pregunta qué se revisó y qué cubre la compra después de la entrega.</p></div></div>
+      <div class="ck2 rv d1"><svg class="i"><use href="#i-check"/></svg><div><h3>Prueba de manejo</h3><p>Agenda tu visita y maneja el auto antes de decidir.</p></div></div>
+      <div class="ck2 rv d2"><svg class="i"><use href="#i-check"/></svg><div><h3>Forma de pago</h3><p>Compara el precio de contado con las opciones de crédito.</p></div></div>
+    </div>
+    <div class="sell rv"><div><h3>¿Ya tienes un auto?</h3><p>Cuéntanos cuál es y te decimos si lo podemos considerar a cuenta del siguiente.</p></div><a class="btn btn-br" id="sellbtn" href="#cotiza">Cuéntanos de tu auto</a></div>
+  </div>
+</section>
+
+<section id="faq" class="dark">
+  <div class="wrap faq-grid">
+    <div class="head rv"><span class="tag">Preguntas frecuentes</span><h2>Lo que <em>conviene saber</em> antes de comprar</h2><p class="sub">¿Otra duda? Escríbenos por WhatsApp y te respondemos.</p></div>
+    <div class="rv d1">
+      <details open><summary>¿Cómo puedo ver un auto?</summary><p>Agenda tu visita desde esta página, por WhatsApp o por teléfono al 311 204 9237 y te confirmamos día y hora.</p></details>
+      <details><summary>¿Puedo cotizar desde mi celular?</summary><p>Sí. Llena el formulario o escríbenos por WhatsApp con el auto que te interesa y un asesor te responde.</p></details>
+      <details><summary>¿Tienen opciones de financiamiento?</summary><p>Dinos en el formulario o por WhatsApp si pagarías de contado o con crédito, y un asesor te explica las opciones para el auto que te interesa.</p></details>
+      <details><summary>¿Puedo dejar mi auto a cuenta?</summary><p>Cuéntanos qué auto tienes, de qué año y con cuántos kilómetros, y un asesor te dice si se puede y cómo se haría.</p></details>
+      <details><summary>¿Dónde están ubicados?</summary><p>En Calle Río Suchiate 122, Villas de la Paz, en Tepic, Nayarit.</p></details>
+      <details><summary>¿Cuánta experiencia tienen?</summary><p>Somos un equipo de profesionales con más de 35 años de experiencia en el área de autos nuevos y seminuevos.</p></details>
+    </div>
+  </div>
+</section>
+
+<section id="cotiza" class="book">
+  <div class="wrap book-in">
+    <div class="rv">
+      <span class="tag">Agenda o cotiza</span>
+      <h2>Cuéntanos qué buscas y <em>te ayudamos a encontrarlo</em></h2>
+      <p class="sub">Dinos qué tipo de auto te interesa y tu presupuesto. Un asesor te contacta por WhatsApp.</p>
+      <ul class="perks">
+        <li><span class="ck"><svg class="i"><use href="#i-check"/></svg></span>Respuesta por WhatsApp</li>
+        <li><span class="ck"><svg class="i"><use href="#i-check"/></svg></span>Agenda tu visita y prueba de manejo</li>
+        <li><span class="ck"><svg class="i"><use href="#i-check"/></svg></span>Dinos si pagarías de contado, con crédito o dejando tu auto a cuenta</li>
+      </ul>
+    </div>
+    <form id="rf" class="rv d1">
+      <h3>Quiero cotizar</h3>
+      <p class="hint" id="picked">Te respondemos lo antes posible.</p>
+      <label for="n">Nombre</label><input id="n" required placeholder="Tu nombre completo">
+      <label for="t">Teléfono</label><input id="t" type="tel" required placeholder="311 000 0000">
+      <label for="m">¿Qué tipo de auto buscas?</label>
+      <select id="m"><option>SUV</option><option>Sedán</option><option>Pickup</option><option>Hatchback</option><option>Aún no lo sé</option></select>
+      <label for="p">Presupuesto aproximado</label>
+      <select id="p"><option>Menos de $150 mil</option><option>$150 mil a $250 mil</option><option>$250 mil a $400 mil</option><option>Más de $400 mil</option><option>Prefiero platicarlo</option></select>
+      <label for="pg">¿Cómo pagarías?</label>
+      <select id="pg"><option>Aún no lo sé</option><option>De contado</option><option>Con crédito</option></select>
+      <label for="ac">¿Tienes un auto para dejar a cuenta?</label>
+      <select id="ac"><option>No</option><option>Sí</option></select>
+      <label class="consent"><input type="checkbox" required><span>Acepto el <a href="aviso-privacidad/" target="_blank" rel="noopener">aviso de privacidad</a> y autorizo el uso de mis datos para atender mi solicitud.</span></label>
+      <button class="btn btn-br" type="submit"><svg class="i"><use href="#i-send"/></svg>Enviar por WhatsApp</button>
+      <p class="fine">Se abrirá WhatsApp con tu solicitud lista para enviar.</p>
+    </form>
+  </div>
+</section>
+
+<section id="ubicacion">
+  <div class="wrap loc-in">
+    <div class="info rv">
+      <span class="tag">Visítanos</span>
+      <h2>Estamos en Tepic</h2>
+      <div class="rows">
+        <div class="row2"><div class="ic"><svg class="i"><use href="#i-pin"/></svg></div><div><b>Dirección</b><span>Calle Río Suchiate 122, Villas de la Paz, Tepic, Nay. 63198</span></div></div>
+        <div class="row2"><div class="ic"><svg class="i"><use href="#i-phone"/></svg></div><div><b>Teléfono</b><span>311 204 9237</span></div></div>
+        <div class="row2"><div class="ic"><svg class="i"><use href="#i-cal2"/></svg></div><div><b>Visitas</b><span>Con cita, por WhatsApp o teléfono</span></div></div>
+      </div>
+      <a class="btn btn-br" style="position:relative;z-index:1" href="https://www.google.com/maps/search/?api=1&query=Seminuevos+Plataforma+automotriz+Tepic" target="_blank" rel="noopener"><svg class="i"><use href="#i-pin"/></svg>Abrir en Google Maps</a>
+    </div>
+    <figure class="map rv d1"><img src="assets/agencia.webp" loading="lazy" alt="Patio de Seminuevos Plataforma Automotriz con varios autos y su letrero en la barda"><figcaption>Busca el letrero de Seminuevos Plataforma en la barda.</figcaption></figure>
+  </div>
+</section>
+</main>
+
+<footer class="main">
+  <div class="wrap">
+    <div class="fgrid">
+      <div><a class="brand plate" href="#inicio"><img src="assets/logo.png" width="640" height="341" alt="Plataforma Automotriz Seminuevos"></a><p>Equipo de profesionales con más de 35 años de experiencia en autos nuevos y seminuevos.</p></div>
+      <div><h4>Navegación</h4><ul><li><a href="#catalogo">Catálogo</a></li><li><a href="#nosotros">Nosotros</a></li><li><a href="#comprar">Cómo comprar</a></li><li><a href="#faq">Preguntas frecuentes</a></li></ul></div>
+      <div><h4>Contacto</h4><ul><li><a href="tel:+523112049237">311 204 9237</a></li><li>Río Suchiate 122, Villas de la Paz</li><li>Tepic, Nayarit</li></ul></div>
+    </div>
+    <div class="legal"><span>© Seminuevos Plataforma Automotriz · <a href="aviso-privacidad/">Aviso de privacidad</a></span><span>Página creada por Delta Kilo</span></div>
+  </div>
+</footer>
+
+<div class="mbar"><a class="btn btn-gh" href="tel:+523112049237"><svg class="i"><use href="#i-phone"/></svg>Llamar</a><a class="btn btn-br" href="#cotiza"><svg class="i"><use href="#i-cal"/></svg>Cotizar</a></div>
+
+<a class="prop-fab" href="propuesta/">Ver la propuesta</a>
+<button class="fab" id="fab" aria-label="Abrir asistente"><svg class="i"><use href="#i-chat"/></svg>Pregúntanos</button>
+<div class="chat" id="chat" role="dialog" aria-label="Asistente de Plataforma Automotriz">
+  <div class="chat-h"><div class="who"><div class="av"><img src="assets/logo-auto.png" alt=""></div><div><b>Asistente Plataforma Automotriz</b><small>Demostración</small></div></div><button id="x" aria-label="Cerrar">×</button></div>
+  <div class="msgs" id="msgs"><div class="m bot">¡Hola! Soy el asistente de Plataforma Automotriz. ¿Buscas algún auto en particular?</div></div>
+  <div class="quick" id="quick">
+    <button data-k="autos">Ver autos</button>
+    <button data-k="visita">Agendar visita</button>
+    <button data-k="cot">Cotizar</button>
+    <button data-k="donde">Ubicación</button>
+  </div>
+</div>
+
+<script>
+  const dm=document.querySelector('.demo');
+  const onR=()=>document.documentElement.style.setProperty('--demo-h',dm.offsetHeight+'px');onR();addEventListener('resize',onR);
+  const hd=document.getElementById('hd');
+  const fb=document.getElementById('fab'),pf=document.querySelector('.prop-fab');
+  const onS=()=>{hd.classList.toggle('solid',window.scrollY>40);fb.classList.toggle('show',window.scrollY>500);pf.classList.toggle('show',window.scrollY>500)};onS();addEventListener('scroll',onS,{passive:true});
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+  document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+  // autos de muestra: alimentan el hero y el catálogo
+  {
+    const WA='https://wa.me/523112049237?text=';
+    const AUTOS=[
+      {id:'kia',n:'Kia Sorento',tipo:'SUV',color:'Blanca',precio:null},
+      {id:'city',n:'Honda City 2025',tipo:'Sedán',color:'Azul',precio:null},
+      {id:'chery',n:'Chery Tiggo',tipo:'SUV',color:'Blanca con techo negro',precio:null},
+      {id:'beat',n:'Chevrolet Beat 2018',tipo:'Sedán',color:'Rojo',precio:'$139,900'},
+      {id:'creta',n:'Hyundai Creta',tipo:'SUV',color:'Roja',precio:null}
+    ];
+    const foto=(a,k)=>'assets/autos/'+a.id+'-'+k+'.webp';
+    const wa=a=>WA+encodeURIComponent('Hola, vi el '+a.n+' en su página. ¿Sigue disponible?');
+    const tipos=['Todos','SUV','Sedán'];
+    const de=t=>t==='Todos'?AUTOS:AUTOS.filter(a=>a.tipo===t);
+    const el=id=>document.getElementById(id);
+    const ph=el('ph'),thumbs=el('thumbs');
+    let lista=AUTOS,i=0,ang=1,vivo=!matchMedia('(prefers-reduced-motion:reduce)').matches;
+
+    function pinta(){
+      const a=lista[i];
+      const img=new Image();
+      img.alt=a.n+', '+a.color.toLowerCase()+', vista '+ang+' de 2';
+      img.onload=()=>{
+        ph.querySelectorAll('img').forEach(v=>{v.classList.remove('on');setTimeout(()=>v.remove(),400)});
+        ph.prepend(img);requestAnimationFrame(()=>requestAnimationFrame(()=>img.classList.add('on')));
+      };
+      img.src=foto(a,ang);
+      el('pcount').textContent=(i+1)+' de '+lista.length;
+      el('sname').textContent=a.n;
+      el('smeta').textContent=a.tipo+' · '+a.color;
+      const sp=el('sprice');
+      sp.className='sprice'+(a.precio?'':' q');
+      sp.innerHTML=a.precio?a.precio+'<span>precio de contado</span>':'Pregunta<br>el precio';
+      el('swa').href=wa(a);
+      [...thumbs.children].forEach((b,k)=>b.setAttribute('aria-current',k===i));
+      const tb=thumbs.children[i];if(tb)thumbs.scrollLeft=tb.offsetLeft-thumbs.offsetLeft-thumbs.clientWidth/2+tb.clientWidth/2;
+    }
+    function ve(k){i=(k+lista.length)%lista.length;ang=1;pinta()}
+    function filtra(t){
+      lista=de(t);i=0;ang=1;
+      thumbs.innerHTML='';
+      lista.forEach((a,k)=>{const b=document.createElement('button');b.type='button';b.setAttribute('aria-label','Ver '+a.n);b.innerHTML='<img src="'+foto(a,1)+'" alt="">';b.onclick=()=>ve(k);thumbs.appendChild(b)});
+      el('fchips').querySelectorAll('button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.t===t));
+      pinta();
+    }
+    el('fchips').innerHTML=tipos.map(t=>'<button type="button" data-t="'+t+'">'+t+' <small>'+de(t).length+'</small></button>').join('');
+    el('fchips').addEventListener('click',e=>{const b=e.target.closest('button');if(b)filtra(b.dataset.t)});
+    el('pprev').onclick=()=>ve(i-1);
+    el('pnext').onclick=()=>ve(i+1);
+    el('pang').onclick=()=>{ang=ang===1?2:1;pinta()};
+    el('show').addEventListener('keydown',e=>{if(e.key==='ArrowLeft')ve(i-1);if(e.key==='ArrowRight')ve(i+1)});
+    // deslizar con el dedo
+    let x0=null;
+    ph.addEventListener('pointerdown',e=>{x0=e.clientX});
+    ph.addEventListener('pointerup',e=>{if(x0===null)return;const d=e.clientX-x0;x0=null;if(Math.abs(d)>40)ve(i+(d<0?1:-1))});
+    ph.addEventListener('pointercancel',()=>{x0=null});
+    // pasa solo hasta que la persona lo toca
+    const para=()=>{vivo=false};
+    ['pointerdown','keydown'].forEach(ev=>el('show').addEventListener(ev,para));
+    el('fchips').addEventListener('pointerdown',para);
+    setInterval(()=>{if(vivo&&!document.hidden&&scrollY<400)ve(i+1)},5000);
+    // agendar con el auto elegido
+    const elige=a=>{window.autoElegido=a.n;el('picked').textContent='Auto de interés: '+a.n;const s=el('m');if([...s.options].some(o=>o.text===a.tipo))s.value=a.tipo};
+    el('svisit').addEventListener('click',()=>elige(lista[i]));
+    el('sellbtn').addEventListener('click',()=>{el('ac').value='Sí'});
+
+    // catálogo
+    function catalogo(t){
+      el('chips').querySelectorAll('button').forEach(b=>b.classList.toggle('on',b.dataset.t===t));
+      el('grid').innerHTML=de(t).map(a=>'<article class="veh"><div class="pic"><img src="'+foto(a,1)+'" loading="lazy" alt="'+a.n+'"></div><div class="bd"><h3>'+a.n+'</h3><div class="specs"><span>'+a.tipo+'</span><span>'+a.color+'</span></div><div class="row"><div class="price'+(a.precio?'':' q')+'">'+(a.precio?a.precio+' <small>Precio de contado</small>':'Pregunta el precio')+'</div><a class="go" href="'+wa(a)+'" target="_blank" rel="noopener" aria-label="Preguntar por '+a.n+' por WhatsApp"><svg class="i"><use href="#i-chat"/></svg></a></div></div></article>').join('')
+        +'<article class="veh more"><h3>¿No ves el que buscas?</h3><p>Cuéntanos qué tipo de auto quieres y tu presupuesto, y te ayudamos a encontrarlo.</p><a class="btn btn-br" href="#cotiza">Decirnos qué busco</a></article>';
+    }
+    el('chips').innerHTML=tipos.map(t=>'<button type="button" data-t="'+t+'">'+t+'</button>').join('');
+    el('chips').addEventListener('click',e=>{const b=e.target.closest('button');if(b)catalogo(b.dataset.t)});
+    filtra('Todos');catalogo('Todos');
+  }
+  document.getElementById('rf').addEventListener('submit',e=>{
+    e.preventDefault();
+    const tx='Hola, quiero cotizar un auto.\nNombre: '+n.value+'\nTeléfono: '+t.value+(window.autoElegido?'\nAuto de interés: '+window.autoElegido:'')+'\nTipo de auto: '+m.value+'\nPresupuesto: '+p.value+'\nForma de pago: '+pg.value+'\nAuto a cuenta: '+ac.value;
+    window.open('https://wa.me/523112049237?text='+encodeURIComponent(tx),'_blank');
+  });
+  const chat=document.getElementById('chat'),msgs=document.getElementById('msgs');
+  document.getElementById('fab').onclick=()=>chat.classList.toggle('open');
+  document.getElementById('x').onclick=()=>chat.classList.remove('open');
+  const R={
+    autos:['Ver autos','Con gusto. Dime qué tipo de auto buscas (SUV, sedán, pickup o hatchback) y tu presupuesto aproximado, y te muestro las opciones que van contigo.'],
+    visita:['Agendar visita','Perfecto. ¿Qué día y a qué hora te acomoda? El equipo recibe tu solicitud y te confirma por WhatsApp.'],
+    cot:['Cotizar','Claro. Cuéntame qué unidad te interesa y un asesor te contacta con la información. Si buscas financiamiento, también lo platicamos.'],
+    donde:['Ubicación','Estamos en Calle Río Suchiate 122, Villas de la Paz, Tepic. Agenda tu visita por WhatsApp o llama al 311 204 9237.']
+  };
+  document.getElementById('quick').addEventListener('click',e=>{
+    const k=e.target.dataset.k;if(!k)return;
+    const a=document.createElement('div');a.className='m me';a.textContent=R[k][0];msgs.appendChild(a);
+    setTimeout(()=>{const b=document.createElement('div');b.className='m bot';b.textContent=R[k][1];msgs.appendChild(b);msgs.scrollTop=msgs.scrollHeight},450);
+    msgs.scrollTop=msgs.scrollHeight;
+  });
+</script>
+</body>
+</html>
