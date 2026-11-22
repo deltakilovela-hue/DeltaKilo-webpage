@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Demo del ecosistema · Ángeles del Valle × Delta Kilo</title>
+<meta name="description" content="Demo interactiva: citas en línea, recordatorios por WhatsApp, agente 24/7, reputación activa, publicación automática y promociones para Ángeles del Valle.">
+<meta name="robots" content="noindex, nofollow">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Delta Kilo Soluciones">
+<meta property="og:title" content="Demo del ecosistema · Ángeles del Valle × Delta Kilo">
+<meta property="og:description" content="Prueba cómo funcionarían las citas, los recordatorios por WhatsApp, el agente 24/7, las reseñas y las publicaciones de la clínica.">
+<meta property="og:image" content="https://www.deltakilo.com.mx/propuestas/assets/og-image.jpg">
+<meta property="og:url" content="https://propuestas.deltakilo.com.mx/angeles-del-valle/demo/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../assets/icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#262d61; --deep:#0f1330; --night:#171c45; --aqua:#60c5e3; --aqua2:#35a8cf; --mist:#eef8fc; --ice:#f6fbfd;
+    --gold:#d9bf8c; --ink:#1a2040; --muted:#5c6580; --line:#e1ecf2; --ok:#1d8a4e; --okbg:#d8f5e3; --warn:#b7791f; --warnbg:#fff1d6;
+    --wa:#008069; --wabg:#efeae2; --waout:#d9fdd3; --walink:#027eb5;
+    --serif:"Fraunces",Georgia,serif; --sans:"Inter","Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--sans);color:var(--ink);background:var(--ice);line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  a{color:inherit;text-decoration:none}
+  button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit}
+  button:disabled{cursor:not-allowed;opacity:.45}
+  img{max-width:100%;display:block}
+  .wrap{max-width:1360px;margin:0 auto;padding:0 20px}
+
+  /* barra superior */
+  .top{position:sticky;top:0;z-index:40;background:var(--deep);color:#fff;box-shadow:0 6px 20px rgba(0,0,0,.25)}
+  .top-in{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:62px;flex-wrap:wrap;padding:8px 0}
+  .brand{display:flex;align-items:center;gap:10px}
+  .brand img{height:36px}
+  .brand b{font-family:var(--serif);font-size:18px;font-weight:600;display:block;line-height:1.1}
+  .brand small{font-size:10.5px;letter-spacing:2px;text-transform:uppercase;color:var(--aqua);font-weight:700}
+  .top-links{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+  .pill{display:inline-flex;align-items:center;gap:6px;min-height:36px;padding:0 14px;border-radius:999px;font-size:13px;font-weight:700}
+  .pill.aq{background:var(--aqua);color:var(--deep)}
+  .pill.gh{border:1.5px solid rgba(255,255,255,.4);color:#fff}
+  .pill.tag{background:rgba(217,191,140,.16);color:var(--gold);min-height:30px;font-size:12px}
+
+  /* intro */
+  .intro{padding:30px 0 10px}
+  .intro h1{font-family:var(--serif);font-size:clamp(28px,4vw,42px);line-height:1.1;color:var(--navy);font-weight:700}
+  .intro h1 em{font-style:normal;color:var(--aqua2)}
+  .intro p{color:var(--muted);max-width:780px;margin-top:10px;font-size:16px}
+  .how{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+  .how span{background:#fff;border:1px solid var(--line);border-radius:999px;padding:6px 12px;font-size:13px;font-weight:600;color:var(--navy)}
+  .how b{color:var(--aqua2)}
+
+  /* KPIs */
+  .kpis{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin:18px 0}
+  .kpi{background:#fff;border:1px solid var(--line);border-radius:16px;padding:12px 14px}
+  .kpi b{display:block;font-size:26px;font-weight:800;color:var(--navy);line-height:1.1}
+  .kpi span{font-size:12px;color:var(--muted);font-weight:600}
+  .kpi.bump{animation:bump .5s ease}
+  @keyframes bump{40%{transform:scale(1.06);border-color:var(--aqua)}}
+
+  /* app */
+  .app{display:grid;grid-template-columns:210px minmax(0,1fr) 340px;gap:18px;align-items:start;padding-bottom:40px}
+  .tabs{display:flex;flex-direction:column;gap:6px;position:sticky;top:80px}
+  .tab{display:flex;align-items:center;gap:10px;text-align:left;padding:12px 14px;border-radius:14px;font-size:14.5px;font-weight:700;color:var(--muted);background:transparent;border:1px solid transparent}
+  .tab .n{flex:none;width:26px;height:26px;border-radius:50%;background:#e6eef5;color:var(--navy);display:flex;align-items:center;justify-content:center;font-size:12.5px}
+  .tab:hover{background:#fff}
+  .tab.on{background:var(--navy);color:#fff}
+  .tab.on .n{background:var(--aqua);color:var(--deep)}
+  .reset{margin-top:10px;font-size:13px;font-weight:700;color:var(--aqua2);padding:8px 14px;text-align:left}
+
+  .panel{display:none}
+  .panel.on{display:block;animation:fade .35s ease}
+  @keyframes fade{from{opacity:0;transform:translateY(8px)}}
+  .ph{margin-bottom:14px}
+  .ph h2{font-family:var(--serif);font-size:26px;color:var(--navy);line-height:1.15}
+  .ph p{color:var(--muted);font-size:15px;margin-top:4px;max-width:720px}
+  .panel{container-type:inline-size}
+  .grid2{display:grid;grid-template-columns:1fr;gap:16px}
+  @container (min-width:700px){.grid2{grid-template-columns:1fr 1fr}}
+  .card{background:#fff;border:1px solid var(--line);border-radius:20px;box-shadow:0 14px 36px rgba(15,19,48,.06);overflow:hidden}
+  .card-h{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 16px;background:var(--navy);color:#fff}
+  .card-h b{font-size:14.5px}
+  .card-h small{font-size:12px;color:#b9c4ea;font-weight:600}
+  .card-b{padding:16px}
+  .who{font-size:11px;letter-spacing:1.6px;font-weight:800;color:var(--aqua2);text-transform:uppercase;margin-bottom:6px}
+  .note{font-size:12.5px;color:var(--muted);margin-top:12px;padding:10px 12px;border-radius:12px;background:var(--mist)}
+  .note b{color:var(--navy)}
+
+  /* booking (vista paciente) */
+  .site-bar{display:flex;align-items:center;gap:6px;padding:9px 12px;background:#e9eff4}
+  .site-bar i{width:9px;height:9px;border-radius:50%;background:#c9d3de;display:block}
+  .site-bar span{margin-left:8px;flex:1;background:#fff;border-radius:10px;font-size:11.5px;font-weight:600;color:var(--muted);padding:4px 10px}
+  .lbl{font-size:12px;font-weight:800;color:var(--muted);margin:12px 0 6px}
+  .chips{display:flex;gap:6px;flex-wrap:wrap}
+  .chip{padding:8px 11px;border-radius:12px;border:1.5px solid var(--line);font-size:13px;font-weight:700;color:var(--navy);background:#fff}
+  .chip.on{background:var(--aqua);border-color:var(--aqua);color:#fff}
+  .chip:disabled{text-decoration:line-through}
+  .inp{width:100%;height:42px;border-radius:12px;border:1.5px solid var(--line);padding:0 12px;font:600 14px var(--sans);color:var(--ink)}
+  .inp:focus{outline:none;border-color:var(--aqua)}
+  .row2{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .chk{display:flex;gap:8px;align-items:flex-start;font-size:12.5px;color:var(--muted);margin-top:10px}
+  .chk input{margin-top:3px;accent-color:var(--aqua2)}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:46px;padding:0 20px;border-radius:999px;font-size:15px;font-weight:800;background:var(--aqua);color:var(--deep);transition:.2s}
+  .btn:hover:not(:disabled){background:#7fd6ee}
+  .btn.nv{background:var(--navy);color:#fff}
+  .btn.nv:hover:not(:disabled){background:#323a7a}
+  .btn.full{width:100%;margin-top:14px}
+  .btn.sm{min-height:38px;font-size:13.5px;padding:0 14px}
+  .ok-box{text-align:center;padding:20px 6px}
+  .ok-box .ic{width:64px;height:64px;border-radius:50%;background:var(--aqua);margin:0 auto 10px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:30px;font-weight:800}
+  .ok-box h3{font-size:20px;color:var(--navy)}
+  .ok-box p{font-size:14px;color:var(--muted)}
+
+  /* calendario */
+  .cal{width:100%;border-collapse:separate;border-spacing:4px;table-layout:fixed}
+  .cal th{font-size:11.5px;font-weight:800;color:var(--muted);padding:2px 0}
+  .cal td.h{font-size:11px;font-weight:700;color:var(--muted);width:46px;text-align:right;padding-right:4px}
+  .cal td.c{height:40px;border-radius:9px;background:#f4f7fa;font-size:10.5px;font-weight:700;color:#a5b1c2;text-align:center;vertical-align:middle;line-height:1.15;padding:2px}
+  .cal td.busy{background:#e9eef4}
+  .cal td.off{background:repeating-linear-gradient(45deg,#f4f7fa 0 6px,#eef2f6 6px 12px)}
+  .cal td.ap{background:var(--aqua);color:#fff;box-shadow:0 0 0 3px rgba(96,197,227,.25)}
+  .cal td.ap.st-Confirmada{background:#34b36b}
+  .cal td.ap.st-Asistió{background:var(--navy)}
+  .cal td.ap.flash{animation:flash 1.2s ease}
+  @keyframes flash{0%{box-shadow:0 0 0 0 rgba(96,197,227,.8)}100%{box-shadow:0 0 0 14px rgba(96,197,227,0)}}
+  .legend{display:flex;gap:12px;flex-wrap:wrap;font-size:11.5px;color:var(--muted);font-weight:600;margin-top:8px}
+  .legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:4px;vertical-align:-1px}
+  .appts{margin-top:10px;display:grid;gap:6px}
+  .appt{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:8px 10px;border:1px solid var(--line);border-radius:12px;font-size:13px}
+  .appt b{color:var(--navy)}
+  .st{padding:3px 9px;border-radius:999px;font-size:11.5px;font-weight:800;white-space:nowrap}
+  .st.Agendada{background:var(--mist);color:var(--aqua2)} .st.Confirmada{background:var(--okbg);color:var(--ok)} .st.Asistió{background:#e3e6f5;color:var(--navy)} .st.Reagendada{background:var(--warnbg);color:var(--warn)}
+
+  .timebar{margin-top:16px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;background:#fff;border:1px dashed var(--aqua);border-radius:16px;padding:12px 14px}
+  .timebar b{font-size:13.5px;color:var(--navy);margin-right:4px}
+  .now{font-size:12.5px;font-weight:700;color:var(--muted);margin-left:auto}
+
+  /* agente */
+  .asks{display:flex;flex-wrap:wrap;gap:8px}
+  .ask{padding:9px 13px;border-radius:14px;background:#fff;border:1.5px solid var(--line);font-size:13.5px;font-weight:600;color:var(--navy);text-align:left}
+  .ask:hover{border-color:var(--aqua)}
+  .switch{display:flex;align-items:center;gap:10px;font-size:13.5px;font-weight:700;color:var(--navy);margin-top:14px}
+  .switch input{width:40px;height:22px;accent-color:var(--navy)}
+  .rules{display:grid;gap:6px;font-size:13.5px}
+  .rules div{display:flex;gap:8px}
+  .rules .y{color:var(--ok);font-weight:800}.rules .x{color:#c0392b;font-weight:800}
+
+  /* reseñas */
+  .pat{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--line)}
+  .pat:last-child{border-bottom:0}
+  .pat .nm{flex:1;min-width:0}
+  .pat .nm b{display:block;font-size:14px;color:var(--navy)}
+  .dots{display:flex;gap:3px;margin-top:4px}
+  .dots i{width:16px;height:8px;border-radius:3px;background:#e3e9f0}
+  .dots i.on{background:var(--aqua)}
+  .gcard .gname{font-size:17px;font-weight:800;color:#202124}
+  .gcard .gsub{font-size:12.5px;color:#5f6368}
+  .rate{display:flex;align-items:center;gap:6px;margin-top:6px;font-size:14px;font-weight:700;color:#202124}
+  .stars{color:#f5b400;letter-spacing:1px}
+  .rank{margin-top:12px;display:grid;gap:6px;position:relative}
+  .rk{display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:12px;background:#f6f8fb;border:1px solid #edf0f4;transition:transform .6s ease}
+  .rk .p{width:24px;height:24px;border-radius:50%;background:#c9d2de;color:#fff;font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center;flex:none}
+  .rk .bar{height:10px;border-radius:5px;background:#d5dce6}
+  .rk.me{background:#fff;border:2px solid var(--aqua)}
+  .rk.me .p{background:var(--navy)}
+  .rv-list{margin-top:12px;display:grid;gap:8px}
+  .rvw{border:1px solid var(--line);border-radius:12px;padding:10px 12px;font-size:13px}
+  .rvw.new{animation:fade .5s ease;border-color:var(--aqua)}
+
+  /* contenido */
+  .plan{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px}
+  .post{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff;display:flex;flex-direction:column}
+  .post .th{position:relative;aspect-ratio:9/14;background:#dfe7ef;cursor:pointer}
+  .post .th img{width:100%;height:100%;object-fit:cover}
+  .post .th:after{content:"▶";position:absolute;left:50%;top:50%;width:34px;height:34px;margin:-17px 0 0 -17px;border-radius:50%;background:rgba(15,19,48,.55);color:#fff;font-size:13px;display:flex;align-items:center;justify-content:center;padding-left:2px}
+  .post .pb{padding:8px;display:flex;flex-direction:column;gap:6px;flex:1}
+  .post .d{font-size:11px;font-weight:800;color:var(--aqua2);text-transform:uppercase;letter-spacing:1px}
+  .post .t{font-size:12.5px;font-weight:700;color:var(--navy);line-height:1.25}
+  .plats{display:flex;gap:3px;flex-wrap:wrap}
+  .pf{font-size:10px;font-weight:800;padding:3px 5px;border-radius:6px;background:#eef2f6;color:#7b879b}
+  .pf.done{background:var(--okbg);color:var(--ok)}
+  .pf.busy{background:var(--mist);color:var(--aqua2)}
+  .appr{font-size:11px;font-weight:800;padding:4px 6px;border-radius:8px;text-align:center}
+  .appr.ok{background:var(--okbg);color:var(--ok)}
+  .appr.wait{background:var(--warnbg);color:var(--warn)}
+  .flow{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
+  .flow span{font-size:12px;font-weight:700;padding:5px 10px;border-radius:999px;background:#fff;border:1px solid var(--line);color:var(--navy)}
+
+  /* promos */
+  .seg{display:flex;align-items:center;gap:10px;padding:10px 12px;border:1.5px solid var(--line);border-radius:14px;margin-bottom:8px;cursor:pointer;font-size:14px;font-weight:700;color:var(--navy)}
+  .seg input{accent-color:var(--aqua2)}
+  .seg small{margin-left:auto;font-size:13px;color:var(--muted)}
+  .seg.on{border-color:var(--aqua);background:var(--mist)}
+  .prev{display:flex;gap:12px;align-items:flex-start}
+  .prev img{width:110px;border-radius:10px;flex:none}
+  .prev p{font-size:13.5px}
+  .ctr{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:14px}
+  .ctr div{background:var(--ice);border:1px solid var(--line);border-radius:12px;padding:10px 6px;text-align:center}
+  .ctr b{display:block;font-size:22px;color:var(--navy)}
+  .ctr span{font-size:11.5px;color:var(--muted);font-weight:700}
+
+  /* lateral: teléfono + bitácora */
+  .side{position:sticky;top:80px;display:grid;gap:14px}
+  .side-h{font-size:11px;letter-spacing:1.6px;font-weight:800;color:var(--muted);text-transform:uppercase;text-align:center}
+  .phone{width:100%;max-width:330px;margin:0 auto;height:610px;border-radius:44px;background:#121630;padding:10px;box-shadow:0 26px 60px rgba(15,19,48,.3)}
+  .scr{position:relative;width:100%;height:100%;border-radius:35px;overflow:hidden;background:var(--wabg);display:flex;flex-direction:column}
+  .sb{height:28px;flex:none;background:var(--wa);color:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 22px;font-size:11.5px;font-weight:800}
+  .sb .notch{width:80px;height:18px;border-radius:10px;background:#121630}
+  .wh{height:54px;flex:none;background:var(--wa);display:flex;align-items:center;gap:9px;padding:0 12px;color:#fff}
+  .wh .av{width:36px;height:36px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;flex:none}
+  .wh .av img{height:28px}
+  .wh b{font-size:14px;display:block;line-height:1.2}
+  .wh small{font-size:10.5px;color:#d3eee7}
+  .msgs{flex:1;overflow-y:auto;padding:8px 9px;display:flex;flex-direction:column;gap:5px;scroll-behavior:smooth}
+  .day{align-self:center;background:#fff;border-radius:8px;padding:3px 10px;font-size:10.5px;font-weight:800;color:#54656f;margin:4px 0}
+  .sys{align-self:center;background:#fff5c4;color:#54656f;border-radius:8px;padding:6px 10px;font-size:11px;text-align:center;max-width:92%}
+  .b{max-width:86%;border-radius:10px;padding:6px 8px 4px;font-size:12.8px;line-height:1.35;box-shadow:0 1px 1px rgba(0,0,0,.07);animation:pop .3s ease;word-wrap:break-word}
+  @keyframes pop{from{opacity:0;transform:translateY(8px) scale(.98)}}
+  .b.in{align-self:flex-start;background:#fff}
+  .b.out{align-self:flex-end;background:var(--waout)}
+  .b .tm{display:block;text-align:right;font-size:9.5px;color:#667781;margin-top:2px}
+  .b .ag{display:inline-block;font-size:9.5px;font-weight:800;color:var(--wa);margin-bottom:2px;letter-spacing:.3px}
+  .b video,.b .map,.b .img{width:100%;border-radius:8px;margin-bottom:5px;display:block}
+  .b .map{height:96px;background:#e7f0e9;position:relative;overflow:hidden}
+  .b .map:before{content:"";position:absolute;left:-10%;right:-10%;top:42%;height:10px;background:#fff;transform:rotate(-4deg)}
+  .b .map:after{content:"";position:absolute;left:46%;top:18%;width:22px;height:22px;border-radius:50% 50% 50% 0;background:#e5484d;transform:rotate(-45deg)}
+  .b .lk{display:block;border-top:1px solid #e9edef;margin-top:5px;padding-top:6px;text-align:center;font-weight:700;color:var(--walink);font-size:12.5px;width:100%}
+  .qr{align-self:flex-start;max-width:86%;display:grid;gap:4px;width:86%}
+  .qr button{background:#fff;border-radius:9px;padding:8px;font-size:12.8px;font-weight:700;color:var(--walink);box-shadow:0 1px 1px rgba(0,0,0,.07)}
+  .qr button:disabled{opacity:.5;text-decoration:none}
+  .typing{align-self:flex-start;background:#fff;border-radius:10px;padding:9px 12px;display:flex;gap:4px}
+  .typing i{width:6px;height:6px;border-radius:50%;background:#8696a0;animation:blink 1s infinite}
+  .typing i:nth-child(2){animation-delay:.2s}.typing i:nth-child(3){animation-delay:.4s}
+  @keyframes blink{50%{opacity:.25}}
+  .wf{flex:none;display:flex;gap:6px;padding:6px 8px 10px}
+  .wf input{flex:1;height:36px;border-radius:18px;border:0;padding:0 14px;font:500 13px var(--sans);min-width:0}
+  .wf input:focus{outline:none}
+  .wf button{width:36px;height:36px;border-radius:50%;background:var(--wa);color:#fff;font-size:15px;flex:none}
+  /* reseña dentro del teléfono */
+  .rvsheet{position:absolute;inset:0;background:#fff;display:none;flex-direction:column;padding:40px 16px 16px;z-index:3}
+  .rvsheet.on{display:flex;animation:fade .3s ease}
+  .rvsheet .x{position:absolute;right:14px;top:34px;font-size:20px;color:#5f6368}
+  .rvsheet .bigst{display:flex;justify-content:center;gap:8px;margin:20px 0 6px}
+  .rvsheet .bigst button{font-size:34px;color:#d9dee6;line-height:1}
+  .rvsheet .bigst button.on{color:#f5b400}
+  .rvsheet textarea{width:100%;min-height:110px;border:2px solid #dadce0;border-radius:10px;padding:10px;font:500 13px var(--sans);resize:none;margin-top:14px}
+  .rvsheet textarea:focus{outline:none;border-color:#1a73e8}
+  .rvsheet .pub{margin-top:auto;height:44px;border-radius:22px;background:#1a73e8;color:#fff;font-weight:800;font-size:14px}
+
+  .log{background:#fff;border:1px solid var(--line);border-radius:18px;padding:12px 14px;max-height:280px;overflow-y:auto}
+  .log h3{font-size:12px;letter-spacing:1.4px;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+  .ev{display:flex;gap:8px;padding:7px 0;border-bottom:1px solid #f0f4f7;font-size:12.8px;animation:fade .35s ease}
+  .ev:last-child{border-bottom:0}
+  .ev .ei{flex:none;width:24px;height:24px;border-radius:8px;background:var(--mist);display:flex;align-items:center;justify-content:center;font-size:12px}
+  .ev.alert .ei{background:#fde8e8}
+  .ev time{display:block;font-size:10.5px;color:var(--muted);font-weight:700}
+  .empty{font-size:12.5px;color:var(--muted)}
+
+  .fab{display:none}
+  dialog{border:0;border-radius:20px;padding:0;background:#000;max-width:min(420px,92vw)}
+  dialog::backdrop{background:rgba(9,12,34,.75)}
+  dialog video{display:block;width:100%;max-height:80vh}
+  dialog button{position:absolute;right:8px;top:8px;width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.9);font-size:18px;font-weight:800}
+  footer{padding:24px 0 40px;color:var(--muted);font-size:12.5px;text-align:center}
+
+  @media(max-width:1180px){
+    .app{grid-template-columns:minmax(0,1fr) 330px}
+    .tabs{grid-column:1/-1;flex-direction:row;overflow-x:auto;position:static;padding-bottom:4px}
+    .tab{flex:none}
+    .reset{flex:none}
+    .kpis{grid-template-columns:repeat(3,1fr)}
+    .plan{grid-template-columns:repeat(3,minmax(0,1fr))}
+  }
+  @media(max-width:860px){
+    .app{grid-template-columns:minmax(0,1fr)}
+    .side{position:static}
+    .kpis{grid-template-columns:repeat(2,1fr)}
+    .fab{display:flex;position:fixed;right:16px;bottom:16px;z-index:50;align-items:center;gap:8px;background:var(--wa);color:#fff;border-radius:999px;padding:12px 16px;font-weight:800;font-size:14px;box-shadow:0 12px 30px rgba(0,0,0,.3)}
+    .fab i{font-style:normal;background:#fff;color:var(--wa);border-radius:999px;min-width:20px;height:20px;font-size:12px;display:none;align-items:center;justify-content:center;padding:0 5px}
+    .fab i.on{display:inline-flex}
+    .plan{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .ctr{grid-template-columns:repeat(2,1fr)}
+    .top-links .gh{display:none}
+  }
+  @media(max-width:420px){.wrap{padding:0 14px}.row2{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<div class="top"><div class="wrap top-in">
+  <a class="brand" href="../"><img src="../assets/icon-white.png" alt=""><div><b>Ángeles del Valle</b><small>Demo del ecosistema</small></div></a>
+  <div class="top-links">
+    <span class="pill tag">Simulación · datos de ejemplo</span>
+    <a class="pill gh" href="../">Ver la página</a>
+    <a class="pill aq" href="../propuesta/">Ver la propuesta</a>
+  </div>
+</div></div>
+
+<div class="wrap intro">
+  <h1>Prueba el ecosistema <em>funcionando</em></h1>
+  <p>Aquí ves las dos caras del sistema: lo que le llega al paciente en su WhatsApp (a la derecha) y lo que ve la clínica en su panel. Es una simulación: nada se envía de verdad y los datos son de ejemplo.</p>
+  <div class="how"><span><b>1.</b> Agenda una cita como paciente</span><span><b>2.</b> Adelanta el tiempo y mira los recordatorios</span><span><b>3.</b> Escríbele al agente en el WhatsApp</span><span><b>4.</b> Recorre las demás pestañas</span></div>
+</div>
+
+<div class="wrap">
+  <div class="kpis">
+    <div class="kpi" id="k-citas"><b>0</b><span>Citas agendadas</span></div>
+    <div class="kpi" id="k-rec"><b>0</b><span>Recordatorios enviados</span></div>
+    <div class="kpi" id="k-agente"><b>0</b><span>Conversaciones del agente</span></div>
+    <div class="kpi" id="k-res"><b>0</b><span>Reseñas nuevas</span></div>
+    <div class="kpi" id="k-pub"><b>0</b><span>Publicaciones</span></div>
+    <div class="kpi" id="k-camp"><b>0</b><span>Mensajes de campaña</span></div>
+  </div>
+
+  <div class="app">
+    <nav class="tabs" id="tabs">
+      <button class="tab on" data-t="citas"><span class="n">1</span>Citas y recordatorios</button>
+      <button class="tab" data-t="agente"><span class="n">2</span>Agente WhatsApp 24/7</button>
+      <button class="tab" data-t="resenas"><span class="n">3</span>Reputación activa</button>
+      <button class="tab" data-t="contenido"><span class="n">4</span>Publicación automática</button>
+      <button class="tab" data-t="promos"><span class="n">5</span>Promociones</button>
+      <button class="reset" id="reset">↺ Reiniciar demo</button>
+    </nav>
+
+    <main>
+      <!-- 1 · CITAS -->
+      <section class="panel on" id="p-citas">
+        <div class="ph"><h2>Citas en línea y recordatorios</h2><p>El paciente agenda desde la página. La cita entra sola al calendario y el sistema le confirma por WhatsApp. Luego le recuerda 24 horas y 3 horas antes.</p></div>
+        <div class="grid2">
+          <div class="card">
+            <div class="site-bar"><i></i><i></i><i></i><span>Ángeles del Valle · Agenda en línea</span></div>
+            <div class="card-b" id="booking"></div>
+          </div>
+          <div class="card">
+            <div class="card-h"><b>Calendario de la clínica</b><small>Semana del 30 de noviembre</small></div>
+            <div class="card-b">
+              <div class="who">Lo que ve recepción</div>
+              <div id="cal1"></div>
+              <div class="legend"><span><i style="background:#e9eef4"></i>Ocupado</span><span><i style="background:var(--aqua)"></i>Agendada</span><span><i style="background:#34b36b"></i>Confirmada</span><span><i style="background:var(--navy)"></i>Asistió</span></div>
+              <div class="appts" id="appts1"></div>
+            </div>
+          </div>
+        </div>
+        <div class="timebar">
+          <b>Adelanta el tiempo:</b>
+          <button class="btn sm nv" id="t24" disabled>24 h antes</button>
+          <button class="btn sm nv" id="t3" disabled>3 h antes</button>
+          <button class="btn sm nv" id="tpost" disabled>Después de la cita</button>
+          <span class="now" id="now1"></span>
+        </div>
+        <p class="note">Los recordatorios usan plantillas aprobadas por WhatsApp y el video "Prepárate para tu sesión". El paciente confirma o pide un cambio con un toque, y si cambia, <b>el espacio se libera para alguien más</b>.</p>
+      </section>
+
+      <!-- 2 · AGENTE -->
+      <section class="panel" id="p-agente">
+        <div class="ph"><h2>Agente de WhatsApp 24/7</h2><p>Contesta a cualquier hora y agenda directo en la agenda real de la clínica: solo ofrece horarios libres. Escríbele en el WhatsApp de la derecha o toca una pregunta.</p></div>
+        <div class="grid2">
+          <div class="card"><div class="card-b">
+            <div class="who">Pregúntale como paciente</div>
+            <div class="asks" id="asks"></div>
+            <label class="switch"><input type="checkbox" id="night"> Simular que son las 11:48 p. m.</label>
+            <div class="lbl" style="margin-top:18px">Lo que hace y lo que no</div>
+            <div class="rules">
+              <div><span class="y">✓</span>Agenda, cambia y confirma citas según la agenda real</div>
+              <div><span class="y">✓</span>Da ubicación, servicios y responde dudas frecuentes</div>
+              <div><span class="y">✓</span>Avisa a recepción cuando hace falta una persona</div>
+              <div><span class="x">✕</span>No diagnostica ni recomienda medicamentos: esos temas los pasa al equipo médico</div>
+              <div><span class="x">✕</span>No da precios que la clínica no haya validado</div>
+            </div>
+          </div></div>
+          <div class="card">
+            <div class="card-h"><b>Agenda de la clínica</b><small>Se actualiza en vivo</small></div>
+            <div class="card-b"><div id="cal2"></div><div class="appts" id="appts2"></div></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3 · RESEÑAS -->
+      <section class="panel" id="p-resenas">
+        <div class="ph"><h2>Reputación activa</h2><p>Cuando un paciente termina su plan de sesiones, el sistema le pide su reseña en Google Maps por WhatsApp. Más reseñas recientes le dan a la clínica más confianza y más visibilidad cuando alguien busca rehabilitación en Tepic.</p></div>
+        <div class="grid2">
+          <div class="card">
+            <div class="card-h"><b>Planes que terminan esta semana</b><small>Panel de la clínica</small></div>
+            <div class="card-b" id="pats"></div>
+          </div>
+          <div class="card gcard">
+            <div class="card-h"><b>Ficha en Google Maps</b><small>Vista pública</small></div>
+            <div class="card-b">
+              <div class="gname">Ángeles del Valle Clínica de Rehabilitación</div>
+              <div class="gsub">Clínica de rehabilitación · Paseo de Viena 111, Ciudad del Valle</div>
+              <div class="rate"><span id="g-rate">4.7</span><span class="stars" id="g-stars">★★★★★</span><span class="gsub">(<span id="g-count">197</span> reseñas)</span></div>
+              <div class="lbl">Búsqueda: “clínica de rehabilitación tepic”</div>
+              <div class="rank" id="rank"></div>
+              <div class="rv-list" id="rv-list"></div>
+            </div>
+          </div>
+        </div>
+        <p class="note">La invitación se envía a <b>todos</b> los pacientes que terminan su plan, sin filtrar ni ofrecer incentivos, como piden las políticas de Google. La posición en el mapa depende de varios factores (relevancia, distancia y reseñas); aquí se muestra de forma ilustrativa.</p>
+      </section>
+
+      <!-- 4 · CONTENIDO -->
+      <section class="panel" id="p-contenido">
+        <div class="ph"><h2>Publicación automática</h2><p>El contenido se programa una vez y el sistema lo sube solo a Facebook, Instagram, TikTok, YouTube y Google. Toca cualquier video para verlo: son los borradores que ya preparamos para la clínica.</p></div>
+        <div class="flow"><span>1 · Guion y video</span><span>2 · Aprobación del médico</span><span>3 · Programado</span><span>4 · Publicado en 5 plataformas</span></div>
+        <div class="card"><div class="card-h"><b>Planificador de contenido</b><small>Semana del 7 de diciembre</small></div>
+          <div class="card-b"><div class="plan" id="plan"></div>
+            <button class="btn full nv" id="publish">▶ Simular la semana de publicaciones</button>
+          </div>
+        </div>
+        <p class="note">Ninguna pieza de salud se publica sin la <b>aprobación escrita del médico</b>. Lo que esté pendiente se queda en espera aunque llegue su horario.</p>
+      </section>
+
+      <!-- 5 · PROMOS -->
+      <section class="panel" id="p-promos">
+        <div class="ph"><h2>Promociones masivas</h2><p>Arma una campaña, elige a quién va y envíala en un clic. Solo llega a contactos que aceptaron recibir promociones, y cada mensaje incluye la opción de darse de baja.</p></div>
+        <div class="grid2">
+          <div class="card"><div class="card-h"><b>Nueva campaña de WhatsApp</b><small>Espalda Activa · Diciembre</small></div>
+            <div class="card-b">
+              <div class="lbl" style="margin-top:0">Audiencia</div>
+              <div id="segs"></div>
+              <button class="btn full" id="send">Enviar campaña</button>
+              <div class="ctr" id="ctr"><div><b>0</b><span>Enviados</span></div><div><b>0</b><span>Entregados</span></div><div><b>0</b><span>Leídos</span></div><div><b>0</b><span>Respuestas</span></div></div>
+            </div>
+          </div>
+          <div class="card"><div class="card-h"><b>Vista previa del mensaje</b><small>Plantilla aprobada</small></div>
+            <div class="card-b">
+              <div class="prev"><img src="../media/promo-espalda.jpg" alt="Flyer de la promoción Espalda Activa"><p>¡Hola! Este diciembre, <b>Espalda Activa</b> tiene <b>20 % de descuento</b> en el paquete de valoración + 6 sesiones. ¿Te apartamos un lugar?<br><br><span style="color:var(--walink);font-weight:700">Quiero apartar mi lugar · No me interesa · Ya no recibir promociones</span></p></div>
+              <p class="note">La promoción es un ejemplo inventado para la demo. Las promociones reales las define la clínica; si se pautan, puede requerirse aviso ante COFEPRIS.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <aside class="side" id="side">
+      <div class="side-h">El WhatsApp del paciente</div>
+      <div class="phone"><div class="scr">
+        <div class="sb"><span id="clock">10:02</span><span class="notch"></span><span>5G</span></div>
+        <div class="wh"><span style="font-size:20px">‹</span><div class="av"><img src="../assets/icon.png" alt=""></div><div><b>Ángeles del Valle</b><small id="wsub">Cuenta de empresa</small></div></div>
+        <div class="msgs" id="msgs"></div>
+        <form class="wf" id="wf" autocomplete="off"><input id="wi" placeholder="Escribe al agente…" aria-label="Mensaje para el agente"><button aria-label="Enviar">➤</button></form>
+        <div class="rvsheet" id="rvsheet">
+          <button class="x" id="rvx" aria-label="Cerrar">✕</button>
+          <div style="font-size:10.5px;font-weight:800;color:#5f6368;letter-spacing:1px">RESEÑA EN GOOGLE MAPS</div>
+          <div style="font-size:15px;font-weight:800;color:#202124;margin-top:10px">Ángeles del Valle</div>
+          <div style="font-size:11.5px;color:#5f6368">Clínica de rehabilitación</div>
+          <div class="bigst" id="bigst"></div>
+          <div style="text-align:center;font-size:12px;color:#5f6368" id="sthint">Toca para calificar</div>
+          <textarea id="rvtext" placeholder="Comparte detalles de tu experiencia"></textarea>
+          <button class="pub" id="rvpub" disabled>Publicar</button>
+        </div>
+      </div></div>
+      <div class="log"><h3>Actividad del sistema</h3><div id="log"><p class="empty">Aquí aparece todo lo que el sistema hace solo.</p></div></div>
+    </aside>
+  </div>
+</div>
+
+<button class="fab" id="fab">WhatsApp <i id="fabn">0</i></button>
+<dialog id="vd"><video id="vdv" controls playsinline></video><button id="vdx" aria-label="Cerrar">✕</button></dialog>
+
+<footer class="wrap">Demo preparada por Delta Kilo Soluciones para Ángeles del Valle · Simulación con datos de ejemplo: no envía mensajes ni guarda información.</footer>
+
+<script>
+(() => {
+  const $ = s => document.querySelector(s);
+  const DAYS = [
+    {s:'Lun 30', l:'lunes 30 de noviembre', c:'LUNES 30 DE NOVIEMBRE', hours:[9,10,11,12,16,17,18]},
+    {s:'Mar 1', l:'martes 1 de diciembre', c:'MARTES 1 DE DICIEMBRE', hours:[9,10,11,12,16,17,18]},
+    {s:'Mié 2', l:'miércoles 2 de diciembre', c:'MIÉRCOLES 2 DE DICIEMBRE', hours:[9,10,11,12,16,17,18]},
+    {s:'Jue 3', l:'jueves 3 de diciembre', c:'JUEVES 3 DE DICIEMBRE', hours:[9,10,11,12,16,17,18]},
+    {s:'Vie 4', l:'viernes 4 de diciembre', c:'VIERNES 4 DE DICIEMBRE', hours:[9,10,11,12,16,17,18]},
+    {s:'Sáb 5', l:'sábado 5 de diciembre', c:'SÁBADO 5 DE DICIEMBRE', hours:[9,10,11,12]},
+  ];
+  const ALLH = [9,10,11,12,16,17,18];
+  const BUSY0 = ['0-9','0-10','0-16','0-17','1-11','1-17','2-9','2-12','2-18','3-11','3-16','4-10','4-12','4-17','5-10'];
+  const fh = h => h < 12 ? `${h}:00 a. m.` : h === 12 ? '12:00 p. m.' : `${h-12}:00 p. m.`;
+  const ft = m => { const h = Math.floor(m/60), mm = String(m%60).padStart(2,'0'); return h < 12 ? `${h}:${mm} a. m.` : h === 12 ? `12:${mm} p. m.` : `${h-12}:${mm} p. m.`; };
+  const MAPS = 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent('Paseo de Viena 111, Ciudad del Valle, Tepic, Nayarit');
+  const SERV = {val:'Valoración inicial', ses:'Sesión de rehabilitación'};
+
+  let S;
+  function fresh(){
+    S = {day:0, min:602, lastDay:-1, busy:new Set(BUSY0), appts:[], main:null,
+      k:{citas:0,rec:0,agente:0,res:0,pub:0,camp:0}, form:{serv:'val', day:null, hour:null, name:'Laura Méndez', tel:'311 555 0142'},
+      convo:false, pats:[{n:'Laura Méndez', s:4},{n:'Jorge Ramírez', s:5},{n:'Ana Torres', s:6}], reqs:{}, rating:{sum:4.7*197, n:197, news:0},
+      posts:[
+        {id:'story-01', d:'Lun 9:00', t:'Tip: muévete cada hora', kind:'Story', ok:true},
+        {id:'paciente-01', d:'Mar 13:00', t:'¿Qué es la rehabilitación?', kind:'Video', ok:true},
+        {id:'paciente-02', d:'Mié 18:00', t:'¿Por qué varias sesiones?', kind:'Video', ok:true},
+        {id:'whatsapp-24h', d:'Jue 12:00', t:'Prepárate para tu sesión', kind:'Video', ok:true},
+        {id:'paciente-03', d:'Vie 19:00', t:'La familia en la rehabilitación', kind:'Video', ok:true},
+        {id:'promo-espalda', d:'Sáb 10:00', t:'Promo Espalda Activa', kind:'Promo', ok:false},
+      ], pubs:{}, seg:0, sent:false, unread:0};
+  }
+  const PLATS = ['FB','IG','TT','YT','G'];
+  const PLATN = {FB:'Facebook', IG:'Instagram', TT:'TikTok', YT:'YouTube', G:'Google'};
+
+  // ---------- KPIs y bitácora ----------
+  function kpi(key, add=1){
+    S.k[key] += add;
+    const el = $('#k-' + key); el.querySelector('b').textContent = S.k[key];
+    el.classList.remove('bump'); void el.offsetWidth; el.classList.add('bump');
+  }
+  const dots = s => s.replace(/m\.(<\/b>)?\./g, 'm.$1');
+  function log(icon, text, alert=false){
+    text = dots(text);
+    const box = $('#log'); const e = box.querySelector('.empty'); if (e) e.remove();
+    const d = document.createElement('div'); d.className = 'ev' + (alert ? ' alert' : '');
+    d.innerHTML = `<span class="ei">${icon}</span><div><time>${DAYS[S.day].s} · ${ft(S.min)}</time>${text}</div>`;
+    box.prepend(d);
+  }
+
+  // ---------- Teléfono ----------
+  const msgs = () => $('#msgs');
+  function clock(){ $('#clock').textContent = ft(S.min).replace(' a. m.','').replace(' p. m.',''); $('#now1').textContent = `Hora simulada: ${DAYS[S.day].l}, ${ft(S.min)}`; }
+  function dayChip(){ if (S.lastDay !== S.day){ S.lastDay = S.day; const d = document.createElement('div'); d.className='day'; d.textContent = DAYS[S.day].c; msgs().append(d); } }
+  function scroll(){ const m = msgs(); m.scrollTop = m.scrollHeight; notify(); }
+  function notify(){
+    if (window.innerWidth > 860) return;
+    const r = $('.phone').getBoundingClientRect();
+    if (r.top > window.innerHeight || r.bottom < 0){ S.unread++; const n = $('#fabn'); n.textContent = S.unread; n.classList.add('on'); }
+  }
+  function bubbleIn(html, opt={}){
+    html = dots(html);
+    dayChip();
+    const b = document.createElement('div'); b.className = 'b in';
+    b.innerHTML = (opt.agent ? '<span class="ag">AGENTE VIRTUAL</span><br>' : '') + (opt.media || '') + html + (opt.link ? `<a class="lk" href="${opt.link.href}" target="_blank" rel="noopener">↗ ${opt.link.label}</a>` : '') + `<span class="tm">${ft(S.min)}</span>`;
+    msgs().append(b);
+    if (opt.onLink){ b.querySelector('.lk').addEventListener('click', e => { e.preventDefault(); opt.onLink(); }); }
+    if (opt.buttons){
+      const q = document.createElement('div'); q.className = 'qr';
+      opt.buttons.forEach(([label, fn]) => {
+        const bt = document.createElement('button'); bt.textContent = label;
+        bt.onclick = () => { q.querySelectorAll('button').forEach(x => x.disabled = true); bubbleOut(label); fn(); };
+        q.append(bt);
+      });
+      msgs().append(q);
+    }
+    scroll(); return b;
+  }
+  function bubbleOut(text){ dayChip(); const b = document.createElement('div'); b.className = 'b out'; b.innerHTML = `${esc(text)}<span class="tm">${ft(S.min)} ✓✓</span>`; msgs().append(b); scroll(); }
+  function sys(text){ const d = document.createElement('div'); d.className = 'sys'; d.textContent = text; msgs().append(d); scroll(); }
+  function typing(ms, fn){ const t = document.createElement('div'); t.className = 'typing'; t.innerHTML = '<i></i><i></i><i></i>'; msgs().append(t); scroll(); setTimeout(() => { t.remove(); fn(); }, ms); }
+  const esc = s => s.replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  const first = n => n.split(' ')[0];
+
+  // ---------- Calendario ----------
+  function slotFree(d, h){ return DAYS[d].hours.includes(h) && !S.busy.has(`${d}-${h}`) && !S.appts.some(a => a.d === d && a.h === h); }
+  function renderCal(target, compact=false){
+    let html = '<table class="cal"><tr><th></th>' + DAYS.map(d => `<th>${d.s}</th>`).join('') + '</tr>';
+    ALLH.forEach(h => {
+      html += `<tr><td class="h">${h < 12 ? h + ':00' : h === 12 ? '12:00' : (h) + ':00'}</td>`;
+      DAYS.forEach((d, i) => {
+        const a = S.appts.find(x => x.d === i && x.h === h);
+        if (!d.hours.includes(h)) html += '<td class="c off"></td>';
+        else if (a) html += `<td class="c ap st-${a.st} ${a.flash ? 'flash' : ''}" title="${a.n}">${first(a.n)}${compact ? '' : '<br>' + (a.src === 'web' ? 'Web' : a.src === 'agente' ? 'Agente' : 'Campaña')}</td>`;
+        else if (S.busy.has(`${i}-${h}`)) html += '<td class="c busy"></td>';
+        else html += '<td class="c"></td>';
+      });
+      html += '</tr>';
+    });
+    $(target).innerHTML = html + '</table>';
+  }
+  function renderAppts(target){
+    $(target).innerHTML = S.appts.length ? S.appts.map(a => `<div class="appt"><div><b>${a.n}</b> · ${SERV[a.serv]}<br><span style="color:var(--muted);font-size:12px">${DAYS[a.d].l}, ${fh(a.h)} · desde ${a.src === 'web' ? 'la página web' : a.src === 'agente' ? 'el agente de WhatsApp' : 'la campaña'}</span></div><span class="st ${a.st}">${a.st}</span></div>`).join('') : '<p class="empty">Todavía no hay citas nuevas esta semana.</p>';
+  }
+  function refreshCals(){ renderCal('#cal1'); renderCal('#cal2', true); renderAppts('#appts1'); renderAppts('#appts2'); S.appts.forEach(a => a.flash = false); }
+  function addAppt(a){ a.st = 'Agendada'; a.flash = true; S.appts.push(a); kpi('citas'); refreshCals(); return a; }
+
+  // ---------- 1 · Booking ----------
+  function renderBooking(){
+    const f = S.form, box = $('#booking');
+    if (S.main && !S.rebook){
+      const a = S.main;
+      box.innerHTML = `<div class="ok-box"><div class="ic">✓</div><h3>¡Cita agendada!</h3><p>${SERV[a.serv]} · ${DAYS[a.d].l}, ${fh(a.h)}</p><p style="margin-top:6px">Te enviamos la confirmación por WhatsApp.</p><button class="btn sm nv" style="margin-top:14px" id="again">Agendar otra cita</button></div>`;
+      $('#again').onclick = () => { S.rebook = true; f.day = null; f.hour = null; renderBooking(); };
+      return;
+    }
+    box.innerHTML = `
+      <div style="font-family:var(--serif);font-size:22px;font-weight:700;color:var(--navy);line-height:1.15">Agenda tu valoración</div>
+      <div class="lbl">Servicio</div>
+      <div class="chips">${Object.entries(SERV).map(([k, v]) => `<button class="chip ${f.serv === k ? 'on' : ''}" data-serv="${k}">${v}</button>`).join('')}</div>
+      <div class="lbl">Día</div>
+      <div class="chips">${DAYS.map((d, i) => i === 0 ? '' : `<button class="chip ${f.day === i ? 'on' : ''}" data-day="${i}">${d.s}</button>`).join('')}</div>
+      <div class="lbl">Hora</div>
+      <div class="chips">${f.day == null ? '<span class="empty">Elige un día para ver los horarios libres.</span>' : DAYS[f.day].hours.map(h => `<button class="chip ${f.hour === h ? 'on' : ''}" data-hour="${h}" ${slotFree(f.day, h) ? '' : 'disabled'}>${fh(h)}</button>`).join('')}</div>
+      <div class="row2" style="margin-top:12px"><div><div class="lbl" style="margin-top:0">Nombre</div><input class="inp" id="fname" value="${esc(f.name)}"></div><div><div class="lbl" style="margin-top:0">WhatsApp</div><input class="inp" id="ftel" value="${esc(f.tel)}" inputmode="tel"></div></div>
+      <label class="chk"><input type="checkbox" id="fok" checked> Acepto recibir la confirmación y los recordatorios de mi cita por WhatsApp.</label>
+      <button class="btn full" id="fgo" ${f.day != null && f.hour != null ? '' : 'disabled'}>Confirmar cita</button>`;
+    box.querySelectorAll('[data-serv]').forEach(b => b.onclick = () => { f.serv = b.dataset.serv; renderBooking(); });
+    box.querySelectorAll('[data-day]').forEach(b => b.onclick = () => { f.day = +b.dataset.day; f.hour = null; renderBooking(); });
+    box.querySelectorAll('[data-hour]').forEach(b => b.onclick = () => { f.hour = +b.dataset.hour; renderBooking(); });
+    $('#fname').oninput = e => f.name = e.target.value;
+    $('#ftel').oninput = e => f.tel = e.target.value;
+    $('#fgo').onclick = book;
+  }
+  function book(){
+    const f = S.form;
+    if (!$('#fok').checked){ alert('Para la demo, acepta recibir los mensajes por WhatsApp.'); return; }
+    const name = (f.name || 'Paciente').trim() || 'Paciente';
+    const a = addAppt({n:name, serv:f.serv, d:f.day, h:f.hour, src:'web'});
+    if (!S.main || S.rebook){ S.main = a; S.rebook = false; S.stage = 0; }
+    log('🗓️', `Nueva cita desde la página web: <b>${esc(name)}</b>, ${DAYS[a.d].s} ${fh(a.h)}.`);
+    renderBooking();
+    setTimeout(() => {
+      bubbleIn(`¡Hola, ${esc(first(name))}! Tu <b>${SERV[a.serv].toLowerCase()}</b> en Ángeles del Valle quedó agendada para el <b>${DAYS[a.d].l} a las ${fh(a.h)}</b>.<br>📍 Paseo de Viena 111, Ciudad del Valle, Tepic.`);
+      log('💬', 'WhatsApp de confirmación enviado.');
+    }, 700);
+    timeButtons();
+  }
+  function timeButtons(){
+    const a = S.main, st = S.stage ?? 0;
+    $('#t24').disabled = !a || st >= 1 || a.d < 2;
+    $('#t3').disabled = !a || st >= 2 || st < 1;
+    $('#tpost').disabled = !a || st >= 3 || st < 2;
+    if (a && a.d < 2 && st === 0) $('#now1').textContent = 'Para ver el recordatorio de 24 h, agenda a partir del miércoles.';
+    else clock();
+  }
+  function go24(){
+    const a = S.main; S.stage = 1; S.day = a.d - 1; S.min = a.h * 60; clock();
+    kpi('rec');
+    bubbleIn(`Hola, ${esc(first(a.n))}. <b>Mañana a las ${fh(a.h)}</b> es tu cita. Mira este video corto para prepararte. ¿Podrás asistir?`, {
+      media: `<video src="../media/whatsapp-24h.mp4" poster="../media/whatsapp-24h.jpg" controls playsinline preload="none"></video>`,
+      buttons: [['Confirmo asistencia', () => confirmA(a)], ['Necesito cambiar', () => changeA(a)]]});
+    log('⏰', `Recordatorio de 24 h enviado a <b>${esc(a.n)}</b>, con el video "Prepárate para tu sesión".`);
+    timeButtons();
+  }
+  function confirmA(a){
+    S.min += 3; a.st = 'Confirmada'; a.flash = true; refreshCals();
+    log('✅', `<b>${esc(a.n)}</b> confirmó su asistencia. El calendario se actualizó solo.`);
+    typing(700, () => bubbleIn('¡Gracias! Te esperamos. Si algo cambia, escríbenos por aquí.', {agent:true}));
+  }
+  function changeA(a){
+    S.min += 3; log('🔁', `<b>${esc(a.n)}</b> pidió cambiar su cita. El agente le ofrece horarios libres.`);
+    const opts = freeSlots(3, a.d, null, S.day + 1);
+    typing(800, () => bubbleIn('Claro. Estos horarios están libres. ¿Cuál te acomoda?', {agent:true,
+      buttons: opts.map(([d, h]) => [`${DAYS[d].s} · ${fh(h)}`, () => {
+        a.d = d; a.h = h; a.st = 'Reagendada'; a.flash = true; refreshCals();
+        log('🔁', `Cita reagendada a ${DAYS[d].s} ${fh(h)}. <b>El horario anterior quedó libre</b> para otro paciente.`);
+        typing(700, () => bubbleIn(`Listo, quedó el <b>${DAYS[d].l} a las ${fh(h)}</b>. Te recuerdo un día antes.`, {agent:true}));
+        S.stage = 0; timeButtons();
+      }])}));
+  }
+  function go3(){
+    const a = S.main; S.stage = 2; S.day = a.d; S.min = (a.h - 3) * 60; clock();
+    kpi('rec');
+    bubbleIn(`¡Buenos días, ${esc(first(a.n))}! Te esperamos <b>hoy a las ${fh(a.h)}</b>. Aquí está la ubicación:`, {
+      media: '<div class="map"></div>', link: {href: MAPS, label: 'Abrir en Maps · Paseo de Viena 111'}});
+    log('📍', 'Aviso de 3 h enviado, con la ubicación de la clínica.');
+    timeButtons();
+  }
+  function goPost(){
+    const a = S.main; S.stage = 3; S.min = (a.h + 1) * 60; clock();
+    a.st = 'Asistió'; a.flash = true; refreshCals();
+    log('🏥', `Recepción marcó que <b>${esc(a.n)}</b> asistió. El sistema sigue su plan de sesiones.`);
+    sys('Cuando el paciente termine su plan, se activa la Reputación activa (pestaña 3).');
+    timeButtons();
+  }
+  function freeSlots(n, notDay=-1, onlyDay=null, minDay=Math.max(1, S.day)){
+    const out = [];
+    for (let d = minDay; d < DAYS.length && out.length < n; d++){
+      if (onlyDay != null && d !== onlyDay) continue;
+      if (d === notDay && onlyDay == null) continue;
+      for (const h of DAYS[d].hours){ if (slotFree(d, h)){ out.push([d, h]); if (out.length >= n) break; } }
+    }
+    return out;
+  }
+
+  // ---------- 2 · Agente ----------
+  const ASKS = ['Hola, ¿tienen espacio el sábado?', '¿Dónde están?', '¿Cuánto cuesta la valoración?', '¿Qué tratan?', 'Me duele mucho la espalda, ¿qué me tomo?', 'Quiero hablar con alguien'];
+  function agent(text){
+    if (!S.convo){ S.convo = true; kpi('agente'); log('🤖', 'El agente atendió una conversación nueva.'); }
+    const t = text.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
+    const reply = (html, opt={}) => typing(900, () => bubbleIn(html, {agent:true, ...opt}));
+    const dayIdx = [['lunes',0],['martes',1],['miercoles',2],['jueves',3],['viernes',4],['sabado',5]].find(([w]) => t.includes(w));
+    if (/duel|dolor|tom|medic|pastill|urgen|lesion|diagnost|inyecc/.test(t)){
+      log('🚨', 'Tema clínico detectado: el agente pasó la conversación a recepción para que el equipo médico la atienda.', true);
+      return reply('Eso lo tiene que valorar el equipo médico, así que no puedo recomendarte medicamentos. <b>Ya le avisé a recepción</b> para que te contacten. Si es una urgencia, acude a urgencias.<br><br>¿Quieres que te aparte una valoración?', {buttons:[['Sí, apartar valoración', () => offer(null, 'val')], ['No, gracias', () => reply('Entendido. Aquí estoy si me necesitas.')]]});
+    }
+    if (/persona|alguien|humano|recepcion|llam|asesor/.test(t)){
+      log('🙋', 'El paciente pidió hablar con una persona: aviso enviado a recepción.', true);
+      return reply('Claro. Ya avisé a recepción y te escriben en cuanto estén disponibles. Si prefieres, también puedes llamar al <b>311 210 7777</b>.');
+    }
+    if (/donde|ubica|direcc|llegar|mapa/.test(t)) return reply('Estamos en <b>Paseo de Viena 111, esquina São Paulo, Ciudad del Valle, Tepic</b>.', {link:{href:MAPS, label:'Abrir en Maps'}});
+    if (/precio|cuest|costo|cobr|cuanto/.test(t)) return reply('Los costos te los confirma recepción según tu caso. ¿Quieres que te aparte una <b>valoración</b>? Ahí el especialista revisa tu caso y te explica el plan.', {buttons:[['Sí, apartar valoración', () => offer(null, 'val')], ['Ahorita no', () => reply('Sin problema. Aquí estoy cuando lo necesites.')]]});
+    if (/espacio|disponib|horario|agenda|cita|turno|hay lugar|sesion/.test(t) || dayIdx) return offer(dayIdx ? dayIdx[1] : null, /sesion/.test(t) ? 'ses' : 'val');
+    if (/trat|servicio|rehabilit|terapia|que hacen|neurolog|fisica/.test(t)) return reply('Ofrecemos <b>rehabilitación física y neurológica</b>. Todo empieza con una valoración, donde el especialista conoce tu caso y arma tu plan. ¿Te aparto una?', {buttons:[['Sí, quiero una valoración', () => offer(null, 'val')]]});
+    if (/gracia/.test(t)) return reply('¡Con gusto! 😊');
+    if (/^(hola|buen|que tal|hey)/.test(t)) return reply('¡Hola! Soy el asistente virtual de Ángeles del Valle. ¿En qué te ayudo?', {buttons:[['Agendar una cita', () => offer(null, 'val')], ['¿Dónde están?', () => agent('donde')], ['Hablar con recepción', () => agent('recepcion')]]});
+    return reply('No estoy segura de haberte entendido. ¿Quieres agendar, saber dónde estamos o hablar con recepción?', {buttons:[['Agendar', () => offer(null, 'val')], ['Ubicación', () => agent('donde')], ['Recepción', () => agent('recepcion')]]});
+  }
+  function offer(day, serv, src='agente'){
+    const opts = day != null ? freeSlots(3, -1, day) : freeSlots(3);
+    const reply = (html, opt={}) => typing(1000, () => bubbleIn(html, {agent:true, ...opt}));
+    if (!opts.length) return reply(`Ese día ya no tengo espacios libres. ¿Te muestro otros días?`, {buttons:[['Sí, otros días', () => offer(null, serv, src)]]});
+    const label = day != null ? `El <b>${DAYS[day].l}</b> tengo` : 'Tengo estos horarios libres:';
+    log('🔎', `El agente consultó la agenda real: ${opts.length} horarios libres${day != null ? ' el ' + DAYS[day].s : ''}.`);
+    reply(`${label} ${opts.map(([d, h]) => day != null ? `<b>${fh(h)}</b>` : `<b>${DAYS[d].s} ${fh(h)}</b>`).join(', ')}. ¿Cuál te acomoda?`, {
+      buttons: opts.map(([d, h]) => [`${DAYS[d].s} · ${fh(h)}`, () => {
+        if (!slotFree(d, h)) return reply('Ese horario se acaba de ocupar. Te muestro otros:', {buttons:[['Ver otros', () => offer(null, serv, src)]]});
+        const nm = S.main ? S.main.n : 'Pedro Ruiz';
+        addAppt({n: nm, serv, d, h, src});
+        log('🤖', `El agente agendó a <b>${esc(nm)}</b> el ${DAYS[d].s} a las ${fh(h)}, directo en el calendario.`);
+        reply(`Listo, quedó tu ${SERV[serv].toLowerCase()} el <b>${DAYS[d].l} a las ${fh(h)}</b>. Te mando un recordatorio un día antes.`);
+      }])});
+  }
+
+  // ---------- 3 · Reseñas ----------
+  function renderPats(){
+    $('#pats').innerHTML = S.pats.map((p, i) => `<div class="pat"><div class="nm"><b>${p.n}</b><div class="dots">${[0,1,2,3,4,5].map(k => `<i class="${k < p.s ? 'on' : ''}"></i>`).join('')}</div><span style="font-size:12px;color:var(--muted)">${p.s} de 6 sesiones${S.reqs[i] ? ' · reseña solicitada' : ''}</span></div>
+      <button class="btn sm ${p.s >= 6 && !S.reqs[i] ? '' : 'nv'}" data-p="${i}" ${S.reqs[i] ? 'disabled' : ''}>${S.reqs[i] ? '✓ Enviado' : p.s >= 6 ? 'Pedir reseña' : 'Terminar plan'}</button></div>`).join('') +
+      '<p class="note">En la operación real esto no lleva botón: al registrar la sesión 6 de 6, el sistema envía la invitación solo.</p>';
+    $('#pats').querySelectorAll('[data-p]').forEach(b => b.onclick = () => finishPlan(+b.dataset.p));
+  }
+  function finishPlan(i){
+    const p = S.pats[i]; p.s = 6; S.reqs[i] = true; renderPats();
+    log('🏁', `<b>${p.n}</b> terminó su plan de rehabilitación.`);
+    setTimeout(() => {
+      log('⭐', `Invitación a reseña en Google enviada a <b>${p.n}</b> por WhatsApp.`);
+      bubbleIn(`Hola, ${first(p.n)}. Gracias por confiar en Ángeles del Valle durante tu rehabilitación. ¿Nos ayudas con tu opinión? Te toma <b>un minuto</b>.`, {link:{href:'#', label:'Dejar reseña en Google'}, onLink: () => openReview(p)});
+    }, 600);
+  }
+  let rvStars = 0, rvPat = null;
+  function openReview(p){
+    rvPat = p; rvStars = 0; $('#rvtext').value = ''; paintStars(); $('#rvsheet').classList.add('on');
+  }
+  function paintStars(){
+    $('#bigst').innerHTML = [1,2,3,4,5].map(n => `<button data-s="${n}" class="${n <= rvStars ? 'on' : ''}" aria-label="${n} estrellas">★</button>`).join('');
+    $('#bigst').querySelectorAll('button').forEach(b => b.onclick = () => { rvStars = +b.dataset.s; paintStars(); if (!$('#rvtext').value) $('#rvtext').value = 'Me explicaron todo con paciencia y me sentí muy acompañada en cada sesión.'; });
+    $('#sthint').textContent = rvStars ? ['','Muy mala','Mala','Regular','Buena','¡Excelente!'][rvStars] : 'Toca para calificar';
+    $('#rvpub').disabled = !rvStars;
+  }
+  function publishReview(){
+    const r = S.rating; r.sum += rvStars; r.n += 1; r.news += 1;
+    const avg = r.sum / r.n;
+    $('#g-rate').textContent = avg.toFixed(1); $('#g-count').textContent = r.n;
+    const d = document.createElement('div'); d.className = 'rvw new';
+    d.innerHTML = `<b>${rvPat.n}</b> <span class="stars">${'★'.repeat(rvStars)}${'☆'.repeat(5 - rvStars)}</span> <span class="gsub">· hace un momento</span><br>${esc($('#rvtext').value || '')}`;
+    $('#rv-list').prepend(d);
+    $('#rvsheet').classList.remove('on');
+    kpi('res'); renderRank();
+    log('🌟', `Nueva reseña de <b>${rvPat.n}</b> (${rvStars}★). La ficha ahora tiene ${r.n} reseñas.`);
+    bubbleOut('Listo, ya dejé mi reseña');
+    typing(700, () => bubbleIn('¡Muchas gracias! Tu opinión ayuda a más personas en Tepic a encontrarnos. 💙'));
+  }
+  function renderRank(){
+    const pos = Math.max(0, 2 - S.rating.news); // ilustrativo: cada reseña nueva sube un lugar
+    const rows = [{id:'a', w:62}, {id:'b', w:48}];
+    rows.splice(pos, 0, {id:'me'});
+    $('#rank').innerHTML = rows.map((r, i) => r.id === 'me'
+      ? `<div class="rk me"><span class="p">${i + 1}</span><div><b style="font-size:13.5px;color:var(--navy)">Ángeles del Valle</b><div class="gsub">${(S.rating.sum / S.rating.n).toFixed(1)} ★ · ${S.rating.n} reseñas</div></div></div>`
+      : `<div class="rk"><span class="p">${i + 1}</span><div style="flex:1"><div class="bar" style="width:${r.w}%"></div><div class="bar" style="width:${r.w - 18}%;margin-top:6px;opacity:.6"></div></div></div>`).join('');
+  }
+
+  // ---------- 4 · Contenido ----------
+  function renderPlan(){
+    $('#plan').innerHTML = S.posts.map((p, i) => `<div class="post"><div class="th" data-v="${p.id}"><img src="../media/${p.id}.jpg" alt="${p.t}" loading="lazy"></div><div class="pb">
+      <span class="d">${p.d} · ${p.kind}</span><span class="t">${p.t}</span>
+      <div class="plats">${PLATS.map(k => `<span class="pf ${S.pubs[i + k] === 2 ? 'done' : S.pubs[i + k] === 1 ? 'busy' : ''}">${k}${S.pubs[i + k] === 2 ? ' ✓' : ''}</span>`).join('')}</div>
+      ${p.ok ? '<span class="appr ok">✓ Aprobado por el médico</span>' : `<button class="appr wait" data-ok="${i}">Pendiente de aprobación · aprobar</button>`}
+    </div></div>`).join('');
+    $('#plan').querySelectorAll('[data-v]').forEach(t => t.onclick = () => openVideo(t.dataset.v));
+    $('#plan').querySelectorAll('[data-ok]').forEach(b => b.onclick = () => { S.posts[+b.dataset.ok].ok = true; log('🩺', `El médico aprobó "${S.posts[+b.dataset.ok].t}". Ya puede publicarse.`); renderPlan(); });
+  }
+  function openVideo(id){ const v = $('#vdv'); v.src = `../media/${id}.mp4`; v.poster = `../media/${id}.jpg`; $('#vd').showModal(); v.play().catch(() => {}); }
+  async function publishWeek(){
+    $('#publish').disabled = true;
+    for (let i = 0; i < S.posts.length; i++){
+      const p = S.posts[i];
+      if (!p.ok){ log('⏸️', `"${p.t}" no se publicó: sigue pendiente de aprobación del médico.`, true); continue; }
+      if (PLATS.every(k => S.pubs[i + k] === 2)) continue;
+      for (const k of PLATS){
+        S.pubs[i + k] = 1; renderPlan(); await wait(160);
+        S.pubs[i + k] = 2; renderPlan(); kpi('pub');
+      }
+      log('📲', `Publicado en 5 plataformas: "${p.t}".`);
+      await wait(200);
+    }
+    $('#publish').disabled = false;
+  }
+  const wait = ms => new Promise(r => setTimeout(r, ms));
+
+  // ---------- 5 · Promos ----------
+  const SEGS = [['Todos los que aceptaron promociones', 248], ['Pacientes con plan de espalda', 86], ['Prospectos que no han agendado', 64]];
+  function renderSegs(){
+    $('#segs').innerHTML = SEGS.map(([n, c], i) => `<label class="seg ${S.seg === i ? 'on' : ''}"><input type="radio" name="seg" ${S.seg === i ? 'checked' : ''} data-s="${i}">${n}<small>${c} contactos</small></label>`).join('');
+    $('#segs').querySelectorAll('input').forEach(r => r.onchange = () => { S.seg = +r.dataset.s; renderSegs(); });
+  }
+  function sendCampaign(){
+    const n = SEGS[S.seg][1];
+    $('#send').disabled = true;
+    const tg = [n, Math.round(n * .97), Math.round(n * .75), Math.round(n * .13)];
+    const els = [...$('#ctr').querySelectorAll('b')];
+    const t0 = performance.now();
+    (function step(t){
+      const p = Math.min(1, (t - t0) / 2200);
+      els.forEach((e, i) => e.textContent = Math.round(tg[i] * Math.min(1, p * (1 + i * .15)) * (i ? Math.min(1, p * 1.2) : 1)));
+      if (p < 1) requestAnimationFrame(step); else { els.forEach((e, i) => e.textContent = tg[i]); $('#send').disabled = false; $('#send').textContent = 'Enviar otra vez (simulación)'; }
+    })(t0);
+    kpi('camp', n);
+    log('📣', `Campaña "Espalda Activa" enviada a <b>${n} contactos</b> (${SEGS[S.seg][0].toLowerCase()}).`);
+    setTimeout(() => bubbleIn('¡Hola! Este diciembre, <b>Espalda Activa</b> tiene <b>20 % de descuento</b> en el paquete de valoración + 6 sesiones. ¿Te apartamos un lugar?', {
+      media: '<img class="img" src="../media/promo-espalda.jpg" alt="Promoción Espalda Activa">',
+      buttons: [['Quiero apartar mi lugar', () => { log('🎯', 'Un contacto respondió a la campaña: el agente le ofrece horarios.'); offer(null, 'ses', 'campana'); }],
+                ['No me interesa', () => typing(600, () => bubbleIn('Entendido, gracias por contestar. 🙂', {agent:true}))],
+                ['Ya no recibir promociones', () => { log('🚫', 'Baja registrada: este contacto ya no recibirá promociones.', true); typing(600, () => bubbleIn('Listo, ya no te enviaremos promociones. Tus recordatorios de cita siguen activos.', {agent:true})); }]]}), 900);
+  }
+
+  // ---------- Pestañas y arranque ----------
+  function showTab(t){
+    document.querySelectorAll('.tab').forEach(b => b.classList.toggle('on', b.dataset.t === t));
+    document.querySelectorAll('.panel').forEach(p => p.classList.toggle('on', p.id === 'p-' + t));
+    $('#wsub').textContent = t === 'agente' ? 'Agente virtual · en línea' : 'Cuenta de empresa';
+    if (window.innerWidth <= 1180) $('#tabs').scrollIntoView({behavior:'smooth', block:'start'});
+  }
+  document.querySelectorAll('.tab').forEach(b => b.onclick = () => showTab(b.dataset.t));
+  $('#t24').onclick = go24; $('#t3').onclick = go3; $('#tpost').onclick = goPost;
+  $('#asks').innerHTML = ASKS.map(a => `<button class="ask">${a}</button>`).join('');
+  $('#asks').querySelectorAll('.ask').forEach(b => b.onclick = () => { bubbleOut(b.textContent); agent(b.textContent); });
+  $('#wf').onsubmit = e => { e.preventDefault(); const v = $('#wi').value.trim(); if (!v) return; $('#wi').value = ''; bubbleOut(v); agent(v); };
+  $('#night').onchange = e => { if (e.target.checked){ S.min = 23 * 60 + 48; clock(); sys('Son las 11:48 p. m.: la clínica está cerrada, pero el agente sigue contestando.'); log('🌙', 'Fuera de horario: el agente sigue atendiendo.'); } else { S.min = 10 * 60 + 2; clock(); } };
+  $('#rvx').onclick = () => $('#rvsheet').classList.remove('on');
+  $('#rvpub').onclick = publishReview;
+  $('#publish').onclick = publishWeek;
+  $('#send').onclick = sendCampaign;
+  $('#vdx').onclick = () => { $('#vdv').pause(); $('#vd').close(); };
+  $('#vd').addEventListener('close', () => $('#vdv').pause());
+  $('#fab').onclick = () => { S.unread = 0; $('#fabn').classList.remove('on'); $('.phone').scrollIntoView({behavior:'smooth', block:'center'}); };
+  $('#reset').onclick = () => init();
+
+  function init(){
+    fresh();
+    ['citas','rec','agente','res','pub','camp'].forEach(k => $('#k-' + k + ' b').textContent = 0);
+    $('#msgs').innerHTML = ''; $('#log').innerHTML = '<p class="empty">Aquí aparece todo lo que el sistema hace solo.</p>';
+    $('#rv-list').innerHTML = ''; $('#g-rate').textContent = '4.7'; $('#g-count').textContent = '197';
+    $('#ctr').querySelectorAll('b').forEach(b => b.textContent = 0); $('#send').textContent = 'Enviar campaña'; $('#send').disabled = false;
+    $('#night').checked = false; $('#rvsheet').classList.remove('on');
+    sys('Este es el WhatsApp de un paciente de ejemplo. Aquí llegan los mensajes automáticos de la clínica.');
+    S.unread = 0; $('#fabn').classList.remove('on');
+    clock(); refreshCals(); renderBooking(); timeButtons(); renderPats(); renderRank(); renderPlan(); renderSegs();
+    showTab('citas');
+  }
+  init();
+})();
+</script>
+</body>
+</html>
