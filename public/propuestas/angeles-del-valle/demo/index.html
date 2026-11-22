@@ -480,7 +480,7 @@
   const BUSY0 = ['0-9','0-10','0-16','0-17','1-11','1-17','2-9','2-12','2-18','3-11','3-16','4-10','4-12','4-17','5-10'];
   const fh = h => h < 12 ? `${h}:00 a. m.` : h === 12 ? '12:00 p. m.' : `${h-12}:00 p. m.`;
   const ft = m => { const h = Math.floor(m/60), mm = String(m%60).padStart(2,'0'); return h < 12 ? `${h}:${mm} a. m.` : h === 12 ? `12:${mm} p. m.` : `${h-12}:${mm} p. m.`; };
-  const MAPS = 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent('Paseo de Viena 111, Ciudad del Valle, Tepic, Nayarit');
+  const MAPS = 'https://maps.app.goo.gl/RC8SpvgLpawZ3v9G6';
   const SERV = {val:'Valoración inicial', ses:'Sesión de rehabilitación'};
 
   let S;
