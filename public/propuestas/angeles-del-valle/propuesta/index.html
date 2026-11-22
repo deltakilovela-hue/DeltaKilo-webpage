@@ -137,6 +137,41 @@
   footer .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
   footer img{height:54px}
 
+
+  /* calendario de contenido */
+  .cadence{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:26px}
+  .cad{background:#fff;border:1px solid var(--line);border-radius:20px;padding:20px}
+  .cad b{display:block;font-family:var(--serif);font-size:30px;color:var(--navy);line-height:1}
+  .cad strong{display:block;font-size:15px;color:var(--navy);margin-top:8px}
+  .cad span{display:block;font-size:13.5px;color:var(--muted);margin-top:4px}
+  .pl{display:flex;gap:4px;flex-wrap:wrap;margin-top:10px}
+  .pl i{font-style:normal;font-size:10.5px;font-weight:800;padding:3px 7px;border-radius:7px;background:var(--mist);color:var(--aqua2)}
+  .swipe{display:none;font-size:12.5px;font-weight:700;color:var(--aqua2);margin-bottom:4px}
+  .calwrap{overflow-x:auto;padding-bottom:6px;-webkit-overflow-scrolling:touch}
+  .calin{min-width:860px}
+  .wk-l{font-size:12px;font-weight:800;letter-spacing:1.8px;text-transform:uppercase;color:var(--muted);margin:14px 0 8px}
+  .wk{display:grid;grid-template-columns:repeat(6,1fr);gap:10px}
+  .dayc{background:#fff;border:1px solid var(--line);border-radius:16px;padding:10px;display:flex;flex-direction:column;gap:8px;min-height:120px}
+  .dayc h4{font-size:12.5px;font-weight:800;color:var(--navy)}
+  .st{display:flex;align-items:center;gap:6px;font-size:11.5px;font-weight:700;color:var(--muted);background:var(--ice);border:1px dashed #cfe0ea;border-radius:10px;padding:6px 8px}
+  .st:before{content:"";width:8px;height:8px;border-radius:50%;background:var(--aqua);flex:none}
+  .it{display:flex;gap:8px;align-items:center;background:var(--mist);border-radius:12px;padding:6px;border:0;font:inherit;text-align:left;cursor:pointer;width:100%;transition:.2s}
+  .it:hover{background:#dff2fa}
+  .it img{width:44px;height:78px;object-fit:cover;border-radius:7px;flex:none}
+  .it .tt{min-width:0}
+  .it .k{font-size:10px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--aqua2)}
+  .it b{display:block;font-size:12.5px;color:var(--navy);line-height:1.25}
+  .it small{display:block;font-size:11px;color:var(--muted);margin-top:2px}
+  .it.promo{background:#fff6e4}.it.promo .k{color:#b7791f}
+  .gpost{font-size:11.5px;font-weight:700;color:#1a73e8;background:#eef4fe;border-radius:10px;padding:7px 8px}
+  .pipe{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:26px}
+  .pipe div{background:#fff;border:1px solid var(--line);border-radius:16px;padding:14px;font-size:13.5px;color:var(--muted)}
+  .pipe b{display:block;color:var(--navy);font-size:14.5px;margin-bottom:2px}
+  .pipe div:before{content:attr(data-n);display:inline-flex;width:24px;height:24px;border-radius:50%;background:var(--navy);color:#fff;font-size:12px;font-weight:800;align-items:center;justify-content:center;margin-bottom:8px}
+  .vdlg{border:0;border-radius:20px;padding:0;background:#000;max-width:min(400px,92vw)}
+  .vdlg::backdrop{background:rgba(9,12,34,.78)}
+  .vdlg video{width:100%;max-height:82vh;display:block}
+  .vdlg button{position:absolute;right:8px;top:8px;width:34px;height:34px;border-radius:50%;border:0;background:rgba(255,255,255,.92);font-size:18px;font-weight:800;cursor:pointer}
   @media(max-width:980px){
     .hero-in,.two,.invest{grid-template-columns:1fr}
     .facts{grid-template-columns:repeat(2,1fr)}
@@ -145,6 +180,8 @@
     .journey{grid-template-columns:repeat(3,1fr)}
     .shorts{grid-template-columns:repeat(3,1fr)}
     .vids2{grid-template-columns:1fr}
+    .cadence{grid-template-columns:1fr 1fr}
+    .pipe{grid-template-columns:1fr 1fr}
   }
   @media(max-width:640px){
     section{padding:56px 0}
@@ -153,6 +190,7 @@
     .journey{grid-template-columns:1fr 1fr}
     .shorts{grid-template-columns:repeat(2,1fr)}
     .bar nav .btn-gh{display:none}
+    .swipe{display:block}
     .invest{padding:28px}
     .hero{padding:44px 0 56px}
   }
@@ -265,7 +303,34 @@
   </div>
 </section>
 
-<section class="alt">
+<section class="alt" id="calendario">
+  <div class="wrap">
+    <div class="head rv"><span class="tag">Calendario de contenido</span><h2>Así se programaría <em>su contenido</em></h2>
+      <p class="sub">Un ejemplo de las primeras dos semanas con los videos que ya hicimos. Se aprueban una vez y el sistema los publica solo en cada red, a su hora. Toquen cualquier video para verlo.</p></div>
+    <div class="cadence">
+      <div class="cad rv"><b>2</b><strong>videos informativos por semana</strong><span>Martes y jueves, 6:00 p. m.</span><div class="pl"><i>Facebook</i><i>Instagram</i><i>TikTok</i><i>YouTube</i></div></div>
+      <div class="cad rv"><b>6</b><strong>stories por semana</strong><span>Un tip diario de lunes a sábado, 9:00 a. m., con llamada a la acción</span><div class="pl"><i>Instagram</i><i>Facebook</i></div></div>
+      <div class="cad rv"><b>1</b><strong>publicación semanal en Google</strong><span>Mantiene activa su ficha de Maps</span><div class="pl"><i>Google</i></div></div>
+      <div class="cad rv"><b>1</b><strong>promoción al mes</strong><span>Cuando la clínica la defina; también por WhatsApp a contactos con permiso</span><div class="pl"><i>Facebook</i><i>Instagram</i><i>WhatsApp</i></div></div>
+    </div>
+    <p class="swipe">Desliza para ver la semana completa →</p>
+    <div class="calwrap rv"><div class="calin">
+      <div class="wk-l">Semana 1</div><div class="wk"><div class="dayc"><h4>Lun</h4><button class="it " data-v="story-01"><img src="../media/story-01.jpg" alt="" loading="lazy"><span class="tt"><span class="k">Story</span><b>Tip: muévete cada hora</b><small>9:00 · IG · FB</small></span></button></div><div class="dayc"><h4>Mar</h4><span class="st">Story 9:00 · Tip del día</span><button class="it " data-v="paciente-01"><img src="../media/paciente-01.jpg" alt="" loading="lazy"><span class="tt"><span class="k">Video</span><b>¿Qué es la rehabilitación?</b><small>6:00 p. m. · FB · IG · TT · YT</small></span></button></div><div class="dayc"><h4>Mié</h4><span class="st">Story 9:00 · Tip del día</span><span class="gpost">Google: publicación de la semana</span></div><div class="dayc"><h4>Jue</h4><span class="st">Story 9:00 · Tip del día</span><button class="it " data-v="paciente-02"><img src="../media/paciente-02.jpg" alt="" loading="lazy"><span class="tt"><span class="k">Video</span><b>¿Por qué varias sesiones?</b><small>6:00 p. m. · FB · IG · TT · YT</small></span></button></div><div class="dayc"><h4>Vie</h4><span class="st">Story 9:00 · Tip del día</span></div><div class="dayc"><h4>Sáb</h4><span class="st">Story 9:00 · Tip del día</span></div></div>
+      <div class="wk-l">Semana 2</div><div class="wk"><div class="dayc"><h4>Lun</h4><span class="st">Story 9:00 · Tip del día</span></div><div class="dayc"><h4>Mar</h4><span class="st">Story 9:00 · Tip del día</span><button class="it " data-v="paciente-03"><img src="../media/paciente-03.jpg" alt="" loading="lazy"><span class="tt"><span class="k">Video</span><b>La familia en la rehabilitación</b><small>6:00 p. m. · FB · IG · TT · YT</small></span></button></div><div class="dayc"><h4>Mié</h4><span class="st">Story 9:00 · Tip del día</span><span class="gpost">Google: publicación de la semana</span></div><div class="dayc"><h4>Jue</h4><span class="st">Story 9:00 · Tip del día</span><button class="it promo" data-v="promo-espalda"><img src="../media/promo-espalda.jpg" alt="" loading="lazy"><span class="tt"><span class="k">Promo</span><b>Espalda Activa</b><small>12:00 p. m. · FB · IG + WhatsApp</small></span></button></div><div class="dayc"><h4>Vie</h4><span class="st">Story 9:00 · Tip del día</span></div><div class="dayc"><h4>Sáb</h4><span class="st">Story 9:00 · Tip del día</span></div></div>
+    </div></div>
+    <div class="pipe">
+      <div class="rv" data-n="1"><b>Producimos</b>Guion, voz y video con su marca</div>
+      <div class="rv" data-n="2"><b>El médico aprueba</b>Nada se programa sin su visto bueno</div>
+      <div class="rv" data-n="3"><b>Se programa una vez</b>Día, hora y redes de cada pieza</div>
+      <div class="rv" data-n="4"><b>Se publica solo</b>En cada red, sin subirlo a mano</div>
+      <div class="rv" data-n="5"><b>Reporte mensual</b>Qué funcionó y qué ajustamos</div>
+    </div>
+    <p class="fine" style="text-align:left;margin-left:0">Días y horarios sugeridos: se ajustan con las métricas reales de sus cuentas. La cápsula "Prepárate para tu sesión" no se publica en redes: se envía sola por WhatsApp 24 horas antes de cada cita.</p>
+  </div>
+</section>
+
+
+<section>
   <div class="wrap">
     <div class="head rv"><span class="tag">Plan de arranque</span><h2>Por fases, <em>sin frenar la operación</em></h2>
       <p class="sub">Las fechas se ajustan en la llamada, según lo que quieran activar primero.</p></div>
@@ -277,7 +342,7 @@
   </div>
 </section>
 
-<section>
+<section class="alt">
   <div class="wrap two">
     <div class="list rv"><h3>Lo que necesitamos de la clínica</h3><ul>
       <li>Validar servicios, horarios, duración de la valoración y qué debe llevar el paciente</li>
@@ -300,7 +365,7 @@
   </div>
 </section>
 
-<section class="alt">
+<section>
   <div class="wrap">
     <div class="invest rv">
       <div><span class="tag" style="color:var(--gold)">Inversión</span><h2>Se define en una llamada de 15 minutos</h2>
@@ -330,11 +395,20 @@
   <span>Propuesta preparada el 22 de noviembre de 2026</span>
 </div></footer>
 
+<dialog class="vdlg" id="vdlg"><video id="vdlgv" controls playsinline></video><button id="vdlgx" aria-label="Cerrar">✕</button></dialog>
+
 <script>
   const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } }), {threshold:.12});
   document.querySelectorAll('.rv').forEach(el => io.observe(el));
   // Solo un video a la vez
   document.querySelectorAll('video').forEach(v => v.addEventListener('play', () => document.querySelectorAll('video').forEach(o => { if (o !== v) o.pause(); })));
+  const dl = document.getElementById('vdlg'), dv = document.getElementById('vdlgv');
+  document.querySelectorAll('.it[data-v]').forEach(b => b.addEventListener('click', () => {
+    document.querySelectorAll('video').forEach(o => o.pause());
+    dv.src = '../media/' + b.dataset.v + '.mp4'; dv.poster = '../media/' + b.dataset.v + '.jpg'; dl.showModal(); dv.play().catch(() => {});
+  }));
+  document.getElementById('vdlgx').onclick = () => dl.close();
+  dl.addEventListener('close', () => dv.pause());
 </script>
 </body>
 </html>
