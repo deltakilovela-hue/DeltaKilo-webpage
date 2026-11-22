@@ -4,58 +4,337 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Propuesta · Ángeles del Valle × Delta Kilo</title>
-<meta name="description" content="Propuesta de presencia digital y atención 24/7 para Ángeles del Valle Clínica de Rehabilitación.">
+<meta name="description" content="Propuesta de Delta Kilo para Ángeles del Valle: un ecosistema que agenda, recuerda, responde 24/7, cuida su reputación, publica contenido y envía promociones.">
 <meta name="robots" content="noindex, nofollow">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Delta Kilo Soluciones">
 <meta property="og:title" content="Propuesta · Ángeles del Valle × Delta Kilo">
-<meta property="og:description" content="Propuesta de presencia digital y atención 24/7 para Ángeles del Valle Clínica de Rehabilitación.">
+<meta property="og:description" content="Un sistema que atiende, recuerda y da seguimiento a cada paciente. Incluye demo interactiva y videos de muestra.">
 <meta property="og:image" content="https://www.deltakilo.com.mx/propuestas/assets/og-image.jpg">
 <meta property="og:url" content="https://propuestas.deltakilo.com.mx/angeles-del-valle/propuesta/">
 <meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../assets/icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-  :root{--navy:#262d61;--navy2:#181d45;--aqua:#60c5e3;--bg:#e9eff3;--gris:#5b6475}
+  :root{
+    --navy:#262d61; --deep:#0f1330; --night:#171c45; --aqua:#60c5e3; --aqua2:#35a8cf; --mist:#eef8fc; --ice:#f6fbfd;
+    --gold:#d9bf8c; --ink:#1a2040; --muted:#5c6580; --line:#e1ecf2;
+    --serif:"Fraunces",Georgia,"Times New Roman",serif; --sans:"Inter","Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif;
+  }
   *{box-sizing:border-box;margin:0;padding:0}
-  body{font-family:"Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif;color:#1d2340;background:var(--bg);line-height:1.5}
+  html{scroll-behavior:smooth;scroll-padding-top:76px}
+  body{font-family:var(--sans);color:var(--ink);background:#fff;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  img,video{max-width:100%;display:block}
   a{color:inherit;text-decoration:none}
-  img{max-width:100%;display:block}
-  .bar{position:sticky;top:0;z-index:10;background:var(--navy2);color:#fff;box-shadow:0 4px 18px rgba(0,0,0,.25)}
-  .bar-in{max-width:860px;margin:0 auto;padding:10px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
-  .bar h1{font-size:15px;font-weight:700;line-height:1.3}
-  .bar h1 small{display:block;font-size:12px;font-weight:500;color:#b9dff0}
-  .btns{display:flex;gap:8px;flex-wrap:wrap}
-  .btn{display:inline-flex;align-items:center;min-height:40px;padding:0 16px;border-radius:999px;font-size:14px;font-weight:700;background:var(--aqua);color:var(--navy2)}
-  .btn.out{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.55)}
-  main{max-width:860px;margin:0 auto;padding:20px 16px 40px;display:grid;gap:16px}
-  .page{width:100%;height:auto;background:#fff;border-radius:6px;box-shadow:0 8px 26px rgba(24,29,69,.18)}
-  .end{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;padding-top:8px}
-  .end .btn.out{color:var(--navy);border-color:var(--navy)}
-  .fine{text-align:center;font-size:13px;color:var(--gris)}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 24px}
+  .rv{opacity:0;transform:translateY(14px);transition:opacity .55s ease,transform .55s ease}
+  .rv.in{opacity:1;transform:none}
+
+  .bar{position:sticky;top:0;z-index:30;background:rgba(15,19,48,.96);backdrop-filter:blur(10px);color:#fff}
+  .bar-in{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:64px;flex-wrap:wrap;padding:8px 0}
+  .bar .brand{display:flex;align-items:center;gap:10px}
+  .bar .brand img{height:34px}
+  .bar .brand b{font-family:var(--serif);font-weight:600;font-size:17px;line-height:1.1;display:block}
+  .bar .brand small{font-size:10.5px;letter-spacing:2px;text-transform:uppercase;color:var(--aqua);font-weight:700}
+  .bar nav{display:flex;gap:8px;flex-wrap:wrap}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:999px;min-height:44px;padding:0 22px;font-weight:700;font-size:15px;border:1.5px solid transparent;transition:.2s;white-space:nowrap}
+  .btn.sm{min-height:38px;padding:0 16px;font-size:13.5px}
+  .btn-aq{background:var(--aqua);color:var(--deep)} .btn-aq:hover{background:#7fd6ee}
+  .btn-gh{border-color:rgba(255,255,255,.45);color:#fff} .btn-gh:hover{background:rgba(255,255,255,.08)}
+  .btn-nv{background:var(--navy);color:#fff} .btn-nv:hover{background:#323a7a}
+  .btn-wa{background:#25d366;color:#0b3d1f} .btn-wa:hover{background:#3be07a}
+
+  .hero{background:radial-gradient(ellipse at 80% 20%,#2b3577 0%,var(--deep) 62%);color:#fff;padding:70px 0 80px;position:relative;overflow:hidden}
+  .hero:after{content:"";position:absolute;right:-180px;bottom:-220px;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(96,197,227,.22),transparent 70%)}
+  .hero-in{display:grid;grid-template-columns:1.05fr .95fr;gap:46px;align-items:center;position:relative;z-index:1}
+  .eyebrow{display:inline-block;font-size:12px;letter-spacing:2.4px;text-transform:uppercase;font-weight:700;color:var(--gold);margin-bottom:16px}
+  h1{font-family:var(--serif);font-weight:600;font-size:clamp(32px,4.6vw,54px);line-height:1.08;letter-spacing:-.5px}
+  h1 em{font-style:normal;color:var(--aqua)}
+  .lead{font-size:18px;color:#c9d3ef;margin-top:18px;max-width:560px}
+  .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+  .hero-vid{border-radius:22px;overflow:hidden;box-shadow:0 30px 70px rgba(0,0,0,.45);border:1px solid rgba(255,255,255,.12);background:#000}
+  .hero-vid figcaption{background:rgba(255,255,255,.06);font-size:13px;color:#b9c4ea;padding:10px 14px}
+
+  section{padding:78px 0}
+  .alt{background:var(--ice)}
+  .tag{display:inline-block;font-size:12px;letter-spacing:2.2px;text-transform:uppercase;font-weight:800;color:var(--aqua2);margin-bottom:10px}
+  h2{font-family:var(--serif);font-weight:600;font-size:clamp(28px,3.4vw,40px);line-height:1.12;color:var(--navy);letter-spacing:-.3px}
+  h2 em{font-style:normal;color:var(--aqua2)}
+  .sub{color:var(--muted);font-size:17px;margin-top:12px;max-width:720px}
+  .head{margin-bottom:36px}
+  .head.c{text-align:center}.head.c .sub{margin-left:auto;margin-right:auto}
+
+  .facts{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+  .fact{background:#fff;border:1px solid var(--line);border-radius:20px;padding:22px}
+  .fact b{display:block;font-family:var(--serif);font-size:30px;color:var(--navy);line-height:1.1}
+  .fact span{display:block;font-size:14px;color:var(--muted);margin-top:6px}
+  .pains{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:22px}
+  .pain{border-radius:18px;background:var(--mist);padding:18px;font-size:14.5px;color:var(--ink)}
+  .pain b{display:block;color:var(--navy);margin-bottom:4px;font-size:15px}
+
+  .comps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .comp{border:1px solid var(--line);border-radius:22px;padding:24px;background:#fff;position:relative;transition:.25s}
+  .comp:hover{transform:translateY(-3px);box-shadow:0 18px 40px rgba(15,19,48,.08)}
+  .comp .ic{width:52px;height:52px;border-radius:16px;background:var(--mist);display:flex;align-items:center;justify-content:center;font-size:24px;margin-bottom:14px}
+  .comp h3{font-size:18.5px;color:var(--navy);line-height:1.25}
+  .comp p{font-size:14.5px;color:var(--muted);margin-top:8px}
+  .comp ul{margin:10px 0 0 18px;font-size:14px;color:var(--ink)}
+  .comp .by{display:inline-block;margin-top:14px;font-size:11px;font-weight:800;letter-spacing:1px;color:var(--aqua2);text-transform:uppercase}
+  .comp .done{position:absolute;right:18px;top:18px;font-size:11px;font-weight:800;background:#d8f5e3;color:#1d8a4e;border-radius:999px;padding:4px 10px}
+  .panelnote{margin-top:16px;border-radius:20px;padding:20px 24px;background:var(--navy);color:#fff;display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+  .panelnote b{font-size:17px}
+  .panelnote span{color:#c9d3ef;font-size:14.5px;flex:1;min-width:260px}
+
+  .journey{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;counter-reset:j}
+  .step{background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px 16px;position:relative}
+  .step:before{counter-increment:j;content:counter(j);width:30px;height:30px;border-radius:50%;background:var(--navy);color:#fff;font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:center;margin-bottom:10px}
+  .step b{display:block;color:var(--navy);font-size:15px;line-height:1.3}
+  .step span{font-size:13.5px;color:var(--muted);display:block;margin-top:4px}
+
+  .vids2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .vcard{border-radius:20px;overflow:hidden;background:#000;box-shadow:0 18px 44px rgba(15,19,48,.16)}
+  .vcard figcaption{background:#fff;padding:14px 16px;font-size:14px;color:var(--muted)}
+  .vcard figcaption b{display:block;color:var(--navy);font-size:15.5px}
+  .demo-band{margin-top:26px;border-radius:24px;padding:30px;background:linear-gradient(120deg,var(--navy),#1b6f95);color:#fff;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+  .demo-band h3{font-family:var(--serif);font-size:28px;font-weight:600;line-height:1.15}
+  .demo-band p{color:#d6e6f5;margin-top:6px;max-width:620px}
+
+  .shorts{display:grid;grid-template-columns:repeat(6,1fr);gap:14px}
+  .short{border-radius:18px;overflow:hidden;background:#fff;border:1px solid var(--line)}
+  .short video{width:100%;aspect-ratio:9/16;object-fit:cover;background:#dfe7ef}
+  .short div{padding:10px 12px}
+  .short b{display:block;font-size:13.5px;color:var(--navy);line-height:1.3}
+  .short span{font-size:12px;color:var(--muted)}
+  .badge{display:inline-block;margin-top:6px;font-size:10.5px;font-weight:800;border-radius:999px;padding:3px 8px;background:#fff1d6;color:#b7791f}
+
+  .phases{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .phase{border-radius:22px;padding:24px;background:#fff;border:1px solid var(--line)}
+  .phase .when{font-size:12px;font-weight:800;letter-spacing:1.6px;text-transform:uppercase;color:var(--aqua2)}
+  .phase h3{font-size:19px;color:var(--navy);margin-top:4px}
+  .phase ul{margin:12px 0 0 18px;font-size:14.5px;color:var(--ink);display:grid;gap:4px}
+
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  .list{background:#fff;border:1px solid var(--line);border-radius:22px;padding:26px}
+  .list h3{font-size:19px;color:var(--navy);margin-bottom:12px}
+  .list li{list-style:none;display:flex;gap:10px;font-size:14.8px;padding:7px 0;border-bottom:1px solid #f0f4f7}
+  .list li:last-child{border-bottom:0}
+  .list li:before{content:"✓";flex:none;width:22px;height:22px;border-radius:50%;background:var(--mist);color:var(--aqua2);font-weight:800;font-size:12px;display:flex;align-items:center;justify-content:center;margin-top:2px}
+  .list.gain li:before{background:#d8f5e3;color:#1d8a4e}
+
+  .invest{border-radius:26px;background:radial-gradient(ellipse at 20% 0%,#2b3577,var(--deep) 70%);color:#fff;padding:44px;display:grid;grid-template-columns:1.2fr .8fr;gap:30px;align-items:center}
+  .invest h2{color:#fff}
+  .invest p{color:#c9d3ef;margin-top:12px;font-size:16.5px}
+  .gift{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:20px;padding:22px}
+  .gift b{color:var(--gold);font-size:12px;letter-spacing:2px;text-transform:uppercase}
+  .gift li{list-style:none;padding:6px 0;font-size:15px;display:flex;gap:8px}
+  .gift li:before{content:"★";color:var(--gold)}
+  .final{text-align:center}
+  .final .cta{justify-content:center}
+  .fine{font-size:12.5px;color:var(--muted);margin-top:22px;max-width:760px;margin-left:auto;margin-right:auto}
+  footer{background:var(--deep);color:#8f9bc4;padding:34px 0;font-size:13px}
+  footer .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  footer img{height:54px}
+
+  @media(max-width:980px){
+    .hero-in,.two,.invest{grid-template-columns:1fr}
+    .facts{grid-template-columns:repeat(2,1fr)}
+    .pains{grid-template-columns:repeat(2,1fr)}
+    .comps,.phases{grid-template-columns:1fr 1fr}
+    .journey{grid-template-columns:repeat(3,1fr)}
+    .shorts{grid-template-columns:repeat(3,1fr)}
+    .vids2{grid-template-columns:1fr}
+  }
+  @media(max-width:640px){
+    section{padding:56px 0}
+    .wrap{padding:0 16px}
+    .comps,.phases,.pains{grid-template-columns:1fr}
+    .journey{grid-template-columns:1fr 1fr}
+    .shorts{grid-template-columns:repeat(2,1fr)}
+    .bar nav .btn-gh{display:none}
+    .invest{padding:28px}
+    .hero{padding:44px 0 56px}
+  }
 </style>
 </head>
 <body>
 
-<div class="bar">
-  <div class="bar-in">
-    <h1>Propuesta para Ángeles del Valle<small>Presencia digital y atención 24/7 · Delta Kilo</small></h1>
-    <div class="btns">
-      <a class="btn" href="propuesta-angeles-del-valle.pdf" download="Propuesta Ángeles del Valle - Delta Kilo.pdf">Descargar PDF</a>
-      <a class="btn out" href="../">Ver la página</a>
+<div class="bar"><div class="wrap bar-in">
+  <a class="brand" href="../"><img src="../assets/icon-white.png" alt=""><div><b>Propuesta · Ángeles del Valle</b><small>Preparada por Delta Kilo</small></div></a>
+  <nav>
+    <a class="btn btn-gh sm" href="../">Ver la página</a>
+    <a class="btn btn-aq sm" href="../demo/">Probar la demo</a>
+  </nav>
+</div></div>
+
+<header class="hero">
+  <div class="wrap hero-in">
+    <div>
+      <span class="eyebrow">Propuesta confidencial · 22 de noviembre de 2026</span>
+      <h1>Un sistema que atiende, recuerda y da seguimiento a cada paciente, <em>aunque la clínica esté cerrada.</em></h1>
+      <p class="lead">Unimos su página, su WhatsApp, su agenda, su ficha de Google y sus redes en un solo ecosistema. El equipo se enfoca en los pacientes; lo repetitivo lo hace el sistema.</p>
+      <div class="cta">
+        <a class="btn btn-aq" href="../demo/">Probar la demo interactiva</a>
+        <a class="btn btn-gh" href="#recorrido">Ver el recorrido en video</a>
+      </div>
+    </div>
+    <figure class="hero-vid">
+      <video src="../media/flujo-citas.mp4" poster="../media/flujo-citas.jpg" controls playsinline preload="none"></video>
+      <figcaption>De la página web al WhatsApp del paciente, en automático · 53 s</figcaption>
+    </figure>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <div class="head rv"><span class="tag">Punto de partida</span><h2>La confianza <em>ya existe</em>. Falta un sistema que la convierta en citas.</h2>
+      <p class="sub">Esto es lo que vimos en su presencia pública. Lo usamos como base y lo validamos con ustedes antes de publicar cualquier cosa.</p></div>
+    <div class="facts">
+      <div class="fact rv"><b>4.7 ★</b><span>en Google, con cerca de 200 reseñas de pacientes</span></div>
+      <div class="fact rv"><b>5.5 mil</b><span>seguidores en Facebook</span></div>
+      <div class="fact rv"><b>Física y neurológica</b><span>rehabilitación en Ciudad del Valle, Tepic</span></div>
+      <div class="fact rv"><b>Sin sitio activo</b><span>su dominio no cargaba en nuestra última revisión: quien los busca no encuentra dónde agendar</span></div>
+    </div>
+    <div class="pains">
+      <div class="pain rv"><b>Agendar depende del horario</b>Si nadie contesta, el paciente le escribe a otra clínica.</div>
+      <div class="pain rv"><b>Citas olvidadas</b>Cada falta es un espacio que pudo usar otro paciente.</div>
+      <div class="pain rv"><b>Reseñas a la suerte</b>Llegan cuando alguien se acuerda, no de forma constante.</div>
+      <div class="pain rv"><b>Redes sin constancia</b>Publicar cada semana compite con la atención de pacientes.</div>
+      <div class="pain rv"><b>Promos que no llegan</b>Sin una lista ordenada, las promociones se pierden en el muro.</div>
     </div>
   </div>
-</div>
+</section>
 
-<main>
-  <img class="page" src="paginas/pagina-1.jpg" width="1406" height="1988" alt="Página 1 de 4: punto de partida y qué encontramos hoy.">
-  <img class="page" src="paginas/pagina-2.jpg" width="1406" height="1988" loading="lazy" alt="Página 2 de 4: qué proponemos. Página web, contenido para redes, Google Maps y agentes de atención 24/7.">
-  <img class="page" src="paginas/pagina-3.jpg" width="1406" height="1988" loading="lazy" alt="Página 3 de 4: la primera versión de la página, que va por nuestra cuenta.">
-  <img class="page" src="paginas/pagina-4.jpg" width="1406" height="1988" loading="lazy" alt="Página 4 de 4: plan de arranque en 30 días, cómo se vería un día normal y siguientes pasos.">
-  <div class="end">
-    <a class="btn" href="propuesta-angeles-del-valle.pdf" download="Propuesta Ángeles del Valle - Delta Kilo.pdf">Descargar PDF</a>
-    <a class="btn out" href="../">Ver la página</a>
+<section class="alt" id="solucion">
+  <div class="wrap">
+    <div class="head c rv"><span class="tag">La solución</span><h2>El ecosistema <em>Ángeles del Valle</em></h2>
+      <p class="sub">No son herramientas sueltas: es un sistema que capta, atiende, recuerda, da seguimiento y trae de vuelta a cada paciente.</p></div>
+    <div class="comps">
+      <div class="comp rv"><span class="done">1.ª versión lista</span><div class="ic">🌐</div><h3>Página web con agenda en línea</h3><p>El paciente elige servicio, día y hora libres, y la cita entra sola al calendario de la clínica.</p><span class="by">Lo operan Echo y Sierra · diseño y posicionamiento</span></div>
+      <div class="comp rv"><div class="ic">⏰</div><h3>Confirmación y recordatorios por WhatsApp</h3><ul><li>Confirmación al agendar</li><li>24 h antes, con el video "Prepárate para tu sesión"</li><li>3 h antes, con la ubicación</li><li>Confirma o pide cambio con un toque</li></ul><span class="by">Lo opera Lima · atención y CRM</span></div>
+      <div class="comp rv"><div class="ic">🤖</div><h3>Agente de WhatsApp 24/7</h3><p>Contesta a cualquier hora, ofrece solo horarios libres de la agenda real y agenda directo. Los temas clínicos los pasa al equipo, sin diagnosticar.</p><span class="by">Lo opera Lima · atención y CRM</span></div>
+      <div class="comp rv"><div class="ic">⭐</div><h3>Reputación activa en Google Maps</h3><p>Al terminar su plan, cada paciente recibe la invitación a dejar su reseña. La ficha de Google se ordena y se mantiene al día.</p><span class="by">Lo opera Sierra · posicionamiento</span></div>
+      <div class="comp rv"><div class="ic">🎬</div><h3>Contenido y publicación automática</h3><p>Videos educativos, stories y cápsulas para WhatsApp. Se aprueban una vez y se publican solos en Facebook, Instagram, TikTok, YouTube y Google.</p><span class="by">Lo operan Vox y AKBOT · video y contenido</span></div>
+      <div class="comp rv"><div class="ic">📣</div><h3>Promociones masivas</h3><p>Campañas de WhatsApp en un clic, solo a contactos que aceptaron recibirlas y siempre con opción de darse de baja.</p><span class="by">Lo opera Lima · atención y CRM</span></div>
+    </div>
+    <div class="panelnote rv"><b>Todo en un mismo panel</b><span>Contactos, citas, conversaciones, reseñas y campañas viven en un solo lugar, con avisos al equipo cuando se necesita una persona.</span><a class="btn btn-aq sm" href="../demo/">Verlo en la demo</a></div>
   </div>
-  <p class="fine">Delta Kilo · propuesta preparada el 1 de noviembre de 2026</p>
-</main>
+</section>
 
+<section>
+  <div class="wrap">
+    <div class="head rv"><span class="tag">El recorrido del paciente</span><h2>Así fluye un paciente <em>por el sistema</em></h2></div>
+    <div class="journey">
+      <div class="step rv"><b>Los encuentra</b><span>En Google Maps o en sus redes, con contenido constante.</span></div>
+      <div class="step rv"><b>Agenda</b><span>En la página o con el agente de WhatsApp, a cualquier hora.</span></div>
+      <div class="step rv"><b>Recibe recordatorios</b><span>24 h antes, con su video, y 3 h antes, con la ubicación.</span></div>
+      <div class="step rv"><b>Toma sus sesiones</b><span>La clínica ve todo en su calendario y su panel.</span></div>
+      <div class="step rv"><b>Deja su reseña</b><span>Al terminar su plan, el sistema se la pide solo.</span></div>
+      <div class="step rv"><b>Regresa</b><span>Con contenido útil y promociones que sí quiso recibir.</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="recorrido">
+  <div class="wrap">
+    <div class="head c rv"><span class="tag">Véanlo funcionando</span><h2>Dos minutos para ver <em>todo el ecosistema</em></h2></div>
+    <div class="vids2">
+      <figure class="vcard rv"><video src="../media/flujo-citas.mp4" poster="../media/flujo-citas.jpg" controls playsinline preload="none"></video><figcaption><b>Citas en automático</b>Página web → calendario → confirmación → recordatorios de 24 h y 3 h. 53 s.</figcaption></figure>
+      <figure class="vcard rv"><video src="../media/sistemas.mp4" poster="../media/sistemas.jpg" controls playsinline preload="none"></video><figcaption><b>Los cuatro sistemas</b>Reputación activa, agente 24/7, publicación automática y promociones. 77 s.</figcaption></figure>
+    </div>
+    <div class="demo-band rv">
+      <div><h3>Pruébenlo ustedes mismos</h3><p>En la demo interactiva pueden agendar una cita de prueba, adelantar el tiempo para ver los recordatorios, escribirle al agente y enviar una campaña de ejemplo.</p></div>
+      <a class="btn btn-aq" href="../demo/">Abrir la demo</a>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="head rv"><span class="tag">Muestras ya hechas</span><h2>Contenido listo <em>para revisar</em></h2>
+      <p class="sub">Preparamos estos borradores con datos públicos de la clínica. Ninguno se publica sin la aprobación escrita del médico.</p></div>
+    <div class="shorts">
+      <figure class="short rv"><video src="../media/paciente-01.mp4" poster="../media/paciente-01.jpg" controls playsinline preload="none"></video><div><b>¿Qué es la rehabilitación?</b><span>Video informativo · 51 s</span><br><span class="badge">Borrador</span></div></figure>
+      <figure class="short rv"><video src="../media/paciente-02.mp4" poster="../media/paciente-02.jpg" controls playsinline preload="none"></video><div><b>¿Por qué varias sesiones?</b><span>Video informativo · 50 s</span><br><span class="badge">Borrador</span></div></figure>
+      <figure class="short rv"><video src="../media/paciente-03.mp4" poster="../media/paciente-03.jpg" controls playsinline preload="none"></video><div><b>La familia en la rehabilitación</b><span>Video informativo · 50 s</span><br><span class="badge">Borrador</span></div></figure>
+      <figure class="short rv"><video src="../media/story-01.mp4" poster="../media/story-01.jpg" controls playsinline preload="none"></video><div><b>Tip del día</b><span>Story diaria con llamada a la acción · 20 s</span><br><span class="badge">Borrador</span></div></figure>
+      <figure class="short rv"><video src="../media/whatsapp-24h.mp4" poster="../media/whatsapp-24h.jpg" controls playsinline preload="none"></video><div><b>Prepárate para tu sesión</b><span>Se envía 24 h antes por WhatsApp · 36 s</span><br><span class="badge">Borrador</span></div></figure>
+      <figure class="short rv"><video src="../media/promo-espalda.mp4" poster="../media/promo-espalda.jpg" controls playsinline preload="none"></video><div><b>Promo tipo flyer</b><span>Ejemplo con terapia y promoción inventadas · 27 s</span><br><span class="badge">Solo ejemplo</span></div></figure>
+    </div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <div class="head rv"><span class="tag">Plan de arranque</span><h2>Por fases, <em>sin frenar la operación</em></h2>
+      <p class="sub">Las fechas se ajustan en la llamada, según lo que quieran activar primero.</p></div>
+    <div class="phases">
+      <div class="phase rv"><span class="when">Semanas 1 y 2</span><h3>Citas en orden</h3><ul><li>Página publicada en su dominio</li><li>Agenda en línea conectada al calendario</li><li>Confirmación y recordatorios por WhatsApp</li><li>Ficha de Google ordenada</li></ul></div>
+      <div class="phase rv"><span class="when">Semanas 3 y 4</span><h3>Atención 24/7 y reputación</h3><ul><li>Agente de WhatsApp conectado a la agenda</li><li>Avisos al equipo para temas clínicos</li><li>Reputación activa al terminar cada plan</li></ul></div>
+      <div class="phase rv"><span class="when">Mes 2</span><h3>Contenido y promociones</h3><ul><li>Calendario de contenido aprobado por el médico</li><li>Publicación automática en 5 plataformas</li><li>Primera campaña a contactos con permiso</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap two">
+    <div class="list rv"><h3>Lo que necesitamos de la clínica</h3><ul>
+      <li>Validar servicios, horarios, duración de la valoración y qué debe llevar el paciente</li>
+      <li>Un número de WhatsApp Business para la clínica</li>
+      <li>Acceso a su ficha de Google y a sus redes sociales</li>
+      <li>Un médico que revise y apruebe los guiones antes de publicar</li>
+      <li>Su lista de contactos, indicando quién aceptó recibir promociones</li>
+      <li>Confirmar con su asesoría si alguna pieza pautada requiere aviso ante COFEPRIS</li>
+      <li>Logo y manual de marca, si lo tienen</li>
+    </ul></div>
+    <div class="list gain rv"><h3>Lo que gana la clínica</h3><ul>
+      <li>Recepción con menos llamadas repetitivas</li>
+      <li>Menos citas olvidadas y espacios vacíos</li>
+      <li>Pacientes que llegan preparados y a tiempo</li>
+      <li>Reseñas nuevas de forma constante</li>
+      <li>Presencia en redes sin depender del tiempo del equipo</li>
+      <li>Promociones que llegan a quien sí quiere recibirlas</li>
+      <li>Todo medible en un solo panel</li>
+    </ul></div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <div class="invest rv">
+      <div><span class="tag" style="color:var(--gold)">Inversión</span><h2>Se define en una llamada de 15 minutos</h2>
+        <p>Depende de qué quieran activar primero. Pueden arrancar con una fase y sumar las demás después, sin rehacer nada: todo está pensado para conectarse.</p></div>
+      <div class="gift"><b>Ya va por nuestra cuenta</b><ul style="margin-top:8px">
+        <li>La primera versión de su página</li><li>Los videos de muestra de esta propuesta</li><li>La demo interactiva del ecosistema</li>
+      </ul></div>
+    </div>
+  </div>
+</section>
+
+<section class="final">
+  <div class="wrap">
+    <div class="head c rv"><span class="tag">Siguiente paso</span><h2>¿Platicamos <em>15 minutos</em>?</h2>
+      <p class="sub">Revisamos juntos la demo, resolvemos dudas y definimos por dónde arrancar.</p></div>
+    <div class="cta rv">
+      <a class="btn btn-wa" href="https://wa.me/5215663864984?text=Hola%2C%20vengo%20de%20la%20propuesta%20del%20ecosistema%20para%20%C3%81ngeles%20del%20Valle.%20Quiero%20agendar%20la%20llamada%20de%2015%20minutos." target="_blank" rel="noopener">Agendar la llamada por WhatsApp</a>
+      <a class="btn btn-nv" href="../demo/">Probar la demo</a>
+      <a class="btn btn-nv" href="../">Ver la página</a>
+    </div>
+    <p class="fine">Los videos de muestra y la demo usan datos de ejemplo; la promoción "Espalda Activa" es inventada para ilustrar el formato. Los datos públicos de la clínica (calificación, reseñas, horarios) se validan con ustedes antes de publicarse. El contenido de salud se publica solo con aprobación del médico.</p>
+  </div>
+</section>
+
+<footer><div class="wrap">
+  <div style="display:flex;align-items:center;gap:14px"><img src="../assets/logo-dk.png" alt="Delta Kilo Soluciones"><span>Delta Kilo Soluciones · sistemas que convierten interesados en clientes</span></div>
+  <span>Propuesta preparada el 22 de noviembre de 2026</span>
+</div></footer>
+
+<script>
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } }), {threshold:.12});
+  document.querySelectorAll('.rv').forEach(el => io.observe(el));
+  // Solo un video a la vez
+  document.querySelectorAll('video').forEach(v => v.addEventListener('play', () => document.querySelectorAll('video').forEach(o => { if (o !== v) o.pause(); })));
+</script>
 </body>
 </html>
