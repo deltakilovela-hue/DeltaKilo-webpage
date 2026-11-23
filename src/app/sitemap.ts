@@ -34,6 +34,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.85,
     },
     {
+      url: `${BASE_URL}/portafolio`,
+      lastModified: lastModified("src/lib/portafolio.ts"),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
       url: `${BASE_URL}/servicios`,
       lastModified: lastModified("src/app/(main)/servicios/page.tsx"),
       changeFrequency: "monthly",

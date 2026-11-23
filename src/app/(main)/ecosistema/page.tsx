@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { EcosistemaHero } from "@/components/ui/ecosistema-hero";
 import { EcosystemProblem } from "@/components/sections/ecosystem-problem";
 import { EcosystemVideo } from "@/components/sections/ecosystem-video";
+import { EcosystemPortafolio } from "@/components/sections/ecosystem-portafolio";
 import { EcosystemStats } from "@/components/sections/ecosystem-stats";
 import { EcosystemTeam } from "@/components/sections/ecosystem-team";
 import { EcosystemContentMarquee } from "@/components/sections/ecosystem-content-marquee";
@@ -84,6 +85,7 @@ export default function EcosistemaPage() {
         <EcosystemTeam />
       </div>
       <EcosystemContentMarquee />
+      <EcosystemPortafolio />
       <EcosystemClients />
       <EcosystemPortal />
       <CTASection
