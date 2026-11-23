@@ -140,29 +140,53 @@ function MockBrowser() {
    INTERACTIVE FORM DEMO
    ═══════════════════════════════════════════════════════════════ */
 function FormDemo() {
-  const [fields, setFields] = useState({ name: '', email: '', message: '' });
+  const emptyFields = { name: '', email: '', phone: '', message: '' };
+  const [fields, setFields] = useState(emptyFields);
+  const [honeypot, setHoneypot] = useState('');
   const [status, setStatus] = useState<'idle' | 'sending' | 'done'>('idle');
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const [sendError, setSendError] = useState('');
   const [focused, setFocused] = useState<string | null>(null);
+
+  const phoneDigits = fields.phone.replace(/\D/g, '');
+  const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(fields.email.trim());
 
   const validate = () => {
     const e: Record<string, string> = {};
     if (!fields.name.trim()) e.name = 'Tu nombre es requerido';
-    if (!fields.email.includes('@')) e.email = 'Ingresa un correo válido';
-    if (fields.message.length < 10) e.message = 'Cuéntanos más (mínimo 10 caracteres)';
+    if (!emailOk) e.email = 'Ingresa un correo válido';
+    if (phoneDigits.length < 10) e.phone = 'Ingresa tu WhatsApp a 10 dígitos';
+    if (fields.message.trim().length < 10) e.message = 'Cuéntanos más (mínimo 10 caracteres)';
     return e;
   };
 
-  const submit = (e: React.FormEvent) => {
+  const submit = async (e: React.FormEvent) => {
     e.preventDefault();
     const errs = validate();
     if (Object.keys(errs).length) { setErrors(errs); return; }
     setErrors({});
+    setSendError('');
     setStatus('sending');
-    setTimeout(() => setStatus('done'), 1800);
+    try {
+      const res = await fetch('/api/lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          ...fields,
+          website: honeypot,
+          source: 'demo-paginas-web',
+          page: window.location.href,
+        }),
+      });
+      if (!res.ok) throw new Error(String(res.status));
+      setStatus('done');
+    } catch {
+      setStatus('idle');
+      setSendError('No pudimos enviar tu mensaje. Inténtalo de nuevo o escríbenos por WhatsApp.');
+    }
   };
 
-  const reset = () => { setStatus('idle'); setFields({ name: '', email: '', message: '' }); };
+  const reset = () => { setStatus('idle'); setFields(emptyFields); setSendError(''); };
 
   const fieldClass = (key: string) =>
     `relative rounded-xl border transition-all duration-200 overflow-hidden ${
@@ -232,13 +256,43 @@ function FormDemo() {
                 onFocus={() => setFocused('email')} onBlur={() => setFocused(null)}
                 className="w-full bg-transparent px-4 py-4 text-sm text-white placeholder-white/25 outline-none pr-10"
               />
-              {fields.email.includes('@') && !errors.email && (
+              {emailOk && !errors.email && (
                 <div className="absolute right-3 top-1/2 -translate-y-1/2">
                   <CheckCircle2 className="w-4 h-4 text-emerald-400" />
                 </div>
               )}
             </div>
             {errors.email && <p className="text-xs text-red-400 pl-1">{errors.email}</p>}
+          </div>
+
+          {/* WhatsApp */}
+          <div className="space-y-1.5">
+            <label className="text-xs font-medium text-white/40 uppercase tracking-wider pl-1">
+              WhatsApp
+            </label>
+            <div className={fieldClass('phone')}>
+              <input type="tel" inputMode="tel" autoComplete="tel" placeholder="311 123 4567"
+                value={fields.phone}
+                onChange={e => { setFields(p => ({ ...p, phone: e.target.value })); if (errors.phone) setErrors(p => ({ ...p, phone: '' })); }}
+                onFocus={() => setFocused('phone')} onBlur={() => setFocused(null)}
+                className="w-full bg-transparent px-4 py-4 text-sm text-white placeholder-white/25 outline-none pr-10"
+              />
+              {phoneDigits.length >= 10 && !errors.phone && (
+                <div className="absolute right-3 top-1/2 -translate-y-1/2">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+                </div>
+              )}
+            </div>
+            {errors.phone && <p className="text-xs text-red-400 pl-1">{errors.phone}</p>}
+          </div>
+
+          {/* Honeypot anti-spam: hidden from people, bots fill it */}
+          <div aria-hidden="true" className="absolute -left-[9999px] w-px h-px overflow-hidden">
+            <label>
+              Sitio web
+              <input type="text" tabIndex={-1} autoComplete="off"
+                value={honeypot} onChange={e => setHoneypot(e.target.value)} />
+            </label>
           </div>
 
           {/* Message */}
@@ -256,6 +310,12 @@ function FormDemo() {
             </div>
             {errors.message && <p className="text-xs text-red-400 pl-1">{errors.message}</p>}
           </div>
+
+          {sendError && (
+            <p role="alert" className="text-xs text-red-400 bg-red-500/[0.06] border border-red-500/30 rounded-xl px-4 py-3">
+              {sendError}
+            </p>
+          )}
 
           <button type="submit" disabled={status === 'sending'}
             className="w-full flex items-center justify-center gap-2.5 px-6 py-4 rounded-xl

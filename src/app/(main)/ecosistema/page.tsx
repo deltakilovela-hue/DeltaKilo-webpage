@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 
 import { EcosistemaHero } from "@/components/ui/ecosistema-hero";
 import { EcosystemProblem } from "@/components/sections/ecosystem-problem";
+import { EcosystemVideo } from "@/components/sections/ecosystem-video";
 import { EcosystemStats } from "@/components/sections/ecosystem-stats";
 import { EcosystemTeam } from "@/components/sections/ecosystem-team";
 import { EcosystemContentMarquee } from "@/components/sections/ecosystem-content-marquee";
@@ -56,12 +57,27 @@ const ecosistemaServiceJsonLd = {
   url: "https://www.deltakilo.com.mx/ecosistema",
 };
 
+const sistemaVideoJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  name: "7 cosas que pasan solas en tu negocio — Ecosistema Delta Kilo",
+  description:
+    "Formularios, comentarios, WhatsApp 24/7, seguimiento, citas, programación y creación de contenido: así trabaja el Ecosistema DK por tu negocio.",
+  thumbnailUrl: "https://www.deltakilo.com.mx/videos/sistema-dk-poster.jpg",
+  contentUrl: "https://www.deltakilo.com.mx/videos/sistema-dk.mp4",
+  uploadDate: "2026-11-23",
+  duration: "PT1M19S",
+  inLanguage: "es-MX",
+};
+
 export default function EcosistemaPage() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(ecosistemaServiceJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(ecosistemaBreadcrumbJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(sistemaVideoJsonLd) }} />
       <EcosistemaHero />
+      <EcosystemVideo />
       <EcosystemProblem />
       <EcosystemStats />
       <div id="escuadron">
