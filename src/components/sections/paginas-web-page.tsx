@@ -1,13 +1,14 @@
 'use client';
 
 import { useState, useRef } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import Link from 'next/link';
 import {
   ArrowRight, CheckCircle2, Zap, Globe, MousePointer2,
   Layers, Code2, BarChart3, ShieldCheck, Smartphone,
 } from 'lucide-react';
 import { PaginasWebScrollHero } from '@/components/ui/paginas-web-hero';
+import { LeadDemoForm } from '@/components/ui/lead-demo-form';
 
 /* ═══════════════════════════════════════════════════════════════
    SPOTLIGHT CARD — mouse-glow on hover
@@ -133,217 +134,6 @@ function MockBrowser() {
         </motion.div>
       </div>
     </div>
-  );
-}
-
-/* ═══════════════════════════════════════════════════════════════
-   INTERACTIVE FORM DEMO
-   ═══════════════════════════════════════════════════════════════ */
-function FormDemo() {
-  const emptyFields = { name: '', email: '', phone: '', message: '' };
-  const [fields, setFields] = useState(emptyFields);
-  const [honeypot, setHoneypot] = useState('');
-  const [status, setStatus] = useState<'idle' | 'sending' | 'done'>('idle');
-  const [errors, setErrors] = useState<Record<string, string>>({});
-  const [sendError, setSendError] = useState('');
-  const [focused, setFocused] = useState<string | null>(null);
-
-  const phoneDigits = fields.phone.replace(/\D/g, '');
-  const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(fields.email.trim());
-
-  const validate = () => {
-    const e: Record<string, string> = {};
-    if (!fields.name.trim()) e.name = 'Tu nombre es requerido';
-    if (!emailOk) e.email = 'Ingresa un correo válido';
-    if (phoneDigits.length < 10) e.phone = 'Ingresa tu WhatsApp a 10 dígitos';
-    if (fields.message.trim().length < 10) e.message = 'Cuéntanos más (mínimo 10 caracteres)';
-    return e;
-  };
-
-  const submit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    const errs = validate();
-    if (Object.keys(errs).length) { setErrors(errs); return; }
-    setErrors({});
-    setSendError('');
-    setStatus('sending');
-    try {
-      const res = await fetch('/api/lead', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          ...fields,
-          website: honeypot,
-          source: 'demo-paginas-web',
-          page: window.location.href,
-        }),
-      });
-      if (!res.ok) throw new Error(String(res.status));
-      setStatus('done');
-    } catch {
-      setStatus('idle');
-      setSendError('No pudimos enviar tu mensaje. Inténtalo de nuevo o escríbenos por WhatsApp.');
-    }
-  };
-
-  const reset = () => { setStatus('idle'); setFields(emptyFields); setSendError(''); };
-
-  const fieldClass = (key: string) =>
-    `relative rounded-xl border transition-all duration-200 overflow-hidden ${
-      errors[key] ? 'border-red-500/50 bg-red-500/[0.04]'
-      : focused === key ? 'border-[#D4AF37]/50 bg-[#D4AF37]/[0.04]'
-      : 'border-white/10 bg-white/[0.03]'
-    }`;
-
-  return (
-    <AnimatePresence mode="wait">
-      {status === 'done' ? (
-        <motion.div key="success"
-          initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0 }}
-          className="flex flex-col items-center justify-center py-14 text-center gap-5"
-        >
-          <motion.div
-            initial={{ scale: 0 }} animate={{ scale: 1 }}
-            transition={{ type: 'spring', stiffness: 200, delay: 0.1 }}
-            className="w-16 h-16 rounded-full bg-[#D4AF37]/10 border border-[#D4AF37]/35
-                       flex items-center justify-center"
-          >
-            <CheckCircle2 className="w-8 h-8 text-[#D4AF37]" />
-          </motion.div>
-          <div className="space-y-1">
-            <h4 className="text-lg font-bold text-white">¡Mensaje recibido!</h4>
-            <p className="text-sm text-white/50">Te contactaremos en menos de 24 horas.</p>
-          </div>
-          <button onClick={reset}
-            className="text-xs text-[#D4AF37]/60 hover:text-[#D4AF37] transition-colors underline underline-offset-4 mt-2">
-            Enviar otro mensaje
-          </button>
-        </motion.div>
-      ) : (
-        <motion.form key="form" onSubmit={submit} className="space-y-5">
-
-          {/* Name */}
-          <div className="space-y-1.5">
-            <label className="text-xs font-medium text-white/40 uppercase tracking-wider pl-1">
-              Nombre
-            </label>
-            <div className={fieldClass('name')}>
-              <input type="text" placeholder="Tu nombre completo"
-                value={fields.name}
-                onChange={e => { setFields(p => ({ ...p, name: e.target.value })); if (errors.name) setErrors(p => ({ ...p, name: '' })); }}
-                onFocus={() => setFocused('name')} onBlur={() => setFocused(null)}
-                className="w-full bg-transparent px-4 py-4 text-sm text-white placeholder-white/25 outline-none pr-10"
-              />
-              {fields.name && !errors.name && (
-                <div className="absolute right-3 top-1/2 -translate-y-1/2">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-400" />
-                </div>
-              )}
-            </div>
-            {errors.name && <p className="text-xs text-red-400 pl-1">{errors.name}</p>}
-          </div>
-
-          {/* Email */}
-          <div className="space-y-1.5">
-            <label className="text-xs font-medium text-white/40 uppercase tracking-wider pl-1">
-              Correo electrónico
-            </label>
-            <div className={fieldClass('email')}>
-              <input type="email" placeholder="tu@correo.com"
-                value={fields.email}
-                onChange={e => { setFields(p => ({ ...p, email: e.target.value })); if (errors.email) setErrors(p => ({ ...p, email: '' })); }}
-                onFocus={() => setFocused('email')} onBlur={() => setFocused(null)}
-                className="w-full bg-transparent px-4 py-4 text-sm text-white placeholder-white/25 outline-none pr-10"
-              />
-              {emailOk && !errors.email && (
-                <div className="absolute right-3 top-1/2 -translate-y-1/2">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-400" />
-                </div>
-              )}
-            </div>
-            {errors.email && <p className="text-xs text-red-400 pl-1">{errors.email}</p>}
-          </div>
-
-          {/* WhatsApp */}
-          <div className="space-y-1.5">
-            <label className="text-xs font-medium text-white/40 uppercase tracking-wider pl-1">
-              WhatsApp
-            </label>
-            <div className={fieldClass('phone')}>
-              <input type="tel" inputMode="tel" autoComplete="tel" placeholder="311 123 4567"
-                value={fields.phone}
-                onChange={e => { setFields(p => ({ ...p, phone: e.target.value })); if (errors.phone) setErrors(p => ({ ...p, phone: '' })); }}
-                onFocus={() => setFocused('phone')} onBlur={() => setFocused(null)}
-                className="w-full bg-transparent px-4 py-4 text-sm text-white placeholder-white/25 outline-none pr-10"
-              />
-              {phoneDigits.length >= 10 && !errors.phone && (
-                <div className="absolute right-3 top-1/2 -translate-y-1/2">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-400" />
-                </div>
-              )}
-            </div>
-            {errors.phone && <p className="text-xs text-red-400 pl-1">{errors.phone}</p>}
-          </div>
-
-          {/* Honeypot anti-spam: hidden from people, bots fill it */}
-          <div aria-hidden="true" className="absolute -left-[9999px] w-px h-px overflow-hidden">
-            <label>
-              Sitio web
-              <input type="text" tabIndex={-1} autoComplete="off"
-                value={honeypot} onChange={e => setHoneypot(e.target.value)} />
-            </label>
-          </div>
-
-          {/* Message */}
-          <div className="space-y-1.5">
-            <label className="text-xs font-medium text-white/40 uppercase tracking-wider pl-1">
-              ¿Qué necesitas?
-            </label>
-            <div className={fieldClass('message')}>
-              <textarea placeholder="Cuéntanos sobre tu negocio…" rows={4}
-                value={fields.message}
-                onChange={e => { setFields(p => ({ ...p, message: e.target.value })); if (errors.message) setErrors(p => ({ ...p, message: '' })); }}
-                onFocus={() => setFocused('message')} onBlur={() => setFocused(null)}
-                className="w-full bg-transparent px-4 py-4 text-sm text-white placeholder-white/25 outline-none resize-none"
-              />
-            </div>
-            {errors.message && <p className="text-xs text-red-400 pl-1">{errors.message}</p>}
-          </div>
-
-          {sendError && (
-            <p role="alert" className="text-xs text-red-400 bg-red-500/[0.06] border border-red-500/30 rounded-xl px-4 py-3">
-              {sendError}
-            </p>
-          )}
-
-          <button type="submit" disabled={status === 'sending'}
-            className="w-full flex items-center justify-center gap-2.5 px-6 py-4 rounded-xl
-                       bg-[#D4AF37] text-[#0e0e0e] font-semibold text-sm
-                       hover:bg-[#E5C158] active:bg-[#C49A2E]
-                       disabled:opacity-60 transition-all duration-200 mt-2
-                       shadow-lg hover:shadow-[#D4AF37]/25 hover:shadow-xl"
-          >
-            {status === 'sending' ? (
-              <>
-                <svg className="w-4 h-4 animate-spin" fill="none" viewBox="0 0 24 24">
-                  <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                  <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
-                </svg>
-                Enviando…
-              </>
-            ) : (
-              <>Enviar mensaje <ArrowRight className="w-4 h-4" /></>
-            )}
-          </button>
-
-          <p className="text-center text-[11px] text-white/20 flex items-center justify-center gap-1.5 pt-1">
-            <ShieldCheck className="w-3 h-3" />
-            Notificación inmediata · Sin spam · Respuesta en &lt;24h
-          </p>
-        </motion.form>
-      )}
-    </AnimatePresence>
   );
 }
 
@@ -589,7 +379,7 @@ export function PaginasWebPage() {
                   <h3 className="text-base font-bold text-white mb-1">Solicitar información</h3>
                   <p className="text-xs text-white/30">Ejemplo real — inténtalo</p>
                 </div>
-                <FormDemo />
+                <LeadDemoForm source="demo-paginas-web" />
               </div>
             </motion.div>
 
